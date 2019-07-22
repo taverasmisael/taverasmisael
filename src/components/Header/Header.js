@@ -9,10 +9,12 @@ import { useNavLinkStyles } from '../NavLink'
 import NavLink from '../NavLink/NavLink'
 
 import { useStyles } from './styles'
+import { useSiteTitle } from '../../shared/hooks/useSiteTitle'
 
 function Header() {
   const classes = useStyles()
   const navLinkStyles = useNavLinkStyles()
+  const siteTitle = useSiteTitle()
 
   return (
     <div className={classes.root}>
@@ -20,7 +22,7 @@ function Header() {
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
             <Link to="/" className={classes.titleLink}>
-              Material-UI
+              {siteTitle}
             </Link>
           </Typography>
           <nav>
