@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { graphql, Link } from 'gatsby'
 
-import GeneralLayout from '../layout/general'
+import GeneralLayout from '../layouts/general'
 
 export default ({ data }) => {
   return (
