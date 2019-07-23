@@ -6,6 +6,8 @@ description: This is my first entry, created to confirm everything works perfect
 author: Misael Taveras
 ---
 
+![Banner](./media/banner.jpg)
+
 And here comes the content
 
 ```js
