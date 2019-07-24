@@ -12,8 +12,8 @@ const systemFonts = [
   '"Segoe UI Emoji"',
   '"Segoe UI Symbol"',
 ].join(',')
-const bodyFontFamily = { fontFamily: `Roboto Condensed, ${systemFonts}` }
-const headingFontFamily = { fontFamily: `Roboto Mono, ${systemFonts}` }
+const bodyFontFamily = { fontFamily: `Roboto, ${systemFonts}` }
+const headingFontFamily = { fontFamily: `Space Mono, ${systemFonts}` }
 
 const SiteTheme = createMuiTheme({
   typography: {
@@ -21,7 +21,9 @@ const SiteTheme = createMuiTheme({
     h1: headingFontFamily,
     h2: headingFontFamily,
     h3: headingFontFamily,
+    h4: headingFontFamily,
     subtitle1: headingFontFamily,
+    button: { fontWeight: 'bold' },
   },
 })
 

@@ -48,8 +48,8 @@ module.exports = {
       options: {
         google: {
           families: [
-            'Roboto Mono:400,700:latin', // Titles
-            'Roboto Condensed:200,400,700:latin', // Body
+            'Space Mono:400,700:latin', // Titles
+            'Roboto:200,400,700:latin', // Body
           ],
         },
       },
