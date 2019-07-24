@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 
 import SiteTheme from '../shared/theme'
 import Header from '../components/Header'
+import '../shared/styles.css'
 
 const GeneralLayout = ({ children }) => {
   const classes = useStyles()

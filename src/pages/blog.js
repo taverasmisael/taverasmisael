@@ -1,28 +1,20 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
-import { graphql, Link } from 'gatsby'
+import Container from '@material-ui/core/Container'
+import { graphql } from 'gatsby'
 
+import BlogItem from '../components/BlogItem'
 import GeneralLayout from '../layouts/general'
 
-export default ({ data }) => {
-  return (
-    <GeneralLayout>
-      <Typography variant="subtitle1">Blog</Typography>
+const styles = { maxWidth: '720px' }
+const BlogPage = ({ data }) => (
+  <GeneralLayout>
+    <Container style={styles}>
       {data.allMarkdownRemark.nodes.map(entry => (
-        <Link to={`/blog/${entry.frontmatter.slug}`}>
-          <Typography variant="h2">{entry.frontmatter.title}</Typography>
-          <Typography
-            variant="caption"
-            component="time"
-            datetime={entry.frontmatter.date}
-          >
-            {new Date(entry.frontmatter.date).toLocaleDateString()}
-          </Typography>
-        </Link>
+        <BlogItem key={entry.frontmatter.slug} item={entry} />
       ))}
-    </GeneralLayout>
-  )
-}
+    </Container>
+  </GeneralLayout>
+)
 
 export const query = graphql`
   query {
@@ -32,6 +24,9 @@ export const query = graphql`
           title
           date
           slug
+          banner {
+            publicURL
+          }
         }
         html
         excerpt
@@ -39,3 +34,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogPage
