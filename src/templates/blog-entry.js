@@ -1,17 +1,20 @@
 import React from 'react'
 
-import Layout from '../layouts/general'
+import GeneralLayout from '../layouts/general'
 import { graphql } from 'gatsby'
 import { Typography } from '@material-ui/core'
 
 const BlogEntry = ({ data: { markdownRemark } }) => (
-  <Layout>
+  <GeneralLayout
+    title={markdownRemark.frontmatter.title}
+    description={markdownRemark.excerpt}
+  >
     <Typography variant="h1">{markdownRemark.frontmatter.title}</Typography>
     <Typography variant="caption">
       {markdownRemark.frontmatter.title}
     </Typography>
     <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-  </Layout>
+  </GeneralLayout>
 )
 
 export const query = graphql`
@@ -22,6 +25,7 @@ export const query = graphql`
         date
       }
       html
+      excerpt(format: PLAIN)
     }
   }
 `

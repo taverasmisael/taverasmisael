@@ -6,12 +6,14 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import SiteTheme from '../shared/theme'
 import Header from '../components/Header'
 import '../shared/styles.css'
+import Head from '../components/Head'
 
-const GeneralLayout = ({ children }) => {
+const GeneralLayout = ({ children, title, description }) => {
   const classes = useStyles()
   return (
     <MuiThemeProvider theme={SiteTheme}>
       <CssBaseline />
+      <Head title={title} description={description} />
       <Header />
       <div className={classes.content}>{children}</div>
     </MuiThemeProvider>

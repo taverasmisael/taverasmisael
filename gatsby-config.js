@@ -7,7 +7,8 @@
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://taverasmisael.com',
-    title: 'Misael Taveras Personal Website',
+    title: 'Misael Taveras',
+    description: `Misael Tavera's website/blog. Frontend developer`,
     author: 'Misael Taveras',
     socialHandler: '@taverasmisael',
   },

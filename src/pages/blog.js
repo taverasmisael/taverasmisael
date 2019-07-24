@@ -7,7 +7,7 @@ import GeneralLayout from '../layouts/general'
 
 const styles = { maxWidth: '720px' }
 const BlogPage = ({ data }) => (
-  <GeneralLayout>
+  <GeneralLayout title="Blog" description="List of articles written by me">
     <Container style={styles}>
       {data.allMarkdownRemark.nodes.map(entry => (
         <BlogItem key={entry.frontmatter.slug} item={entry} />
