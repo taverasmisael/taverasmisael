@@ -7,16 +7,18 @@ import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import { useStyles } from './styles'
+import Img from 'gatsby-image'
 
 const BlogItem = ({ item }) => {
   const classes = useStyles()
   return (
     <Card className={classes.card}>
-      <CardMedia
-        className={classes.media}
-        image={item.frontmatter.banner.publicURL}
-        title="Paella dish"
-      />
+      <CardMedia>
+        <Img
+          fluid={item.frontmatter.banner.childImageSharp.fluid}
+          alt={item.frontmatter.title}
+        />
+      </CardMedia>
       <CardContent>
         <Typography variant="h4" component="h2" gutterBottom>
           <Link

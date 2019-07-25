@@ -25,7 +25,11 @@ export const query = graphql`
           date
           slug
           banner {
-            publicURL
+            childImageSharp {
+              fluid(maxWidth: 720) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
         html

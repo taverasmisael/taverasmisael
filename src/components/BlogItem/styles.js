@@ -7,10 +7,6 @@ export const useStyles = makeStyles(theme => ({
   date: {
     marginBottom: theme.spacing(1.5),
   },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
   excerpt: {
     fontSize: 18,
   },
