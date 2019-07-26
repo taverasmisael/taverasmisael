@@ -1,36 +1,30 @@
 import React from 'react'
-import Img from 'gatsby-image'
-import { Container, Paper, makeStyles } from '@material-ui/core'
+import { Container, makeStyles, Typography } from '@material-ui/core'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import GeneralLayout from '../layouts/general'
+import HeroImage from '../components/HeroImage'
 
 const useStyles = makeStyles(theme => ({
   root: { padding: theme.spacing(3, 2), overflow: 'hidden' },
-  banner: {
-    left: '50%',
-    marginLeft: '-50vw',
-    marginRight: '-50vw',
-    right: '50%',
-    width: '100vw',
-  },
 }))
 
 const BlogEntry = ({ data: { mdx } }) => {
   const classes = useStyles()
+  const { frontmatter, body } = mdx
   return (
-    <GeneralLayout
-      title={mdx.frontmatter.title}
-      description={mdx.excerpt}
-      noBottomGutter
-    >
+    <GeneralLayout title={frontmatter.title} description={mdx.excerpt}>
       <Container maxWidth="md">
-        <Img
-          fluid={mdx.frontmatter.banner.childImageSharp.fluid}
-          className={classes.banner}
+        <Typography gutterBottom variant="h1">
+          {frontmatter.title}
+        </Typography>
+        <HeroImage
+          fluid={frontmatter.banner.childImageSharp.fluid}
+          credit={frontmatter.bannerCredit}
         />
+
         <div className={classes.root}>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
+          <MDXRenderer>{body}</MDXRenderer>
         </div>
       </Container>
     </GeneralLayout>
@@ -43,6 +37,7 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
+        bannerCredit
         banner {
           childImageSharp {
             fluid(maxWidth: 1920) {

@@ -13,7 +13,7 @@ const systemFonts = [
   '"Segoe UI Symbol"',
 ].join(',')
 const bodyFontFamily = { fontFamily: `Roboto, ${systemFonts}` }
-const headingFontFamily = { fontFamily: `Space Mono, ${systemFonts}` }
+const headingFontFamily = { fontFamily: `Overpass Mono, ${systemFonts}` }
 
 const SiteTheme = createMuiTheme({
   typography: {
