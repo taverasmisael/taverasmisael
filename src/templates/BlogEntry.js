@@ -6,20 +6,32 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import GeneralLayout from '../layouts/general'
 
 const useStyles = makeStyles(theme => ({
-  root: { padding: theme.spacing(3, 2) },
+  root: { padding: theme.spacing(3, 2), overflow: 'hidden' },
+  banner: {
+    left: '50%',
+    marginLeft: '-50vw',
+    marginRight: '-50vw',
+    right: '50%',
+    width: '100vw',
+  },
 }))
 
 const BlogEntry = ({ data: { mdx } }) => {
   const classes = useStyles()
   return (
-    <GeneralLayout title={mdx.frontmatter.title} description={mdx.excerpt}>
+    <GeneralLayout
+      title={mdx.frontmatter.title}
+      description={mdx.excerpt}
+      noBottomGutter
+    >
       <Container maxWidth="md">
-        <Paper>
-          <Img fixed={mdx.frontmatter.banner.childImageSharp.fixed} />
-          <div className={classes.root}>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
-          </div>
-        </Paper>
+        <Img
+          fluid={mdx.frontmatter.banner.childImageSharp.fluid}
+          className={classes.banner}
+        />
+        <div className={classes.root}>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </div>
       </Container>
     </GeneralLayout>
   )
@@ -33,8 +45,8 @@ export const pageQuery = graphql`
         title
         banner {
           childImageSharp {
-            fixed(width: 896) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
