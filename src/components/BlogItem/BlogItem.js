@@ -12,7 +12,7 @@ import Img from 'gatsby-image'
 const BlogItem = ({ item }) => {
   const classes = useStyles()
   return (
-    <Card className={classes.card}>
+    <Card className={classes.root}>
       <CardMedia>
         <Img
           fluid={item.frontmatter.banner.childImageSharp.fluid}
@@ -29,7 +29,7 @@ const BlogItem = ({ item }) => {
           </Link>
         </Typography>
         <Typography className={classes.date} color="textSecondary">
-          Published on: {new Date(`${item.frontmatter.date}T00:00`).toLocaleDateString()}
+          Published on: {item.frontmatter.date}
         </Typography>
         <Typography variant="body2" component="p" className={classes.excerpt}>
           {item.excerpt}
