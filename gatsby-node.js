@@ -3,11 +3,12 @@ const path = require('path')
 
 const createBlogPage = async (creator, graphql) => {
   const blogTemplate = path.resolve('./src/templates/BlogEntry.js')
-  const { data } = await graphql(`
+  const { data, errors } = await graphql(`
     query {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
+            id
             fields {
               slug
             }
@@ -17,13 +18,18 @@ const createBlogPage = async (creator, graphql) => {
     }
   `)
 
-  data.allMarkdownRemark.edges.forEach(edge => {
+  if (errors) {
+    console.error(errors)
+    throw errors
+  }
+
+  data.allMdx.edges.forEach(edge => {
     const slug = edge.node.fields.slug
     creator({
       component: blogTemplate,
       path: `/blog/${slug}`,
       context: {
-        slug,
+        id: edge.node.id,
       },
     })
   })
@@ -31,7 +37,7 @@ const createBlogPage = async (creator, graphql) => {
 
 const onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode, basePath: 'posts' }).replace(
       /\//g,
       ''

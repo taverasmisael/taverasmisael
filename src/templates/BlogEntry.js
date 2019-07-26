@@ -1,50 +1,45 @@
 import React from 'react'
+import Img from 'gatsby-image'
+import { Container, Paper, makeStyles } from '@material-ui/core'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import GeneralLayout from '../layouts/general'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import { Typography, Container } from '@material-ui/core'
 
-const BlogEntry = ({ data: { markdownRemark } }) => (
-  <GeneralLayout
-    title={markdownRemark.frontmatter.title}
-    description={markdownRemark.excerpt}
-  >
-    <Container maxWidth="md">
-      <Img fluid={markdownRemark.frontmatter.banner.childImageSharp.fluid} />
-      <Typography variant="h1">{markdownRemark.frontmatter.title}</Typography>
-      <Typography variant="caption">
-        {markdownRemark.frontmatter.title}
-      </Typography>
-      <Typography
-        component="div"
-        dangerouslySetInnerHTML={{ __html: markdownRemark.tableOfContents }}
-      />
-      <Typography
-        component="div"
-        dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
-      />
-    </Container>
-  </GeneralLayout>
-)
+const useStyles = makeStyles(theme => ({
+  root: { padding: theme.spacing(3, 2) },
+}))
 
-export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+const BlogEntry = ({ data: { mdx } }) => {
+  const classes = useStyles()
+  return (
+    <GeneralLayout title={mdx.frontmatter.title} description={mdx.excerpt}>
+      <Container maxWidth="md">
+        <Paper>
+          <Img fixed={mdx.frontmatter.banner.childImageSharp.fixed} />
+          <div className={classes.root}>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
+          </div>
+        </Paper>
+      </Container>
+    </GeneralLayout>
+  )
+}
+
+export const pageQuery = graphql`
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
       frontmatter {
         title
-        date
         banner {
           childImageSharp {
-            fluid(maxWidth: 720) {
-              ...GatsbyImageSharpFluid
+            fixed(width: 896) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
       }
-      tableOfContents
-      html
-      excerpt(format: PLAIN)
+      body
     }
   }
 `

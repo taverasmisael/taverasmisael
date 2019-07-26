@@ -6,3 +6,16 @@
   text-decoration: none;
   color: inherit;
 }
+
+code,
+pre {
+  font-family: "Space Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+}
+
+em {
+  font-style: italic;
+}
+
+del {
+  opacity: 0.75;
+}

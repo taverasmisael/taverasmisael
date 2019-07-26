@@ -23,7 +23,7 @@ const SiteTheme = createMuiTheme({
     h3: headingFontFamily,
     h4: headingFontFamily,
     subtitle1: headingFontFamily,
-    button: { fontWeight: 'bold' },
+    button: { fontWeight: '500' },
   },
 })
 

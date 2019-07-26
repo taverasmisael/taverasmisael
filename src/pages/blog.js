@@ -6,12 +6,11 @@ import BlogItem from '../components/BlogItem'
 import GeneralLayout from '../layouts/general'
 import { Grid } from '@material-ui/core'
 
-const styles = { maxWidth: '720px' }
 const BlogPage = ({ data }) => (
   <GeneralLayout title="Blog" description="List of articles written by me">
     <Container maxWidth="md">
       <Grid container spacing={2}>
-        {data.allMarkdownRemark.nodes.map(entry => (
+        {data.allMdx.nodes.map(entry => (
           <Grid item sm="12" md="6">
             <BlogItem key={entry.frontmatter.slug} item={entry} />
           </Grid>
@@ -23,11 +22,11 @@ const BlogPage = ({ data }) => (
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMdx {
       nodes {
         frontmatter {
           title
-          date
+          date(formatString: "MMMM DD, YYYY")
           slug
           banner {
             childImageSharp {
@@ -37,7 +36,6 @@ export const query = graphql`
             }
           }
         }
-        html
         excerpt
       }
     }

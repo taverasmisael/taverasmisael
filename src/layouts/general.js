@@ -2,7 +2,9 @@ import React from 'react'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import { MDXProvider } from '@mdx-js/react'
 
+import mdxComponentsMap from './mdxComponentsMap'
 import SiteTheme from '../shared/theme'
 import Header from '../components/Header'
 import '../shared/styles.css'
@@ -15,7 +17,11 @@ const GeneralLayout = ({ children, title, description }) => {
       <CssBaseline />
       <Head title={title} description={description} />
       <Header />
-      <div className={classes.content}>{children}</div>
+      <div className={classes.content}>
+        <MDXProvider components={mdxComponentsMap} r>
+          {children}
+        </MDXProvider>
+      </div>
     </MuiThemeProvider>
   )
 }

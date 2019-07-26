@@ -1,9 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://taverasmisael.com',
@@ -49,16 +43,17 @@ module.exports = {
       options: {
         google: {
           families: [
-            'Space Mono:400,700:latin', // Titles
-            'Roboto:200,400,700:latin', // Body
+            'Space Mono:400,500:latin', // Titles
+            'Roboto:400,500:latin', // Body
           ],
         },
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        plugins: [
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
           'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-external-links',
@@ -70,10 +65,12 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1280,
+              maxWidth: 960,
+              linkImagesToOriginal: false,
             },
           },
         ],
+        plugins: [`gatsby-remark-images`],
       },
     },
   ],
