@@ -1,10 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-export const useStyles = noButtonGutter =>
+export const useStyles = noBottomGutter =>
   makeStyles(theme => ({
     root: {
       flexGrow: 1,
-      marginBottom: noButtonGutter ? 0 : theme.spacing(2),
+      marginBottom: noBottomGutter ? 0 : theme.spacing(2),
     },
     titleLink: {
       textDecoration: 'none',

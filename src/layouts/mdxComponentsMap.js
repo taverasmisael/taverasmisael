@@ -18,11 +18,11 @@ export default {
   Button: props => <Button {...props} />,
   em: props => <Typography variant="body2" component="em" {...props} />,
   h1: props => <Typography gutterBottom variant="h2" {...props} />,
-  h2: props => <Typography gutterBottom variant="h2" {...props} />,
-  h3: props => <Typography gutterBottom variant="h3" {...props} />,
-  h4: props => <Typography variant="h4" {...props} />,
-  h5: props => <Typography variant="h5" {...props} />,
-  h6: props => <Typography variant="h6" {...props} />,
+  h2: props => <Typography gutterBottom variant="h3" {...props} />,
+  h3: props => <Typography gutterBottom variant="h4" {...props} />,
+  h4: props => <Typography variant="h5" {...props} />,
+  h5: props => <Typography variant="h6" {...props} />,
+  h6: props => <Typography variant="h6" component="p" {...props} />,
   li: props => (
     <ListItem>
       <ListItemText {...props} />

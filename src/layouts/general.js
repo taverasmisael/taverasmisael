@@ -16,7 +16,7 @@ const GeneralLayout = ({ children, title, description, noBottomGutter }) => {
     <MuiThemeProvider theme={SiteTheme}>
       <CssBaseline />
       <Head title={title} description={description} />
-      <Header noBottomGutter />
+      <Header noBottomGutter={noBottomGutter} />
       <div className={classes.content}>
         <MDXProvider components={mdxComponentsMap} r>
           {children}
