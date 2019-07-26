@@ -2,7 +2,7 @@ const { createFilePath } = require('gatsby-source-filesystem')
 const path = require('path')
 
 const createBlogPage = async (creator, graphql) => {
-  const blogTemplate = path.resolve('./src/templates/blog-entry.js')
+  const blogTemplate = path.resolve('./src/templates/BlogEntry.js')
   const { data } = await graphql(`
     query {
       allMarkdownRemark {
