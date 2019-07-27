@@ -31,14 +31,10 @@ export default {
   h4: props => <Typography component="h5" variant="h6" {...props} />,
   h5: props => <Typography component="h6" variant="h6" {...props} />,
   h6: props => <Typography variant="h6" component="p" {...props} />,
-  li: props => (
-    <ListItem>
-      <ListItemText {...props} />
-    </ListItem>
-  ),
-  ol: List,
+  li: props => <Typography gutterBottom component="li" {...props} />,
+  ol: props => <Typography gutterBottom component="ol" {...props} />,
   p: props => <Typography gutterBottom variant="body1" {...props} />,
-  ul: List,
+  ul: props => <Typography gutterBottom component="ul" {...props} />,
   hr: Divider,
   strong: props => (
     <Typography variant="subtitle2" component="strong" {...props} />

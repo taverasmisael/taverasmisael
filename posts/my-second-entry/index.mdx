@@ -57,13 +57,30 @@ define foobar() {
 (which makes copying & pasting easier). You can optionally mark the
 delimited block for Pandoc to syntax highlight it:
 
-```python
-import time
-# Quick, count to ten!
-for i in range(10):
-    # (but not *too* quick)
-    time.sleep(0.5)
-    print i
+```jsx
+const HeroImage = props => {
+  const { gutterBottom, fluid, fixed, className, credit, fullWidth } = props
+  const classes = useStyles()
+  return (
+    <>
+      <Img
+        im
+        fluid={fluid}
+        fixed={fixed}
+        className={classnames(className, {
+          [classes.base]: !fullWidth,
+          [classes.fullWidth]: fullWidth,
+          [classes.gutterBottom]: gutterBottom,
+        })}
+      />
+      {credit && (
+        <Typography component="div" variant="caption">
+          <ReactMarkdown source={credit} />
+        </Typography>
+      )}
+    </>
+  )
+}
 ```
 
 ### An h3 header

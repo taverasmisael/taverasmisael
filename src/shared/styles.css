@@ -8,8 +8,19 @@
 }
 
 code,
-pre {
-  font-family: "Overpass Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+pre,
+code[class*="language-"], pre[class*="language-"] {
+  border-radius: 4px;
+  font-family: "Overpass Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+}
+
+code.language-text, pre.language-text {
+  color: #e5e5e5;
+}
+
+pre.language-text code.language-text {
+  padding: 0!important;
 }
 
 em {
@@ -18,4 +29,16 @@ em {
 
 del {
   opacity: 0.75;
+}
+
+ul, ol {
+  margin-left: 32px!important;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
 }

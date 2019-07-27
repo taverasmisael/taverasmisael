@@ -62,6 +62,7 @@ module.exports = {
               removeAccents: true,
             },
           },
+          'gatsby-remark-prismjs',
           'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-external-links',
