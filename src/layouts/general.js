@@ -4,7 +4,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { MDXProvider } from '@mdx-js/react'
 
-import mdxComponentsMap from './mdxComponentsMap'
+import MDXComponentsMap from '../components/mdx'
 import SiteTheme from '../shared/theme'
 import Header from '../components/Header'
 import '../shared/styles.css'
@@ -18,9 +18,7 @@ const GeneralLayout = ({ children, title, description, noBottomGutter }) => {
       <Head title={title} description={description} />
       <Header noBottomGutter={noBottomGutter} />
       <div className={classes.content}>
-        <MDXProvider components={mdxComponentsMap} r>
-          {children}
-        </MDXProvider>
+        <MDXProvider components={MDXComponentsMap}>{children}</MDXProvider>
       </div>
     </MuiThemeProvider>
   )

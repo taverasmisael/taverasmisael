@@ -5,7 +5,15 @@ import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
+  gutterBottom: {
+    marginBottom: theme.spacing(2),
+  },
+  base: {
+    boxShadow: theme.shadows[1],
+    borderRadius: theme.shape.borderRadius,
+    userSelect: 'none',
+  },
   fullWidth: {
     left: '50%',
     marginLeft: '-50vw',
@@ -13,16 +21,22 @@ const useStyles = makeStyles({
     right: '50%',
     width: '100vw',
   },
-})
+}))
 
-const HeroImage = ({ fluid, fixed, className, credit, fullWidth }) => {
+const HeroImage = props => {
+  const { gutterBottom, fluid, fixed, className, credit, fullWidth } = props
   const classes = useStyles()
   return (
     <>
       <Img
+        im
         fluid={fluid}
         fixed={fixed}
-        className={classnames({ [classes.fullWidth]: fullWidth }, className)}
+        className={classnames(className, {
+          [classes.base]: !fullWidth,
+          [classes.fullWidth]: fullWidth,
+          [classes.gutterBottom]: gutterBottom,
+        })}
       />
       {credit && (
         <Typography component="div" variant="caption">

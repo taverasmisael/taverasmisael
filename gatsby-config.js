@@ -57,7 +57,9 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              icon: '',
+              icon: false,
+              enableCustomId: true,
+              removeAccents: true,
             },
           },
           'gatsby-remark-relative-images',
@@ -76,7 +78,7 @@ module.exports = {
             },
           },
         ],
-        plugins: [`gatsby-remark-images`],
+        plugins: ['gatsby-remark-images'],
       },
     },
   ],

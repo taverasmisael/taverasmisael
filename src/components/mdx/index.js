@@ -8,6 +8,8 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 
+import Img from './img'
+
 export default {
   a: ({ href, ...props }) =>
     href && href.startsWith('/') ? (
@@ -15,24 +17,31 @@ export default {
     ) : (
       <Link variant="body1" href={href} {...props} />
     ),
-  Button: props => <Button {...props} />,
+  undefined: props => console.warn(props) || <Button {...props} />,
   em: props => <Typography variant="body2" component="em" {...props} />,
-  h1: props => <Typography gutterBottom variant="h2" {...props} />,
-  h2: props => <Typography gutterBottom variant="h3" {...props} />,
-  h3: props => <Typography gutterBottom variant="h4" {...props} />,
-  h4: props => <Typography variant="h5" {...props} />,
-  h5: props => <Typography variant="h6" {...props} />,
+  h1: props => (
+    <Typography gutterBottom component="h2" variant="h3" {...props} />
+  ),
+  h2: props => (
+    <Typography gutterBottom component="h3" variant="h4" {...props} />
+  ),
+  h3: props => (
+    <Typography gutterBottom component="h4" variant="h5" {...props} />
+  ),
+  h4: props => <Typography component="h5" variant="h6" {...props} />,
+  h5: props => <Typography component="h6" variant="h6" {...props} />,
   h6: props => <Typography variant="h6" component="p" {...props} />,
   li: props => (
     <ListItem>
       <ListItemText {...props} />
     </ListItem>
   ),
-  ol: props => <List {...props} />,
-  p: props => <Typography variant="body1" {...props} />,
-  ul: props => <List {...props} />,
+  ol: List,
+  p: props => <Typography gutterBottom variant="body1" {...props} />,
+  ul: List,
   hr: Divider,
   strong: props => (
     <Typography variant="subtitle2" component="strong" {...props} />
   ),
+  img: Img,
 }
