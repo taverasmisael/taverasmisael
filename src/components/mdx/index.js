@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 
 import Img from './img'
+import Blockquote from './blockquote'
 
 export default {
   a: ({ href, ...props }) =>
@@ -19,7 +20,7 @@ export default {
     ) : (
       <Link variant="body1" href={href} {...props} />
     ),
-  undefined: props => console.warn(props) || <Button {...props} />,
+  blockquote: props => <Blockquote {...props} />,
   em: props => <Typography variant="body2" component="em" {...props} />,
   h1: props => (
     <Typography gutterBottom component="h2" variant="h3" {...props} />
