@@ -15,7 +15,6 @@ const systemFonts = [
 const bodyFontFamily = { fontFamily: `Roboto, ${systemFonts}` }
 const headingFontFamily = { fontFamily: `Overpass Mono, ${systemFonts}` }
 
-const DEFAULT_THEME = createMuiTheme()
 const SiteTheme = createMuiTheme({
   typography: {
     ...bodyFontFamily,

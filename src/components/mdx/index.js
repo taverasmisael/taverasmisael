@@ -3,9 +3,11 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
 import Link from '@material-ui/core/Link'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 
 import Img from './img'
@@ -40,4 +42,12 @@ export default {
     <Typography variant="subtitle2" component="strong" {...props} />
   ),
   img: Img,
+  table: Table,
+  tbody: TableBody,
+  thead: TableHead,
+  tr: TableRow,
+  td: ({ align, ...props }) => <TableCell align={align || 'left'} {...props} />,
+  th: ({ align, ...props }) => (
+    <TableCell align={align || 'left'} component="th" {...props} />
+  ),
 }

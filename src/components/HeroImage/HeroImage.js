@@ -35,11 +35,16 @@ const HeroImage = props => {
         className={classnames(className, {
           [classes.base]: !fullWidth,
           [classes.fullWidth]: fullWidth,
-          [classes.gutterBottom]: gutterBottom,
+          [classes.gutterBottom]: gutterBottom && !credit,
         })}
       />
       {credit && (
-        <Typography component="div" variant="caption">
+        <Typography
+          component="div"
+          variant="caption"
+          align="right"
+          className={{ [classes.gutterBottom]: gutterBottom }}
+        >
           <ReactMarkdown source={credit} />
         </Typography>
       )}
