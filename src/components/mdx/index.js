@@ -1,6 +1,5 @@
 import { Link as GatsbyLink } from 'gatsby'
 import React from 'react'
-import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
 import Link from '@material-ui/core/Link'
 import Table from '@material-ui/core/Table'
@@ -12,6 +11,7 @@ import Typography from '@material-ui/core/Typography'
 
 import Img from './img'
 import Blockquote from './blockquote'
+import SourceButtons from './SourceButtons'
 
 export default {
   a: ({ href, ...props }) =>
@@ -51,4 +51,7 @@ export default {
   th: ({ align, ...props }) => (
     <TableCell align={align || 'left'} component="th" {...props} />
   ),
+
+  // Custom Elements
+  SourceButtons,
 }

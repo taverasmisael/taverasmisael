@@ -25,6 +25,9 @@ const SiteTheme = createMuiTheme({
     subtitle1: headingFontFamily,
     button: { fontWeight: '500' },
   },
+  palette: {
+    background: { default: '#ff' },
+  },
 })
 
 export default responsiveFontSizes(SiteTheme)

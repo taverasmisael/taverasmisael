@@ -6,12 +6,13 @@ code[class*="language-"], pre[class*="language-"] {
   font-size: 1rem;
 }
 
-body {
-  background-color: #ffffff!important;
-}
 
 code.language-text, pre.language-text {
   color: #e5e5e5;
+}
+
+pre[class*="language-"] {
+  margin-bottom: 8px;
 }
 
 pre.language-text code.language-text {
