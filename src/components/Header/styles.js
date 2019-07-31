@@ -14,6 +14,11 @@ export const useStyles = noGutterBottom =>
       textDecoration: 'none',
       color: 'inherit',
     },
+    logo: {
+      display: 'block',
+      userSelect: 'none',
+      pointerEvents: 'none',
+    },
     title: {
       flexGrow: 1,
       fontFamily: theme.typography.h1.fontFamily,

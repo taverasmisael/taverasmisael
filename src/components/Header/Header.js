@@ -2,14 +2,15 @@ import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container'
 import { Link } from 'gatsby'
 
 import NavLink from '../NavLink/NavLink'
 
-import { useStyles } from './styles'
 import { useSiteTitle } from '../../shared/hooks/useSiteTitle'
-import { Container } from '@material-ui/core'
+import logoSrc from '../../shared/assets/logos/logo-white.svg'
 
+import { useStyles } from './styles'
 function Header({ noGutterBottom }) {
   const classes = useStyles(noGutterBottom)
   const siteTitle = useSiteTitle()
@@ -20,7 +21,7 @@ function Header({ noGutterBottom }) {
         <Toolbar className={classes.toolbar}>
           <Typography className={classes.title} variant="h6" noWrap>
             <Link to="/" className={classes.titleLink}>
-              {siteTitle}
+              <img src={logoSrc} className={classes.logo} alt="Logo" tite={siteTitle} />
             </Link>
           </Typography>
           <nav>
