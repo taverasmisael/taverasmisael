@@ -39,6 +39,11 @@ ol {
   list-style-type: decimal;
 }
 
+p img {
+  display: block;
+  margin: 0 auto;
+}
+
 .link--no-style,
 .link--no-style:active,
 .link--no-style:hover,
