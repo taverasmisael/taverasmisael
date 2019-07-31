@@ -1,10 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-export const useStyles = noBottomGutter =>
+export const useStyles = noGutterBottom =>
   makeStyles(theme => ({
+    toolbar: {
+      margin: '0 auto',
+      width: 720,
+    },
     root: {
       flexGrow: 1,
-      marginBottom: noBottomGutter ? 0 : theme.spacing(2),
+      marginBottom: noGutterBottom ? 0 : theme.spacing(2),
     },
     titleLink: {
       textDecoration: 'none',

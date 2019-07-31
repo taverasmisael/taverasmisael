@@ -1,6 +1,6 @@
 ---
 slug: my-first-entry
-title: My first entry
+title: Avoid Nesting in Tests
 date: '2019-07-22'
 description: This is my first entry, created to confirm everything works perfectly
 author: Misael Taveras
@@ -10,11 +10,25 @@ bannerCredit:
   [Unsplash](https://unsplash.com)
 ---
 
-Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then
+Why nested describe blocks in tests lead to confusing tests and how to avoid it.
+
+I want to show you something. What I'm going to show is a general testing principle, applied to a React Component test. So even though the example is a react one, hopefully it helps communicate the concept properly.
+
+Here's a React component that I want to test:
 
 ```js
 const b = 10 // Want to try this out
 ```
+
+## Over-abstraction
+I feel like the utilities like changeUsernameInput and clickSubmit can be nice, but the tests are simple enough that duplicating that code instead could simplify our test code a bit. It's just that the abstraction of the function doesn't really give us a whole lot of benefit for this small set of tests, and we incur the cost for maintainers to have to look around the file for where those functions are defined.
+
+## Nesting
+The tests above are written with Jest APIs, but you'll find similar APIs in all major JavaScript frameworks. I'm talking specifically about describe which is used for grouping tests, beforeEach for common setup/actions, and it for the actual assertions.
+
+I have a strong dislike for nesting like this. I've written and maintained thousands of tests that were written like this and I can tell you that as painful as it is for these three simple tests, it's way worse when you have thousands of lines of tests and wind up nesting even further.
+
+What makes it so complex? Take this bit for example:
 
 <SourceButtons
   demoURL="https://google.com"

@@ -9,14 +9,14 @@ import NavLink from '../NavLink/NavLink'
 import { useStyles } from './styles'
 import { useSiteTitle } from '../../shared/hooks/useSiteTitle'
 
-function Header({ noBottomGutter }) {
-  const classes = useStyles(noBottomGutter)
+function Header({ noGutterBottom }) {
+  const classes = useStyles(noGutterBottom)
   const siteTitle = useSiteTitle()
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <Typography className={classes.title} variant="h6" noWrap>
             <Link to="/" className={classes.titleLink}>
               {siteTitle}
@@ -25,7 +25,9 @@ function Header({ noBottomGutter }) {
           <nav>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/blog">Blog</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink color="secondary" variant="contained" to="/contact">
+              Contact Me
+            </NavLink>
           </nav>
         </Toolbar>
       </AppBar>

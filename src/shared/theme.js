@@ -12,17 +12,18 @@ const systemFonts = [
   '"Segoe UI Emoji"',
   '"Segoe UI Symbol"',
 ].join(',')
-const bodyFontFamily = { fontFamily: `Roboto, ${systemFonts}` }
 const headingFontFamily = { fontFamily: `Overpass Mono, ${systemFonts}` }
 
 const SiteTheme = createMuiTheme({
   typography: {
-    ...bodyFontFamily,
+    fontFamily: `Roboto, ${systemFonts}`,
+    fontSize: 18,
+    body1: { lineHeight: 1.75 },
     h1: headingFontFamily,
     h2: headingFontFamily,
     h3: headingFontFamily,
     h4: headingFontFamily,
-    subtitle1: headingFontFamily,
+    h5: headingFontFamily,
     button: { fontWeight: '500' },
   },
   palette: {

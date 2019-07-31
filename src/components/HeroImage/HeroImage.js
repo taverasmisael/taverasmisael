@@ -26,24 +26,21 @@ const useStyles = makeStyles(theme => ({
 const HeroImage = props => {
   const { gutterBottom, fluid, fixed, className, credit, fullWidth } = props
   const classes = useStyles()
+  const imageClassName = classnames(className, {
+    [classes.base]: !fullWidth,
+    [classes.fullWidth]: fullWidth,
+    [classes.gutterBottom]: gutterBottom && !credit,
+  })
+  const creditClassName = classnames({ [classes.gutterBottom]: gutterBottom })
   return (
     <>
-      <Img
-        im
-        fluid={fluid}
-        fixed={fixed}
-        className={classnames(className, {
-          [classes.base]: !fullWidth,
-          [classes.fullWidth]: fullWidth,
-          [classes.gutterBottom]: gutterBottom && !credit,
-        })}
-      />
+      <Img im fluid={fluid} fixed={fixed} className={imageClassName} />
       {credit && (
         <Typography
           component="div"
           variant="caption"
           align="right"
-          className={{ [classes.gutterBottom]: gutterBottom }}
+          className={creditClassName}
         >
           <ReactMarkdown source={credit} />
         </Typography>

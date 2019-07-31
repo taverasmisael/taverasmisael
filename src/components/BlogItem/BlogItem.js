@@ -20,7 +20,7 @@ const BlogItem = ({ item }) => {
         />
       </CardMedia>
       <CardContent>
-        <Typography variant="h4" component="h2" gutterBottom>
+        <Typography variant="h5" component="h2" gutterBottom>
           <Link
             to={`/blog/${item.frontmatter.slug}`}
             className="link--no-style"
@@ -28,7 +28,7 @@ const BlogItem = ({ item }) => {
             {item.frontmatter.title}
           </Link>
         </Typography>
-        <Typography className={classes.date} color="textSecondary">
+        <Typography variant="caption" color="textSecondary">
           Published on: {item.frontmatter.date}
         </Typography>
         <Typography variant="body2" component="p" className={classes.excerpt}>

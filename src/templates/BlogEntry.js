@@ -10,14 +10,14 @@ const BlogEntry = ({ data: { mdx } }) => {
   return (
     <GeneralLayout title={frontmatter.title} description={mdx.excerpt}>
       <Container maxWidth="md">
-        <Typography gutterBottom variant="h2" component="h1">
-          {frontmatter.title}
-        </Typography>
         <HeroImage
           gutterBottom
           fluid={frontmatter.banner.childImageSharp.fluid}
           credit={frontmatter.bannerCredit}
         />
+        <Typography gutterBottom variant="h2" component="h1">
+          {frontmatter.title}
+        </Typography>
 
         <MDXRenderer>{body}</MDXRenderer>
       </Container>
@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         bannerCredit
         banner {
           childImageSharp {
-            fluid(maxWidth: 1920) {
+            fluid {
               ...GatsbyImageSharpFluid
             }
           }
