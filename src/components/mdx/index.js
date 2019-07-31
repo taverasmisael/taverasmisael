@@ -22,18 +22,12 @@ export default {
     ),
   blockquote: props => <Blockquote {...props} />,
   em: props => <Typography variant="body2" component="em" {...props} />,
-  h1: props => (
-    <Typography gutterBottom component="h2" variant="h3" {...props} />
-  ),
-  h2: props => (
-    <Typography gutterBottom component="h3" variant="h4" {...props} />
-  ),
-  h3: props => (
-    <Typography gutterBottom component="h4" variant="h5" {...props} />
-  ),
-  h4: props => <Typography component="h5" variant="h6" {...props} />,
-  h5: props => <Typography component="h6" variant="h6" {...props} />,
-  h6: props => <Typography variant="h6" component="p" {...props} />,
+  h1: props => <Typography gutterBottom variant="h2" {...props} />,
+  h2: props => <Typography gutterBottom variant="h3" {...props} />,
+  h3: props => <Typography gutterBottom variant="h4" {...props} />,
+  h4: props => <Typography variant="h5" {...props} />,
+  h5: props => <Typography variant="h6" {...props} />,
+  h6: props => <Typography variant="subtitle2" component="h6" {...props} />,
   li: props => <Typography gutterBottom component="li" {...props} />,
   ol: props => <Typography gutterBottom component="ol" {...props} />,
   p: props => <Typography gutterBottom variant="body1" {...props} />,

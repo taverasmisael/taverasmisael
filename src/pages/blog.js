@@ -6,11 +6,10 @@ import BlogItem from '../components/BlogItem'
 import GeneralLayout from '../layouts/general'
 import Grid from '@material-ui/core/Grid'
 
-const STYLES = { maxWidth: '720px' }
 
 const BlogPage = ({ data }) => (
   <GeneralLayout title="Blog" description="List of articles written by me">
-    <Container style={STYLES}>
+    <Container maxWidth="md">
       <Grid container spacing={2}>
         {data.allMdx.nodes.map(entry => (
           <Grid key={entry.id} item sm={12}>

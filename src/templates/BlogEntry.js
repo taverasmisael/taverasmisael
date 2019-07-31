@@ -15,7 +15,7 @@ const BlogEntry = ({ data: { mdx } }) => {
           fluid={frontmatter.banner.childImageSharp.fluid}
           credit={frontmatter.bannerCredit}
         />
-        <Typography gutterBottom variant="h2" component="h1">
+        <Typography gutterBottom variant="h1">
           {frontmatter.title}
         </Typography>
 
