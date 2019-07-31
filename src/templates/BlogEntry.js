@@ -9,15 +9,15 @@ const BlogEntry = ({ data: { mdx } }) => {
   const { frontmatter, body } = mdx
   return (
     <GeneralLayout title={frontmatter.title} description={mdx.excerpt}>
-      <Container maxWidth="md">
+      <Container maxWidth="md" component="article">
+        <Typography gutterBottom variant="h1">
+          {frontmatter.title}
+        </Typography>
         <HeroImage
           gutterBottom
           fluid={frontmatter.banner.childImageSharp.fluid}
           credit={frontmatter.bannerCredit}
         />
-        <Typography gutterBottom variant="h1">
-          {frontmatter.title}
-        </Typography>
 
         <MDXRenderer>{body}</MDXRenderer>
       </Container>

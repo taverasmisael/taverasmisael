@@ -5,7 +5,9 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: 'rgba(0, 0, 0, 0.08)',
   },
   root: {
+    fontFamily: theme.typography.h1.fontFamily,
     fontSize: 14,
+    fontWeight: 'bold',
     '& + &': {
       marginLeft: theme.spacing(1),
     },

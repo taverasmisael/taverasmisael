@@ -28,7 +28,13 @@ const SiteTheme = createMuiTheme({
     button: { fontWeight: '500' },
   },
   palette: {
-    background: { default: '#ff' },
+    background: { default: 'rgba(255, 246, 218, 0.2)' },
+    primary: {
+      main: '#293462',
+    },
+    secondary: {
+      main: '#ed1250',
+    },
   },
 })
 

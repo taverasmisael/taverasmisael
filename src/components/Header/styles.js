@@ -6,7 +6,8 @@ export const useStyles = noGutterBottom =>
       padding: 0,
     },
     root: {
-      flexGrow: 1,
+      height: 90,
+      justifyContent: 'center',
       marginBottom: noGutterBottom ? 0 : theme.spacing(2),
     },
     titleLink: {
@@ -15,6 +16,7 @@ export const useStyles = noGutterBottom =>
     },
     title: {
       flexGrow: 1,
+      fontFamily: theme.typography.h1.fontFamily,
     },
   }))()
 

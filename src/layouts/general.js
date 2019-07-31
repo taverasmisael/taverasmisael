@@ -17,16 +17,20 @@ const GeneralLayout = ({ children, title, description, noGutterBottom }) => {
       <CssBaseline />
       <Head title={title} description={description} />
       <Header noGutterBottom={noGutterBottom} />
-      <div className={classes.content}>
+      <main className={classes.content}>
         <MDXProvider components={MDXComponentsMap}>{children}</MDXProvider>
-      </div>
+      </main>
     </MuiThemeProvider>
   )
 }
 
 const useStyles = makeStyles(theme => ({
   content: {
-    padding: `0 ${theme.spacing(3)}px`,
+    padding: theme.spacing(0, 3),
+
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(0, 1),
+    },
   },
 }))
 

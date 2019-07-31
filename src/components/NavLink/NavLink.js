@@ -18,7 +18,7 @@ const NavLink = ({ to, children, color = 'inherit', variant = 'text' }) => {
       className={classes.root}
       component={Link}
       to={to}
-      activeClassName={classes.activeLink}
+      activeClassName={color === 'inherit' ? classes.activeLink : undefined}
     >
       {children}
     </Button>

@@ -15,26 +15,24 @@ function Header({ noGutterBottom }) {
   const siteTitle = useSiteTitle()
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Container maxWidth="md">
-          <Toolbar className={classes.toolbar}>
-            <Typography className={classes.title} variant="h6" noWrap>
-              <Link to="/" className={classes.titleLink}>
-                {siteTitle}
-              </Link>
-            </Typography>
-            <nav>
-              <NavLink to="/about">About</NavLink>
-              <NavLink to="/blog">Blog</NavLink>
-              <NavLink color="secondary" variant="contained" to="/contact">
-                Contact Me
-              </NavLink>
-            </nav>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </div>
+    <AppBar position="static" className={classes.root}>
+      <Container maxWidth="md">
+        <Toolbar className={classes.toolbar}>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <Link to="/" className={classes.titleLink}>
+              {siteTitle}
+            </Link>
+          </Typography>
+          <nav>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink color="secondary" variant="contained" to="/contact">
+              Contact Me
+            </NavLink>
+          </nav>
+        </Toolbar>
+      </Container>
+    </AppBar>
   )
 }
 
