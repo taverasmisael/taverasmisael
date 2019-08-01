@@ -27,7 +27,7 @@ export const query = graphql`
         id
         frontmatter {
           title
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "DD [de] MMMM YYYY", locale: "es")
           slug
           banner {
             childImageSharp {

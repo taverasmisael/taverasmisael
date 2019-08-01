@@ -31,7 +31,7 @@ const BlogItem = ({ item }) => {
           </Link>
         </Typography>
         <Typography variant="caption" color="textSecondary">
-          Published on: {item.frontmatter.date}
+          Publicado el {item.frontmatter.date}
         </Typography>
         <Typography variant="body2" component="p" className={classes.excerpt}>
           {item.excerpt}
@@ -44,7 +44,7 @@ const BlogItem = ({ item }) => {
           size="small"
           color="primary"
         >
-          Read more
+          Ver más
         </Button>
       </CardActions>
     </Card>
