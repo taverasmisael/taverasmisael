@@ -9,15 +9,16 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2, 0),
   },
   button: {
-    padding: theme.spacing(1.5, 2.5),
-
-    '&+&': {
-      marginLeft: theme.spacing(1),
+    fontSize: theme.typography.body2.fontSize,
+    [theme.breakpoints.up('sm')]: {
+      '&+&': {
+        marginLeft: theme.spacing(3),
+      },
     },
   },
 
   icon: {
-    marginRight: theme.spacing(1),
+    marginLeft: theme.spacing(1),
   },
 }))
 
@@ -43,11 +44,11 @@ const DemoButton = ({ href }) => {
       {...DEFAULT_BUTTON_PROPS}
       href={href}
       color="secondary"
-      variant="outlined"
+      variant="text"
       className={classes.button}
     >
-      <OpenExternalIcon className={classes.icon} />
       Launch demo
+      <OpenExternalIcon className={classes.icon} />
     </Button>
   )
 }
@@ -62,8 +63,8 @@ const RepoButton = ({ href }) => {
       variant="text"
       className={classes.button}
     >
-      <CodeIcon className={classes.icon} />
       Get Code
+      <CodeIcon className={classes.icon} />
     </Button>
   )
 }

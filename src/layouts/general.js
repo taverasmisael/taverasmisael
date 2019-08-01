@@ -9,6 +9,7 @@ import SiteTheme from '../shared/theme'
 import Header from '../components/Header'
 import '../shared/styles.css'
 import Head from '../components/Head'
+import Footer from '../components/Footer'
 
 const GeneralLayout = ({ children, title, description, noGutterBottom }) => {
   const classes = useStyles()
@@ -20,13 +21,14 @@ const GeneralLayout = ({ children, title, description, noGutterBottom }) => {
       <main className={classes.content}>
         <MDXProvider components={MDXComponentsMap}>{children}</MDXProvider>
       </main>
+      <Footer />
     </MuiThemeProvider>
   )
 }
 
 const useStyles = makeStyles(theme => ({
   content: {
-    padding: theme.spacing(0, 3),
+    padding: theme.spacing(0, 3, 2),
 
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(0, 1),

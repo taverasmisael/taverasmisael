@@ -27,6 +27,7 @@ const SiteTheme = createMuiTheme({
     h5: { ...headingFontFamily, fontSize: 2 },
     button: { fontWeight: '500' },
   },
+
   palette: {
     background: { default: 'rgba(255, 246, 218, 0.2)' },
     primary: {

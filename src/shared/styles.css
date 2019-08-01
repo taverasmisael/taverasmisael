@@ -44,6 +44,11 @@ p img {
   margin: 0 auto;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .link--no-style,
 .link--no-style:active,
 .link--no-style:hover,

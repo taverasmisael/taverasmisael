@@ -5,6 +5,8 @@ module.exports = {
     description: `Misael Tavera's website/blog. Frontend developer`,
     author: 'Misael Taveras',
     socialHandler: '@taverasmisael',
+    footerCopy:
+      'This is my personal blog where I post about code and things interesting that you may find useful',
   },
   plugins: [
     {
