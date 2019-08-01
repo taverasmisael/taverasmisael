@@ -28,7 +28,7 @@ del {
 }
 
 ul, ol {
-  margin-left: 32px!important;
+  margin: 1rem 0!important;
 }
 
 ul {

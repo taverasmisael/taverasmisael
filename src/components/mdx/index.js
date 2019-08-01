@@ -16,12 +16,11 @@ import SourceButtons from './SourceButtons'
 export default {
   a: ({ href, ...props }) =>
     href && href.startsWith('/') ? (
-      <Link variant="body1" component={GatsbyLink} to={href} {...props} />
+      <Link color="secondary" component={GatsbyLink} to={href} {...props} />
     ) : (
-      <Link variant="body1" href={href} {...props} />
+      <Link color="secondary" href={href} {...props} />
     ),
   blockquote: props => <Blockquote {...props} />,
-  em: props => <Typography variant="body2" component="em" {...props} />,
   h1: props => <Typography gutterBottom variant="h2" {...props} />,
   h2: props => <Typography gutterBottom variant="h3" {...props} />,
   h3: props => <Typography gutterBottom variant="h4" {...props} />,
@@ -30,12 +29,9 @@ export default {
   h6: props => <Typography variant="subtitle2" component="h6" {...props} />,
   li: props => <Typography gutterBottom component="li" {...props} />,
   ol: props => <Typography gutterBottom component="ol" {...props} />,
-  p: props => <Typography gutterBottom variant="body1" {...props} />,
+  p: props => <Typography gutterBottom {...props} />,
   ul: props => <Typography gutterBottom component="ul" {...props} />,
   hr: Divider,
-  strong: props => (
-    <Typography variant="subtitle2" component="strong" {...props} />
-  ),
   img: Img,
   table: Table,
   tbody: TableBody,
