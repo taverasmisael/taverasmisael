@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         bannerCredit
         banner {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 960) {
               ...GatsbyImageSharpFluid
             }
           }

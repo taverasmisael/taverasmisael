@@ -31,7 +31,7 @@ export const query = graphql`
           slug
           banner {
             childImageSharp {
-              fluid(maxWidth: 600) {
+              fluid(maxWidth: 960) {
                 ...GatsbyImageSharpFluid
               }
             }
