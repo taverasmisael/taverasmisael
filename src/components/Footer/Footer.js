@@ -38,15 +38,15 @@ const Footer = () => {
         </div>
         <div>
           <Typography gutterBottom variant="h5" component="h6">
-            Hi, I'm Misael
+            Hola, soy Misael
           </Typography>
           <Typography
             variant="body2"
             component="p"
             className={classes.shortBio}
           >
-            {site.siteMetadata.footerCopy}. Find me as{' '}
-            <strong>{site.siteMetadata.socialHandler}</strong> anywehere else.
+            {site.siteMetadata.footerCopy}. Encuéntrame en cualquier otra parte como{' '}
+            <strong>{site.siteMetadata.socialHandler}</strong>.
           </Typography>
         </div>
         <div className={classes.socialLinks}>

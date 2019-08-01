@@ -2,11 +2,11 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://taverasmisael.com',
     title: 'Misael Taveras',
-    description: `Misael Tavera's website/blog. Frontend developer`,
+    description: `Misael Taveras - Frontend developer. Website y blog personal enfocado en la programación frontend`,
     author: 'Misael Taveras',
     socialHandler: '@taverasmisael',
     footerCopy:
-      'This is my personal blog where I post about code and things interesting that you may find useful',
+      'Me encanta programar y compartir lo que he aprendido, asi que cree un website justo para eso',
   },
   plugins: [
     {
