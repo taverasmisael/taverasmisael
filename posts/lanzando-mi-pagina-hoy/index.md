@@ -1,5 +1,5 @@
 ---
-slug: por-que-lanzar-la-pagina-hoy
+slug: lanzando-mi-pagina-hoy
 title: Lanzando mi pagina hoy
 date: '2019-07-31'
 description: A pesar de ser algo que he querido hacer por mucho tiempo nunca habia dado el paso completo. Aquí te cuento por qué decidií dar ese paso hoy
@@ -54,4 +54,4 @@ Solo **creando este website en menos de 15 días** aprendí más de lo que hubie
 
 Mas adelante estaré subiendo totorales y guías, proyectos de ejemplo con Angular y React, entre otras cosillas, pero por ahora es todo lo que tengo: **EMPEZAR**.
 
-> Si hay algo en especifico que desees saber de como fueron los 30 días de commit, de como cree este blog o cualquier cosa puedes encontrarme en [twitter](https://twitter.com/taverasmisael) o abrir un [issue en el repo del proyecto](https://github.com/taverasmisael/taverasmisasel/issues) porque al igual que tu deseo ver a donde esto nos lleva.
+> Si hay algo en especifico que desees saber de como fueron los 30 días de commit, de como creé este blog o cualquier cosa puedes encontrarme en [twitter](https://twitter.com/taverasmisael) o abrir un [issue en el repo del proyecto](https://github.com/taverasmisael/taverasmisasel/issues) porque al igual que tu deseo ver a donde esto nos lleva.
