@@ -21,13 +21,21 @@ function Header({ noGutterBottom }) {
         <Toolbar className={classes.toolbar}>
           <Typography className={classes.title} variant="h6" noWrap>
             <Link to="/" className={classes.titleLink}>
-              <img src={logoSrc} className={classes.logo} alt="Logo" tite={siteTitle} />
+              <img
+                src={logoSrc}
+                className={classes.logo}
+                alt="Logo"
+                tite={siteTitle}
+              />
             </Link>
           </Typography>
           <nav>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/blog">Blog</NavLink>
-            <NavLink color="secondary" variant="contained" to="/contact">
+            <NavLink
+              color="secondary"
+              variant="contained"
+              target="__blank"
+              href={`https://twitter.com/intent/tweet?text="Hi%20just%20passing%20by%20to%20say%20hi&via=taveramisael"`}
+            >
               Contact Me
             </NavLink>
           </nav>
