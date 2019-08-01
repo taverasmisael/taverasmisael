@@ -14,10 +14,12 @@ const BlogItem = ({ item }) => {
   return (
     <Card className={classes.root}>
       <CardMedia>
-        <Img
-          fluid={item.frontmatter.banner.childImageSharp.fluid}
-          alt={item.frontmatter.title}
-        />
+        <Link to={`/blog/${item.frontmatter.slug}`} className="link--no-style">
+          <Img
+            fluid={item.frontmatter.banner.childImageSharp.fluid}
+            alt={item.frontmatter.title}
+          />
+        </Link>
       </CardMedia>
       <CardContent>
         <Typography variant="h5" component="h2" gutterBottom>
