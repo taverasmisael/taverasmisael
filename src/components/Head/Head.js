@@ -20,7 +20,7 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
 
   const pageTitle = `${title || 'Home'} | ${siteMetadata.title}`
   const pageDescription = description || siteMetadata.description
-  const pageImage = metaImage || '/metaImage.png'
+  const pageImage = metaImage || '/metaimage.png'
   const pageKeywords = keywords || siteMetadata.keywords
   const pageURL = `${siteMetadata.siteUrl}${path || ''}`
   return (
