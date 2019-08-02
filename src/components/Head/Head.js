@@ -2,26 +2,48 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-const Head = ({ title, description }) => {
-  const { site } = useStaticQuery(graphql`
+const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
           author
+          siteUrl
           title
           description
         }
       }
     }
   `)
+
+  const pageTitle = `${title || 'Home'} | ${siteMetadata.title}`
+  const pageDescription = description || siteMetadata.description
+  const pageImage = metaImage || '/metaImage.png'
+  const pageKeywords = keywords || siteMetadata.keywords
+  const pageURL = `${siteMetadata.siteUrl}${path || ''}`
   return (
     <Helmet>
-      <title>{`${title || 'Home'} | ${site.siteMetadata.title}`}</title>
-      <meta
-        name="description"
-        content={description || site.siteMetadata.description}
-      />
-      <meta title="author" content={site.siteMetadata.author} />
+      <html lang="es" />
+      <title>{pageTitle}</title>
+      <meta title="author" content={siteMetadata.author} />
+      <meta name="title" content={pageTitle} />
+      <meta name="description" content={description} />
+      <meta name="keywords" content={pageKeywords} />
+      <meta name="theme-color" content="#293462" />
+
+      <meta property="og:type" content={isPost ? 'article' : 'website'} />
+      <meta property="og:url" content={pageURL} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:image" content={pageImage} />
+
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content={pageURL} />
+      <meta property="twitter:title" content={pageTitle} />
+      <meta property="twitter:description" content={pageDescription} />
+      <meta property="twitter:image" content={pageImage} />
     </Helmet>
   )
 }

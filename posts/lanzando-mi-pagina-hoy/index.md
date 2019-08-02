@@ -4,6 +4,7 @@ title: Lanzando mi página hoy
 date: '2019-07-31'
 description: A pesar de ser algo que he querido hacer por mucho tiempo nunca habia dado el paso completo. Aquí te cuento por qué decidií dar ese paso hoy
 author: Misael Taveras
+keywords: taverasmisael, misael blog, gatsby, 30 days of code, first post, story, React, Javascript
 banner: ./media/banner.jpg
 bannerCredit: Photo by [Pixabay](https://www.pexels.com/@pixabay) on
   [Pexels](https://www.pexels.com/)

@@ -2,7 +2,10 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://taverasmisael.com',
     title: 'Misael Taveras',
-    description: `Misael Taveras - Frontend developer. Website y blog personal enfocado en la programación frontend`,
+    keywords:
+      'taverasmisasel, Misael Taveras, Javascript, Frontend, React, Angular, Functional Programming, TDD, Programación Funcional, VueJS, CSS, SASS',
+    description:
+      'Blog personal de Misael Taveras. Hablemos de desarrollo frontend, Javascript, React, Angular, CSS y técnicas  de testing y arquitectura. De lo fundamental a lo más avanzado.',
     author: 'Misael Taveras',
     socialHandler: '@taverasmisael',
     footerCopy:

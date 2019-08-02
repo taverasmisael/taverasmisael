@@ -7,7 +7,13 @@ import GeneralLayout from '../layouts/general'
 import Grid from '@material-ui/core/Grid'
 
 const BlogPage = ({ data }) => (
-  <GeneralLayout title="Blog" description="List of articles written by me">
+  <GeneralLayout
+    headProps={{
+      title: 'Blog',
+      description:
+        'Listado de posts para mejorar tu carrera en el desarrollo frontend',
+    }}
+  >
     <Container maxWidth="md">
       <Grid container spacing={2}>
         {data.allMdx.nodes.map(entry => (

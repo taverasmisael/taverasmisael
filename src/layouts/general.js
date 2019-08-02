@@ -11,12 +11,12 @@ import '../shared/styles.css'
 import Head from '../components/Head'
 import Footer from '../components/Footer'
 
-const GeneralLayout = ({ children, title, description, noGutterBottom }) => {
+const GeneralLayout = ({ children, noGutterBottom, headProps }) => {
   const classes = useStyles()
   return (
     <MuiThemeProvider theme={SiteTheme}>
       <CssBaseline />
-      <Head title={title} description={description} />
+      <Head {...headProps} />
       <Header noGutterBottom={noGutterBottom} />
       <main className={classes.content}>
         <MDXProvider components={MDXComponentsMap}>{children}</MDXProvider>

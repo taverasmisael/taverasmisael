@@ -5,10 +5,19 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import GeneralLayout from '../layouts/general'
 import HeroImage from '../components/HeroImage'
 
-const BlogEntry = ({ data: { mdx } }) => {
+const BlogEntry = ({ data: { mdx }, path }) => {
   const { frontmatter, body } = mdx
   return (
-    <GeneralLayout title={frontmatter.title} description={mdx.excerpt}>
+    <GeneralLayout
+      headProps={{
+        path,
+        isPost: true,
+        title: frontmatter.title,
+        keywords: frontmatter.keywords,
+        description: frontmatter.description || mdx.excerpt,
+        metaImage: frontmatter.banner.childImageSharp.fluid.src,
+      }}
+    >
       <Container maxWidth="md" component="article">
         <Typography gutterBottom variant="h1">
           {frontmatter.title}
@@ -36,6 +45,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "DD [de] MMMM YYYY", locale: "es")
         bannerCredit
+        keywords
         banner {
           childImageSharp {
             fluid(maxWidth: 960) {
@@ -44,6 +54,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      excerpt(pruneLength: 300)
       body
     }
   }
