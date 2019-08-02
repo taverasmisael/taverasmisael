@@ -12,6 +12,9 @@ const BlogEntry = ({ data: { mdx } }) => {
       <Container maxWidth="md" component="article">
         <Typography gutterBottom variant="h1">
           {frontmatter.title}
+          <Typography variant="caption" color="textSecondary">
+            Publicado el {frontmatter.date}
+          </Typography>
         </Typography>
         <HeroImage
           gutterBottom
@@ -31,6 +34,7 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
+        date(formatString: "DD [de] MMMM YYYY", locale: "es")
         bannerCredit
         banner {
           childImageSharp {

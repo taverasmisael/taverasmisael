@@ -29,7 +29,7 @@ function Header({ noGutterBottom }) {
               />
             </Link>
           </Typography>
-          <nav>
+          <nav className={classes.nav}>
             <NavLink
               color="secondary"
               variant="contained"

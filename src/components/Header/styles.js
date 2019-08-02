@@ -11,6 +11,7 @@ export const useStyles = noGutterBottom =>
       marginBottom: noGutterBottom ? 0 : theme.spacing(2),
     },
     titleLink: {
+      display: 'inline-block',
       textDecoration: 'none',
       color: 'inherit',
     },
@@ -22,6 +23,15 @@ export const useStyles = noGutterBottom =>
     title: {
       flexGrow: 1,
       fontFamily: theme.typography.h1.fontFamily,
+      [theme.breakpoints.down('xs')]: {
+        textAlign: 'center',
+      },
+    },
+
+    nav: {
+      [theme.breakpoints.down('xs')]: {
+        display: 'none',
+      },
     },
   }))()
 
