@@ -71,3 +71,4 @@ yarn-error.log
 
 # IDE configuration
 .vscode/settings.json
+.drafts

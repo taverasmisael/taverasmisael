@@ -68,9 +68,19 @@ h2, h3, h4, h5, h6 {
   }
 }
 
-
+strong {
+  font-weight: 500 !important;
+}
 
 h1>span,
 h2>span {
-  display: block
+  display: block;
+  margin-top: 0.5em!important;
+}
+
+@media (min-width: 960px) {
+  article.MuiContainer-maxWidthMd {
+    max-width: 780px;
+    max-width: 80ch;
+  }
 }

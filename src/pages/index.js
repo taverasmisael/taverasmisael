@@ -37,7 +37,7 @@ export const query = graphql`
             }
           }
         }
-        excerpt(pruneLength: 140)
+        excerpt(pruneLength: 300)
       }
     }
   }
