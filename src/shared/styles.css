@@ -62,12 +62,6 @@ h2, h3, h4, h5, h6 {
   margin-top: 1.45em;
 }
 
-@media (min-width: 960px) {
-  .MuiContainer-maxWidthMd {
-    max-width: 54rem;
-  }
-}
-
 strong {
   font-weight: 500 !important;
 }
@@ -79,8 +73,11 @@ h2>span {
 }
 
 @media (min-width: 960px) {
-  article.MuiContainer-maxWidthMd {
-    max-width: 780px;
-    max-width: 80ch;
+  .MuiContainer-maxWidthMd {
+    max-width: 780px!important;
+    max-width: 80ch!important;
+  }
+  header .MuiContainer-maxWidthMd {
+    max-width: 980px !important;
   }
 }

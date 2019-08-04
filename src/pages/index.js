@@ -28,7 +28,6 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "DD [de] MMMM YYYY", locale: "es")
-          slug
           banner {
             childImageSharp {
               fluid(maxWidth: 960) {
@@ -38,6 +37,9 @@ export const query = graphql`
           }
         }
         excerpt(pruneLength: 300)
+        fields {
+          slug
+        }
       }
     }
   }

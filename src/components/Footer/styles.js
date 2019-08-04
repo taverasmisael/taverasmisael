@@ -2,7 +2,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 
 export const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(4),
     overflow: 'hidden',
 
     [theme.breakpoints.down('sm')]: { marginTop: theme.spacing(4) },

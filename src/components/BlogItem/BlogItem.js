@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
@@ -11,10 +11,11 @@ import Img from 'gatsby-image'
 
 const BlogItem = ({ item }) => {
   const classes = useStyles()
+  const entryLink = useMemo(() => `/blog/${item.fields.slug}`, [item])
   return (
     <Card className={classes.root}>
       <CardMedia>
-        <Link to={`/blog/${item.frontmatter.slug}`} className="link--no-style">
+        <Link to={entryLink} className="link--no-style">
           <Img
             fluid={item.frontmatter.banner.childImageSharp.fluid}
             alt={item.frontmatter.title}
@@ -23,10 +24,7 @@ const BlogItem = ({ item }) => {
       </CardMedia>
       <CardContent>
         <Typography variant="h5" component="h2" gutterBottom>
-          <Link
-            to={`/blog/${item.frontmatter.slug}`}
-            className="link--no-style"
-          >
+          <Link to={entryLink} className="link--no-style">
             {item.frontmatter.title}
           </Link>
         </Typography>
@@ -38,12 +36,7 @@ const BlogItem = ({ item }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button
-          component={Link}
-          to={`/blog/${item.frontmatter.slug}`}
-          size="small"
-          color="primary"
-        >
+        <Button component={Link} to={entryLink} size="small" color="primary">
           Ver más
         </Button>
       </CardActions>
