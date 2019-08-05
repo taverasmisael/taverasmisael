@@ -21,11 +21,17 @@ export default {
       <Link color="secondary" href={href} {...props} />
     ),
   blockquote: props => <Blockquote {...props} />,
-  h1: props => <Typography gutterBottom variant="h2" {...props} />,
-  h2: props => <Typography gutterBottom variant="h3" {...props} />,
-  h3: props => <Typography gutterBottom variant="h4" {...props} />,
-  h4: props => <Typography variant="h5" {...props} />,
-  h5: props => <Typography variant="h6" {...props} />,
+  h1: props => (
+    <Typography gutterBottom variant="h2" component="h2" {...props} />
+  ),
+  h2: props => (
+    <Typography gutterBottom variant="h3" component="h2" {...props} />
+  ),
+  h3: props => (
+    <Typography gutterBottom variant="h4" component="h3" {...props} />
+  ),
+  h4: props => <Typography variant="h5" component="h4" {...props} />,
+  h5: props => <Typography variant="h6" component="h5" {...props} />,
   h6: props => <Typography variant="subtitle2" component="h6" {...props} />,
   li: props => <Typography gutterBottom component="li" {...props} />,
   ol: props => <Typography gutterBottom component="ol" {...props} />,
