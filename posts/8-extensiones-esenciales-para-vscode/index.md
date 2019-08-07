@@ -39,7 +39,7 @@ Ahora bien, IntelliCode es el bebé de IntelliSense, un poco de AI y machine lea
 
 Vamos a la mitad de la lista y no podía ponerse mas sencillo que esto. Una extensión para ordenar objetos JSON.
 
-Al parecer VSCode no recuerda que un JSON es casi lo mismo que un objeto de JavaScript (con sus limitantes claro), y no sabe como ordenarlo alfabéticamente y ahí es cuando esta extensión entra en juego. Tan sencillo como instalar y usar en la próxima  vez que tengamos un JSON que debamos ordenar es solo seleccionar las líneasy con la barra de comando elegir `Ordenar JSON`. Listo
+Al parecer VSCode no recuerda que un JSON es casi lo mismo que un objeto de JavaScript (con sus limitantes claro), y no sabe como ordenarlo alfabéticamente y ahí es cuando esta extensión entra en juego. Tan sencillo como instalar y usar en la próxima  vez que tengamos un JSON que debamos ordenar es solo seleccionar las líneas y con la barra de comando elegir `Ordenar JSON`. Listo
 
 [Ver en el marketplace][SortJSON]
 
