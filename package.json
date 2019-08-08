@@ -31,6 +31,7 @@
     "@material-ui/styles": "^4.2.1",
     "env-cmd": "^9.0.3",
     "gatsby-image": "^2.2.6",
+    "gatsby-plugin-google-analytics": "^2.1.7",
     "gatsby-plugin-material-ui": "^2.1.4",
     "gatsby-plugin-nprogress": "^2.1.2",
     "gatsby-plugin-react-helmet": "^3.1.2",

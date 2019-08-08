@@ -34,6 +34,12 @@ module.exports = {
       },
     },
     {
+      resolve: '',
+      options: {
+        trackingId: 'UA-145300876-1',
+      }
+    },
+    {
       resolve: 'gatsby-plugin-sharp',
       options: {
         useMozJpeg: false,
