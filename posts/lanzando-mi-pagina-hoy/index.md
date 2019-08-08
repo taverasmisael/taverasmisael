@@ -23,7 +23,7 @@ Así que cuando dije: **"Hoy empiezo"** yo mismo me puse algunas reglas del jueg
 
 1. **No usar Wordpress ni Joomla:** aunque ambos son buenas herramientas, principalmente para tratar con clientes, no se adaptaban al mensaje que quería transmitir como desarrollador enfocado al frontend.
 2. **El website tiene que estar arriba cuanto antes:** no preocuparme por estilos perfectos o títulos elegantes, ~~ni puntuación (gracias amor)~~ solo hacerlo.
-3. **No usar trackers (Google Analytics, Facebook Píxel):** no quiero compartir con esas plataformas la información de los usuarios que visitan este blog. Llevo casi medio año usando [Brave](https://brave.com) como mi navegador principal para bloquear automáticamente esos trackers y se siente bien entrar a un sitio que no los tenga (o que no sean tan intrusivos). Más adelante detallaré porqué decidí cambiarme a Brave.
+3. **No usar trackers (Google Analytics, Facebook Píxel):** no quiero compartir con esas plataformas la información de los usuarios que visitan este blog. Llevo casi medio año usando [Brave](https://brave.com/tav072) como mi navegador principal para bloquear automáticamente esos trackers y se siente bien entrar a un sitio que no los tenga (o que no sean tan intrusivos). Más adelante detallaré porqué decidí cambiarme a Brave.
 4. **Proveer una experiencia como la que deseo recibir:** esta va de la mano de el punto anterior, ya que no quiero que mi propia página sea una en la que no me sienta cómodo estando.
 5. **Hacerlo, y hacerlo en serio:** esta era la parte que se me había hecho más difícil con el tiempo ya que siempre empezaba, pero nunca terminaba, si lo hacía esta vez era para concluir.
 
