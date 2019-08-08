@@ -7,7 +7,7 @@ keywords: comunicación, mejorar la comunicación, desarrollo, comunicarse, crec
 banner: ./media/banner.jpg
 bannerCredit: Foto por [Headway](https://unsplash.com/@headwayio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) en [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 ---
-La programación no solo se limita a escribir código. Hay un conjunto de
+Ser programador no se limita a escribir código. Hay un conjunto de
 habilidades que nos ayudan a mejorar como desarrolladores y de estas la
 que más destaca es **la Comunicación**.
 
