@@ -40,7 +40,6 @@ const SiteTheme = createMuiTheme({
 
   overrides: {
     MuiTypography: {
-      gutterBottom: { marginBottom: '0.45em' },
       h2: { marginTop: '1.35em' },
       h3: { marginTop: '1em' },
       h4: { marginTop: '1em' },

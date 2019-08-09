@@ -13,7 +13,10 @@ const useStyles = makeStyles(theme => ({
 
     '&>*': {
       fontStyle: 'italic',
+    },
+    '&>p.MuiTypography-gutterBottom': {
       marginBottom: 0,
+      marginTop: 0,
     },
   },
 }))
