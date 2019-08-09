@@ -61,8 +61,8 @@ module.exports = {
       options: {
         google: {
           families: [
-            'Overpass Mono:400,700:latin', // Titles
-            'Roboto:400,500:latin', // Body
+            'Overpass Mono:400,700:latin&display=swap', // Titles
+            'Roboto:400,500:latin&display=swap', // Body
           ],
         },
       },
