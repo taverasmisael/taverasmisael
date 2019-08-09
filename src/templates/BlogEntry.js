@@ -46,6 +46,7 @@ export const pageQuery = graphql`
         date(formatString: "DD [de] MMMM YYYY", locale: "es")
         bannerCredit
         keywords
+        description
         banner {
           childImageSharp {
             fluid(maxWidth: 960) {
