@@ -1,7 +1,7 @@
 ---
-title: Mejorando la comunicación
+title: Consejos para mejorar la comunicación
 date: '2019-08-07'
-description: Como comunicarse de forma efectiva siendo desarrolladores. Hacer llegar nuestro mensaje de forma que sea bien recibido y entendido y tengamos respuestas positivas
+description: Como comunicarse de forma efectiva. Hacer llegar nuestro mensaje de forma clara y obteniendo respuestas positivas.
 author: Misael Taveras
 keywords: comunicación, mejorar la comunicación, desarrollo, comunicarse, crecimiento personal, comunicarse siendo programador, skills, soft skills, dev skills, desarrollo, mejorar, programación, habilidades para mejorar
 banner: ./media/banner.jpg
