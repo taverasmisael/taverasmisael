@@ -25,6 +25,10 @@ ul, ol {
   margin: 1rem 0!important;
 }
 
+ul.MuiGrid-container {
+  list-style: none;
+}
+
 ul {
   list-style-type: disc;
 }

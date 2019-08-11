@@ -18,7 +18,7 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
     }
   `)
 
-  const pageTitle = `${title || 'Home'} | ${siteMetadata.title}`
+  const pageTitle = `${title || 'Inicio'} | ${siteMetadata.title}`
   const pageDescription = description || siteMetadata.description
   const pageImage = `${siteMetadata.siteUrl}${metaImage || '/metaimage.png'}`
   const pageKeywords = keywords || siteMetadata.keywords
