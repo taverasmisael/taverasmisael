@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     listStyle: 'none',
-    margin: theme.spacing(0, 1.5),
+    margin: '0!important',
   },
 
   link: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 const TagsList = ({ tags = [] }) => {
   const classes = useStyles()
   return (
-    <ul className={classes.root}>
+    <ul className={classes.root} aria-label="Etiquetas: ">
       {tags.map((tag, idx) => (
         <li key={tag}>
           {!!idx && ', '}

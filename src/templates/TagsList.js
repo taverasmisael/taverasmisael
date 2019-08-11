@@ -48,6 +48,7 @@ export const pageQuery = graphql`
         id
         frontmatter {
           title
+          tags
           date(formatString: "DD [de] MMMM YYYY", locale: "es")
           banner {
             childImageSharp {

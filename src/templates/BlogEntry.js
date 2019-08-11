@@ -11,7 +11,6 @@ const BlogEntry = ({ data: { mdx }, path }) => {
   const { frontmatter, body } = mdx
   return (
     <GeneralLayout
-      noGutterBottom
       headProps={{
         path,
         isPost: true,
@@ -24,7 +23,6 @@ const BlogEntry = ({ data: { mdx }, path }) => {
       <Container maxWidth="md" component="article">
         <HeroImage
           gutterBottom
-          fullWidth
           fluid={frontmatter.banner.childImageSharp.fluid}
           credit={frontmatter.bannerCredit}
         />
@@ -53,7 +51,7 @@ export const pageQuery = graphql`
         description
         banner {
           childImageSharp {
-            fluid(maxWidth: 1680) {
+            fluid(maxWidth: 960) {
               ...GatsbyImageSharpFluid
             }
           }

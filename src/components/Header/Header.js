@@ -24,7 +24,7 @@ function Header({ noGutterBottom }) {
               <img
                 src={logoSrc}
                 className={classes.logo}
-                alt="Logo"
+                alt="Taveras Misael logo"
                 tite={siteTitle}
               />
             </Link>
@@ -34,9 +34,9 @@ function Header({ noGutterBottom }) {
               color="secondary"
               variant="contained"
               target="__blank"
-              href={`https://twitter.com/intent/tweet?text="Hi%20just%20passing%20by%20to%20say%20hi&via=taveramisael"`}
+              href="https://twitter.com/taverasmisael"
             >
-              Contact Me
+              Hablemos
             </NavLink>
           </nav>
         </Toolbar>

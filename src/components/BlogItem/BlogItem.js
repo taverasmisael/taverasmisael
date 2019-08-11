@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button'
 import { useStyles } from './styles'
 import Img from 'gatsby-image'
 
+import BlogHeader from '../BlogHeader'
+
 const BlogItem = ({ item }) => {
   const classes = useStyles()
   const entryLink = useMemo(() => `/blog/${item.fields.slug}`, [item])
@@ -23,14 +25,13 @@ const BlogItem = ({ item }) => {
         </Link>
       </CardMedia>
       <CardContent>
-        <Typography variant="h5" component="h2" gutterBottom>
-          <Link to={entryLink} className="link--no-style">
-            {item.frontmatter.title}
-          </Link>
-        </Typography>
-        <Typography variant="caption" color="textSecondary">
-          Publicado el {item.frontmatter.date}
-        </Typography>
+        <BlogHeader
+          variant="h5"
+          component="h2"
+          date={item.frontmatter.date}
+          title={item.frontmatter.title}
+          tags={item.frontmatter.tags}
+        />
         <Typography variant="body2" component="p" className={classes.excerpt}>
           {item.excerpt}
         </Typography>

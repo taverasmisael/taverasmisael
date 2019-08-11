@@ -6,8 +6,6 @@ author: Misael Taveras
 tags: ["Noticia", "Personal"]
 keywords: taverasmisael, blog, gatsby, 30 days of code, first post, story, React, Javascript
 banner: ./media/banner.jpg
-bannerCredit: Foto por [Pixabay](https://www.pexels.com/@pixabay) en
-  [Pexels](https://www.pexels.com/)
 ---
 
 Ha sido un largo camino hasta acá; la meta era lograrlo en una semana, la semana se volvieron dos, y si no lanzaba hoy se volverían tres.

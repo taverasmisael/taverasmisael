@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     display: 'inline-block',
     height: 1,
     margin: theme.spacing(0, 1.5),
-    width: theme.spacing(3),
+    width: theme.spacing(2.5),
   },
   metadata: {
     alignItems: 'center',
@@ -17,19 +17,24 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const BlogHeader = ({ date, title, tags }) => {
+const BlogHeader = ({ date, title, tags = [], variant, component }) => {
   const classes = useStyles()
   return (
     <header>
-      <Typography gutterBottom variant="h1">
-        <Typography
-          variant="caption"
-          color="textSecondary"
-          className={classes.metadata}
-        >
-          Publicado el {date} <span className={classes.divider} />
-          <TagsList tags={tags} />
-        </Typography>
+      <Typography
+        variant="caption"
+        color="textSecondary"
+        className={classes.metadata}
+      >
+        Publicado el {date}
+        {tags.length && (
+          <>
+            <span className={classes.divider} />
+            <TagsList tags={tags} />
+          </>
+        )}
+      </Typography>
+      <Typography gutterBottom variant={variant || 'h1'} component={component}>
         {title}
       </Typography>
     </header>
