@@ -1,24 +1,17 @@
 import React from 'react'
-import { Container, Typography, makeStyles } from '@material-ui/core'
+import { graphql } from 'gatsby'
+import Container from '@material-ui/core/Container'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import GeneralLayout from '../layouts/general'
 import HeroImage from '../components/HeroImage'
-
-const useStyles = makeStyles(theme => ({
-  content: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 100px',
-    gridColumnGap: theme.spacing(2),
-  },
-}))
+import BlogHeader from '../components/BlogHeader'
 
 const BlogEntry = ({ data: { mdx }, path }) => {
   const { frontmatter, body } = mdx
-  const classes = useStyles()
   return (
     <GeneralLayout
-    noGutterBottom
+      noGutterBottom
       headProps={{
         path,
         isPost: true,
@@ -28,26 +21,25 @@ const BlogEntry = ({ data: { mdx }, path }) => {
         metaImage: frontmatter.banner.childImageSharp.fluid.src,
       }}
     >
-      <Container maxWidth="md">
+      <Container maxWidth="md" component="article">
         <HeroImage
           gutterBottom
           fullWidth
           fluid={frontmatter.banner.childImageSharp.fluid}
           credit={frontmatter.bannerCredit}
         />
-
-        <Typography gutterBottom variant="h1">
-          <Typography variant="caption" color="textSecondary">
-            Publicado el {frontmatter.date}
-          </Typography>
-          {frontmatter.title}
-        </Typography>
+        <BlogHeader
+          date={frontmatter.date}
+          title={frontmatter.title}
+          tags={frontmatter.tags}
+        />
         <MDXRenderer>{body}</MDXRenderer>
       </Container>
     </GeneralLayout>
   )
 }
 
+export default BlogEntry
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
     mdx(id: { eq: $id }) {
@@ -57,10 +49,11 @@ export const pageQuery = graphql`
         date(formatString: "DD [de] MMMM YYYY", locale: "es")
         bannerCredit
         keywords
+        tags
         description
         banner {
           childImageSharp {
-            fluid(maxWidth: 960) {
+            fluid(maxWidth: 1680) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -71,5 +64,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default BlogEntry
