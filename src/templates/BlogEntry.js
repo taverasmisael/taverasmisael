@@ -15,7 +15,7 @@ const BlogEntry = ({ data: { mdx }, path }) => {
         path,
         isPost: true,
         title: frontmatter.title,
-        keywords: frontmatter.keywords,
+        keywords: frontmatter.keywords.concat(['', ...frontmatter.tags]),
         description: frontmatter.description || mdx.excerpt,
         metaImage: frontmatter.banner.childImageSharp.fluid.src,
       }}
