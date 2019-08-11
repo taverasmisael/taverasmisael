@@ -28,6 +28,7 @@ const BlogItem = ({ item }) => {
         <BlogHeader
           variant="h5"
           component="h2"
+          titleLink={entryLink}
           date={item.frontmatter.date}
           title={item.frontmatter.title}
           tags={item.frontmatter.tags}
@@ -38,7 +39,7 @@ const BlogItem = ({ item }) => {
       </CardContent>
       <CardActions>
         <Button component={Link} to={entryLink} size="small" color="primary">
-          Ver más
+          Leer más
         </Button>
       </CardActions>
     </Card>
