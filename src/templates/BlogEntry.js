@@ -24,7 +24,6 @@ const BlogEntry = ({ data: { mdx }, path }) => {
         <HeroImage
           gutterBottom
           fluid={frontmatter.banner.childImageSharp.fluid}
-          credit={frontmatter.bannerCredit}
         />
         <BlogHeader
           date={frontmatter.date}
@@ -45,7 +44,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "DD [de] MMMM YYYY", locale: "es")
-        bannerCredit
         keywords
         tags
         description
