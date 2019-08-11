@@ -1,3 +1,5 @@
+const { resolve } = require('path')
+
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://taverasmisael.com',
@@ -15,21 +17,21 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
+        path: resolve('./src/pages'),
         name: 'pages',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/shared/assets`,
+        path: resolve('./src/shared/assets'),
         name: 'assets',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/posts`,
+        path: resolve('./posts'),
         name: 'posts',
       },
     },
@@ -37,7 +39,7 @@ module.exports = {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-145300876-1',
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-sharp',
@@ -80,7 +82,19 @@ module.exports = {
               removeAccents: true,
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-vscode',
+            options: {
+              colorTheme: 'Horizon Bold',
+              extensions: [
+                {
+                  identifier: 'jolaleye.horizon-theme-vscode',
+                  version: '2.0.2',
+                },
+              ],
+              extensionDataDirectory: resolve('.vscode-extensions'),
+            },
+          },
           'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-external-links',
@@ -97,7 +111,7 @@ module.exports = {
             },
           },
         ],
-        plugins: ['gatsby-remark-images'],
+        plugins: ['gatsby-remark-images', 'gatsby-remark-vscode'],
       },
     },
   ],

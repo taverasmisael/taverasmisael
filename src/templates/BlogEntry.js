@@ -1,14 +1,24 @@
 import React from 'react'
-import { Container, Typography } from '@material-ui/core'
+import { Container, Typography, makeStyles } from '@material-ui/core'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import GeneralLayout from '../layouts/general'
 import HeroImage from '../components/HeroImage'
 
+const useStyles = makeStyles(theme => ({
+  content: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 100px',
+    gridColumnGap: theme.spacing(2),
+  },
+}))
+
 const BlogEntry = ({ data: { mdx }, path }) => {
   const { frontmatter, body } = mdx
+  const classes = useStyles()
   return (
     <GeneralLayout
+    noGutterBottom
       headProps={{
         path,
         isPost: true,
@@ -18,19 +28,20 @@ const BlogEntry = ({ data: { mdx }, path }) => {
         metaImage: frontmatter.banner.childImageSharp.fluid.src,
       }}
     >
-      <Container maxWidth="md" component="article">
-        <Typography gutterBottom variant="h1">
-          {frontmatter.title}
-          <Typography variant="caption" color="textSecondary">
-            Publicado el {frontmatter.date}
-          </Typography>
-        </Typography>
+      <Container maxWidth="md">
         <HeroImage
           gutterBottom
+          fullWidth
           fluid={frontmatter.banner.childImageSharp.fluid}
           credit={frontmatter.bannerCredit}
         />
 
+        <Typography gutterBottom variant="h1">
+          <Typography variant="caption" color="textSecondary">
+            Publicado el {frontmatter.date}
+          </Typography>
+          {frontmatter.title}
+        </Typography>
         <MDXRenderer>{body}</MDXRenderer>
       </Container>
     </GeneralLayout>
