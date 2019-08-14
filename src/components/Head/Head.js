@@ -12,6 +12,7 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
           author
           siteUrl
           title
+          socialHandler
           description
         }
       }
@@ -24,7 +25,7 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
   const pageKeywords = keywords || siteMetadata.keywords
   const pageURL = `${siteMetadata.siteUrl}${path || ''}`
   return (
-    <Helmet>
+    <Helmet defer={false}>
       <html lang="es" />
       <title>{pageTitle}</title>
       <meta title="author" content={siteMetadata.author} />
@@ -33,6 +34,8 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
       <meta name="keywords" content={pageKeywords} />
       <meta name="theme-color" content="#293462" />
 
+      <link rel="canonical" content={pageURL} />
+      <meta property="fb:app_id" content="2298809647116017" />
       <meta property="og:type" content={isPost ? 'article' : 'website'} />
       <meta property="og:url" content={pageURL} />
       <meta property="og:title" content={pageTitle} />
@@ -44,6 +47,8 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
       <meta property="twitter:title" content={pageTitle} />
       <meta property="twitter:description" content={pageDescription} />
       <meta property="twitter:image" content={pageImage} />
+      <meta property="twitter:creator" content={siteMetadata.socialHandler} />
+      <meta property="twitter:site" content={siteMetadata.socialHandler} />
     </Helmet>
   )
 }

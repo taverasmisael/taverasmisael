@@ -1,18 +1,7 @@
 const { resolve } = require('path')
-
+const siteMetadata = require('./site-metadata.json')
 module.exports = {
-  siteMetadata: {
-    siteUrl: 'https://taverasmisael.com',
-    title: 'Misael Taveras',
-    keywords:
-      'taverasmisasel, Misael Taveras, Javascript, Frontend, React, Angular, Functional Programming, TDD, Programación Funcional, VueJS, CSS, SASS',
-    description:
-      'Blog personal de Misael Taveras. Hablemos de desarrollo frontend, Javascript, React, Angular, CSS y técnicas  de testing y arquitectura. De lo fundamental a lo más avanzado.',
-    author: 'Misael Taveras',
-    socialHandler: '@taverasmisael',
-    footerCopy:
-      'Me encanta programar y compartir lo que he aprendido, asi que cree un website justo para eso',
-  },
+  siteMetadata,
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
@@ -54,9 +43,8 @@ module.exports = {
     'gatsby-plugin-material-ui',
     {
       resolve: 'gatsby-plugin-nprogress',
-      options: { color: 'green', showSpinner: false },
+      options: { color: '#ed1250', showSpinner: false },
     },
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-web-font-loader',
@@ -114,5 +102,6 @@ module.exports = {
         plugins: ['gatsby-remark-images', 'gatsby-remark-vscode'],
       },
     },
+    'gatsby-plugin-react-helmet',
   ],
 }

@@ -6,6 +6,7 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import GeneralLayout from '../layouts/general'
 import HeroImage from '../components/HeroImage'
 import BlogHeader from '../components/BlogHeader'
+import ShareButtons from '../components/ShareButtons'
 
 const BlogEntry = ({ data: { mdx }, path }) => {
   const { frontmatter, body } = mdx
@@ -31,6 +32,11 @@ const BlogEntry = ({ data: { mdx }, path }) => {
           tags={frontmatter.tags}
         />
         <MDXRenderer>{body}</MDXRenderer>
+        <ShareButtons
+          url={path}
+          title={frontmatter.title}
+          text={frontmatter.description}
+        />
       </Container>
     </GeneralLayout>
   )
