@@ -1,4 +1,5 @@
 import { Link as GatsbyLink } from 'gatsby'
+import GithubSlugger from 'github-slugger'
 import React from 'react'
 import Divider from '@material-ui/core/Divider'
 import Link from '@material-ui/core/Link'
@@ -8,10 +9,18 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
+import debur from 'lodash.deburr'
 
 import Img from './img'
 import Blockquote from './blockquote'
 import SourceButtons from './SourceButtons'
+
+const slugger = new GithubSlugger()
+
+const makeSafeId = obj => {
+  slugger.reset()
+  return slugger.slug(debur(obj.toString()))
+}
 
 export default {
   a: ({ href, ...props }) =>
@@ -20,16 +29,21 @@ export default {
     ) : (
       <Link color="secondary" href={href} {...props} />
     ),
+  Caption: ({ children, ...props }) => (
+    <Typography
+      id={`caption-${makeSafeId(children)}`}
+      variant="caption"
+      color="primary"
+      component="h6"
+      {...props}
+    >
+      {children}
+    </Typography>
+  ),
   blockquote: props => <Blockquote {...props} />,
-  h1: props => (
-    <Typography variant="h2" component="h2" {...props} />
-  ),
-  h2: props => (
-    <Typography variant="h3" component="h2" {...props} />
-  ),
-  h3: props => (
-    <Typography variant="h4" component="h3" {...props} />
-  ),
+  h1: props => <Typography variant="h2" component="h2" {...props} />,
+  h2: props => <Typography variant="h3" component="h2" {...props} />,
+  h3: props => <Typography variant="h4" component="h3" {...props} />,
   h4: props => <Typography variant="h5" component="h4" {...props} />,
   h5: props => <Typography variant="h6" component="h5" {...props} />,
   h6: props => <Typography variant="subtitle2" component="h6" {...props} />,

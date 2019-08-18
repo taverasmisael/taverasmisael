@@ -28,7 +28,7 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
     <Helmet defer={false}>
       <html lang="es" />
       <title>{pageTitle}</title>
-      <meta title="author" content={siteMetadata.author} />
+      <meta name="author" content={siteMetadata.author} />
       <meta name="title" content={pageTitle} />
       <meta name="description" content={description} />
       <meta name="keywords" content={pageKeywords} />

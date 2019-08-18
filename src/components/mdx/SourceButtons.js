@@ -47,7 +47,7 @@ const DemoButton = ({ href }) => {
       variant="text"
       className={classes.button}
     >
-      Launch demo
+      Lanzar demo
       <OpenExternalIcon className={classes.icon} />
     </Button>
   )
@@ -63,7 +63,7 @@ const RepoButton = ({ href }) => {
       variant="text"
       className={classes.button}
     >
-      Get Code
+      Ver Código
       <CodeIcon className={classes.icon} />
     </Button>
   )
