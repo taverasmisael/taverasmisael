@@ -1,0 +1,301 @@
+---
+title: Usar map, filter y reduce para olvidarnos de los bucles for
+date: '2019-08-18'
+description: Aprendiendo a usar las funciones map, filte y reduce para mejorar nuestras habilidades como desarrollador.
+author: Misael Taveras
+tags: ['Tutorial', 'JavaScript', 'Programación Funcional']
+keywords: map, filter, reduce, bucle for, mejorar bucle for, ejemplos map, ejemplo reduce, javascript funcional, ejemplos filter javascript
+banner: ./media/banner.jpg
+---
+
+Hoy quiero mostrarte como recorrer un array sin usar un bucle. En lo personal nunca me han gustado los
+bucles for, en ningún lenguaje. Su sintaxis es tan diferente a lo demás del código, es bastante imperativo
+entre otras cosas.
+
+Un bucle es una secuencia de código que se repite un determinado número de veces hasta que la condición
+se completa. Normalmente son utilizados para recorrer arreglos, transformar objetos dentro de arreglos, 
+filtrar elementos o calcular algún resultado basado en dichos elementos. Algunas de las estructuras más
+usadas en la programación para lograr esto son el _while_, _until_ y _for_. Nos centraremos en el for.
+
+En Javascript hay 3 diferentes de bucles for que podemos utilizar. Cada uno con nos da diferentes
+capacidades y puede ser usado en diferentes escenarios. Están el for, for...in, for...of.
+Hablaremos en específico del **bucle for** y como podemos reemplazarlo con _map, filter y reduce_.
+
+> La diferencia entre el `for...in` y el `for...of` la trataremos más adelante
+> ya que se sale del enfoque del post.
+
+## Bucle For
+
+Es una de las estructuras de control mas complejas y útiles que existe. Es el primero que se aprende
+y tiene una sintaxis así:
+
+`for ([expresión-inicial]; [condición]; [expresión-final])sentencia`
+
+La expresión es una declaración del punto de partida, la condición es la que debe cumplirse para que
+el bucle se termine y la expresión final suele ser un incrementador de nuestro punto de partida.
+
+<Caption>Como filtrar solo los números impares usando un bucle for</Caption>
+
+```js
+const numberArray = [1, 2, 3, 4, 5, 6]
+let impares = []
+for (let i = 0; i <= numberArray.length - 1; i += 1) {
+  if (numberArray[i] % 2 !== 0) {
+    impares.push(numberArray[i])
+  }
+}
+```
+
+<Caption>Como convertir palabras a mayuscula usando un bucle for</Caption>
+
+```js
+const words = ['pera', 'lapiz', 'mesa']
+let mayusc = []
+for (let i = 0; i <= words.length - 1; i += 1) {
+  mayusc.push(words[i].toUpperCase())
+}
+```
+
+<Caption>Calcular total de ventas de una pizzería usando un bucle for</Caption>
+
+```js
+const orders = [
+  { product: 'Pizza al carbon', total: 3, date: '2019-08-12' },
+  { product: 'Pizza de queso', total: 10, date: '2019-08-12' },
+  { product: 'Pizza de 3 ingredientes', total: 5, date: '2019-08-12' },
+  { product: 'Especial del chef', total: 30, date: '2019-08-12' },
+  { product: 'Especial del chef', total: 3, date: '2019-08-13' },
+  { product: 'Pizza al carbon', total: 10, date: '2019-08-14' },
+]
+let totals = {}
+for (let i = 0; i <= orders.length - 1; i += 1) {
+  const order = orders[i]
+  const product = order.product
+  const total = order.total
+  totals = Object.assign({}, totals, {
+    [product]: (totals[product] || 0) + total,
+  })
+}
+```
+
+### Problemas con el bucle for
+
+1. **Es demasiado imperativo.** Tenemos que decirle al programa cual es el array, desde donde queremos
+leerlo (que casi siempre es desde el inicio), hasta que punto ya no queremos seguir, como aumentar el índice
+cada vez que leemos y solo luego lo que realmente queriamos que era filtrar los números impares. Debería
+haber un modo de solo decirle al programa esta última parte, lo que yo realmente quiero hacer y no tanto 
+el cómo (eso es programación declarativa).
+2. **No se ve la intención.** Cada programa que hacemos debe ser intencional y dicha intención debe
+ser clara cuanto antes. Por ello es mejor tener la lógica compartida junta, y otras practicas que un
+bucle for hace difícil de cumplir. Lo primero que ves es toda la ceremonia de iterar y luego es que
+ves que es lo que realmente intenta hacer tu programa. En el ejemplo de
+[calcular las ventas](#caption-calcular-total-de-ventas-de-una-pizzeria-usando-un-bucle-for) es más 
+evidente este punto.
+3. **No es reusable.** La única manera de volver a filtrar los números impares de otro array es
+copiando y pegando este código, no hay una forma de encapsularlo. Claro, puedes tener una función
+que acepte un array y haga esto por mi, pero no es nada elegante y hay mejores formas de hacer esto.
+4. **El error por uno.** Hay que tener en cuenta que nosotros hacemos la lógica de cuando detener
+el bucle y de donde iniciarlo. Con un cambio tan sencillo como `let i = 1` omitimos el primer
+elemento o con `i <= numberArray.length` tenemos un elemento de más que da undefined.
+Dos escenarios que es mejor evitar en la medida de lo posible.
+5. **Son mutables.** Aunque en ningúno de los ejemplos lo hicimos es completamente posible
+modificar un valor del array inicial lo cual puede traernos feas consecuencias en el camino.
+6. **Es mucho código** admitámoslo, a decir verdad se siente mucho trabajo para hacer algo tan simple.
+
+Veamos ahora mejores formas de como podemos filtrar, convertir y calcular nuestros arrays usando
+filter, map y reduce.
+
+## Filter
+
+Es un método que acepta una función que devuelve true o false indicando si nos interesa el
+elemento o no. Estas funciones que toman un objeto y devuelven un valor Boolean se
+llaman **Funciones predicado**.
+
+<Caption>
+  Como filtrar solo los números impares usando la función filter
+</Caption>
+
+```js
+const numberArray = [1, 2, 3, 4, 5, 6]
+/* Con funciones tradicionales 
+const impares = numberArray.filter(function(n) {
+  return n % 2 !== 0
+})
+*/
+
+/* Con funciones flecha. Estaré usando esta sintaxis de ahora en adelante */
+const timpares = numberArray.filter(n => n % 2 !== 0)
+```
+
+Listo ya está. La función filter se encarga de iterar por sí sola iniciando en 0 y 
+terminando en `length - 1` así que no hay error por 1, y nos devuelve en el primer parámetro el
+elemento actual (equivalente a `numberArray[i]`). Es más fácil de entender que a simple vista qué
+está haciendo que con el bucle for.
+
+## Map
+
+Al igual que filter, map es un método en los arrays que acepta una función, solo que esta es una
+función transformadora que toma un elemento `a` y devuelve un elemento `b`.
+
+Querremos usar `map` cuando tengamos un array de elementos que deba ser transformado. A diferencia
+de filter, **map siempre retorna la misma cantidad de elementos del array inicial** independientemente
+de la transformación que apliquemos. Es posible también no modificar ningún elemento utilizando una
+**función de identidad** que no es más que una función que siempre devuelve su parámetro como resultado,
+así en vez de `a=>b` tenemos `a=>a`.
+
+> Es bueno saber que tanto `map` como `filter` y `reduce` son métodos imutables y nunca
+> modifican el array que los llama, sino que devuelven una nueva copia que debe ser almacenada
+> en otra variable.
+
+<Caption>Como convertir palabras a mayuscula usando la función map</Caption>
+
+```js
+const words = ['pera', 'lapiz', 'mesa']
+const mayusc = words.map(word => word.toUpperCase())
+```
+
+No podría ser más simple que esto. A map le pasamos una función que recibe los elementos y esta
+devuelve los elementos transformados sin afectar el array original. Lo que eran varias líneas de
+código, mayormente de _boilerplate_ se convirtió en una sola línea.
+
+## Reduce
+
+Estas ya son las _”Ligas mayores”_. La función reduce es la más compleja de las tres, por eso es la
+más poderosa. Aun así, sigue siendo más fácil e intuitiva que un bucle for, y cumple con las mismas
+características que las anteriores, así que veamos que nos ofrece la función reduce.
+
+Al igual que sus hermanas, es una función de los arrays que recibe otra función, pero en esta ocasión
+en vez de aceptar solo el elemento actual, el primer parámetro de esta es el valor anterior 🤯.
+Por **valor anterior** me refiero al resultado o lo que devolvió la función la última vez que se llamó.
+Veamos un ejemplo sencillo.
+
+<Caption>Sumando total de números con el método reduce</Caption>
+
+```js
+const numbers = [1, 2, 3, 4, 5]
+const total = numbers.reduce((previous, number) => previous + number)
+```
+
+Siempre `number` va a ser el valor actual (equivalente a `numbers[i]`) y `previous` va a ser el
+resultado de la última vez que se llamó la función. Pero ¿Qué pasa la primera vez que se llama la
+función? ¿Quién es `previous` ahí? Pues por defecto se utiliza el primer elemento del array y este se
+omite; pero si deseamos podemos proporcionar nuestro propio valor inicial pasando un segundo parámetro
+opcional a la función de reduce.
+
+<Caption>
+  Sumando total de números usando un valor inicial con el método reduce
+</Caption>
+
+```js
+const prices = [1, 2, 3, 4, 5]
+const initial = 10
+const total = prices.reduce((previous, number) => previous + number, initial)
+```
+
+
+En este ejemplo `previous` la primera vez será igual al valor de `initial` que es 10 en este caso.
+así la primera vez que corre en lugar de devolver 1, devuelve 11 y de ahí sigue todo como antes.
+
+Veamos ahora nuestro ejemplo anterior de sumar totales, agrupando o _reduciendo_ todos los totales.
+
+<Caption>Sumando total ordenes con el método reduce</Caption>
+
+```js
+const orders = [
+  { product: 'Pizza al carbon', total: 3, date: '2019-08-12' },
+  { product: 'Pizza de queso', total: 10, date: '2019-08-12' },
+  { product: 'Pizza de 3 ingredientes', total: 5, date: '2019-08-12' },
+  { product: 'Especial del chef', total: 30, date: '2019-08-12' },
+  { product: 'Especial del chef', total: 3, date: '2019-08-13' },
+  { product: 'Pizza al carbon', total: 10, date: '2019-08-14' },
+]
+
+const totals = orders.reduce(
+  (previous, order) =>
+    Object.assign({}, previous, {
+      [order.product]: (previous[order.product] || 0) + order.total,
+    }),
+  {}
+)
+```
+
+En este ejemplo usamos como valor inicial un objeto vacío, de este modo podemos agrupar todas las
+partes como keys de dicho objeto. **El valor incial usualmente representa el tipo de dato que deseamos devolver**.
+En los primeros ejemplos usamos como valor inicial un número y por ende devolvimos un número.
+
+## Reusando la lógica
+
+Utilizando el poder de JavaScript de permitirnos usar funciones como variables y pasarlas como
+argumentos a otras funciones podemos extraer cada una de estas y reutilizarlas cuando sea posible.
+Usaré el ejemplo con `filter` pero es aplicable a las demás.
+
+<Caption>Reusando la función filter</Caption>
+
+```js
+const filterOdd = n => n % 2 !== 0
+const arrayOne = [1, 2, 3, 4, 5]
+const arrayTwo = [11, 22, 33, 44, 55]
+const arrayOneOdds = arrayOne.filter(filterOdd)
+const arrayTwoOdds = arrayTwo.filter(filterOdd)
+```
+
+Así de simple podemos llevar nuestras funciones a cualquier parte de forma sencilla y descriptiva,
+más que un bucle for.
+
+## Bonus 1: Usando librerías
+
+Si estamos utilizando una librería de utilidades o funcional como 
+[ramda](https://ramdajs.com) o [lodash](https://lodash.com/docs) estas cuentan con sus propias
+funciones filter, map y reduce que nos ayudan a extender la reusabilidad.
+
+<Caption>Ejemplo de map usando ramda</Caption>
+
+```js
+// Asumiendo que hayas instalado ramda
+import { map } from 'ramda'
+const addTen = number => number + 10
+const mapAddTen = map(addTen)
+
+const arrayOne = [1, 2, 3, 4, 5]
+const arrayTwo = [11, 22, 33, 44, 55]
+
+const arrayOnePlusTen = mapAddTen(arrayOne)
+const arrayTwoPlusTen = mapAddTen(arrayTwo)
+```
+
+## Bonus 2: Encontrar un único elemento
+
+En ocaciones no queremos filtrar **TODOS** los elementos que cumplan cierta condición sino que
+queremos encontrar un único elemento, para esto existe otro método en los arrays que al igual
+que [`filter`](#filter) acepta una función de predicado pero esta, a diferencia de la anterior, deja de
+recorrer el array desde que encuentra el primer elemento que cumple la condición.
+
+### Find
+
+<Caption>Ejemplo usando el método find</Caption>
+
+```js
+const friends = [
+  { name: 'Maria', points: 2 },
+  { name: 'Daniel', points: 5 },
+  { name: 'Giancarlos', points: 4 },
+  { name: 'Efrain', points: 2 },
+]
+
+// Devuelve el primer amigo con 4 puntos
+const friendWithMorePointsThanFour = friends.find(friend => friend.points > 4)
+```
+
+Cabe mencionar que a diferencia de `filter`, `find` va a devolver `null` en caso de que ningún
+elemento pase el predicado, mientras que **_filter_ siempre va a devolver un array incluso vacío.**
+
+## Conclusión
+
+Espero que estos métodos te hayan servido y puedas implementarlos en tus futuros desarrollos.
+Te invito a que empieces a utilizarlos hoy mismo. Planeo hacer otro post con ejemplos más avanzados
+de cada uno de estos métodos en detalle. Si alguno te sirvió, te gustó o no te quedó claro
+[**escríbeme**](https://twitter.com/taverasmisael).
+
+Todo los ejemplos (con el bucle y los metodos) estan en este Sandbox.
+
+<SourceButtons demoURL="https://codesandbox.io/s/map-filter-y-reduce-para-no-usar-un-bucle-for-tdk5g?fontsize=14&previewwindow=tests" />
