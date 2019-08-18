@@ -8,9 +8,13 @@ import { normalizeTag } from '../../utils/normalizer'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
     listStyle: 'none',
     margin: '0!important',
+  },
+
+  item: {
+    display: 'inline-block',
+    margin: theme.spacing(0, 1),
   },
 
   link: {
@@ -22,9 +26,8 @@ const TagsList = ({ tags = [] }) => {
   const classes = useStyles()
   return (
     <ul className={classes.root} aria-label="Etiquetas: ">
-      {tags.map((tag, idx) => (
-        <li key={tag}>
-          {!!idx && ', '}
+      {tags.map(tag => (
+        <li key={tag} className={classes.item}>
           <MaterialLink
             className={classes.link}
             component={Link}
