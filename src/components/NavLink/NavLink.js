@@ -8,14 +8,7 @@ const Link = React.forwardRef((props, ref) => (
   <GatsbyLink innerRef={ref} {...props} />
 ))
 
-const NavLink = ({
-  to,
-  children,
-  color = 'inherit',
-  variant = 'text',
-  href,
-  target,
-}) => {
+const NavLink = ({ to, color = 'inherit', variant = 'text', ...props }) => {
   const classes = useStyles()
   return (
     <Button
@@ -25,11 +18,8 @@ const NavLink = ({
       className={classes.root}
       component={to ? Link : undefined}
       to={to}
-      href={href}
-      target={target}
-    >
-      {children}
-    </Button>
+      {...props}
+    />
   )
 }
 

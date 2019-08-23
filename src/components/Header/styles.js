@@ -5,8 +5,15 @@ export const useStyles = noGutterBottom =>
     toolbar: {
       padding: 0,
     },
+    darkModeButton: {
+      color: theme.palette.primary.contrastText,
+    },
     root: {
       height: 90,
+      backgroundColor:
+        theme.mode === 'dark'
+          ? theme.palette.background.default
+          : theme.palette.primary.dark,
       justifyContent: 'center',
       marginBottom: noGutterBottom ? 0 : theme.spacing(2),
     },

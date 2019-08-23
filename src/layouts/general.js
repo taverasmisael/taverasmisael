@@ -1,20 +1,19 @@
 import React from 'react'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { MDXProvider } from '@mdx-js/react'
 
 import MDXComponentsMap from '../components/mdx'
-import SiteTheme from '../shared/theme'
 import Header from '../components/Header'
 import '../shared/styles.css'
 import Head from '../components/Head'
 import Footer from '../components/Footer'
+import { DarkModeProvider } from '../context/dark-mode'
 
 const GeneralLayout = ({ children, noGutterBottom, headProps }) => {
   const classes = useStyles()
   return (
-    <MuiThemeProvider theme={SiteTheme}>
+    <DarkModeProvider>
       <CssBaseline />
       <Head {...headProps} />
       <Header noGutterBottom={noGutterBottom} />
@@ -22,7 +21,7 @@ const GeneralLayout = ({ children, noGutterBottom, headProps }) => {
         <MDXProvider components={MDXComponentsMap}>{children}</MDXProvider>
       </main>
       <Footer />
-    </MuiThemeProvider>
+    </DarkModeProvider>
   )
 }
 

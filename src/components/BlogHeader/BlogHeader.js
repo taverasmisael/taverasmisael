@@ -19,11 +19,11 @@ const useStyles = makeStyles(theme => ({
   metadata: {
     alignItems: 'center',
     display: 'flex',
+    marginBottom: theme.spacing(1.25),
 
     [theme.breakpoints.down('sm')]: {
       alignItems: 'flex-start',
       flexFlow: 'column',
-      marginBottom: theme.spacing(1.25),
     },
   },
 }))
