@@ -23,9 +23,8 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
   const pageDescription = description || siteMetadata.description
   const pageImage = `${siteMetadata.siteUrl}${metaImage || '/metaimage.png'}`
   const pageKeywords = keywords || siteMetadata.keywords
-  const pageURL = `${siteMetadata.siteUrl}${path || ''}`
   return (
-    <Helmet defer={false}>
+    <Helmet>
       <html lang="es" />
       <title>{pageTitle}</title>
       <meta name="author" content={siteMetadata.author} />
@@ -34,16 +33,13 @@ const Head = ({ title, description, metaImage, keywords, path, isPost }) => {
       <meta name="keywords" content={pageKeywords} />
       <meta name="theme-color" content="#293462" />
 
-      <link rel="canonical" content={pageURL} />
       <meta property="fb:app_id" content="2298809647116017" />
       <meta property="og:type" content={isPost ? 'article' : 'website'} />
-      <meta property="og:url" content={pageURL} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={pageImage} />
 
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={pageURL} />
       <meta property="twitter:title" content={pageTitle} />
       <meta property="twitter:description" content={pageDescription} />
       <meta property="twitter:image" content={pageImage} />

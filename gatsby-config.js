@@ -102,6 +102,12 @@ module.exports = {
         plugins: ['gatsby-remark-images', 'gatsby-remark-vscode'],
       },
     },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: siteMetadata.siteUrl,
+      },
+    },
     'gatsby-plugin-react-helmet',
   ],
 }
