@@ -19,6 +19,8 @@ function Header({ noGutterBottom }) {
   const classes = useStyles(noGutterBottom)
   const siteTitle = useSiteTitle()
   const { darkMode, toggle: toggleDarMode } = useDarkModeContext()
+
+  const DarkModeIcon = darkMode ? SunIcon : MoonIcon
   return (
     <AppBar position="static" className={classes.root}>
       <Container maxWidth="md">
@@ -48,7 +50,7 @@ function Header({ noGutterBottom }) {
               className={classes.darkModeButton}
               title={`${darkMode ? 'Apagar' : 'Encender'} tema oscuro`}
             >
-              {darkMode ? <SunIcon /> : <MoonIcon />}
+              <DarkModeIcon className={classes.darkModeIcon} />
             </NavLink>
           </nav>
         </Toolbar>

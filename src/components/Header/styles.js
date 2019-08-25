@@ -8,6 +8,9 @@ export const useStyles = noGutterBottom =>
     darkModeButton: {
       color: theme.palette.primary.contrastText,
     },
+    darkModeIcon: {
+      fontSize: '1.5rem',
+    },
     root: {
       height: 90,
       backgroundColor:
