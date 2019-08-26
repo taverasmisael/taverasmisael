@@ -25,10 +25,10 @@ const createBlogPage = async (creator, graphql, reporter) => {
   }
 
   data.allMdx.edges.forEach(edge => {
-    const slug = edge.node.fields.slug
+    const path = edge.node.fields.slug
     creator({
       component: blogTemplate,
-      path: `/blog/${slug}`,
+      path,
       context: {
         id: edge.node.id,
       },
@@ -67,11 +67,14 @@ const createTagsPages = async (creator, graphql, reporter) => {
 const onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'Mdx') {
-    const slug = createFilePath({ node, getNode, basePath: 'posts' }).replace(
-      /\//g,
-      ''
-    )
-    createNodeField({ node, name: 'slug', value: slug })
+    const postName = createFilePath({
+      node,
+      getNode,
+      basePath: 'posts',
+    }).replace(/\//g, '')
+
+    const value = `/blog/${postName}`
+    createNodeField({ node, name: 'slug', value })
   }
 }
 

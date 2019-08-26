@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
@@ -13,7 +13,7 @@ import BlogHeader from '../BlogHeader'
 
 const BlogItem = ({ item }) => {
   const classes = useStyles()
-  const entryLink = useMemo(() => `/blog/${item.fields.slug}`, [item])
+  const entryLink = item.fields.slug
   return (
     <Card className={classes.root}>
       <CardMedia>
