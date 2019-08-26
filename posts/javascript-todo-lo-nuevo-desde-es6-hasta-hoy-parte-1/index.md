@@ -173,7 +173,7 @@ console.log(numbersOneToTen) // 1,2,3,4,5,6,7,8,9,10
 
 ### Clases
 
-La programación funcional en JavaScript era algo complicada ya que el lenguaje no tenía clases, sino objetos con un prototype, esto sigue siendo así, pero ahora hay una forma más declarativa de crear objetos y clases aunque sigan comportándose igual.
+La programación orientada a objetos en JavaScript era algo complicada ya que el lenguaje no tenía clases, sino objetos con un prototype, esto sigue siendo así, pero ahora hay una forma más declarativa de crear objetos y clases aunque sigan comportándose igual.
 Las clases en JavaScript son parecidas a la de cualquier otro lenguaje y si has usado [Typescript](https://www.typescriptlang.org/) estarás en tus aguas.
 Un par de notas son que las clases solo pueden tener un padre, y aun no existen las interfaces.
 
