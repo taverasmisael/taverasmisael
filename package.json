@@ -21,7 +21,8 @@
     "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-markdown": "^4.1.0"
+    "react-markdown": "^4.1.0",
+    "react-share": "^3.0.1"
   },
   "devDependencies": {
     "@material-ui/core": "^4.2.1",
