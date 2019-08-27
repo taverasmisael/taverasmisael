@@ -2,6 +2,7 @@ import React, {
   createContext,
   useEffect,
   useCallback,
+  memo,
   useState,
   useContext,
 } from 'react'
@@ -16,21 +17,20 @@ export const useDarkModeContext = () => useContext(DarkModeContext)
 const useLocalStoragetDarkMode = () => {
   const [mode, setMode] = useState(false)
   useEffect(() => {
-    const lsMode = !!localStorage.getItem('darkMode')
+    const lsMode = localStorage.getItem('darkMode') === 'true'
     setMode(lsMode)
   }, [])
 
   return [mode, setMode]
 }
 
-export const DarkModeProvider = ({ children }) => {
+export const DarkModeProvider = memo(({ children }) => {
   const [darkMode, setDarkMode] = useLocalStoragetDarkMode()
 
   const toggle = useCallback(() => {
     const dark = !darkMode
     localStorage.setItem('darkMode', dark)
     setDarkMode(dark)
-    console.log(dark)
   }, [darkMode, setDarkMode])
 
   return (
@@ -40,4 +40,4 @@ export const DarkModeProvider = ({ children }) => {
       </MuiThemeProvider>
     </DarkModeContext.Provider>
   )
-}
+})
