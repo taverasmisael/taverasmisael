@@ -123,7 +123,7 @@ Pero en toda seriedad: servirás como puente para esas personas que aún
 no dominan la comunicación efectiva, podrás ayudarlos y créeme, se
 sentirá bien.
 
-## Conclusión
+*******
 
 Tener una buena comunicación **es una habilidad no técnica** que debe
 estar en tu top de prioridades para aprender o mejorar, si es el caso,

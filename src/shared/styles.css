@@ -76,9 +76,16 @@ h2>span {
   }
 } 
 
-article p.MuiTypography-gutterBottom {
+article p.MuiTypography-gutterBottom,
+article hr.MuiDivider-root {
   margin-bottom: 0;
   margin-top: 2em;
+}
+
+article hr.MuiDivider-root {
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
 }
 
 pre {
@@ -87,4 +94,8 @@ pre {
 
 .MuiTypography-caption + pre {
   margin-top: 0;
+}
+
+.no-margin {
+  margin: 0!important;
 }

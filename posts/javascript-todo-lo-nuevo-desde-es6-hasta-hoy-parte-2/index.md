@@ -159,7 +159,7 @@ console.log(SpanishRoom.logId) // '507f1f77bcf86cd799439011'
 - [Promise.any](https://github.com/tc39/proposal-promise-any): Recibe un array de Promesas y devuelve al momento que la primera se resuelva o se rechace.
 - [globalThis](https://github.com/tc39/proposal-global): Una forma de acceder al objeto global al momento de ejecución. En los navegadores es `window` en los workers es `self` y en node es `global`. Con `globalThis` solo será globalThis y es todo.
 
-## Conclusión
+*******
 
 El futuro de JavaScript se ve más prometedor que nunca, con nuevas iteraciones del lenguaje haciendo la vida del desarrollador más cómoda. Con herramientas como babel y [webpack](https://webpack.js.org/) nos permiten brindar a los usuarios código que no afecte su experiencia en nuestra aplicación o página.
 

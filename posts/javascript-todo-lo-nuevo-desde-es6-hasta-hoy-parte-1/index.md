@@ -274,7 +274,7 @@ const dosAlCuboAntes = 2 * 2 * 2
 const dosAlCuboAhora = 2 ** 3
 ```
 
-## Conclusión
+*******
 
 Esta es solo la primera parte de la serie “JavaScript: Todo lo nuevo desde ES6 hasta hoy y más allá” en donde hemos visto ES6 y ES7. Entendemos porqué ES6 es considerada una de las mayores actualizaciones del lenguaje y como el comité de ECMAScript ha mantenido su palabra de mantener a JavaScript actualizado.
 
