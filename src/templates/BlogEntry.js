@@ -9,7 +9,6 @@ import BlogHeader from '../components/BlogHeader'
 import ShareButtons from '../components/ShareButtons'
 
 const BlogEntry = ({ data: { mdx }, path }) => {
-  console.log(mdx)
   const { frontmatter, body } = mdx
   return (
     <GeneralLayout

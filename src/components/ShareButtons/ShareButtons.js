@@ -4,13 +4,18 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Link from '@material-ui/core/Link'
 import ListItemText from '@material-ui/core/ListItemText'
+import {
+  TwitterShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+} from 'react-share'
 
 import useStyles from './styles'
-import { createSocialShareURL } from '../../utils/social'
+import { createCanonicalURL } from '../../utils/social'
 
 const ShareButtons = ({ title, text, url }) => {
   const classes = useStyles()
-  const URLs = createSocialShareURL({ url, title, text })
+  const URL = createCanonicalURL(url)
   return (
     <div className={classes.root}>
       <Typography variant="subtitle1" className={classes.title}>
@@ -18,26 +23,26 @@ const ShareButtons = ({ title, text, url }) => {
       </Typography>
       <List dense className={classes.list}>
         <ListSocialLink
-          disableGutters
-          component={Link}
+          quote={text}
+          url={URL}
+          component={FacebookShareButton}
           className={classes.link}
-          href={URLs.facebook}
         >
           <ListItemText primary="Facebook" />
         </ListSocialLink>
         <ListSocialLink
-          disableGutters
-          component={Link}
+          via="taverasmisael"
           className={classes.link}
-          href={URLs.twitter}
+          title={title}
+          component={TwitterShareButton}
+          url={URL}
         >
           <ListItemText primary="Twitter" />
         </ListSocialLink>
         <ListSocialLink
-          disableGutters
-          component={Link}
           className={classes.link}
-          href={URLs.linkedin}
+          component={LinkedinShareButton}
+          url={URL}
         >
           <ListItemText primary="LinkedIn" />
         </ListSocialLink>
