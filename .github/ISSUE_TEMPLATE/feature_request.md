@@ -1,6 +1,6 @@
 ---
 name: Petición de cambio
-about: Sugerir una idea para este post
+about: Sugerir una idea para el website
 title: ''
 labels: ''
 assignees: ''

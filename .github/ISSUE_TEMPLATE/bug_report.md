@@ -12,13 +12,13 @@ Describe de una forma directa y clara qué es el bug
 ## Pasos para reproducirlo
 
 1. Ir a '...'
-2. Dar click en '....'
+2. Dar clic en '....'
 3. Navegar hasta '....'
 4. Pasa el error
 
 ## Comportamiento esperado
 
-Queé es lo que debería pasar en lugar de el bug
+Que es lo que debería pasar en lugar de el bug
 
 ## Capturas de pantallas
 
@@ -30,12 +30,12 @@ Agregar capturas si son necesarias y posibles de incluir.
 - Navegador [Brave]
 - Versión [12]
 
-## Movíl (por favor completar esta información)
- 
+## Móvil (por favor completar esta información)
+
 - Dispositivo: [iPhone6]
 - Sistema Operativo: [iOS8.1]
 - Navegador [safari]
-- Version [22]
+- Versión [22]
 
 ## Contexto adicional
 
