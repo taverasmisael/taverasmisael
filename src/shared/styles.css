@@ -99,3 +99,6 @@ pre {
 .no-margin {
   margin: 0!important;
 }
+.MuiTypography-caption.close-caption {
+  margin-top: 0.5rem;
+}
