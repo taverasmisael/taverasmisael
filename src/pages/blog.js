@@ -24,7 +24,10 @@ BlogPage.displayName = 'BlogPage'
 
 export const query = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { status: { eq: "published" } } }
+    ) {
       nodes {
         id
         frontmatter {

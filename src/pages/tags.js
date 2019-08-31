@@ -12,7 +12,6 @@ const TagsPage = memo(({ data }) => (
   <GeneralLayout
     headProps={{
       title: 'Tags del Blog',
-      keywords: 'tags, blog, categoria, lista de entradas',
       description:
         'Etiquetas del blog y listado de temas hablados en los articulos del blog',
     }}
@@ -25,7 +24,7 @@ const TagsPage = memo(({ data }) => (
             button
             dense
             component={Link}
-            to={`/tags/${normalizeTag(tag.fieldValue)}/`}
+            to={`/blog/tags/${normalizeTag(tag.fieldValue)}`}
             key={tag.fieldValue}
           >
             <ListItemText
@@ -46,7 +45,10 @@ export default TagsPage
 
 export const pageQuery = graphql`
   query {
-    allMdx(limit: 2000) {
+    allMdx(
+      limit: 2000
+      filter: { frontmatter: { status: { eq: "published" } } }
+    ) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

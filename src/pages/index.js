@@ -6,7 +6,7 @@ import BlogItem from '../components/BlogItem'
 import GeneralLayout from '../layouts/general'
 import Grid from '@material-ui/core/Grid'
 
-const BlogPage = memo(({ data }) => (
+const HomePage = memo(({ data }) => (
   <GeneralLayout headProps={{ title: 'Blog' }}>
     <Container maxWidth="md">
       <Grid container spacing={2}>
@@ -20,11 +20,14 @@ const BlogPage = memo(({ data }) => (
   </GeneralLayout>
 ))
 
-BlogPage.displayName = 'BlogPage'
+HomePage.displayName = 'HomePage'
 
 export const query = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { status: { eq: "published" } } }
+    ) {
       nodes {
         id
         frontmatter {
@@ -48,4 +51,4 @@ export const query = graphql`
   }
 `
 
-export default BlogPage
+export default HomePage

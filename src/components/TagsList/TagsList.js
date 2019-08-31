@@ -42,7 +42,7 @@ TagsList.displayName = 'TagsList'
 const Tag = memo(({ tag, ...props }) => (
   <Chip
     variant="outlined"
-    to={`/tags/${normalizeTag(tag)}`}
+    to={`/blog/tags/${normalizeTag(tag)}`}
     component={Link}
     label={tag}
     {...props}

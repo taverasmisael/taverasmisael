@@ -56,7 +56,7 @@ const createTagsPages = async (creator, graphql, reporter) => {
   data.allMdx.group.forEach(tag => {
     creator({
       component: tagsTemplate,
-      path: `/tags/${normalizeTag(tag.fieldValue)}`,
+      path: `/blog/tags/${normalizeTag(tag.fieldValue)}`,
       context: {
         tag: tag.fieldValue,
       },
