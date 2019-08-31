@@ -23,7 +23,7 @@ Esta versión introduce algunos cambios mayores y unos menores pero que vienen a
 
 ### Async/Await
 
-Ya vimos como funcionan las [promesas](#promesas), pero estas, al igual que los `callbacks`, pueden volverse un poco enredadas y difíciles de seguir. Para ayudarnos con esto esta el `async/await` como una forma de escribir código asíncrono como si fuese síncrono. La forma de utilizarlo es envolviendo nuestras llamadas asíncronas en una función especial que usa el *keyword* `async` y en cada llamada asíncrona anteponer el keyword `await` para decirle que **espere** a que esa llamada termine. Solo es posible usar `await` dentro de una función que tenga `async` [por ahora](#mas-alla)
+Ya vimos como funcionan las [promesas](/blog/javascript-todo-lo-nuevo-desde-es6-hasta-hoy-parte-1#promesas), pero estas, al igual que los `callbacks`, pueden volverse un poco enredadas y difíciles de seguir. Para ayudarnos con esto esta el `async/await` como una forma de escribir código asíncrono como si fuese síncrono. La forma de utilizarlo es envolviendo nuestras llamadas asíncronas en una función especial que usa el *keyword* `async` y en cada llamada asíncrona anteponer el keyword `await` para decirle que **espere** a que esa llamada termine. Solo es posible usar `await` dentro de una función que tenga `async` [por ahora](#mas-alla)
 
 ```js
 const waitSeconds = seconds => new Promise((resolve, reject) => {
