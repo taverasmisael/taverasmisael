@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
@@ -7,7 +7,7 @@ import Img from 'gatsby-image'
 
 import { useStyles } from './styles'
 
-const Footer = () => {
+const Footer = memo(() => {
   const { site, file } = useStaticQuery(graphql`
     query {
       site {
@@ -45,8 +45,8 @@ const Footer = () => {
             component="p"
             className={classes.shortBio}
           >
-            {site.siteMetadata.footerCopy}. Encuéntrame en cualquier otra parte como{' '}
-            <strong>{site.siteMetadata.socialHandler}</strong>.
+            {site.siteMetadata.footerCopy}. Encuéntrame en cualquier otra parte
+            como <strong>{site.siteMetadata.socialHandler}</strong>.
           </Typography>
         </div>
         <div className={classes.socialLinks}>
@@ -75,6 +75,8 @@ const Footer = () => {
       </Container>
     </footer>
   )
-}
+})
+
+Footer.displayName = 'Footer'
 
 export default Footer

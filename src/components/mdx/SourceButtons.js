@@ -2,7 +2,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 import Button from '@material-ui/core/Button'
 import CodeIcon from '@material-ui/icons/Code'
 import OpenExternalIcon from '@material-ui/icons/OpenInNew'
-import React from 'react'
+import React, { memo } from 'react'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +27,7 @@ const DEFAULT_BUTTON_PROPS = {
   target: '__blank',
 }
 
-const SourceButtons = ({ repoURL, demoURL }) => {
+const SourceButtons = memo(({ repoURL, demoURL }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -35,9 +35,11 @@ const SourceButtons = ({ repoURL, demoURL }) => {
       {demoURL && <DemoButton href={demoURL} />}
     </div>
   )
-}
+})
 
-const DemoButton = ({ href }) => {
+SourceButtons.displayName = 'SourceButtons'
+
+const DemoButton = memo(({ href }) => {
   const classes = useStyles()
   return (
     <Button
@@ -51,9 +53,11 @@ const DemoButton = ({ href }) => {
       <OpenExternalIcon className={classes.icon} />
     </Button>
   )
-}
+})
 
-const RepoButton = ({ href }) => {
+DemoButton.displayName = 'DemoButton'
+
+const RepoButton = memo(({ href }) => {
   const classes = useStyles()
   return (
     <Button
@@ -67,6 +71,8 @@ const RepoButton = ({ href }) => {
       <CodeIcon className={classes.icon} />
     </Button>
   )
-}
+})
+
+RepoButton.displayName = 'RepoButton'
 
 export default SourceButtons

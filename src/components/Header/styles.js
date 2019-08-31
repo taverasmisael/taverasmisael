@@ -12,7 +12,6 @@ export const useStyles = noGutterBottom =>
       fontSize: '1.5rem',
     },
     root: {
-      height: 90,
       backgroundColor:
         theme.mode === 'dark'
           ? theme.palette.background.default

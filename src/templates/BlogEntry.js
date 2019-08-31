@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { graphql } from 'gatsby'
 import Container from '@material-ui/core/Container'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
@@ -8,7 +8,7 @@ import HeroImage from '../components/HeroImage'
 import BlogHeader from '../components/BlogHeader'
 import ShareButtons from '../components/ShareButtons'
 
-const BlogEntry = ({ data: { mdx }, path }) => {
+const BlogEntry = memo(({ data: { mdx }, path }) => {
   const { frontmatter, body } = mdx
   return (
     <GeneralLayout
@@ -40,9 +40,12 @@ const BlogEntry = ({ data: { mdx }, path }) => {
       </Container>
     </GeneralLayout>
   )
-}
+})
+
+BlogEntry.displayName = 'BlogEntry'
 
 export default BlogEntry
+
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
     mdx(id: { eq: $id }) {

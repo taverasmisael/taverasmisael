@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import classnames from 'classnames'
 import makeStyles from '@material-ui/styles/makeStyles'
 
@@ -21,11 +21,13 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Blockquote = ({ className, ...props }) => {
+const Blockquote = memo(({ className, ...props }) => {
   const classes = useStyles()
   return (
     <blockquote className={classnames(className, classes.root)} {...props} />
   )
-}
+})
+
+Blockquote.displayName = 'Blockquote'
 
 export default Blockquote

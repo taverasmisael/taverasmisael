@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import MaterialLink from '@material-ui/core/Link'
@@ -28,42 +28,43 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const BlogHeader = ({
-  date,
-  title,
-  tags = [],
-  variant,
-  component,
-  titleLink,
-}) => {
-  const classes = useStyles()
+const BlogHeader = memo(
+  ({ date, title, tags = [], variant, component, titleLink }) => {
+    const classes = useStyles()
 
-  return (
-    <header>
-      <Typography
-        variant="caption"
-        color="textSecondary"
-        className={classes.metadata}
-      >
-        Publicado el {date}
-        {tags.length && (
-          <>
-            <span className={classes.divider} />
-            <TagsList tags={tags} />
-          </>
-        )}
-      </Typography>
-      <Typography gutterBottom variant={variant || 'h1'} component={component}>
-        {titleLink ? (
-          <MaterialLink component={Link} to={titleLink} color="textPrimary">
-            {title}
-          </MaterialLink>
-        ) : (
-          title
-        )}
-      </Typography>
-    </header>
-  )
-}
+    return (
+      <header>
+        <Typography
+          variant="caption"
+          color="textSecondary"
+          className={classes.metadata}
+        >
+          Publicado el {date}
+          {tags.length && (
+            <>
+              <span className={classes.divider} />
+              <TagsList tags={tags} />
+            </>
+          )}
+        </Typography>
+        <Typography
+          gutterBottom
+          variant={variant || 'h1'}
+          component={component}
+        >
+          {titleLink ? (
+            <MaterialLink component={Link} to={titleLink} color="textPrimary">
+              {title}
+            </MaterialLink>
+          ) : (
+            title
+          )}
+        </Typography>
+      </header>
+    )
+  }
+)
+
+BlogHeader.displayName = 'BlogHeader'
 
 export default BlogHeader

@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import Img from 'gatsby-image'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import Typography from '@material-ui/core/Typography'
-import React from 'react'
+import React, { memo } from 'react'
 import ReactMarkdown from 'react-markdown'
 
 const useStyles = makeStyles(theme => ({
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const HeroImage = props => {
+const HeroImage = memo(props => {
   const { gutterBottom, fluid, fixed, className, credit, fullWidth } = props
   const classes = useStyles()
   const imageClassName = classnames(className, {
@@ -47,6 +47,8 @@ const HeroImage = props => {
       )}
     </>
   )
-}
+})
+
+HeroImage.displayName = 'HeroImage'
 
 export default HeroImage

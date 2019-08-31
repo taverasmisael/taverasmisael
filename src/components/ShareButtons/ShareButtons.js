@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Typography from '@material-ui/core/Typography'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -13,7 +13,7 @@ import {
 import useStyles from './styles'
 import { createCanonicalURL } from '../../utils/social'
 
-const ShareButtons = ({ title, text, url }) => {
+const ShareButtons = memo(({ title, text, url }) => {
   const classes = useStyles()
   const URL = createCanonicalURL(url)
   return (
@@ -49,9 +49,11 @@ const ShareButtons = ({ title, text, url }) => {
       </List>
     </div>
   )
-}
+})
 
-const ListSocialLink = props => (
+ShareButtons.displayName = 'ShareButtons'
+
+const ListSocialLink = memo(props => (
   <ListItem
     disableGutters
     component={Link}
@@ -59,6 +61,8 @@ const ListSocialLink = props => (
     rel="nofollow"
     {...props}
   />
-)
+))
+
+ListSocialLink.displayName = 'ListSocialLink'
 
 export default ShareButtons

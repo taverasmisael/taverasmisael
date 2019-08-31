@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { Link } from 'gatsby'
-import MaterialLink from '@material-ui/core/Link'
+import Chip from '@material-ui/core/Chip'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 
 import { normalizeTag } from '../../utils/normalizer'
@@ -18,28 +18,37 @@ const useStyles = makeStyles(theme => ({
   },
 
   link: {
+    cursor: 'pointer',
+    color: theme.palette.text.primary,
     fontFamily: theme.typography.h1.fontFamily,
   },
 }))
 
-const TagsList = ({ tags = [] }) => {
+const TagsList = memo(({ tags = [] }) => {
   const classes = useStyles()
   return (
     <ul className={classes.root} aria-label="Etiquetas: ">
       {tags.map(tag => (
         <li key={tag} className={classes.item}>
-          <MaterialLink
-            className={classes.link}
-            component={Link}
-            variant="subtitle2"
-            to={`/tags/${normalizeTag(tag)}`}
-          >
-            {tag}
-          </MaterialLink>
+          <Tag className={classes.link} tag={tag} />
         </li>
       ))}
     </ul>
   )
-}
+})
+
+TagsList.displayName = 'TagsList'
+
+const Tag = memo(({ tag, ...props }) => (
+  <Chip
+    variant="outlined"
+    to={`/tags/${normalizeTag(tag)}`}
+    component={Link}
+    label={tag}
+    {...props}
+  />
+))
+
+Tag.displayName = 'Tag'
 
 export default TagsList

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Container from '@material-ui/core/Container'
 import { graphql } from 'gatsby'
 
@@ -6,7 +6,7 @@ import BlogItem from '../components/BlogItem'
 import GeneralLayout from '../layouts/general'
 import Grid from '@material-ui/core/Grid'
 
-const BlogPage = ({ data }) => (
+const BlogPage = memo(({ data }) => (
   <GeneralLayout headProps={{ title: 'Blog' }}>
     <Container maxWidth="md">
       <Grid container spacing={2}>
@@ -18,7 +18,9 @@ const BlogPage = ({ data }) => (
       </Grid>
     </Container>
   </GeneralLayout>
-)
+))
+
+BlogPage.displayName = 'BlogPage'
 
 export const query = graphql`
   query {

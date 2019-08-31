@@ -1,6 +1,9 @@
 # Misael Taveras Personal Website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f98f8eb2-aef2-484b-a47d-faf9369d0c69/deploy-status)](https://app.netlify.com/sites/sharp-heisenberg-dde035/deploys)
+![Dependencies](https://img.shields.io/david/taverasmisael/taverasmisael?style=flat-square)
+![Activity](https://img.shields.io/github/commit-activity/m/taverasmisael/taverasmisael?style=flat-square)
+![Licence MIT](https://img.shields.io/github/license/taverasmisael/taverasmisael?style=flat-square)
 
 Blog y sitio web oficial de Misael Taveras ([taverasmisael](https://taverasmisael.com)).
 

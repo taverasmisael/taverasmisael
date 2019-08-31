@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Button from '@material-ui/core/Button'
 import { Link as GatsbyLink } from 'gatsby'
 
@@ -8,19 +8,23 @@ const Link = React.forwardRef((props, ref) => (
   <GatsbyLink innerRef={ref} {...props} />
 ))
 
-const NavLink = ({ to, color = 'inherit', variant = 'text', ...props }) => {
-  const classes = useStyles()
-  return (
-    <Button
-      color={color}
-      variant={variant}
-      type="button"
-      className={classes.root}
-      component={to ? Link : undefined}
-      to={to}
-      {...props}
-    />
-  )
-}
+const NavLink = memo(
+  ({ to, color = 'inherit', variant = 'text', ...props }) => {
+    const classes = useStyles()
+    return (
+      <Button
+        color={color}
+        variant={variant}
+        type="button"
+        className={classes.root}
+        component={to ? Link : undefined}
+        to={to}
+        {...props}
+      />
+    )
+  }
+)
+
+NavLink.displayName = 'NavLink'
 
 export default NavLink

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link, graphql } from 'gatsby'
 import { normalizeTag } from '../utils/normalizer'
 import Typography from '@material-ui/core/Typography'
@@ -8,7 +8,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import GeneralLayout from '../layouts/general'
 
-const TagsPage = ({ data }) => (
+const TagsPage = memo(({ data }) => (
   <GeneralLayout
     headProps={{
       title: 'Tags del Blog',
@@ -39,8 +39,9 @@ const TagsPage = ({ data }) => (
       </List>
     </Container>
   </GeneralLayout>
-)
+))
 
+TagsPage.displayName = 'TagsPage'
 export default TagsPage
 
 export const pageQuery = graphql`

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link, graphql } from 'gatsby'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
@@ -8,7 +8,7 @@ import MaterialLink from '@material-ui/core/Link'
 import GeneralLayout from '../layouts/general'
 import BlogItem from '../components/BlogItem'
 
-const TagsList = ({ pageContext, data }) => {
+const TagsList = memo(({ pageContext, data }) => {
   const { tag } = pageContext
   const { nodes } = data.allMdx
   const tagHeader = `Todos los post de "${tag}"`
@@ -34,9 +34,11 @@ const TagsList = ({ pageContext, data }) => {
       </Container>
     </GeneralLayout>
   )
-}
+})
 
+TagsList.displayName = 'TagsList'
 export default TagsList
+
 export const pageQuery = graphql`
   query($tag: String) {
     allMdx(

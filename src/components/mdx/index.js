@@ -1,46 +1,21 @@
-import { Link as GatsbyLink } from 'gatsby'
-import GithubSlugger from 'github-slugger'
 import React from 'react'
 import Divider from '@material-ui/core/Divider'
-import Link from '@material-ui/core/Link'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
-import debur from 'lodash.deburr'
 
-import Img from './img'
-import Blockquote from './blockquote'
+import Img from './Img'
+import Blockquote from './Blockquote'
 import SourceButtons from './SourceButtons'
-
-const slugger = new GithubSlugger()
-
-const makeSafeId = obj => {
-  slugger.reset()
-  return slugger.slug(debur(obj.toString()))
-}
+import Caption from './Caption'
+import Link from './Link'
 
 export default {
-  a: ({ href, ...props }) =>
-    href && href.startsWith('/') ? (
-      <Link color="secondary" component={GatsbyLink} to={href} {...props} />
-    ) : (
-      <Link color="secondary" href={href} {...props} />
-    ),
-  Caption: ({ children, ...props }) => (
-    <Typography
-      id={`caption-${makeSafeId(children)}`}
-      variant="caption"
-      color="primary"
-      component="h6"
-      {...props}
-    >
-      {children}
-    </Typography>
-  ),
-  blockquote: props => <Blockquote {...props} />,
+  a: Link,
+  blockquote: Blockquote,
   h1: props => <Typography variant="h2" component="h2" {...props} />,
   h2: props => <Typography variant="h3" component="h2" {...props} />,
   h3: props => <Typography variant="h4" component="h3" {...props} />,
@@ -64,4 +39,5 @@ export default {
 
   // Custom Elements
   SourceButtons,
+  Caption,
 }

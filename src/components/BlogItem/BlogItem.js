@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
@@ -11,7 +11,7 @@ import Img from 'gatsby-image'
 
 import BlogHeader from '../BlogHeader'
 
-const BlogItem = ({ item }) => {
+const BlogItem = memo(({ item }) => {
   const classes = useStyles()
   const entryLink = item.fields.slug
   return (
@@ -44,6 +44,8 @@ const BlogItem = ({ item }) => {
       </CardActions>
     </Card>
   )
-}
+})
+
+BlogItem.displayName = 'BlogItem'
 
 export default BlogItem
