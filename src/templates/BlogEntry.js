@@ -16,7 +16,6 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
         path,
         isPost: true,
         title: frontmatter.title,
-        keywords: frontmatter.keywords.concat(['', ...frontmatter.tags]),
         description: frontmatter.description || mdx.excerpt,
         metaImage: frontmatter.banner.childImageSharp.fluid.src,
       }}
@@ -53,7 +52,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "DD [de] MMMM YYYY", locale: "es")
-        keywords
         tags
         description
         banner {

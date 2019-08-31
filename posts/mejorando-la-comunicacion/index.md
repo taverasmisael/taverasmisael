@@ -4,7 +4,7 @@ date: '2019-08-07'
 description: Como comunicarse de forma efectiva. Hacer llegar nuestro mensaje de forma clara y obteniendo respuestas positivas.
 author: Misael Taveras
 tags: ["Consejo", "Soft Skills"]
-keywords: comunicación, mejorar la comunicación, desarrollo, comunicarse, crecimiento personal, comunicarse siendo programador, skills, soft skills, dev skills, desarrollo, mejorar, programación, habilidades para mejorar
+status: published
 banner: ./media/banner.jpg
 ---
 Ser programador no se limita a escribir código. Hay un conjunto de

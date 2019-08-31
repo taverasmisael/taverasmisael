@@ -4,7 +4,7 @@ date: '2019-08-04'
 description: Una lista de extensiones que uso en visual studio code para facilitar mi desarrollo
 author: Misael Taveras
 tags: ["Lista", "VSCode", "Recomendación"]
-keywords: vscode, extensions, extensiones, visual studio code, recomendaciones
+status: published
 banner: ./media/banner.jpg
 ---
 

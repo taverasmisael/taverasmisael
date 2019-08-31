@@ -4,7 +4,7 @@ date: '2019-07-31'
 description: A pesar de ser algo que he querido hacer por mucho tiempo nunca había dado el paso completo. Aquí te cuento por qué decidí dar ese paso hoy
 author: Misael Taveras
 tags: ["Noticia", "Personal"]
-keywords: taverasmisael, blog, gatsby, 30 days of code, first post, story, React, Javascript
+status: published
 banner: ./media/banner.jpg
 ---
 

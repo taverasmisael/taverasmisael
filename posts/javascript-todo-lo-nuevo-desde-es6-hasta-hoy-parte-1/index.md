@@ -4,7 +4,7 @@ date: '2019-08-24'
 description: Todo lo que ha sido añadido al lenguaje desde 2015. Con ejemplos desde ES6 y ES7
 author: Misael Taveras
 tags: ['JavaScript', 'Ejemplos', 'ES6']
-keywords: es6, es8, es7, JavaScript, novedades JavaScript, JavaScript moderno, ejemplos es6, arrow function, promises, arrow function, spread, rest, es2016
+status: published
 banner: ./media/banner.jpg
 redirect_from:
   - /blog/javascript-todo-lo-nuevo-desde-es6-hasta-hoy/
