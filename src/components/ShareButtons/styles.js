@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
 
   link: {
     width: 'auto',
+    cursor: 'pointer',
 
     '&+&': {
       marginLeft: theme.spacing(2),
