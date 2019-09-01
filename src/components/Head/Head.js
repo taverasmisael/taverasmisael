@@ -19,7 +19,9 @@ const Head = memo(({ title, description, metaImage, path, isPost }) => {
     }
   `)
 
-  const pageTitle = `${title || 'Inicio'} | ${siteMetadata.title}`
+  const pageTitle = title
+    ? `${title} | ${siteMetadata.title}`
+    : siteMetadata.title
   const pageDescription = description || siteMetadata.description
   const pageImage = `${siteMetadata.siteUrl}${metaImage || '/metaimage.png'}`
   return (

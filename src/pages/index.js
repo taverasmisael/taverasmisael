@@ -7,7 +7,7 @@ import GeneralLayout from '../layouts/general'
 import Grid from '@material-ui/core/Grid'
 
 const HomePage = memo(({ data }) => (
-  <GeneralLayout headProps={{ title: 'Blog' }}>
+  <GeneralLayout>
     <Container maxWidth="md">
       <Grid container spacing={2}>
         {data.allMdx.nodes.map(entry => (
