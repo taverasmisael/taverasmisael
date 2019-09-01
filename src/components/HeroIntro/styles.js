@@ -11,8 +11,8 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     textAlign: 'center',
-    minHeight: '25vh',
-    padding: theme.spacing(1, 2),
+    minHeight: '35vh',
+    padding: theme.spacing(3, 2),
   },
 
   title: {
