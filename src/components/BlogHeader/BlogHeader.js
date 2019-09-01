@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import classnames from 'classnames'
 import { Link } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import MaterialLink from '@material-ui/core/Link'
@@ -29,18 +30,26 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const BlogHeader = memo(
-  ({ date, title, tags = [], variant, component, titleLink }) => {
+  ({
+    date,
+    title,
+    tags = [],
+    variant,
+    component,
+    titleLink,
+    classes: propClasses = {},
+  }) => {
     const classes = useStyles()
 
     return (
-      <header>
+      <header className={classnames(propClasses.container)}>
         <Typography
           variant="caption"
           color="textSecondary"
-          className={classes.metadata}
+          className={classnames(classes.metadata, propClasses.metadata)}
         >
           Publicado el {date}
-          {tags.length && (
+          {!!tags.length && (
             <>
               <span className={classes.divider} />
               <TagsList tags={tags} />
@@ -51,6 +60,7 @@ const BlogHeader = memo(
           gutterBottom
           variant={variant || 'h1'}
           component={component}
+          className={classnames(propClasses.title)}
         >
           {titleLink ? (
             <MaterialLink component={Link} to={titleLink} color="textPrimary">

@@ -36,6 +36,7 @@ function Header({ noGutterBottom }) {
             </Link>
           </Typography>
           <nav className={classes.nav}>
+            <NavLink to="/blog">Blog</NavLink>
             <NavLink
               color="secondary"
               variant="contained"

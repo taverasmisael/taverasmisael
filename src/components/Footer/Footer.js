@@ -38,7 +38,7 @@ const Footer = memo(() => {
         </div>
         <div>
           <Typography gutterBottom variant="h5" component="h6">
-            Hola, soy Misael
+            Hola, soy Misael Taveras
           </Typography>
           <Typography
             variant="body2"

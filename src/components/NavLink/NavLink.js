@@ -17,6 +17,7 @@ const NavLink = memo(
         variant={variant}
         type="button"
         className={classes.root}
+        activeClassName={classes.activeLink}
         component={to ? Link : undefined}
         to={to}
         {...props}
