@@ -3,7 +3,10 @@ import { makeStyles } from '@material-ui/core/styles'
 export const useStyles = makeStyles(theme => ({
   root: {
     alignItems: 'center',
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor:
+      theme.mode === 'dark'
+        ? theme.palette.background.paper
+        : theme.palette.primary.dark,
     color: theme.palette.primary.contrastText,
     display: 'flex',
     justifyContent: 'center',
