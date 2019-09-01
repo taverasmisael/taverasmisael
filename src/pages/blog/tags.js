@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
 import { Link, graphql } from 'gatsby'
-import { normalizeTag } from '../utils/normalizer'
+import { normalizeTag } from '../../utils/normalizer'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import ListItemText from '@material-ui/core/ListItemText'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-import GeneralLayout from '../layouts/general'
+import GeneralLayout from '../../layouts/general'
 
 const TagsPage = memo(({ data }) => (
   <GeneralLayout
