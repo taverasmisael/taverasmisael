@@ -4,6 +4,7 @@ import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
+import MaterialLink from '@material-ui/core/Link'
 
 import { Link } from 'gatsby'
 
@@ -16,11 +17,17 @@ const MobileMenu = memo(({ DarkModeIcon, toggleDarkMode }) => {
     <nav className={classes.mobileNav}>
       <div className={classes.toolbar} />
       <List className={classes.mobileMenu}>
-        <ListItem selected button component={Link} to="/blog">
+        <ListItem
+          button
+          component={Link}
+          activeClassName={classes.activeLink}
+          to="/blog"
+        >
           <ListItemText primary="Blog" />
         </ListItem>
         <ListItem
           button
+          component={MaterialLink}
           target="__blank"
           href="https://twitter.com/taverasmisael"
         >

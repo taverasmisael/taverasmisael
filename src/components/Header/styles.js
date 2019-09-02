@@ -8,6 +8,13 @@ export const useStyles = noGutterBottom =>
       ...theme.mixins.toolbar,
       padding: 0,
     },
+    activeLink: {
+      backgroundColor: 'rgba(0, 0, 0, 0.25)',
+
+      '&:hover': {
+        backgroundColor: 'rgba(0, 0, 0, 0.25)',
+      },
+    },
     menuButton: {
       marginRight: theme.spacing(2),
       [theme.breakpoints.up('sm')]: {
