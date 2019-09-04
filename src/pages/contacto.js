@@ -41,12 +41,7 @@ const ContactPage = memo(() => {
           posible.
         </Typography>
 
-        <form
-          action="/contacto-exito/"
-          name="contact"
-          method="POST"
-          data-netlify="true"
-        >
+        <form name="contact" method="POST" data-netlify="true">
           <TextField
             fullWidth
             required
