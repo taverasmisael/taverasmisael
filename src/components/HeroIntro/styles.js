@@ -19,6 +19,10 @@ export const useStyles = makeStyles(theme => ({
     marginTop: 0,
   },
 
+  contrastColor: {
+    color: theme.palette.primary.contrastText,
+  },
+
   content: {
     maxWidth: '60%',
     margin: '0 auto',

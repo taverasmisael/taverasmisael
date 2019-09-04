@@ -7,6 +7,7 @@ export const useStyles = makeStyles(theme => ({
     gridTemplateRows: 200,
     marginBottom: theme.spacing(2),
     minWidth: 275,
+    textAlign: 'left',
 
     [theme.breakpoints.down('xs')]: {
       display: 'block',
