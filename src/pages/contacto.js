@@ -41,7 +41,19 @@ const ContactPage = memo(() => {
           posible.
         </Typography>
 
-        <form name="contact" method="POST" data-netlify="true">
+        <form
+          action="/contacto-exito/"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label>
+              Prefieres que hablemos por fax (ignorame si eres humano y me
+              encontraste ;) ): <input name="got-the-honey" />
+            </label>
+          </p>
           <TextField
             fullWidth
             required
