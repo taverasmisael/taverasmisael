@@ -42,7 +42,7 @@ const ContactPage = memo(() => {
         </Typography>
 
         <form
-          action="/contacto-exito"
+          action="/contacto-exito/"
           netlify-honeypot="got-the-honey"
           name="contact"
           method="POST"
