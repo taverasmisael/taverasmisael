@@ -43,17 +43,10 @@ const ContactPage = memo(() => {
 
         <form
           action="/contacto-exito/"
-          netlify-honeypot="got-the-honey"
           name="contact"
           method="POST"
           data-netlify="true"
         >
-          <p class="hidden">
-            <label>
-              Prefieres que hablemos por fax (ignorame si eres humano y me
-              encontraste ;) ): <input name="got-the-honey" />
-            </label>
-          </p>
           <TextField
             fullWidth
             required
