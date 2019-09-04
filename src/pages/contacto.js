@@ -44,6 +44,7 @@ const ContactPage = memo(() => {
         <form
           action="/contacto-exito/"
           name="contact"
+          netlify-honeypot="got-the-honey"
           method="POST"
           data-netlify="true"
         >
