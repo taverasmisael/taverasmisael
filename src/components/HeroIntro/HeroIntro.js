@@ -6,7 +6,7 @@ import { useStyles } from './styles'
 const HeroIntro = memo(() => {
   const classes = useStyles()
   return (
-    <section spacing={2} className={classes.root}>
+    <section className={classes.root}>
       <div className={classes.content}>
         <Typography
           gutterBottom
