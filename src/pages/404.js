@@ -14,7 +14,10 @@ const NotFoundPage = memo(({ data }) => {
   const entry = data.allMdx.nodes[0]
 
   return (
-    <GeneralLayout noGutterBottom>
+    <GeneralLayout
+      noGutterBottom
+      headProps={{ title: 'No se ha encontrado lo que buscas' }}
+    >
       <Content entry={entry} />
     </GeneralLayout>
   )
@@ -27,11 +30,11 @@ function Content({ entry }) {
       <section className={classes.root}>
         <div className={classes.content}>
           <Typography component="h1" variant="h3" gutterBottom>
-            Lo que buscabas no está
+            Lo que buscas no está aquí
           </Typography>
           <Typography variant="overline" component="h2" gutterBottom>
-            Es posible que la página se hay movido, no se haya creado o
-            simplemente no esté en esta dimensión.
+            Es posible que la página se haya movido, no se haya creado o
+            simplemente no exista en esta dimensión.
           </Typography>
           <Typography>
             Mientras, puedes{' '}
