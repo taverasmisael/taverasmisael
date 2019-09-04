@@ -45,7 +45,10 @@ module.exports = {
       resolve: 'gatsby-plugin-nprogress',
       options: { color: '#ed1250', showSpinner: false },
     },
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: { exclude: ['/contacto-exito'] },
+    },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

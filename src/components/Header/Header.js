@@ -74,14 +74,7 @@ function Header({ noGutterBottom }) {
             </Hidden>
             <nav className={classes.nav}>
               <NavLink to="/blog">Blog</NavLink>
-              <NavLink
-                color="secondary"
-                variant="contained"
-                target="__blank"
-                href="https://twitter.com/taverasmisael"
-              >
-                Hablemos
-              </NavLink>
+              <NavLink to="/contacto">Contacto</NavLink>
               <NavLink
                 onClick={toggleDarkMode}
                 component={IconButton}
