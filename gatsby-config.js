@@ -47,7 +47,7 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-sitemap',
-      options: { exclude: '/contacto-exito' },
+      options: { exclude: ['/contacto-exito'] },
     },
     {
       resolve: 'gatsby-plugin-web-font-loader',
