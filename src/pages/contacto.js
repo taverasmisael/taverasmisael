@@ -15,7 +15,7 @@ const ContactPage = memo(() => {
   const [state, setState] = useState({
     name: '',
     email: '',
-    reason: '',
+    reason: 'Consult',
     message: '',
   })
 
@@ -43,10 +43,17 @@ const ContactPage = memo(() => {
 
         <form
           action="/contacto-exito"
+          netlify-honeypot="got-the-honey"
           name="contact"
           method="POST"
           data-netlify="true"
         >
+          <p class="hidden">
+            <label>
+              Prefieres que hablemos por fax (ignorame si eres humano y me
+              encontraste ;) ): <input name="got-the-honey" />
+            </label>
+          </p>
           <TextField
             fullWidth
             required
@@ -73,10 +80,11 @@ const ContactPage = memo(() => {
           <FormControl margin="normal" fullWidth variant="filled">
             <InputLabel htmlFor="reason">Razón del mensaje</InputLabel>
             <Select
+              required
               onChange={handleChange}
               value={state.reason}
               name="reason"
-              input={<FilledInput name="reason" id="reason" />}
+              input={<FilledInput required name="reason" id="reason" />}
             >
               <MenuItem value="Inquire">Negocios</MenuItem>
               <MenuItem value="Help">Ayuda / Pregunta</MenuItem>
