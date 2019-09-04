@@ -35,9 +35,9 @@ const ContactPage = memo(() => {
           <code>taverasmisael</code>.
         </Typography>
         <Typography variant="subtitle1" component="p" gutterBottom>
-          Si deseas hablar de forma más personal, tienes algun proyecto en el
+          Si deseas hablar de forma más personal, tienes algún proyecto en el
           que desees incluirme o solo quieres decir hola, completa el siguiente
-          formulario y me estareé contactando contigo tan pronto como me sea
+          formulario y me estaré contactando contigo tan pronto como me sea
           posible.
         </Typography>
 
