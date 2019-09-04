@@ -48,6 +48,11 @@ const MainTheme = {
         backgroundColor: 'rgba(0,0,0, 0.45)',
       },
     },
+    MuiFilledInput: {
+      root: {
+        backgroundColor: 'rgba(158, 158, 158, 0.09)',
+      },
+    },
     MuiTypography: {
       caption: { marginTop: '2em' },
       h2: { marginTop: '1.35em' },
@@ -83,6 +88,11 @@ const SecondaryTheme = merge(MainTheme, {
       h2: { marginTop: '1.35em' },
       h3: { marginTop: '1em' },
       h4: { marginTop: '1em' },
+    },
+    MuiFilledInput: {
+      root: {
+        backgroundColor: '#181827',
+      },
     },
     MuiDivider: {
       root: {

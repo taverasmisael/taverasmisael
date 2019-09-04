@@ -27,9 +27,9 @@ const MobileMenu = memo(({ DarkModeIcon, toggleDarkMode }) => {
         </ListItem>
         <ListItem
           button
-          component={MaterialLink}
-          target="__blank"
-          href="https://twitter.com/taverasmisael"
+          component={Link}
+          activeClassName={classes.activeLink}
+          to="/contacto"
         >
           <ListItemText primary="Contacto" />
         </ListItem>
