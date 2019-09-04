@@ -73,7 +73,9 @@ function Header({ noGutterBottom }) {
               </Drawer>
             </Hidden>
             <nav className={classes.nav}>
-              <NavLink to="/blog">Blog</NavLink>
+              <NavLink to="/blog" partiallyActive>
+                Blog
+              </NavLink>
               <NavLink to="/contacto">Contacto</NavLink>
               <NavLink
                 onClick={toggleDarkMode}
