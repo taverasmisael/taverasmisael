@@ -76,13 +76,19 @@ h2>span {
 
 @media (min-width: 960px) {
   .MuiContainer-maxWidthMd {
-    max-width: 780px!important;
-    max-width: 80ch!important;
+    max-width: 800px!important;
+    max-width: 85ch!important;
   }
   header .MuiContainer-maxWidthMd {
     max-width: 980px !important;
   }
-} 
+}
+
+@media (max-width: 960px) {
+  article.MuiContainer-root {
+    width: calc(100% - 1em);
+  }
+}
 
 article p.MuiTypography-gutterBottom,
 article hr.MuiDivider-root {
@@ -109,4 +115,8 @@ pre {
 }
 .MuiTypography-caption.close-caption {
   margin-top: 0.5rem;
+}
+
+.MuiTypography-caption.close-caption > p {
+  margin-top: 0;
 }
