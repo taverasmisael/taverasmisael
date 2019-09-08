@@ -94,7 +94,7 @@ Es parecido al anterior, pero este para la indentación nos ayuda a identificar 
 
 [Ver en el marketplace][IndentRainbow]
 
-*******
+##  Conclusión
 
 Esto termina nuestra lista de 8 extensiones que para mi son esenciales en VSCode, más dos extras. Si viste alguna extensión o si usas una que crees que debió estar en la lista déjame saber y así puedo agregarla a mi lista de esenciales. En otro post hablaré de mis temas e iconos favoritos, ando probando varios.
 
