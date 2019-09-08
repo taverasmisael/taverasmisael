@@ -56,8 +56,11 @@ export const pageQuery = graphql`
         description
         banner {
           childImageSharp {
-            fluid(maxWidth: 960) {
-              ...GatsbyImageSharpFluid
+            fluid(
+              maxWidth: 960
+              traceSVG: { color: "#f04173", background: "#535c81" }
+            ) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

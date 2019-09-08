@@ -56,8 +56,11 @@ export const pageQuery = graphql`
           date(formatString: "DD [de] MMMM YYYY", locale: "es")
           banner {
             childImageSharp {
-              fluid(maxWidth: 960) {
-                ...GatsbyImageSharpFluid
+              fluid(
+                maxWidth: 960
+                traceSVG: { color: "#f04173", background: "#535c81" }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
           }
