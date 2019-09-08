@@ -32,7 +32,7 @@ export const DarkModeProvider = memo(({ children }) => {
     localStorage.setItem('darkMode', dark)
     setDarkMode(dark)
   }, [darkMode, setDarkMode])
-
+  console.log(LightTheme)
   return (
     <DarkModeContext.Provider value={{ darkMode, toggle }}>
       <MuiThemeProvider theme={darkMode ? DarkTheme : LightTheme}>

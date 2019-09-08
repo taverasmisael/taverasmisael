@@ -18,8 +18,11 @@ const Footer = memo(() => {
       }
       file(relativePath: { eq: "me.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 128) {
-            ...GatsbyImageSharpFluid
+          fluid(
+            maxWidth: 128
+            traceSVG: { color: "#f04173", background: "#535c81" }
+          ) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
