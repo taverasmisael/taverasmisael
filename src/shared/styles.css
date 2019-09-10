@@ -127,3 +127,22 @@ pre {
 .footer-tags {
   margin-top: 2em;
 }
+
+.vscode-highlight {
+  counter-reset: line;
+}
+
+.vscode-highlight-line::before {
+  counter-increment: line;
+  content: counter(line);
+  color: rgba(100, 100, 100, 0.5);
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+pre + .MuiTypography-caption.close-caption {
+  margin-top: -1.8rem;
+}
