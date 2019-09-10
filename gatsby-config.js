@@ -99,6 +99,8 @@ module.exports = {
             options: {
               maxWidth: 960,
               linkImagesToOriginal: false,
+              withWebp: true,
+              traceSVG: { color: 'transparent', background: '#535c81' },
             },
           },
         ],
