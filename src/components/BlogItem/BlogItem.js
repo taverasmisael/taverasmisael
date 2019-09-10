@@ -29,6 +29,7 @@ const BlogItem = memo(({ item }) => {
           variant="h5"
           component="h2"
           titleLink={entryLink}
+          timeToRead={item.timeToRead}
           date={item.frontmatter.date}
           title={item.frontmatter.title}
           tags={item.frontmatter.tags}

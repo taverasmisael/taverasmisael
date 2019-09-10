@@ -10,11 +10,22 @@ const useStyles = makeStyles(theme => ({
   root: {
     listStyle: 'none',
     margin: '0!important',
+
+    [theme.breakpoints.down('xs')]: {
+      display: 'grid',
+      gridGap: theme.spacing(1),
+    },
   },
 
   item: {
     display: 'inline-block',
-    margin: theme.spacing(0, 1),
+
+    '&+&': {
+      marginLeft: theme.spacing(1),
+      [theme.breakpoints.down('xs')]: {
+        margin: 0,
+      },
+    },
   },
 
   link: {
@@ -41,7 +52,6 @@ TagsList.displayName = 'TagsList'
 
 const Tag = memo(({ tag, ...props }) => (
   <Chip
-    variant="outlined"
     to={`/blog/tags/${normalizeTag(tag)}`}
     component={Link}
     label={tag}

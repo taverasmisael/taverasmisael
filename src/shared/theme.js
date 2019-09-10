@@ -48,6 +48,12 @@ const MainTheme = {
         backgroundColor: 'rgba(0,0,0, 0.45)',
       },
     },
+    MuiChip: {
+      root: {
+        borderRadius: 4,
+        backgroundColor: 'rgba(230, 230, 230, 0.8)',
+      },
+    },
     MuiFilledInput: {
       root: {
         backgroundColor: 'rgba(158, 158, 158, 0.09)',
@@ -83,6 +89,12 @@ const SecondaryTheme = merge(MainTheme, {
   },
   mode: 'dark',
   overrides: {
+    MuiChip: {
+      root: {
+        borderRadius: 4,
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+      },
+    },
     MuiTypography: {
       caption: { marginTop: '2em' },
       h2: { marginTop: '1.35em' },

@@ -1,3 +1,4 @@
+import classnames from 'classnames'
 import React, { memo } from 'react'
 import Typography from '@material-ui/core/Typography'
 import GithubSlugger from 'github-slugger'
@@ -9,12 +10,13 @@ const makeSafeId = obj => {
   return slugger.slug(debur(obj.toString()))
 }
 
-const Caption = memo(({ children, ...props }) => (
+const Caption = memo(({ children, footNote, className, ...props }) => (
   <Typography
-    id={`caption-${makeSafeId(children)}`}
+    id={`caption-${footNote || makeSafeId(children)}`}
     variant="caption"
     color="primary"
-    component="h6"
+    component="div"
+    className={classnames({ 'close-caption': footNote }, className)}
     {...props}
   >
     {children}
