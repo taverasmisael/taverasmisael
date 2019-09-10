@@ -37,6 +37,7 @@ const BlogHeader = memo(
     variant,
     component,
     titleLink,
+    timeToRead,
     classes: propClasses = {},
   }) => {
     const classes = useStyles()
@@ -53,6 +54,12 @@ const BlogHeader = memo(
             <>
               <span className={classes.divider} />
               <TagsList tags={tags} />
+            </>
+          )}
+          {!!timeToRead && (
+            <>
+              <span className={classes.divider} />
+              <span>{timeToRead} mins.</span>
             </>
           )}
         </Typography>
