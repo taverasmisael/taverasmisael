@@ -120,6 +120,7 @@ pre {
 }
 
 .MuiTypography-caption.close-caption > p {
+  font-size: 1rem;
   margin-top: 0;
 }
 

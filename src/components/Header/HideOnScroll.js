@@ -6,7 +6,6 @@ const HideOnScroll = memo(props => {
   const { children } = props
 
   const trigger = useScrollTrigger({ threshold: 300 })
-  console.log(trigger)
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       {children}
