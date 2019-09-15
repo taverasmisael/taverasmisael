@@ -11,9 +11,6 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2, 0),
     padding: theme.spacing(2),
 
-    '&>*': {
-      fontStyle: 'italic',
-    },
     '&>p.MuiTypography-gutterBottom': {
       marginBottom: 0,
       marginTop: 0,
