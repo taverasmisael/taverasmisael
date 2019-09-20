@@ -49,26 +49,7 @@ export const pageQuery = graphql`
       }
     ) {
       nodes {
-        id
-        frontmatter {
-          title
-          tags
-          date(formatString: "DD [de] MMMM YYYY", locale: "es")
-          banner {
-            childImageSharp {
-              fluid(
-                maxWidth: 960
-                traceSVG: { color: "#f04173", background: "#535c81" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
-            }
-          }
-        }
-        excerpt(pruneLength: 300)
-        fields {
-          slug
-        }
+        ...BlogPostNode
       }
     }
   }

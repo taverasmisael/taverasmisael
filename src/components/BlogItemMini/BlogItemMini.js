@@ -42,7 +42,7 @@ const BlogItemMini = memo(({ item }) => {
           classes={HEADER_CLASSES}
         />
         <Typography variant="body2" component="p" className={classes.excerpt}>
-          {item.excerpt}
+          {item.shortExcerpt || item.excerpt}
         </Typography>
       </CardContent>
       <CardActions className={classes.actions}>

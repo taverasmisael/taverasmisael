@@ -52,24 +52,7 @@ export default BlogEntry
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
     mdx(id: { eq: $id }) {
-      id
-      frontmatter {
-        title
-        date(formatString: "DD [de] MMMM YYYY", locale: "es")
-        tags
-        description
-        banner {
-          childImageSharp {
-            fluid(
-              maxWidth: 960
-              traceSVG: { color: "#f04173", background: "#535c81" }
-            ) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-        }
-      }
-      excerpt(pruneLength: 300)
+      ...BlogPostNode
       body
     }
   }

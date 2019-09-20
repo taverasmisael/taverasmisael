@@ -42,32 +42,7 @@ export const query = graphql`
       filter: { frontmatter: { status: { eq: "published" } } }
     ) {
       nodes {
-        id
-        frontmatter {
-          title
-          date(formatString: "DD [de] MMMM YYYY", locale: "es")
-          banner {
-            childImageSharp {
-              fixed(
-                width: 200
-                height: 200
-                traceSVG: { color: "#f04173", background: "#535c81" }
-              ) {
-                ...GatsbyImageSharpFixed_withWebp_tracedSVG
-              }
-              fluid(
-                maxWidth: 620
-                traceSVG: { color: "#f04173", background: "#535c81" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
-            }
-          }
-        }
-        excerpt(pruneLength: 100)
-        fields {
-          slug
-        }
+        ...BlogPostNode
       }
     }
   }
