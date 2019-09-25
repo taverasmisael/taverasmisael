@@ -11,7 +11,7 @@ import ShareButtons from '../components/ShareButtons'
 import TagsList from '../components/TagsList'
 
 const BlogEntry = memo(({ data: { mdx }, path }) => {
-  const { frontmatter, body } = mdx
+  const { frontmatter, body, timeToRead } = mdx
   return (
     <GeneralLayout
       headProps={{
@@ -22,24 +22,30 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
         metaImage: frontmatter.banner.childImageSharp.fluid.src,
       }}
     >
-      <Container maxWidth="md" component="article">
+      <Container maxWidth="md" component="article" className="real-width">
+        <BlogHeader
+          date={frontmatter.date}
+          title={frontmatter.title}
+          timeToRead={timeToRead}
+        />
         <HeroImage
           gutterBottom
           fluid={frontmatter.banner.childImageSharp.fluid}
         />
-        <BlogHeader date={frontmatter.date} title={frontmatter.title} />
-        <MDXRenderer>{body}</MDXRenderer>
+        <Container maxWidth="md" component="section">
+          <MDXRenderer>{body}</MDXRenderer>
 
-        <Grid container className="footer-tags">
-          <Grid item xs={10}>
-            <TagsList tags={frontmatter.tags || []} />
+          <Grid container className="footer-tags">
+            <Grid item xs={10}>
+              <TagsList tags={frontmatter.tags || []} />
+            </Grid>
           </Grid>
-        </Grid>
-        <ShareButtons
-          url={path}
-          title={frontmatter.title}
-          text={frontmatter.description}
-        />
+          <ShareButtons
+            url={path}
+            title={frontmatter.title}
+            text={frontmatter.description}
+          />
+        </Container>
       </Container>
     </GeneralLayout>
   )
@@ -54,6 +60,7 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       ...BlogPostNode
       body
+      timeToRead
     }
   }
 `

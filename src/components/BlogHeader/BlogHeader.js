@@ -45,6 +45,20 @@ const BlogHeader = memo(
     return (
       <header className={classnames(propClasses.container)}>
         <Typography
+          gutterBottom
+          variant={variant || 'h1'}
+          component={component}
+          className={classnames(propClasses.title)}
+        >
+          {titleLink ? (
+            <MaterialLink component={Link} to={titleLink} color="textPrimary">
+              {title}
+            </MaterialLink>
+          ) : (
+            title
+          )}
+        </Typography>
+        <Typography
           variant="caption"
           color="textSecondary"
           className={classnames(classes.metadata, propClasses.metadata)}
@@ -61,20 +75,6 @@ const BlogHeader = memo(
               <span className={classes.divider} />
               <span>{timeToRead} mins.</span>
             </>
-          )}
-        </Typography>
-        <Typography
-          gutterBottom
-          variant={variant || 'h1'}
-          component={component}
-          className={classnames(propClasses.title)}
-        >
-          {titleLink ? (
-            <MaterialLink component={Link} to={titleLink} color="textPrimary">
-              {title}
-            </MaterialLink>
-          ) : (
-            title
           )}
         </Typography>
       </header>

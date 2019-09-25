@@ -37,7 +37,7 @@ function Header({ noGutterBottom }) {
   return (
     <HideOnScroll>
       <AppBar position="sticky" className={classes.root}>
-        <Container maxWidth="md">
+        <Container maxWidth="md" className="real-width">
           <Toolbar className={classes.toolbar}>
             <IconButton
               color="inherit"
