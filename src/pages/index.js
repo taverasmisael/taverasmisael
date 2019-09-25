@@ -39,7 +39,10 @@ export const query = graphql`
     allMdx(
       limit: 2
       sort: { fields: frontmatter___date, order: DESC }
-      filter: { frontmatter: { status: { eq: "published" } } }
+      filter: {
+        frontmatter: { status: { eq: "published" } }
+        fileAbsolutePath: { regex: "//posts//" }
+      }
     ) {
       nodes {
         ...BlogPostNode
