@@ -32,7 +32,7 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
 
         <Grid container className="footer-tags">
           <Grid item xs={10}>
-            <TagsList tags={frontmatter.tags} />
+            <TagsList tags={frontmatter.tags || []} />
           </Grid>
         </Grid>
         <ShareButtons
