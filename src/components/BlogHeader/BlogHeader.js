@@ -45,7 +45,6 @@ const BlogHeader = memo(
     return (
       <header className={classnames(propClasses.container)}>
         <Typography
-          gutterBottom
           variant={variant || 'h1'}
           component={component}
           className={classnames(propClasses.title)}

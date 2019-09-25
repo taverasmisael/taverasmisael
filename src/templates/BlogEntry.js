@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import { graphql } from 'gatsby'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import GeneralLayout from '../layouts/general'
@@ -22,7 +23,7 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
         metaImage: frontmatter.banner.childImageSharp.fluid.src,
       }}
     >
-      <Container maxWidth="md" component="article" className="real-width">
+      <Container maxWidth="md" className="real-width">
         <BlogHeader
           date={frontmatter.date}
           title={frontmatter.title}
@@ -32,19 +33,25 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
           gutterBottom
           fluid={frontmatter.banner.childImageSharp.fluid}
         />
-        <Container maxWidth="md" component="section">
-          <MDXRenderer>{body}</MDXRenderer>
 
-          <Grid container className="footer-tags">
-            <Grid item xs={10}>
+        <MDXRenderer>{body}</MDXRenderer>
+
+        <Container maxWidth="md">
+          <Grid container>
+            <Grid item xs={12} md={7}>
+              <ShareButtons
+                url={path}
+                title={frontmatter.title}
+                text={frontmatter.description}
+              />
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <Typography variant="subtitle1" style={{ paddingBottom: '8px' }}>
+                Etiquetas
+              </Typography>
               <TagsList tags={frontmatter.tags || []} />
             </Grid>
           </Grid>
-          <ShareButtons
-            url={path}
-            title={frontmatter.title}
-            text={frontmatter.description}
-          />
         </Container>
       </Container>
     </GeneralLayout>
