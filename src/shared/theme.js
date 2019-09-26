@@ -23,10 +23,10 @@ const MainTheme = {
     fontSize: 16,
     body1: { lineHeight: 1.75 },
     h1: { fontFamily: bodyFontFamily, fontSize: 3.25, lineHeight: 1.15 },
-    h2: { fontFamily: headingFontFamily, fontSize: 7.75, lineHeight: 1.25 },
+    h2: { fontFamily: headingFontFamily, fontSize: 2.75, lineHeight: 1.25 },
     h3: { fontFamily: headingFontFamily, fontSize: 2.5, lineHeight: 1.35 },
     h4: { fontFamily: headingFontFamily, fontSize: 1.75, lineHeight: 1.45 },
-    h5: { fontFamily: headingFontFamily, fontSize: 1.25, lineHeight: 1.5 },
+    h5: { fontFamily: headingFontFamily, fontSize: 1.5, lineHeight: 1.5 },
     button: { fontWeight: '500' },
   },
 
@@ -59,10 +59,11 @@ const MainTheme = {
       },
     },
     MuiTypography: {
-      caption: { marginTop: '1.5em', marginBottom: '0' },
-      h2: { marginTop: '1.35em', marginBottom: '0' },
-      h3: { marginTop: '1em', marginBottom: '0' },
-      h4: { marginTop: '1em', marginBottom: '0' },
+      gutterBottom: { marginBottom: '1.75rem' },
+      caption: { marginTop: '1.5em', marginBottom: '0.25em' },
+      h2: { marginTop: '1.35em', marginBottom: '0.25em' },
+      h3: { marginTop: '1em', marginBottom: '0.25em' },
+      h4: { marginTop: '1em', marginBottom: '0.25em' },
     },
   },
 }
@@ -95,10 +96,11 @@ const SecondaryTheme = merge(MainTheme, {
       },
     },
     MuiTypography: {
-      caption: { marginTop: '1.5em', marginBottom: '0' },
-      h2: { marginTop: '1.35em', marginBottom: '0' },
-      h3: { marginTop: '1em', marginBottom: '0' },
-      h4: { marginTop: '1em', marginBottom: '0' },
+      gutterBottom: { marginBottom: '1.75rem' },
+      caption: { marginTop: '1.5em', marginBottom: '0.25em' },
+      h2: { marginTop: '1.35em', marginBottom: '0.25em' },
+      h3: { marginTop: '1em', marginBottom: '0.25em' },
+      h4: { marginTop: '1em', marginBottom: '0.25em' },
     },
     MuiFilledInput: {
       root: {
@@ -114,7 +116,7 @@ const SecondaryTheme = merge(MainTheme, {
 })
 
 const createResponsiveFontTheme = compose(
-  theme => responsiveFontSizes(theme, { factor: 4 }),
+  theme => responsiveFontSizes(theme, { factor: 3 }),
   createMuiTheme
 )
 

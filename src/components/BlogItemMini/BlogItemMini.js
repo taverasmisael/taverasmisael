@@ -6,6 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
 import Button from '@material-ui/core/Button'
+import classnames from 'classnames'
 import { useStyles } from './styles'
 import Img from 'gatsby-image'
 
@@ -17,7 +18,10 @@ const BlogItemMini = memo(({ item }) => {
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.mediaFixed}>
-        <Link to={entryLink} className="link--no-style">
+        <Link
+          to={entryLink}
+          className={classnames(classes.mediaLink, 'link--no-style')}
+        >
           <Img
             fixed={item.frontmatter.banner.childImageSharp.fixed}
             alt={item.frontmatter.title}

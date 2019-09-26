@@ -14,6 +14,10 @@ export const useStyles = makeStyles(theme => ({
     },
   },
 
+  mediaLink: {
+    display: 'block',
+  },
+
   excerpt: {
     fontSize: 18,
   },
