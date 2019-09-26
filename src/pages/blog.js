@@ -36,7 +36,7 @@ export const query = graphql`
         frontmatter {
           banner {
             childImageSharp {
-              ...BlogBannerFluidMax
+              ...ImageSharpFluidMax
             }
           }
         }

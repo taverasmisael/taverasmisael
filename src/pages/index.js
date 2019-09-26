@@ -49,8 +49,8 @@ export const query = graphql`
         frontmatter {
           banner {
             childImageSharp {
-              ...BlogBannerFluidMin
-              ...BlogBannerFixed200
+              ...ImageSharpFluidMin
+              ...ImageSharpFixed200
             }
           }
         }

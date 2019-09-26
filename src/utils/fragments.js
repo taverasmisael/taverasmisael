@@ -16,8 +16,8 @@ export const BlogPostNode = graphql`
   }
 `
 
-export const BlogBannerFluidMax = graphql`
-  fragment BlogBannerFluidMax on ImageSharp {
+export const ImageSharpFluidMax = graphql`
+  fragment ImageSharpFluidMax on ImageSharp {
     fluid(
       maxWidth: 960
       traceSVG: { color: "#f04173", background: "#535c81" }
@@ -26,8 +26,8 @@ export const BlogBannerFluidMax = graphql`
     }
   }
 `
-export const BlogBannerFluidMin = graphql`
-  fragment BlogBannerFluidMin on ImageSharp {
+export const ImageSharpFluidMin = graphql`
+  fragment ImageSharpFluidMin on ImageSharp {
     fluid(
       maxWidth: 480
       traceSVG: { color: "#f04173", background: "#535c81" }
@@ -37,8 +37,8 @@ export const BlogBannerFluidMin = graphql`
   }
 `
 
-export const BlogBannerFixed200 = graphql`
-  fragment BlogBannerFixed200 on ImageSharp {
+export const ImageSharpFixed200 = graphql`
+  fragment ImageSharpFixed200 on ImageSharp {
     fixed(
       width: 200
       height: 200
@@ -49,8 +49,8 @@ export const BlogBannerFixed200 = graphql`
   }
 `
 
-export const BlogBannerFixed100 = graphql`
-  fragment BlogBannerFixed100 on ImageSharp {
+export const ImageSharpFixed100 = graphql`
+  fragment ImageSharpFixed100 on ImageSharp {
     fixed(
       width: 100
       height: 100

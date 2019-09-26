@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { Link, graphql } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
+
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
@@ -8,7 +8,8 @@ import MaterialLink from '@material-ui/core/Link'
 import senteceCase from 'sentence-case'
 
 import GeneralLayout from '../layouts/general'
-import BlogItemMini from '../components/BlogItemMini'
+import SeriesListItem from '../series/components/SeriesListItem'
+import HeroImage from '../components/HeroImage'
 
 const SeriesList = memo(({ pageContext, data, path }) => {
   const { serieSlug } = pageContext
@@ -26,9 +27,10 @@ const SeriesList = memo(({ pageContext, data, path }) => {
         metaImage: sectionImage.childImageSharp.fluid.src,
       }}
     >
-      <BackgroundImage
+      <HeroImage
+        gutterBottom
+        fullWidth
         fluid={sectionImage.childImageSharp.fluid}
-        style={{ height: '45vh', marginBottom: '32px' }}
       />
       <Container maxWidth="md">
         <Grid container>
@@ -53,9 +55,9 @@ const SeriesList = memo(({ pageContext, data, path }) => {
                   Índice
                 </Typography>
               </Grid>
-              {chapters.nodes.map(entry => (
+              {chapters.nodes.map((entry, number) => (
                 <Grid key={entry.id} item xs={12}>
-                  <BlogItemMini item={entry} />
+                  <SeriesListItem item={entry} number={number + 1} />
                 </Grid>
               ))}
             </Grid>
@@ -92,8 +94,8 @@ export const pageQuery = graphql`
         frontmatter {
           banner {
             childImageSharp {
-              ...BlogBannerFixed100
-              ...BlogBannerFluidMin
+              ...ImageSharpFixed100
+              ...ImageSharpFluidMin
             }
           }
         }
@@ -103,7 +105,7 @@ export const pageQuery = graphql`
     sectionImage: file(relativePath: { eq: "sample-section.jpg" }) {
       childImageSharp {
         fluid {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

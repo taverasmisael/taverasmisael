@@ -53,7 +53,7 @@ export const pageQuery = graphql`
         frontmatter {
           banner {
             childImageSharp {
-              ...BlogBannerFluidMax
+              ...ImageSharpFluidMax
             }
           }
         }
