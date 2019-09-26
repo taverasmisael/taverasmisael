@@ -50,6 +50,13 @@ export const pageQuery = graphql`
     ) {
       nodes {
         ...BlogPostNode
+        frontmatter {
+          banner {
+            childImageSharp {
+              ...BlogBannerFluidMax
+            }
+          }
+        }
       }
     }
   }

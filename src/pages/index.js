@@ -46,6 +46,14 @@ export const query = graphql`
     ) {
       nodes {
         ...BlogPostNode
+        frontmatter {
+          banner {
+            childImageSharp {
+              ...BlogBannerFluidMin
+              ...BlogBannerFixed200
+            }
+          }
+        }
       }
     }
   }

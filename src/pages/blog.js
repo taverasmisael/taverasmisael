@@ -33,6 +33,13 @@ export const query = graphql`
     ) {
       nodes {
         ...BlogPostNode
+        frontmatter {
+          banner {
+            childImageSharp {
+              ...BlogBannerFluidMax
+            }
+          }
+        }
       }
     }
   }

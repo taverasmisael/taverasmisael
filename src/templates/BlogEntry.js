@@ -68,6 +68,13 @@ export const pageQuery = graphql`
       ...BlogPostNode
       body
       timeToRead
+      frontmatter {
+        banner {
+          childImageSharp {
+            ...BlogBannerFluidMax
+          }
+        }
+      }
     }
   }
 `
