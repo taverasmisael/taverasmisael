@@ -3,6 +3,7 @@ const siteMetadata = require('./site-metadata.json')
 module.exports = {
   siteMetadata,
   plugins: [
+    'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

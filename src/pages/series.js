@@ -1,11 +1,12 @@
 import React, { memo } from 'react'
 import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import ListItemText from '@material-ui/core/ListItemText'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-import { sentenceCase } from 'change-case'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 
 import GeneralLayout from '../layouts/general'
 
@@ -20,20 +21,21 @@ const SeriesPage = memo(({ data }) => (
     <Container maxWidth="md">
       <Typography variant="h1">Series</Typography>
       <List>
-        {data.series.group.map(serie => (
+        {data.series.nodes.map(serie => (
           <ListItem
             button
             dense
             component={Link}
-            to={`/series/${serie.fieldValue}`}
-            key={serie.fieldValue}
+            to={`/series/${serie.slug}`}
+            key={serie.id}
           >
-            <ListItemText
-              primary={sentenceCase(serie.fieldValue)}
-              secondary={`${serie.totalCount} post${
-                serie.totalCount === 1 ? '' : 's'
-              } en esta serie`}
-            />
+            <ListItemAvatar>
+              <Img
+                fixed={serie.banner.childImageSharp.fixed}
+                className="img--avatar"
+              />
+            </ListItemAvatar>
+            <ListItemText primary={serie.title} secondary={serie.description} />
           </ListItem>
         ))}
       </List>
@@ -46,15 +48,26 @@ export default SeriesPage
 
 export const pageQuery = graphql`
   query {
-    series: allMdx(
-      filter: {
-        fileAbsolutePath: { regex: "//series//" }
-        frontmatter: { status: { eq: "published" } }
-      }
+    series: allSeriesYaml(
+      filter: { status: { eq: "published" } }
+      sort: { fields: date, order: DESC }
     ) {
-      group(field: frontmatter___serie) {
-        fieldValue
-        totalCount
+      nodes {
+        id
+        slug
+        description
+        title
+        banner {
+          childImageSharp {
+            fixed(
+              width: 48
+              height: 48
+              traceSVG: { color: "#f04173", background: "#535c81" }
+            ) {
+              ...GatsbyImageSharpFixed_withWebp_tracedSVG
+            }
+          }
+        }
       }
     }
   }

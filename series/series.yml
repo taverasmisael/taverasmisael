@@ -1,0 +1,8 @@
+- slug: guia-de-javascript
+  title: 'Guia de JavaScript'
+  date: 2019-09-10
+  description: 'Short description for the SEO component in the head of the page'
+  intro_text: 'Bienvenidos a esta guía para aprender Javascript. Durante los próximos capítulos, vamos a estar viendo Javascript como lenguaje, todo lo que podemos hacer con el sin usar librerías, ni frameworks, solo los fundamentos.'
+  banner: './guia-de-javascript/banner-isaque-pereira.jpg'
+  level: 'basic'
+  status: 'published'

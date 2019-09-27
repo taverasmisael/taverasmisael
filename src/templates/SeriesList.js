@@ -79,7 +79,6 @@ export default SeriesList
 export const pageQuery = graphql`
   query($serieSlug: String) {
     chapters: allMdx(
-      limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         fileAbsolutePath: { regex: "//series//" }
@@ -90,8 +89,13 @@ export const pageQuery = graphql`
       }
     ) {
       nodes {
-        ...BlogPostNode
+        id
+        fields {
+          slug
+        }
+        shortExcerpt: excerpt(pruneLength: 150)
         frontmatter {
+          title
           banner {
             childImageSharp {
               ...ImageSharpFixed100
