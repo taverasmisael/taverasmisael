@@ -48,7 +48,7 @@ export default SeriesPage
 
 export const pageQuery = graphql`
   query {
-    series: allSeriesYaml(
+    series: allSeries(
       filter: { status: { eq: "published" } }
       sort: { fields: date, order: DESC }
     ) {

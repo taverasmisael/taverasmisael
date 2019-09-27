@@ -5,48 +5,34 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import MaterialLink from '@material-ui/core/Link'
-import senteceCase from 'sentence-case'
 
 import GeneralLayout from '../layouts/general'
 import SeriesListItem from '../series/components/SeriesListItem'
 import HeroImage from '../components/HeroImage'
 
 const SeriesList = memo(({ pageContext, data, path }) => {
-  const { serieSlug } = pageContext
-  const { chapters, sectionImage } = data
-  const serieName = senteceCase(serieSlug)
+  const { chapters, serieInfo } = data
+  const { title, banner, intro } = serieInfo
+
   return (
     <GeneralLayout
       noGutterBottom
       headProps={{
         path,
         isPost: false,
-        title: `Serie: ${serieName} `,
-        description:
-          'Bienvenidos a esta guía para aprender Javascript. Durante los próximos capítulos, vamos a estar viendo Javascript como lenguaje, todo lo que podemos hacer con el sin usar librerías, ni frameworks, solo los fundamentos. ¿Por qué JavaScript? Desde su invención en 1995, JavaScript fue ganando popularidad, venciendo a los otros lenguajes que en su época eran utilizados en el navegador (Netscape para la fecha).',
-        metaImage: sectionImage.childImageSharp.fluid.src,
+        title: `Serie: ${title} `,
+        description: serieInfo.description,
+        metaImage: banner.childImageSharp.fluid.src,
       }}
     >
-      <HeroImage
-        gutterBottom
-        fullWidth
-        fluid={sectionImage.childImageSharp.fluid}
-      />
+      <HeroImage gutterBottom fullWidth fluid={banner.childImageSharp.fluid} />
       <Container maxWidth="md">
         <Grid container>
           <Grid item xs={12}>
             <Typography gutterBottom variant="h1">
-              {serieName}
+              {title}
             </Typography>
-            <Typography>
-              Bienvenidos a esta guía para aprender Javascript. Durante los
-              próximos capítulos, vamos a estar viendo Javascript como lenguaje,
-              todo lo que podemos hacer con el sin usar librerías, ni
-              frameworks, solo los fundamentos. ¿Por qué JavaScript? Desde su
-              invención en 1995, JavaScript fue ganando popularidad, venciendo a
-              los otros lenguajes que en su época eran utilizados en el
-              navegador (Netscape para la fecha).
-            </Typography>
+            <Typography>{intro}</Typography>
           </Grid>
           <Grid item xs={12}>
             <Grid container>
@@ -55,9 +41,12 @@ const SeriesList = memo(({ pageContext, data, path }) => {
                   Índice
                 </Typography>
               </Grid>
-              {chapters.nodes.map((entry, number) => (
+              {chapters.nodes.map(entry => (
                 <Grid key={entry.id} item xs={12}>
-                  <SeriesListItem item={entry} number={number + 1} />
+                  <SeriesListItem
+                    item={entry}
+                    number={entry.frontmatter.chapter}
+                  />
                 </Grid>
               ))}
             </Grid>
@@ -79,7 +68,7 @@ export default SeriesList
 export const pageQuery = graphql`
   query($serieSlug: String) {
     chapters: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___chapter] }
       filter: {
         fileAbsolutePath: { regex: "//series//" }
         frontmatter: {
@@ -96,11 +85,26 @@ export const pageQuery = graphql`
         shortExcerpt: excerpt(pruneLength: 150)
         frontmatter {
           title
+          chapter
           banner {
             childImageSharp {
               ...ImageSharpFixed100
               ...ImageSharpFluidMin
             }
+          }
+        }
+      }
+    }
+
+    serieInfo: series(slug: { eq: $serieSlug }) {
+      id
+      description
+      intro
+      title
+      banner {
+        childImageSharp {
+          fluid(traceSVG: { color: "#f04173", background: "#535c81" }) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
