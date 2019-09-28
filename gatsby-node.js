@@ -6,6 +6,7 @@ const TEMPLATES = {
   blog: path.resolve('./src/templates/BlogEntry.js'),
   tags: path.resolve('./src/templates/TagsList.js'),
   series: path.resolve('./src/templates/SeriesList.js'),
+  chapter: path.resolve('./src/templates/SeriesEntry.js'),
 }
 
 const createBlogPage = async (creator, graphql, reporter) => {
@@ -95,10 +96,15 @@ const createSeriesPages = async (creator, graphql, reporter) => {
           fileAbsolutePath: { regex: "//series//" }
           frontmatter: { status: { eq: "published" } }
         }
+        sort: { fields: [frontmatter___chapter] }
       ) {
         edges {
           node {
             id
+            frontmatter {
+              title
+              serie
+            }
             fields {
               slug
             }
@@ -125,12 +131,20 @@ const createSeriesPages = async (creator, graphql, reporter) => {
     })
   })
 
-  series.edges.forEach(edge => {
+  const seriesLength = series.edges.length
+  series.edges.forEach((edge, idx) => {
     const path = edge.node.fields.slug
+    const prevChapter = idx !== 0 ? series.edges[idx - 1] : null
+    const nextChapter = idx + 1 !== seriesLength ? series.edges[idx + 1] : null
     creator({
       path,
-      component: TEMPLATES.blog,
-      context: { id: edge.node.id },
+      component: TEMPLATES.chapter,
+      context: {
+        prevChapter: prevChapter,
+        nextChapter: nextChapter,
+        id: edge.node.id,
+        serieSlug: edge.node.frontmatter.serie,
+      },
     })
   })
 }

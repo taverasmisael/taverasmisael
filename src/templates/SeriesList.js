@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid'
 import MaterialLink from '@material-ui/core/Link'
 
 import GeneralLayout from '../layouts/general'
-import SeriesListItem from '../series/components/SeriesListItem'
+import SeriesListItem from '../components/SeriesListItem'
 import HeroImage from '../components/HeroImage'
 
 const SeriesList = memo(({ pageContext, data, path }) => {
