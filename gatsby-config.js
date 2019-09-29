@@ -4,6 +4,12 @@ module.exports = {
   siteMetadata,
   plugins: [
     {
+      resolve: 'gatsby-transformer-yaml',
+      options: {
+        typeName: 'Series',
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: resolve('./src/pages'),
@@ -22,6 +28,13 @@ module.exports = {
       options: {
         path: resolve('./posts'),
         name: 'posts',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: resolve('./series'),
+        name: 'series',
       },
     },
     {

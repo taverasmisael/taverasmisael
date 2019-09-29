@@ -32,7 +32,7 @@ const BlogItem = memo(({ item }) => {
           timeToRead={item.timeToRead}
           date={item.frontmatter.date}
           title={item.frontmatter.title}
-          tags={item.frontmatter.tags}
+          tags={item.frontmatter.tags || []}
         />
         <Typography variant="body2" component="p" className={classes.excerpt}>
           {item.excerpt}

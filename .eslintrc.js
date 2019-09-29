@@ -4,7 +4,4 @@ module.exports = {
   },
   extends: ['plugin:prettier/recommended', 'react-app'],
   plugins: ['prettier'],
-  rules: {
-    indent: ['error', 2],
-  },
 }

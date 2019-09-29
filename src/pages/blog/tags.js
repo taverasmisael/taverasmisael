@@ -47,7 +47,10 @@ export const pageQuery = graphql`
   query {
     allMdx(
       limit: 2000
-      filter: { frontmatter: { status: { eq: "published" } } }
+      filter: {
+        frontmatter: { status: { eq: "published" } }
+        fileAbsolutePath: { regex: "//posts//" }
+      }
     ) {
       group(field: frontmatter___tags) {
         fieldValue

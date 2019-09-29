@@ -10,9 +10,8 @@ import BlogItem from '../components/BlogItem'
 
 const TagsList = memo(({ pageContext, data }) => {
   const { tag } = pageContext
-  const { nodes } = data.allMdx
+  const { nodes: entries } = data.allMdx
   const tagHeader = `Todos los post de "${tag}"`
-
   return (
     <GeneralLayout>
       <Container maxWidth="md">
@@ -20,14 +19,14 @@ const TagsList = memo(({ pageContext, data }) => {
           {tagHeader}
         </Typography>
         <Grid container spacing={2} component="ul">
-          {nodes.map(entry => (
+          {entries.map(entry => (
             <Grid key={entry.id} item sm={12} component="li">
               <BlogItem item={entry} />
             </Grid>
           ))}
         </Grid>
         <div className="MuiTypography-alignRight">
-          <MaterialLink align="right" component={Link} to="/tags">
+          <MaterialLink align="right" component={Link} to="/blog/tags">
             Ver todos los tags
           </MaterialLink>
         </div>
@@ -45,29 +44,18 @@ export const pageQuery = graphql`
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
+        fileAbsolutePath: { regex: "//posts//" }
         frontmatter: { tags: { in: [$tag] }, status: { eq: "published" } }
       }
     ) {
       nodes {
-        id
+        ...BlogPostNode
         frontmatter {
-          title
-          tags
-          date(formatString: "DD [de] MMMM YYYY", locale: "es")
           banner {
             childImageSharp {
-              fluid(
-                maxWidth: 960
-                traceSVG: { color: "#f04173", background: "#535c81" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
+              ...ImageSharpFluidMax
             }
           }
-        }
-        excerpt(pruneLength: 300)
-        fields {
-          slug
         }
       }
     }

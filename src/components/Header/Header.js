@@ -37,7 +37,7 @@ function Header({ noGutterBottom }) {
   return (
     <HideOnScroll>
       <AppBar position="sticky" className={classes.root}>
-        <Container maxWidth="md">
+        <Container maxWidth="md" className="real-width">
           <Toolbar className={classes.toolbar}>
             <IconButton
               color="inherit"
@@ -75,6 +75,9 @@ function Header({ noGutterBottom }) {
             <nav className={classes.nav}>
               <NavLink to="/blog" partiallyActive>
                 Blog
+              </NavLink>
+              <NavLink to="/series" partiallyActive>
+                Series
               </NavLink>
               <NavLink to="/contacto">Contacto</NavLink>
               <NavLink

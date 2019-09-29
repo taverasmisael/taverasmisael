@@ -26,28 +26,20 @@ export const query = graphql`
   query {
     allMdx(
       sort: { fields: frontmatter___date, order: DESC }
-      filter: { frontmatter: { status: { eq: "published" } } }
+      filter: {
+        frontmatter: { status: { eq: "published" } }
+        fileAbsolutePath: { regex: "//posts//" }
+      }
     ) {
       nodes {
-        id
+        ...BlogPostNode
+        timeToRead
         frontmatter {
-          title
-          tags
-          date(formatString: "DD [de] MMMM YYYY", locale: "es")
           banner {
             childImageSharp {
-              fluid(
-                maxWidth: 960
-                traceSVG: { color: "#f04173", background: "#535c81" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
+              ...ImageSharpFluidMax
             }
           }
-        }
-        excerpt(pruneLength: 300)
-        fields {
-          slug
         }
       }
     }

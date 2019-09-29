@@ -786,6 +786,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.6.2":
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.2.tgz#c3d6e41b304ef10dcf13777a33e7694ec4a9a6dd"
+  integrity sha512-EXxN64agfUqqIGeEjI5dL5z0Sw0ZwWo1mLTi4mQowCZ42O59b7DRpZAnTC6OqdF28wMBMFKNb/4uFGrVaigSpg==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -6001,6 +6008,16 @@ gatsby-transformer-sharp@^2.2.14:
     probe-image-size "^4.1.1"
     semver "^5.7.1"
     sharp "^0.23.0"
+
+gatsby-transformer-yaml@^2.2.12:
+  version "2.2.12"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-yaml/-/gatsby-transformer-yaml-2.2.12.tgz#21e59fccb1bbf5812916f1796534250d35df114a"
+  integrity sha512-wkgF5ydsT2H005M77x7LwmaPZBwqp4jUW1eP4/YJwolp36tsBKMPGZBGCN5PvysrkxEXtF7KO0Mhj2PNhvqyxw==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    js-yaml "^3.13.1"
+    lodash "^4.17.15"
+    unist-util-select "^1.5.0"
 
 gatsby@^2.15.14:
   version "2.15.14"

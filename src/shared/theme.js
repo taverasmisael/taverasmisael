@@ -20,14 +20,13 @@ const bodyFontFamily = `Roboto, ${systemFonts}`
 const MainTheme = {
   typography: {
     fontFamily: bodyFontFamily,
-    htmlFontSize: 12,
-    fontSize: 14,
+    fontSize: 16,
     body1: { lineHeight: 1.75 },
-    h1: { fontFamily: headingFontFamily, fontSize: 3.75 },
-    h2: { fontFamily: headingFontFamily, fontSize: 3.45 },
-    h3: { fontFamily: headingFontFamily, fontSize: 3 },
-    h4: { fontFamily: headingFontFamily, fontSize: 2.45 },
-    h5: { fontFamily: headingFontFamily, fontSize: 2 },
+    h1: { fontFamily: bodyFontFamily, fontSize: 3.25, lineHeight: 1.15 },
+    h2: { fontFamily: headingFontFamily, fontSize: 2.75, lineHeight: 1.25 },
+    h3: { fontFamily: headingFontFamily, fontSize: 2.5, lineHeight: 1.35 },
+    h4: { fontFamily: headingFontFamily, fontSize: 1.75, lineHeight: 1.45 },
+    h5: { fontFamily: headingFontFamily, fontSize: 1.5, lineHeight: 1.5 },
     button: { fontWeight: '500' },
   },
 
@@ -60,10 +59,11 @@ const MainTheme = {
       },
     },
     MuiTypography: {
-      caption: { marginTop: '2em' },
-      h2: { marginTop: '1.35em' },
-      h3: { marginTop: '1em' },
-      h4: { marginTop: '1em' },
+      gutterBottom: { marginBottom: '1.75rem' },
+      caption: { marginTop: '1.5em', marginBottom: '0.25em' },
+      h2: { marginTop: '1.35em', marginBottom: '0.25em' },
+      h3: { marginTop: '1em', marginBottom: '0.25em' },
+      h4: { marginTop: '1em', marginBottom: '0.25em' },
     },
   },
 }
@@ -96,10 +96,11 @@ const SecondaryTheme = merge(MainTheme, {
       },
     },
     MuiTypography: {
-      caption: { marginTop: '2em' },
-      h2: { marginTop: '1.35em' },
-      h3: { marginTop: '1em' },
-      h4: { marginTop: '1em' },
+      gutterBottom: { marginBottom: '1.75rem' },
+      caption: { marginTop: '1.5em', marginBottom: '0.25em' },
+      h2: { marginTop: '1.35em', marginBottom: '0.25em' },
+      h3: { marginTop: '1em', marginBottom: '0.25em' },
+      h4: { marginTop: '1em', marginBottom: '0.25em' },
     },
     MuiFilledInput: {
       root: {
@@ -115,7 +116,7 @@ const SecondaryTheme = merge(MainTheme, {
 })
 
 const createResponsiveFontTheme = compose(
-  responsiveFontSizes,
+  theme => responsiveFontSizes(theme, { factor: 3 }),
   createMuiTheme
 )
 

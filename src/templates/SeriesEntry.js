@@ -2,25 +2,28 @@ import React, { memo } from 'react'
 import { graphql } from 'gatsby'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import GeneralLayout from '../layouts/general'
 import HeroImage from '../components/HeroImage'
 import BlogHeader from '../components/BlogHeader'
 import ShareButtons from '../components/ShareButtons'
-import TagsList from '../components/TagsList'
+import PostsNavigator from '../components/PostsNavigator'
 
-const BlogEntry = memo(({ data: { mdx }, path }) => {
-  const { frontmatter, body, timeToRead } = mdx
+const SeriesEntry = memo(({ data: { content, series }, path, pageContext }) => {
+  const { frontmatter, body, timeToRead } = content
+  const { prevChapter: prev, nextChapter: next } = pageContext
+  const bannerImage = series.banner.childImageSharp.fluid
+  const prevChapter = prev ? prev.node : null
+  const nextChapter = next ? next.node : null
   return (
     <GeneralLayout
       headProps={{
         path,
         isPost: true,
         title: frontmatter.title,
-        description: frontmatter.description || mdx.excerpt,
-        metaImage: frontmatter.banner.childImageSharp.fluid.src,
+        description: frontmatter.description || content.excerpt,
+        metaImage: bannerImage.src,
       }}
     >
       <Container maxWidth="md" className="real-width">
@@ -29,14 +32,12 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
           title={frontmatter.title}
           timeToRead={timeToRead}
         />
-        <HeroImage
-          gutterBottom
-          fluid={frontmatter.banner.childImageSharp.fluid}
-        />
+        <HeroImage gutterBottom fluid={bannerImage} />
 
         <MDXRenderer>{body}</MDXRenderer>
 
         <Container maxWidth="md">
+          <PostsNavigator prevPost={prevChapter} nextPost={nextChapter} />
           <Grid container>
             <Grid item xs={12} md={7}>
               <ShareButtons
@@ -45,12 +46,6 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
                 text={frontmatter.description}
               />
             </Grid>
-            <Grid item xs={12} md={5}>
-              <Typography variant="subtitle1" style={{ paddingBottom: '8px' }}>
-                Etiquetas
-              </Typography>
-              <TagsList tags={frontmatter.tags || []} />
-            </Grid>
           </Grid>
         </Container>
       </Container>
@@ -58,21 +53,22 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
   )
 })
 
-BlogEntry.displayName = 'BlogEntry'
+SeriesEntry.displayName = 'SeriesEntry'
 
-export default BlogEntry
+export default SeriesEntry
 
 export const pageQuery = graphql`
-  query BlogPostQuery($id: String) {
-    mdx(id: { eq: $id }) {
+  query SeriesEntryQuery($id: String, $serieSlug: String) {
+    content: mdx(id: { eq: $id }) {
       ...BlogPostNode
       body
       timeToRead
-      frontmatter {
-        banner {
-          childImageSharp {
-            ...ImageSharpFluidMax
-          }
+    }
+
+    series(slug: { eq: $serieSlug }) {
+      banner {
+        childImageSharp {
+          ...ImageSharpFluidMax
         }
       }
     }

@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: '-50vw',
     right: '50%',
     width: '100vw',
+    maxHeight: 'calc(35vmax - 10vh)',
   },
 }))
 
@@ -34,7 +35,7 @@ const HeroImage = memo(props => {
   const creditClassName = classnames({ [classes.gutterBottom]: gutterBottom })
   return (
     <>
-      <Img im fluid={fluid} fixed={fixed} className={imageClassName} />
+      <Img fluid={fluid} fixed={fixed} className={imageClassName} />
       {credit && (
         <Typography
           component="div"
