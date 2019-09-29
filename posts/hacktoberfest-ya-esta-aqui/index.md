@@ -72,7 +72,7 @@ Aquí te dejo una lista con algunos lugares para encontrar buenos issues o a los
 5. ¿He mencionado que [este blog es Open Source](/blog/la-historia-detras-del-blog#para-los-desarrolladores)? 🚀 Estaré haciendo issues para **Hacktoberfest®**, así que [atentos](https://github.com/taverasmisael/taverasmisael/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
 6. Un amigo tiene una librería de CSS muy interesante a la que le vendría [bien ayuda](https://github.com/Efraa/eFrolic).
 
-> Si tienes algún repo que en el que quieras ayuda puedes agregarlo editando este archivo en [el repo del blog](https://github.com/taverasmisael/taverasmisael). Eso te contará como una contribución para el **Hacktoberfest®** y tu proyecto ganará exposición.
+> Si tienes algún repo que en el que quieras ayuda puedes agregarlo [editando](https://github.com/taverasmisael/taverasmisael/edit/master/posts/hacktoberfest-ya-esta-aqui/index.md) este archivo en [el repo del blog](https://github.com/taverasmisael/taverasmisael). Eso te contará como una contribución para el **Hacktoberfest®** y tu proyecto ganará exposición.
 
 ## Conclusión
 
