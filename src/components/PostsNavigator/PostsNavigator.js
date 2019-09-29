@@ -4,8 +4,8 @@ import classnames from 'classnames'
 import MaterialLink from '@material-ui/core/Link'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import LeftIcon from '@material-ui/Icons/KeyboardArrowLeft'
-import RightIcon from '@material-ui/Icons/KeyboardArrowRight'
+import LeftIcon from '@material-ui/icons/KeyboardArrowLeft'
+import RightIcon from '@material-ui/icons/KeyboardArrowRight'
 
 import makeStyles from '@material-ui/core/styles/makeStyles'
 
