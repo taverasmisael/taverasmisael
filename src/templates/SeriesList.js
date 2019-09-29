@@ -5,7 +5,10 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import MaterialLink from '@material-ui/core/Link'
+import ReactMarkdown from 'react-markdown'
 
+import MDXComponentsMap from '../components/mdx'
+import ShareButtons from '../components/ShareButtons'
 import GeneralLayout from '../layouts/general'
 import SeriesListItem from '../components/SeriesListItem'
 import HeroImage from '../components/HeroImage'
@@ -32,7 +35,7 @@ const SeriesList = memo(({ pageContext, data, path }) => {
             <Typography gutterBottom variant="h1">
               {title}
             </Typography>
-            <Typography>{intro}</Typography>
+            <ReactMarkdown source={intro} renderers={MDXComponentsMap} />
           </Grid>
           <Grid item xs={12}>
             <Grid container>
@@ -52,9 +55,16 @@ const SeriesList = memo(({ pageContext, data, path }) => {
             </Grid>
             <div className="MuiTypography-alignRight">
               <MaterialLink align="right" component={Link} to="/series">
-                Ver todas las series
+                Volver a la lista de series
               </MaterialLink>
             </div>
+            <Grid item xs={12} md={7}>
+              <ShareButtons
+                url={path}
+                title={title}
+                text={serieInfo.description}
+              />
+            </Grid>
           </Grid>
         </Grid>
       </Container>

@@ -41,6 +41,13 @@ export default {
   // Custom Elements
   SourceButtons,
   Caption,
+
+  // React renderer components
+  link: Link,
+  linkReference: Link,
+  listItem: props => <Container maxWidth="md" component={li} {...props} />,
+  list: props => <Container maxWidth="md" component={ol} {...props} />,
+  paragraph: props => <Container maxWidth="md" component={p} {...props} />,
 }
 
 const h1 = props => <Typography variant="h2" component="h2" {...props} />
