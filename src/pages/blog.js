@@ -33,6 +33,7 @@ export const query = graphql`
     ) {
       nodes {
         ...BlogPostNode
+        timeToRead
         frontmatter {
           banner {
             childImageSharp {
