@@ -1,14 +1,14 @@
 ---
 title: JavaScript 101
 date: '2019-09-20'
-description: Esta es una lección extra antes de empezar con el material de lleno. Acá hablaremos de algunos conceptos generales de JavaScript, para tener en mente en las futras lecciones.
+description: Esta es una lección extra antes de empezar con el material de lleno. Acá hablaremos de algunos conceptos generales de JavaScript, para tener en mente en las futuras lecciones.
 author: Misael Taveras
 status: published
 serie: 'guia-de-javascript'
 chapter: 2
 ---
 
-Esta es una lección extra antes de empezar con el material de lleno. Acá hablaremos de algunos conceptos generales de JavaScript, para tener en mente en las futras lecciones.
+Esta es una lección extra antes de empezar con el material de lleno. Acá hablaremos de algunos conceptos generales de JavaScript, para tener en mente en las futuras lecciones.
 
 ## Comentarios
 
