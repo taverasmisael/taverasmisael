@@ -10,7 +10,7 @@ banner: ./media/banner-hacktoberfest-ya-esta-aqui.jpg
 
 [Hacktoberfest®](https://hacktoberfest.digitalocean.com/) es un evento patrocinado por DigitalOcean (al que cada año se suman más patrocinadores), en el que se fomenta al código abierto y la participación de la comunidad.
 
-Básicamente durante todo el mes de Octubre debes hacer Pull Request a cualquier repo pùblico alojado en GitHub y al **completar 5 PRs** (no importa que no se hayan mergeado)  ya eres elegible entre los participantes para ganar un asombroso T-Shirt de edición limitada del evento.
+Básicamente durante todo el mes de Octubre debes hacer Pull Request a cualquier repo público alojado en GitHub y al **completar 5 PRs** (no importa que no se hayan mergeado)  ya eres elegible entre los participantes para ganar un asombroso T-Shirt de edición limitada del evento.
 
 ## Beneficios de participar en el evento
 
@@ -20,9 +20,9 @@ Estoy bastante seguro que si has estado programando por un tiempo (no importa qu
 
 > Esta es una forma de devolver a la comunidad el favor, aportando algo de lo que has podido aprender a las demás personas.
 
-Un PR puede contener código, o ejemplos, documentación o cualquier tipo de contenido requerido por los encargados de mantener dicho mòdulo.
+Un PR puede contener código, o ejemplos, documentación o cualquier tipo de contenido requerido por los encargados de mantener dicho módulo.
 
-**Hacktoberfest®** no se límita a ningún lenguaje o tipo de contribución siempre y cuando sea a un repositorio pùblico, para que así pueda servir a toda la comunidad.
+**Hacktoberfest®** no se límita a ningún lenguaje o tipo de contribución siempre y cuando sea a un repositorio público, para que así pueda servir a toda la comunidad.
 
 Puede que en lo poco que has utilizado una librería, hayas encontrado un problema exclusivo que más nadie haya visto, pero tu viste la solución, que no pensaste que sería tan importante, pero no sabes quien podría estar necesitando ahora mismo. **Haciendo tu PR podrías estar ayudando a estas personas.**
 
@@ -32,7 +32,7 @@ Bueno, quizás no tengas mucho tiempo programando o hayas usado tantas librería
 
 Muchos repos tiene labels de `good first issue` e incluso `hacktoberfest`, con retos fáciles para iniciados, como tú. Resolver estos issues no solo te acercará a la meta de los 5 PRs, sino que te servirá para ver como funciona una comunidad abierta, y te aclarará conceptos que podrías usar en el futuro.
 
-Algunos incluso son problemas con algoritmos o ejercicios muy buenos y sencillos en lenguajes que no dominas, pero que te llaman la atención. **Podrías descubrir algùn talento oculto en ti.**
+Algunos incluso son problemas con algoritmos o ejercicios muy buenos y sencillos en lenguajes que no dominas, pero que te llaman la atención. **Podrías descubrir algún talento oculto en ti.**
 
 ### Exposición
 
@@ -40,7 +40,7 @@ Esta es una de las partes más divertidas del programa, **reconocimiento y expos
 
 Participar en la comunidad es una autopista de dos vías, en la que cuando contribuyes al proyecto de alguien, **ese alguien puede contribuir en tu proyecto.**
 
-Si tienes algùn proyecto en el que necesitas ayuda o deseas la opinion de más personas o algo más de luz, puedes crear un par de issues con las etiquetas que mencioné arriba, así muchos desarrolladores se interesarán y te darán la mano.
+Si tienes algún proyecto en el que necesitas ayuda o deseas la opinion de más personas o algo más de luz, puedes crear un par de issues con las etiquetas que mencioné arriba, así muchos desarrolladores se interesarán y te darán la mano.
 
 Por otro lado cada vez que haces un PR salen tu nombre y la información de tu cuenta de Github, haciéndote así más visible para otros desarrolladores o **reclutadores quizás 👀.**
 
