@@ -92,7 +92,7 @@ JavaScript implementa la **evaluación de cortocircuito** que lee los valores de
 
 ### Lógico Y
 
-Símbolo `&&`. Devuelve `true` siempre que ambos [valores sean true](###Agregar-link-a-tipo-de-dato-booleano). También puede ser usado para devolver el valor a la derecha del operador si el primero es `true`
+Símbolo `&&`. Devuelve `true` siempre que ambos [valores sean true](/series/guia-de-javascript/tipos-de-datos#boolean). También puede ser usado para devolver el valor a la derecha del operador si el primero es `true`
 
 ```js
 true && true // true
