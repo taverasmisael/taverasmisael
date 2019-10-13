@@ -24,11 +24,11 @@ En JavaScript los operadores son `+, -, *, /, %, **` y funcionan como estamos ac
 
 Las reglas aritméticas para las operaciones matemáticas son iguales en JavaScript.
 
-Los dos que podrían ser nuevos son el operador de modulo (`%`) y el de exponenciación (`**`).
+Los dos que podrían ser nuevos son el operador de módulo (`%`) y el de potenciación (`**`).
 
-### El operador de modulo %
+### El operador de módulo %
 
-Este operador aplicado a dos numero devuelve el restante de su división.
+Este operador aplicado a dos número devuelve el restante de su división.
 
 ```js
 100  %  6 // 4
@@ -36,12 +36,12 @@ Este operador aplicado a dos numero devuelve el restante de su división.
 10 % 2 // 0
 ```
 
-### El operador de exponciación \*\*
+### El operador de potenciación \*\*
 
-Sirve para representar una operación de exponente donde la base es el primer numero y el segundo es el exponente.
+Sirve para representar una operación de exponente donde la base es el primer número y el segundo es el exponente.
 
 ```js
-// Por reglas de estilos en las operaciones exponenciales no hay espacio enrte el operador y los numeros
+// Por reglas de estilos en las operaciones exponenciales no hay espacio entre el operador y los números
 2**4 // 16
 3**3 // 27
 10**3 // 1000
@@ -52,16 +52,16 @@ Sirve para representar una operación de exponente donde la base es el primer nu
 Se hace con el signo de `-` y convierte el siguiente valor a su valor negativo.
 
 ```js
-var x = -3 // más de las variables en el proximo capitulo
+var x = -3 // más de las variables en el próximo capitulo
 -x // -3
 -"5" // -5
 ```
 
-> Aquí nos encontramos con el primer ejemplo de la coerción de tipos en JavaScript donde el interprete convierte el valor dependiendo del operador utilizado. En futuras lecciones exploraremos más de esto.
+> Aquí nos encontramos con el primer ejemplo de la coerción de tipos en JavaScript donde él interprete convierte el valor dependiendo del operador utilizado. En futuras lecciones exploraremos más de esto.
 
 ### Más unario
 
-Así como hay una negación unaria, hay un unario más que intenta convertir a número cualquier valor que no lo sea. Es muy util para transformar strings a números.
+Así como hay una negación unaria, hay un unario más que intenta convertir a número cualquier valor que no lo sea. Es muy útil para transformar strings a números.
 
 ```js
 +3 // 3
@@ -71,9 +71,9 @@ Así como hay una negación unaria, hay un unario más que intenta convertir a n
 +"hola" // NaN
 ```
 
-> **NaN** es un valor de JavaScript de tipo numérico pero que representa cualquier valor que intenta hacerse pasar por un numero, pero que no lo es. Como en nuestro caso la cadena de texto “diez” no es un numero, así que al intentar convertirlo a número devuelve *NaN*
+> **NaN** es un valor de JavaScript de tipo numérico pero que representa cualquier valor que intenta hacerse pasar por un número, pero que no lo es. Como en nuestro caso la cadena de texto “diez” no es un número, así que al intentar convertirlo a número devuelve *NaN*
 
-> Cabe destacar que dos *NaN* no tienen el mismo valor, esto es porque dos valores que no son un numero pueden ser *NaN* siendo diferente, como en nuestro caso “diez” y “hola” ambos son **NaN** pero son textos diferentes. Más de esto con los [operadores de comparación](#operadores-de-comparacion).
+> Cabe destacar que dos *NaN* no tienen el mismo valor, esto es porque dos valores que no son un número pueden ser *NaN* siendo diferente, como en nuestro caso “diez” y “hola” ambos son **NaN** pero son textos diferentes. Más de esto con los [operadores de comparación](#operadores-de-comparacion).
 
 ## Operadores lógicos
 
@@ -99,7 +99,7 @@ true && true // true
 true && false // false
 false && false // false
 "Hola" && false // false
-true && "Adios" // "Adios"
+true && "Adiós" // "Adiós"
 40 && 50 // 50
 ```
 
@@ -113,7 +113,7 @@ true || false // true
 false || true // true
 false || false // false
 "Hola" || false // "Hola"
-true || "Adios" // true
+true || "Adiós" // true
 40 || 50 // 40
 ```
 
@@ -138,7 +138,7 @@ Símbolo `!`.Sirve para negar cualquier expresión. Eso es si es `true` devolver
 !0 // true
 ```
 
-> **Doble negación**  es posible poniendo dos operadores de No juntos, tambien conocidos como *doble bang* `!!`. Esto devolvera el valor Booleano del valor en el que se opera. Ejemplo: `!!true // true` y `!!0 // false`.
+> **Doble negación**  es posible poniendo dos operadores de No juntos, también conocidos como *doble bang* `!!`. Esto devolverá el valor Booleano del valor en el que se opera. Ejemplo: `!!true // true` y `!!0 // false`.
 
 ## Operadores de comparación
 
@@ -254,7 +254,7 @@ null != false // true
 
 ## Ejercicios
 
-En esta ocasión no hay ejercicio, pero si te recomiendo que practiques con estos símbolos. JavaScript tiene algunas excepciones a las reglas que son su regla de por sí. Experimenta con los diferentes operadores, la precendecia de los operadores.
+En esta ocasión no hay ejercicio, pero si te recomiendo que practiques con estos símbolos. JavaScript tiene algunas excepciones a las reglas que son su regla de por sí. Experimenta con los diferentes operadores, la precedencia de los operadores.
 
 ### Preguntas por curiosidad
 
