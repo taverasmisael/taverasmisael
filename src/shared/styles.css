@@ -1,3 +1,8 @@
+* {
+  transition: 150ms ease-in-out background-color;
+  will-change: background-color;
+}
+
 code,
 pre {
   border-radius: 4px;

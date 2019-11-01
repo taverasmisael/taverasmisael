@@ -80,14 +80,13 @@ function Header({ noGutterBottom }) {
                 Series
               </NavLink>
               <NavLink to="/contacto">Contacto</NavLink>
-              <NavLink
+              <IconButton
                 onClick={toggleDarkMode}
-                component={IconButton}
                 className={classes.darkModeButton}
                 title={`${darkMode ? 'Apagar' : 'Encender'} tema oscuro`}
               >
                 <DarkModeIcon className={classes.darkModeIcon} />
-              </NavLink>
+              </IconButton>
             </nav>
           </Toolbar>
         </Container>
