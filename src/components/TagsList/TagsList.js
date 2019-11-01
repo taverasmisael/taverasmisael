@@ -29,8 +29,9 @@ const useStyles = makeStyles(theme => ({
   },
 
   link: {
+    backgroundColor: theme.palette.primary.light,
     cursor: 'pointer',
-    color: theme.palette.text.primary,
+    color: theme.palette.primary.contrastText,
     fontFamily: theme.typography.h1.fontFamily,
   },
 }))

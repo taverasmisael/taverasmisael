@@ -37,9 +37,8 @@ const MainTheme = {
     secondary: {
       main: '#ed1250',
     },
+    type: 'light',
   },
-
-  mode: 'light',
 
   overrides: {
     MuiDivider: {
@@ -71,47 +70,13 @@ const MainTheme = {
 const SecondaryTheme = merge(MainTheme, {
   palette: {
     primary: {
-      main: '#f5f3f3',
-      contrastText: '#fff',
+      main: '#293462',
     },
     secondary: {
       main: '#ed1250',
-      contrastText: '#fff',
     },
-
     background: { paper: '#1a1e27', default: '#13131f' },
-    text: {
-      disabled: 'rgba(255, 255, 255, 0.38)',
-      hint: 'rgba(255, 255, 255, 0.38)',
-      primary: 'rgba(255, 255, 255, 0.87)',
-      secondary: 'rgba(255, 255, 255, 0.54)',
-    },
-  },
-  mode: 'dark',
-  overrides: {
-    MuiChip: {
-      root: {
-        borderRadius: 4,
-        backgroundColor: 'rgba(0, 0, 0, 0.3)',
-      },
-    },
-    MuiTypography: {
-      gutterBottom: { marginBottom: '1.75rem' },
-      caption: { marginTop: '1.5em', marginBottom: '0.25em' },
-      h2: { marginTop: '1.35em', marginBottom: '0.25em' },
-      h3: { marginTop: '1em', marginBottom: '0.25em' },
-      h4: { marginTop: '1em', marginBottom: '0.25em' },
-    },
-    MuiFilledInput: {
-      root: {
-        backgroundColor: '#181827',
-      },
-    },
-    MuiDivider: {
-      root: {
-        backgroundColor: 'rgba(255, 255, 255, 0.45)',
-      },
-    },
+    type: 'dark',
   },
 })
 

@@ -4,6 +4,7 @@ import React, {
   useCallback,
   memo,
   useState,
+  useMemo,
   useContext,
 } from 'react'
 import { ThemeProvider } from '@material-ui/core/styles'
@@ -32,11 +33,10 @@ export const DarkModeProvider = memo(({ children }) => {
     localStorage.setItem('darkMode', dark)
     setDarkMode(dark)
   }, [darkMode, setDarkMode])
+  const theme = useMemo(() => (darkMode ? DarkTheme : LightTheme), [darkMode])
   return (
     <DarkModeContext.Provider value={{ darkMode, toggle }}>
-      <ThemeProvider theme={darkMode ? DarkTheme : LightTheme}>
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </DarkModeContext.Provider>
   )
 })
