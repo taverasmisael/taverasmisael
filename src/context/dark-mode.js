@@ -6,7 +6,7 @@ import React, {
   useState,
   useContext,
 } from 'react'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import { ThemeProvider } from '@material-ui/core/styles'
 import { LightTheme, DarkTheme } from '../shared/theme'
 
 const DEFAULT_DARK_MODE_CONTEXT_VALUE = { darkMode: false, toggle: () => {} }
@@ -34,9 +34,9 @@ export const DarkModeProvider = memo(({ children }) => {
   }, [darkMode, setDarkMode])
   return (
     <DarkModeContext.Provider value={{ darkMode, toggle }}>
-      <MuiThemeProvider theme={darkMode ? DarkTheme : LightTheme}>
+      <ThemeProvider theme={darkMode ? DarkTheme : LightTheme}>
         {children}
-      </MuiThemeProvider>
+      </ThemeProvider>
     </DarkModeContext.Provider>
   )
 })
