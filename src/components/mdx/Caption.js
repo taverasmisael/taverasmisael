@@ -14,7 +14,6 @@ const Caption = memo(({ children, footNote, className, ...props }) => (
   <Typography
     id={`caption-${footNote || makeSafeId(children)}`}
     variant="caption"
-    color="primary"
     component="div"
     className={classnames({ 'close-caption': footNote }, className)}
     {...props}

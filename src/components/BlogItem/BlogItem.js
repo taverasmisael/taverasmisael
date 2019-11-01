@@ -39,7 +39,7 @@ const BlogItem = memo(({ item }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button component={Link} to={entryLink} size="small" color="primary">
+        <Button component={Link} to={entryLink} size="small">
           Leer más
         </Button>
       </CardActions>

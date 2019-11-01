@@ -54,21 +54,21 @@ const Footer = memo(() => {
         </div>
         <div className={classes.socialLinks}>
           <Button
-            color="primary"
+            color="secondary"
             href="https://twitter.com/taverasmisael"
             className={classes.socialLink}
           >
             twitter
           </Button>
           <Button
-            color="primary"
+            color="secondary"
             href="https://github.com/taverasmisael"
             className={classes.socialLink}
           >
             github
           </Button>
           <Button
-            color="primary"
+            color="secondary"
             href="https://linkedin.com/in/taverasmisael"
             className={classes.socialLink}
           >
