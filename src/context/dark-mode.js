@@ -4,9 +4,10 @@ import React, {
   useCallback,
   memo,
   useState,
+  useMemo,
   useContext,
 } from 'react'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import { ThemeProvider } from '@material-ui/core/styles'
 import { LightTheme, DarkTheme } from '../shared/theme'
 
 const DEFAULT_DARK_MODE_CONTEXT_VALUE = { darkMode: false, toggle: () => {} }
@@ -32,11 +33,10 @@ export const DarkModeProvider = memo(({ children }) => {
     localStorage.setItem('darkMode', dark)
     setDarkMode(dark)
   }, [darkMode, setDarkMode])
+  const theme = useMemo(() => (darkMode ? DarkTheme : LightTheme), [darkMode])
   return (
     <DarkModeContext.Provider value={{ darkMode, toggle }}>
-      <MuiThemeProvider theme={darkMode ? DarkTheme : LightTheme}>
-        {children}
-      </MuiThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </DarkModeContext.Provider>
   )
 })

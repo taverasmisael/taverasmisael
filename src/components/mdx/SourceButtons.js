@@ -1,13 +1,11 @@
 import makeStyles from '@material-ui/core/styles/makeStyles'
+import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import CodeIcon from '@material-ui/icons/Code'
 import OpenExternalIcon from '@material-ui/icons/OpenInNew'
 import React, { memo } from 'react'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    margin: theme.spacing(2, 0),
-  },
   button: {
     fontSize: theme.typography.body2.fontSize,
     [theme.breakpoints.up('sm')]: {
@@ -25,17 +23,15 @@ const useStyles = makeStyles(theme => ({
 const DEFAULT_BUTTON_PROPS = {
   rel: 'nofollow',
   target: '__blank',
+  variant: 'text',
 }
 
-const SourceButtons = memo(({ repoURL, demoURL }) => {
-  const classes = useStyles()
-  return (
-    <div className={classes.root}>
-      {repoURL && <RepoButton href={repoURL} />}
-      {demoURL && <DemoButton href={demoURL} />}
-    </div>
-  )
-})
+const SourceButtons = memo(({ repoURL, demoURL }) => (
+  <Container maxWidth="md">
+    {repoURL && <RepoButton href={repoURL} />}
+    {demoURL && <DemoButton href={demoURL} />}
+  </Container>
+))
 
 SourceButtons.displayName = 'SourceButtons'
 
@@ -46,7 +42,6 @@ const DemoButton = memo(({ href }) => {
       {...DEFAULT_BUTTON_PROPS}
       href={href}
       color="secondary"
-      variant="text"
       className={classes.button}
     >
       Lanzar demo
@@ -60,13 +55,7 @@ DemoButton.displayName = 'DemoButton'
 const RepoButton = memo(({ href }) => {
   const classes = useStyles()
   return (
-    <Button
-      {...DEFAULT_BUTTON_PROPS}
-      href={href}
-      color="primary"
-      variant="text"
-      className={classes.button}
-    >
+    <Button {...DEFAULT_BUTTON_PROPS} href={href} className={classes.button}>
       Ver Código
       <CodeIcon className={classes.icon} />
     </Button>

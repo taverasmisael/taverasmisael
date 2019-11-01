@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
   link: {
     cursor: 'pointer',
-    color: theme.palette.text.primary,
+    color: theme.palette.primary.dark,
     fontFamily: theme.typography.h1.fontFamily,
   },
 }))

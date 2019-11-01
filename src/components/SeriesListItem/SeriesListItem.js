@@ -35,7 +35,7 @@ const SeriesListItem = memo(({ item, number }) => {
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.actions}>
-        <Button component={Link} to={entryLink} size="small" color="primary">
+        <Button component={Link} to={entryLink} size="small">
           Leer más
         </Button>
       </CardActions>

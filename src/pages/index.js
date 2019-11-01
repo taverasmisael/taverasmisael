@@ -24,7 +24,7 @@ const HomePage = memo(({ data }) => (
         ))}
       </Grid>
       <div className="MuiTypography-alignRight">
-        <Button component={Link} to="/blog" size="small" color="primary">
+        <Button component={Link} to="/blog" size="small">
           Ver todas
         </Button>
       </div>

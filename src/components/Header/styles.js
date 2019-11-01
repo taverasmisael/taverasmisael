@@ -29,7 +29,7 @@ export const useStyles = noGutterBottom =>
     },
     root: {
       backgroundColor:
-        theme.mode === 'dark'
+        theme.palette.type === 'dark'
           ? theme.palette.background.default
           : theme.palette.primary.dark,
       justifyContent: 'center',
