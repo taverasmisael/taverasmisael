@@ -18,7 +18,7 @@ Ya de por sí su **creación en a penas 10 días** fue una hazaña que hizo que 
 
 Hoy por hoy, luego de 24 años, JavaScript ha podido no solo convertirse en el UNICO (aunque no [por mucho](https://webassembly.org/ "Web assembly")) lenguaje interpretado universalmente en los navegadores, sino que es utilizado en servidores, sistemas embebidos, dispositivos mobiles y hasta aplicaciones de escritorio ([Spotify](https://www.quora.com/How-is-JavaScript-used-within-the-Spotify-desktop-application-Is-it-packaged-up-and-run-locally-only-retrieving-the-assets-as-and-when-needed-What-JavaScript-VM-is-used "MPJ - Ex ingeniero en Spotify"), por ejemplo).
 
-## Para quien o qiuenes va dirigida la guía
+## Para quien o quienes va dirigida la guía
 
 **¡Pues a todos!**
 Aunque realmente no. Creé esta guía con dos tipos de personas en mente:
