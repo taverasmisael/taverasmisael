@@ -169,3 +169,18 @@ ul {
 li.MuiTypography-gutterBottom {
   margin-bottom: 0.75rem;
 }
+
+ul.MuiTypography-root.MuiContainer-root > li {
+  position: relative;
+}
+
+ul.MuiTypography-root.MuiContainer-root > li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: url(http://localhost:3300/keyboard_arrow_right.svg) 100%;
+  left: -8px;
+  top: 8px;
+  width: 1em;
+  height: 1em;
+}
