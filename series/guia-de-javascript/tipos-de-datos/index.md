@@ -71,7 +71,7 @@ JavaScript aunque es un lenguaje multiparadigma que acepta diferentes modos de p
 
 Los objetos en JavaScript a diferencia de sus hermanos primitivos, son mutables. Aunque podemos hacer un esfuerzo por hacerlos inmutables, su comportamiento original es adaptarse y cambiar.
 
-En Javascript los objetos son colecciones de propiedades. Los valores de estas propiedades pueden ser de cualquier tipo, incluidos otros objetos. Estas propiedades son identificadas a travez de llaves (`keys`) que pueden ser `Numbers`, `Strings` o `Symbols`. _ - inspirado en la definición en [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Data_structures#Propiedades)_.
+En Javascript los objetos son colecciones de propiedades. Los valores de estas propiedades pueden ser de cualquier tipo, incluidos otros objetos. Estas propiedades son identificadas a través de llaves (`keys`) que pueden ser `Numbers`, `Strings` o `Symbols`. _ - inspirado en la definición en [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Data_structures#Propiedades)_.
 
 > Como los objetos ocupan una parte central del lenguaje esta es solo una introducción a sus diferentes tipos, y solo los que trae el lenguaje en sí y no lo que podemos crear con classes y demás; esos estarán siendo explorados en el modulo intermedio.
 

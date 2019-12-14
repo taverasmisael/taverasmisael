@@ -10,13 +10,13 @@ banner: ./media/baner-entendiendo-los-snapshots-de-jest.jpg
 
 Jest, creado por Facebook, es un framework de testing para react que trae consigo una herramienta poderosa pero misteriosa; por eso a veces es temida, ignorada o mal usada.
 
-En este post aprenderemos todo de ella, como usarla en nuestros test para probar más con menos código y aumentar la confianza en nuestro código.
+En este post aprenderemos todo de ella, como usarla en nuestros tests para probar más con menos código y aumentar la confianza en nuestro código.
 
 _Si viniste solo por el jugoso tema de los snapshots [da clic acá](#snapshots-para-simplificar-los-tests) para saltarte el repaso._
 
 ## Repaso rápido sobre los tests
 
-> Los test son código que **prueban** código.
+> Los tests son código que **prueban** código.
 
 Nuestro código puede ser de lo mejor y puede funcionar correctamente cuando el usuario lo usa como esperamos, pero ¿Qué pasa cuando no? ¿Cómo nos damos cuenta? O incluso nosotros cuando necesitamos refactorizar algo, ¿Cómo nos aseguramos que nuestros cambios no dañen otras partes? Pues con tests.
 
@@ -24,7 +24,7 @@ Los tests son código que prueban que nuestro código funcione de la forma corre
 
 <blockquote className="special">
 
-Si estás interesado en saber más sobre tests, escríbeme en twitter a [@taverasmisael](https://twitter.com/intent/tweet?via=taverasmisael&text=Quiero%20aprender%20mas%20sobre%20test%20con%20JavaScript) y déjame saber.
+Si estás interesado en saber más sobre tests, escríbeme en Twitter a [@taverasmisael](https://twitter.com/intent/tweet?via=taverasmisael&text=Quiero%20aprender%20mas%20sobre%20test%20con%20JavaScript) y déjame saber.
 
 </blockquote>
 
@@ -52,12 +52,12 @@ Los tests, como explicábamos aseguran que el valor que esperamos sea igual que 
 
 Los snapshots son capturas de un momento o estado especifico en nuestro código.
 
-Una forma común de probar el resultado de un reducer de [Redux](https://redux.js.org/) es haciendo varios checks en los diferentes valores del estado. Tomando de ejemplo que tenemos un simple estado con `isLoading`, `error` y `data`; queremos que al llamar la acción `DO_REQUEST` se reinicíe la `data` a un array vacío, `error` sea una cadena en blanco y `isLoading` sea `true`. El test podría parecer algo como:
+Una forma común de probar el resultado de un reducer de [Redux](https://redux.js.org/) es haciendo varios checks en los diferentes valores del estado. Tomando de ejemplo que tenemos un simple estado con `isLoading`, `error` y `data`; queremos que al llamar la acción `DO_REQUEST` se reinicíe la `data` a un array vacío, `error` sea una cadena en blanco e `isLoading` sea `true`. El test podría parecer algo como:
 
 ```js
 import reducer from './reducer'
 
-// Se usa `describe` para agrupar test similares
+// Se usa `describe` para agrupar tests similares
 describe('REDUCER', () => {
   // Los bloques `it` representan 1 test y aunque pueden
   // tener varios `expect` es recomendable que sea un solo
@@ -74,11 +74,11 @@ describe('REDUCER', () => {
 
 <Caption footNote="repaso-redux">
 
-**Breve repaso de Redux:** La función `reducer` toma un estado (en este caso undefined para que use el inicial) y un objeto con un key `type` donde especificamos la operación que se va a realizar en dicho estado. La función `reducer` entonces devuelve un nuevo estado modificado en base al `type` que especificamos.
+**Breve repaso de Redux:** La función `reducer` toma un estado (en este caso undefined para que use el valor por defecto) y un objeto con un key `type` donde especificamos la operación que se va a realizar en dicho estado. La función `reducer` entonces devuelve un nuevo estado modificado en base al `type` que especificamos.
 
 </Caption>
 
-Usando este método no solo tenemos que recordar cada pieza de estado que es relevante para asegurarnos que la función haga su trabajo correctamente, sino que también, debido a la naturaleza de JavaScript tenemos que usar 2 matchers diferentes, `toBe` y `toEqual`. (_¿Sabes por qué tuvimos que usar dos? [Descúbrlo aquí](/series/guia-de-javascript/operadores-logicos-aritmeticos-y-de-comparacion#operadores-igualitarios 'Guía de JavaScript capitulo 4')_).
+Usando este método no solo tenemos que recordar cada pieza de estado que es relevante para asegurarnos que la función haga su trabajo correctamente, sino que también, debido a la naturaleza de JavaScript tenemos que usar 2 matchers diferentes, `toBe` y `toEqual`. (_¿Sabes por qué tuvimos que usar dos? [Descúbrelo aquí](/series/guia-de-javascript/operadores-logicos-aritmeticos-y-de-comparacion#operadores-igualitarios 'Guía de JavaScript capitulo 4')_).
 
 Ahora veamos el mismo test, con el mismo resultado pero usando snapshots.
 
@@ -95,13 +95,13 @@ describe('REDUCER', () => {
 })
 ```
 
-Más simple, más conciso y creo que podemos apreciar el valor que aporta desde ya hasta si tuviéramos un estado mas complejo con más que solo 3 keys, o un componente que renderiza una lista, es solo un snapshot y listo.
+Más simple, más conciso y creo que podemos apreciar el valor que aporta desde ya hasta si tuviéramos un estado más complejo con más que solo 3 keys, o un componente que renderiza una lista, es solo un snapshot y listo.
 
 Veamos los snapshots un poco más en profundidad.
 
 ## El ciclo de vida de un snapshot
 
-Cuando creamos los snapshots lo hacemos a travez de un _matcher_ de Jest llamado `toMatchSnapshot` (hay un `toMatchInlineSnapshot` también que hace prácticamente lo mismo).
+Cuando creamos los snapshots lo hacemos a través de un _matcher_ de Jest llamado `toMatchSnapshot` (hay un `toMatchInlineSnapshot` también que hace prácticamente lo mismo).
 
 ### Usando toMatchSnapshot
 
@@ -158,13 +158,13 @@ Si bien es cierto que los snpashots son rápidos y ligeros, hacer snapshots de t
 Otra desventaja de usar snapshots cuando podríamos usar cualquier otro matcher está en que los tests dejan de tener sentido sin ver el snapshot, haciendo que a futuros desarrolladores (uno mismo incluido) se le haga difícil entender la intención del test.
 
 ```js
-// Me inventé esta libreria 👇🏽
+// Me inventé esta librería 👇🏽
 import { render, simulate } from 'test-library-for-react'
 import Component from './Component'
 
 describe('my obscure test', () => {
   // Este test no añade ningun valor a pesar de que pasa
-  //  y probablemente cumpla con el requisito de cobertura de codigo.
+  //  y probablemente cumpla con el requisito de cobertura de código.
   it('should work', () => {
     const component = render(<Component />)
     simulate.click(component.find('button'))
@@ -193,7 +193,7 @@ Foto por [Andre Mouton](https://www.pexels.com/@andre-mouton?utm_content=attribu
 
 Los efectos secundarios pueden ser impredecibles o suelen pasar fuera del scope de lo que estamos probando. Cosas como eventos, llamadas a APIs, console.logs y demás son considerados como efectos secundarios (no significa necesariamente que sean malos), y si tu código hace uso de ellos es probable que los snapshots no sean la herramienta correcta.
 
-Tomando como ejemplo una evento click que escriba en la consola, es algo que no podemos probar con snapshots porque estos no corren con respecto a la consola.
+Tomando como ejemplo un evento click que escriba en la consola, es algo que no podemos probar con snapshots porque estos no corren con respecto a la consola.
 
 Para un servicio que llama al API y modifica el resultado para hacerlo más utilizable en la aplicación podemos probar el resultado, asegurarnos que el mapeo haya sido correcto o que los parámetros que enviamos al servidor están bien, pero no podemos hacer snapshot de una _llamada al API_ directamente.
 
@@ -207,18 +207,18 @@ En una ocasión, duré unas horas debugueado un snapshot que siempre daba difere
 
 ## Qué son y qué no son los snpashots
 
-- Los snapshots **son** una herramienta util para asegurarnos de que nuestros resultados no cambien de forma inesperada.
-- Los snapshots **son** una forma rápida d probar UIs o valores complejos.
+- Los snapshots **son** una herramienta útil para asegurarnos de que nuestros resultados no cambien de forma inesperada.
+- Los snapshots **son** una forma rápida de probar UIs o valores complejos.
 - Los snapshots **son** parte del código por lo que DEBEN ser comiteados también.
 - Los snapshots **son** validos para en la cobertura de código.
-- Los snapshots **no son** un reemplazo para nuestros test unitarios.
+- Los snapshots **no son** un reemplazo para nuestros tests unitarios.
 - Los snapshots **no son** lentos de generar/validar. Jest usa algo parecido al `diff` de Git para agilizar este proceso.
 - Los snapshots **no son** buenos para hacer TDD y a que los snapshots están pensados con el un estado final en mente, así que habría que estar actualizando los snapshots en cada cambio.
 
 ## Conclusión
 
-En este articulo hemos explorado una de las herramientas que tenemos a la mano para probar nuestro código. **Si eliminamos la fricción que existe para empezar a crear test, es mas probable que empecemos a hacerlos.** Ya no hay excusas para no agregar tests a tus aplicaciones.
+En este articulo hemos explorado una de las herramientas que tenemos a la mano para probar nuestro código. **Si eliminamos la fricción que existe para empezar a crear test, es más probable que empecemos a hacerlos.** Ya no hay excusas para no agregar tests a tus aplicaciones.
 
 Si te ha gustado el tema y te ha ayudado, **compártelo con alguien a quien podría interesarle**. Esto no solo ayudaría a la persona con quien lo compartas, sino que también me ayuda a mí a saber que este es un contenido de interés.
 
-Como mencioné arriba, si tienes más interés sobre hacer tests en JavaScripts déjame saber en [twitter](https://twitter.com/taverasmisael) que tema te gustaría que yo hablara luego y estaré haciendo lo posible por traer ese tema.
+Como mencioné arriba, si tienes más interés sobre hacer tests en JavaScripts déjame saber en [Twitter](https://twitter.com/taverasmisael) que tema te gustaría que yo hablara luego y estaré haciendo lo posible por traer ese tema.
