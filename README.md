@@ -27,7 +27,7 @@ Para mas comandos visitar la documentaciòn de [Gatsby](https://www.gatsbyjs.org
 ## Contribuir
 
 Los pull requests son bienvenidos. Por favor, primero crear un [issue](/issues/new), para discutir la solución antes de subir un PR.
-Estaré creando los archivos de codigo de conducta y guia para contribuciones pronto.
+Estaré creando los archivos de código de conducta y guia para contribuciones pronto.
 
 ## License
 
