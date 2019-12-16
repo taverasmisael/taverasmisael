@@ -1,6 +1,6 @@
 ---
 title: Entendiendo los snapshots de Jest
-date: '2019-12-13'
+date: '2019-12-01'
 description: Escribes tests que te den confianza en tu código antes de lanzarlo a producción aprovechando al máximo los snapshots de Jest. Aprende a usarlos de la forma correcta.
 author: Misael Taveras
 tags: ['Test', 'Tutorial']
@@ -10,7 +10,7 @@ banner: ./media/baner-entendiendo-los-snapshots-de-jest.jpg
 
 Jest, creado por Facebook, es un framework de testing para react que trae consigo una herramienta poderosa pero misteriosa; por eso a veces es temida, ignorada o mal usada.
 
-En este post aprenderemos todo de ella, como usarla en nuestros tests para probar más con menos código y aumentar la confianza en nuestro código.
+En este post aprenderemos todo de ella, cómo usarla en nuestros tests para probar más con menos y aumentar la confianza en nuestro código.
 
 _Si viniste solo por el jugoso tema de los snapshots [da clic acá](#snapshots-para-simplificar-los-tests) para saltarte el repaso._
 
@@ -18,9 +18,7 @@ _Si viniste solo por el jugoso tema de los snapshots [da clic acá](#snapshots-p
 
 > Los tests son código que **prueban** código.
 
-Nuestro código puede ser de lo mejor y puede funcionar correctamente cuando el usuario lo usa como esperamos, pero ¿Qué pasa cuando no? ¿Cómo nos damos cuenta? O incluso nosotros cuando necesitamos refactorizar algo, ¿Cómo nos aseguramos que nuestros cambios no dañen otras partes? Pues con tests.
-
-Los tests son código que prueban que nuestro código funcione de la forma correcta en diferentes escenarios.
+Lo que hemos desarrollado puede ser de lo mejor y puede funcionar correctamente cuando el usuario lo usa como esperamos, pero ¿Qué pasa cuando no? ¿Cómo nos damos cuenta? O incluso nosotros cuando necesitamos refactorizar algo, ¿Cómo nos aseguramos que nuestros cambios no dañen otras partes? Pues con tests.
 
 <blockquote className="special">
 
@@ -32,7 +30,7 @@ Para crear tests necesitamos lo que se conoce como un _Test framework_, una libr
 
 **Test framework:** es el que se encarga de correr nuestras pruebas en un entorno controlado, siguiendo una secuencia y asegurándose de que pasen nuestros asunciones.
 
-**Assertion library:** esta librería es la que hace las asunciones de nuestro código; nos permite crear código como `expect(true).toBe(true)` dándonos `matchers` que no son más que funciones que comparan dos valores y lanza un error sin son diferentes. Entre los matchers que trae consigo Jest se encuentran: _toBe, toEqual, toHaveLength y toMatchSnapshot_.
+**Assertion library:** esta librería es la que hace las asunciones de nuestro código; nos permite crear lineas como `expect(true).toBe(true)` dándonos `matchers` que no son más que funciones que comparan dos valores y lanza un error sin son diferentes. Entre los matchers que trae consigo Jest se encuentran: _toBe, toEqual, toHaveLength y toMatchSnapshot_.
 
 > **Dato interesante**: la consola de javascript tienen una funcionalidad sencilla para esto. Si hacemos `console.assert(expected, "No es lo que esperaba")`la consola imprimirá como un error `No es lo que esperaba` si expected es false y no hará nada si es true. Pruébalo.
 
@@ -50,7 +48,7 @@ Foto por [Aaron Schwartz](https://www.pexels.com/@aschwaphoto?utm_content=attrib
 
 Los tests, como explicábamos aseguran que el valor que esperamos sea igual que el que realmente se nos devuelve la funcionalidad que estamos probando. Esto es fácil de hacer cuando los valores son simples, como números, cadenas, booleanos; pero ¿Qué pasa cuando los valores son más complejos? ¿Qué hacemos cuando son objetos o queremos asegurarnos que todo nuestro estado sea de una forma? ¿Qué tal si queremos asegurar que el componente `X` muestre cierta estructura?
 
-Los snapshots son capturas de un momento o estado especifico en nuestro código.
+Los snapshots son capturas de un momento o estado especifico en nuestro aplicación.
 
 Una forma común de probar el resultado de un reducer de [Redux](https://redux.js.org/) es haciendo varios checks en los diferentes valores del estado. Tomando de ejemplo que tenemos un simple estado con `isLoading`, `error` y `data`; queremos que al llamar la acción `DO_REQUEST` se reinicíe la `data` a un array vacío, `error` sea una cadena en blanco e `isLoading` sea `true`. El test podría parecer algo como:
 
@@ -179,9 +177,9 @@ describe('my obscure test', () => {
 ### Los snapshots son excelentes en estructuras complejas
 
 Como vimos en el primer ejemplo, los snapshots pueden garantizar un mejor test cuando se trata de objetos, valores anidados o componentes. Si tienes problemas creando un snapshot de cierta estructura, busca por un paquete de serialización, estos son utilidades que hacen que los snapshots tengan más coherencia.
-Por ejemplo, si haces tests usando Enzyme, debes instalar el `Enzyme to JSON` ([link](https://github.com/adriantoine/enzyme-to-json)) para poder tener snapshots que verdaderamente demuestren la estructura del componente.
+Por ejemplo, si haces tests usando Enzyme, debes instalar el [Enzyme to JSON](https://github.com/adriantoine/enzyme-to-json)) para poder tener snapshots que verdaderamente demuestren la estructura del componente.
 
-### Evita usar snapshots para código con efectos secundarios
+### Evita usar snapshots para efectos secundarios
 
 ![Andre Mouton Primate](./media/andre-mouton-primate.jpg)
 
@@ -191,7 +189,7 @@ Foto por [Andre Mouton](https://www.pexels.com/@andre-mouton?utm_content=attribu
 
 </Caption>
 
-Los efectos secundarios pueden ser impredecibles o suelen pasar fuera del scope de lo que estamos probando. Cosas como eventos, llamadas a APIs, console.logs y demás son considerados como efectos secundarios (no significa necesariamente que sean malos), y si tu código hace uso de ellos es probable que los snapshots no sean la herramienta correcta.
+Los efectos secundarios pueden ser impredecibles o suelen pasar fuera del scope de lo que estamos probando. Cosas como eventos, llamadas a APIs, console.logs y demás son considerados como efectos secundarios (no significa necesariamente que sean malos), y si hace uso de ellos es probable que los snapshots no sean la herramienta correcta.
 
 Tomando como ejemplo un evento click que escriba en la consola, es algo que no podemos probar con snapshots porque estos no corren con respecto a la consola.
 
@@ -199,9 +197,9 @@ Para un servicio que llama al API y modifica el resultado para hacerlo más util
 
 ### No hacer snapshots de librerías de terceros
 
-Nuestro código no debería nunca hacer pruebas a las librerías de terceros que usamos, eso es trabajo del desarrollador de dicha librería.
+Nuestros tests no debería nunca hacer pruebas a las librerías de terceros que usamos, eso es trabajo del desarrollador de dicha librería.
 
-Ahora, en ocasiones nuestro componente (función, modulo, etc.) depende del código de terceros. Debemos evitar probar nuestros snapshots contra el código de terceros.
+Ahora, en ocasiones nuestro componente (función, modulo, etc.) depende de las librerías de terceros. Debemos evitar probar nuestros snapshots contra el código de terceros.
 
 En una ocasión, duré unas horas debugueado un snapshot que siempre daba diferencias sin importar qué. Cuando pude descubrir que pasaba, una librería de gráficos al generar la gráfica agregaba un _hash_ al ID del container, así que cada que corría el test el ID era diferente. Lo que hice fue ignorar lo que renderizaba esa librería y lo sustituí por un placeholder `Chart` ya que no era responsabilidad de ese test saber COMO se estaba renderizando el gráfico.
 
@@ -209,7 +207,7 @@ En una ocasión, duré unas horas debugueado un snapshot que siempre daba difere
 
 - Los snapshots **son** una herramienta útil para asegurarnos de que nuestros resultados no cambien de forma inesperada.
 - Los snapshots **son** una forma rápida de probar UIs o valores complejos.
-- Los snapshots **son** parte del código por lo que DEBEN ser comiteados también.
+- Los snapshots **son** parte de nuestra aplicación por lo que DEBEN ser comiteados también.
 - Los snapshots **son** validos para en la cobertura de código.
 - Los snapshots **no son** un reemplazo para nuestros tests unitarios.
 - Los snapshots **no son** lentos de generar/validar. Jest usa algo parecido al `diff` de Git para agilizar este proceso.
@@ -217,7 +215,7 @@ En una ocasión, duré unas horas debugueado un snapshot que siempre daba difere
 
 ## Conclusión
 
-En este articulo hemos explorado una de las herramientas que tenemos a la mano para probar nuestro código. **Si eliminamos la fricción que existe para empezar a crear test, es más probable que empecemos a hacerlos.** Ya no hay excusas para no agregar tests a tus aplicaciones.
+En este articulo hemos explorado una de las herramientas que tenemos a la mano para crear tests con más facilidad. **Si eliminamos la fricción que existe para empezar a crear test, es más probable que empecemos a hacerlos.** Ya no hay excusas para no agregar tests a tus aplicaciones.
 
 Si te ha gustado el tema y te ha ayudado, **compártelo con alguien a quien podría interesarle**. Esto no solo ayudaría a la persona con quien lo compartas, sino que también me ayuda a mí a saber que este es un contenido de interés.
 
