@@ -19,7 +19,7 @@
     "gatsby": "^2.18.10",
     "gatsby-plugin-mdx": "^1.0.61",
     "ramda": "^0.26.1",
-    "react": "^16.11.0",
+    "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-markdown": "^4.2.2",
     "react-share": "^3.0.1"
