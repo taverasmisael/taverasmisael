@@ -17,6 +17,9 @@ const systemFonts = [
 const headingFontFamily = `Overpass Mono, ${systemFonts}`
 const bodyFontFamily = `Roboto, ${systemFonts}`
 
+export const BRAND_BLUE = '#293462'
+export const BRAND_PINK = '#ed1250'
+
 const MainTheme = {
   typography: {
     fontFamily: bodyFontFamily,
@@ -32,10 +35,10 @@ const MainTheme = {
 
   palette: {
     primary: {
-      main: '#293462',
+      main: BRAND_BLUE,
     },
     secondary: {
-      main: '#ed1250',
+      main: BRAND_PINK,
     },
     type: 'light',
   },
@@ -70,10 +73,10 @@ const MainTheme = {
 const SecondaryTheme = merge(MainTheme, {
   palette: {
     primary: {
-      main: '#293462',
+      main: BRAND_BLUE,
     },
     secondary: {
-      main: '#ed1250',
+      main: BRAND_PINK,
     },
     background: { paper: '#1a1e27', default: '#13131f' },
     type: 'dark',
