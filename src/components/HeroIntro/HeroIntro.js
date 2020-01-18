@@ -45,10 +45,14 @@ const HeroIntro = memo(() => {
             component="h2"
             className={classes.description}
           >
-            Yo creo Páginas y Aplicaciones Web.
+            Quiero que tu marca crezca en línea
+            <Typography variant="body2" component="span">
+              Usando soluciones que suplen{' '}
+              <span className={classes.highlight}>lo que necesitas.</span>
+            </Typography>
           </Typography>
           <CTA variant="contained" color="secondary" className={classes.cta}>
-            Get in touch
+            Hablemos
           </CTA>
         </div>
         <img

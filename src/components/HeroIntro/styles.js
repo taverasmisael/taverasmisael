@@ -74,10 +74,17 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '0.75em',
     marginTop: '0!important',
     marginBottom: 0,
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1.5em',
+    },
   },
 
   name: {
     color: theme.palette.secondary.main,
+  },
+
+  highlight: {
+    background: `linear-gradient(0, ${theme.palette.secondary.main} 10%, transparent 10%)`,
   },
 
   description: {
