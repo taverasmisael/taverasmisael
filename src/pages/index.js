@@ -7,29 +7,12 @@ import { graphql, Link } from 'gatsby'
 
 import BlogItemMini from '../components/BlogItemMini'
 import HeroIntro from '../components/HeroIntro'
-import GeneralLayout from '../layouts/general'
+import BaseLayout from '../layouts/base'
 
 const HomePage = memo(({ data }) => (
-  <GeneralLayout noGutterBottom>
+  <BaseLayout>
     <HeroIntro />
-    <Container maxWidth="md">
-      <Typography variant="h3" gutterBottom>
-        Último del blog
-      </Typography>
-      <Grid container spacing={2}>
-        {data.allMdx.nodes.map(entry => (
-          <Grid key={entry.id} item sm={12}>
-            <BlogItemMini item={entry} />
-          </Grid>
-        ))}
-      </Grid>
-      <div className="MuiTypography-alignRight">
-        <Button component={Link} to="/blog" size="small">
-          Ver todas
-        </Button>
-      </div>
-    </Container>
-  </GeneralLayout>
+  </BaseLayout>
 ))
 
 HomePage.displayName = 'HomePage'

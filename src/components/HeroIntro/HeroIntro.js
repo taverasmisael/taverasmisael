@@ -17,6 +17,10 @@ const CTA = withStyles(theme => ({
       // Secondary color with 5% less Light (HSL)
       backgroundColor: '#8e0b30',
     },
+
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1em',
+    },
   },
 }))(Button)
 
@@ -25,29 +29,33 @@ const HeroIntro = memo(() => {
   return (
     <section className={classes.root}>
       <div className={classes.content}>
-        <Typography variant="h2" component="h1" className={classes.title}>
-          Hola
-          <Typography
-            variant="h2"
-            component="span"
-            className={classes.subtitle}
-          >
-            Soy <strong className={classes.name}>Misael Taveras</strong>
+        <div className={classes.textContent}>
+          <Typography variant="h2" component="h1" className={classes.title}>
+            Hola
+            <Typography
+              variant="h2"
+              component="span"
+              className={classes.subtitle}
+            >
+              Soy <span className={classes.name}>Misael Taveras</span>
+            </Typography>
           </Typography>
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          component="h2"
-          className={classes.description}
-        >
-          Yo creo Páginas y Aplicaciones Web.
-        </Typography>
-        <CTA variant="contained" color="secondary" className={classes.cta}>
-          Get in touch
-        </CTA>
-      </div>
-      <div className={classes.image}>
-        <img src={webDesignerPictureSrc} alt="Desarrollador web trabajando" />
+          <Typography
+            variant="subtitle1"
+            component="h2"
+            className={classes.description}
+          >
+            Yo creo Páginas y Aplicaciones Web.
+          </Typography>
+          <CTA variant="contained" color="secondary" className={classes.cta}>
+            Get in touch
+          </CTA>
+        </div>
+        <img
+          src={webDesignerPictureSrc}
+          alt="Desarrollador web trabajando"
+          className={classes.image}
+        />
       </div>
     </section>
   )
