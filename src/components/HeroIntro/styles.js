@@ -8,38 +8,21 @@ export const useStyles = makeStyles(theme => ({
         ? theme.palette.background.paper
         : theme.palette.primary.dark,
     color: theme.palette.primary.contrastText,
-    height: '56vh',
-    minHeight: 610,
+    height: '100vh',
     padding: theme.spacing(3, 2),
-    [theme.breakpoints.down('md')]: {
-      height: 400,
-      minHeight: 'auto',
-    },
   },
   content: {
     alignItems: 'center',
-    display: 'flex',
+    display: 'grid',
+    gridTemplateColumns: '12em 40% 1fr',
     height: '100%',
-    justifyContent: 'center',
     margin: '0 auto',
     maxWidth: 1920,
-    position: 'relative',
-    [theme.breakpoints.down('xs')]: {
-      display: 'block',
-    },
+    [theme.breakpoints.down('sm')]: {},
   },
 
   textContent: {
-    maxWidth: '40%',
-    marginRight: '8em',
-    [theme.breakpoints.down('sm')]: {
-      maxWidth: '100%',
-      marginRight: 0,
-      marginTop: 0,
-    },
-    [theme.breakpoints.down('md')]: {
-      margin: '0 auto',
-    },
+    gridColumn: 2,
   },
 
   image: {

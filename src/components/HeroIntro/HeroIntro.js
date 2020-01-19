@@ -47,7 +47,7 @@ const HeroIntro = memo(() => {
           >
             Quiero que tu marca crezca en línea
             <Typography variant="body2" component="span">
-              Usando soluciones que suplen{' '}
+              proveyendo soluciones que suplen{' '}
               <span className={classes.highlight}>lo que necesitas.</span>
             </Typography>
           </Typography>
@@ -55,11 +55,6 @@ const HeroIntro = memo(() => {
             Hablemos
           </CTA>
         </div>
-        <img
-          src={webDesignerPictureSrc}
-          alt="Desarrollador web trabajando"
-          className={classes.image}
-        />
       </div>
     </section>
   )
