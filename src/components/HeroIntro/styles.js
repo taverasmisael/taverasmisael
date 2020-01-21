@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
+const CONTENT_PADDING = theme => theme.spacing(3, 2)
+
 export const useStyles = makeStyles(theme => ({
   root: {
     alignItems: 'center',
@@ -9,47 +11,53 @@ export const useStyles = makeStyles(theme => ({
         : theme.palette.primary.dark,
     color: theme.palette.primary.contrastText,
     height: '100vh',
-    padding: theme.spacing(3, 2),
   },
-  content: {
+  container: {
     alignItems: 'center',
     display: 'grid',
-    gridTemplateColumns: '12em 40% 1fr',
+    gridTemplateColumns: '48% 1fr',
     height: '100%',
     margin: '0 auto',
     maxWidth: 1920,
-    [theme.breakpoints.down('sm')]: {},
-  },
 
-  textContent: {
-    gridColumn: 2,
-  },
-
-  image: {
-    display: 'block',
-    position: 'relative',
-    top: '32%',
-    width: 480,
-    '@media (min-width: 1921px)': {
-      top: 0,
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: 306,
-      margin: '0 auto',
-      marginRight: 0,
-      top: '-15%',
-    },
     [theme.breakpoints.down('md')]: {
-      width: 306,
-      margin: '0 auto',
-      top: 0,
+      gridTemplateColumns: '1fr',
     },
   },
-
+  content: {
+    display: 'flex',
+    alignItems: 'center',
+    height: '100%',
+    padding: CONTENT_PADDING(theme),
+    position: 'relative',
+  },
   title: {
-    fontSize: '3.25rem',
+    fontSize: '2.75rem',
     marginTop: 0,
     marginBottom: 0,
+  },
+  text: {
+    position: 'relative',
+    zIndex: 2,
+    [theme.breakpoints.up('md')]: {
+      marginTop: '-2rem',
+      marginLeft: '3rem',
+    },
+  },
+
+  backdrop: {
+    pointerEvents: 'none',
+    '&::before, &::after': {
+      content: '""',
+      backgroundImage: 'linear-gradient(to bottom, #1c294f 42%, #000000)',
+      display: 'block',
+      opacity: 0.6,
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      left: 0,
+      bottom: 0,
+    },
   },
 
   subtitle: {

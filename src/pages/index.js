@@ -9,9 +9,9 @@ import BlogItemMini from '../components/BlogItemMini'
 import HeroIntro from '../components/HeroIntro'
 import BaseLayout from '../layouts/base'
 
-const HomePage = memo(({ data }) => (
+const HomePage = memo(({ data, ...args }) => (
   <BaseLayout>
-    <HeroIntro />
+    <HeroIntro image={data.heroImage.childImageSharp.fluid} />
   </BaseLayout>
 ))
 
@@ -19,6 +19,17 @@ HomePage.displayName = 'HomePage'
 
 export const query = graphql`
   query {
+    heroImage: file(relativePath: { eq: "mac-keyboard.jpg" }) {
+      childImageSharp {
+        fluid(
+          maxWidth: 920
+          traceSVG: { color: "#1c294f", background: "#535c81" }
+        ) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+
     allMdx(
       limit: 2
       sort: { fields: frontmatter___date, order: DESC }
