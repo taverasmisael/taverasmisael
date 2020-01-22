@@ -1,61 +1,33 @@
 import makeStyles from '@material-ui/core/styles/makeStyles'
 
-export const useStyles = makeStyles(theme => ({
-  root: {
-    marginTop: theme.spacing(4),
-    overflow: 'hidden',
-
-    [theme.breakpoints.down('sm')]: { marginTop: theme.spacing(4) },
-  },
-
-  container: {
-    alignItems: 'center',
-    borderTop: `1px solid ${theme.palette.action.disabledBackground}`,
-    display: 'grid',
-    gridGap: theme.spacing(2, 4),
-    gridTemplateColumns: '18% 1fr',
-    padding: theme.spacing(4, 2),
-
-    [theme.breakpoints.down('xs')]: {
-      display: 'block',
+export const useStyles = isDark =>
+  makeStyles(theme => ({
+    root: {
+      color: isDark
+        ? theme.palette.primary.contrastText
+        : theme.palette.primary.dark,
+      margin: '1rem 0',
     },
-  },
-
-  profileImageContainer: {
-    backgroundColor: theme.palette.primary.dark,
-    borderRadius: theme.shape.borderRadius,
-    boxShadow: theme.shadows[2],
-    height: '100%',
-    padding: theme.spacing(4, 2),
-    gridRow: '1/3',
-
-    [theme.breakpoints.down('xs')]: {
-      display: 'none',
+    socialIcon: {
+      color: isDark
+        ? theme.palette.primary.contrastText
+        : theme.palette.primary.dark,
+      width: '1.25rem',
     },
-  },
 
-  shortBio: {
-    maxWidth: '80%',
-  },
-
-  socialLinks: {
-    display: 'grid',
-    gridGap: theme.spacing(2),
-    gridTemplateColumns: 'repeat(7, 1fr)',
-    listStyle: 'none',
-    gridColumn: '2/3',
-
-    [theme.breakpoints.down('xs')]: {
-      marginTop: theme.spacing(2),
+    disabled: {
+      '&[aria-disabled="true"] svg': {
+        color: isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)',
+      },
     },
-  },
-  socialLink: {
-    fontWeight: 'normal',
-    borderRadius: 0,
-    fontSize: '1rem',
-    textTransform: 'lowercase',
-  },
-  profileImg: {
-    borderRadius: '50%',
-  },
-}))
+
+    copy: {
+      fontSize: 10,
+      marginTop: 0,
+    },
+
+    socialIconContainer: {
+      textAlign: 'center',
+      verticalAlign: 'middle',
+    },
+  }))()
