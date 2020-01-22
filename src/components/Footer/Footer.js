@@ -1,80 +1,60 @@
 import React, { memo } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import Container from '@material-ui/core/Container'
-import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import IconButton from '@material-ui/core/IconButton'
+
 import Typography from '@material-ui/core/Typography'
-import Img from 'gatsby-image'
+
+import AnchorIcon from '../Icons/Anchor'
+import GithubIcon from '../Icons/Github'
+import LinkedinIcon from '../Icons/Linkedin'
+import TwitterIcon from '../Icons/Twitter'
 
 import { useStyles } from './styles'
 
-const Footer = memo(() => {
-  const { site, file } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          socialHandler
-          footerCopy
-        }
-      }
-      file(relativePath: { eq: "me.jpg" }) {
-        childImageSharp {
-          fluid(
-            maxWidth: 128
-            traceSVG: { color: "#f04173", background: "#535c81" }
-          ) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  `)
-
-  const classes = useStyles()
+const Footer = memo(({ isDark }) => {
+  const year = new Date().getFullYear()
+  const classes = useStyles(isDark)
   return (
     <footer className={classes.root}>
-      <Container maxWidth="md" className={classes.container}>
-        <div className={classes.profileImageContainer}>
-          <Img
-            fluid={file.childImageSharp.fluid}
-            className={classes.profileImg}
-          />
-        </div>
-        <div>
-          <Typography gutterBottom variant="h5" component="h6">
-            Hola, soy Misael Taveras
-          </Typography>
-          <Typography
-            variant="body2"
-            component="p"
-            className={classes.shortBio}
-          >
-            {site.siteMetadata.footerCopy}. Encuéntrame en cualquier otra parte
-            como <strong>{site.siteMetadata.socialHandler}</strong>.
-          </Typography>
-        </div>
-        <div className={classes.socialLinks}>
-          <Button
-            color="secondary"
-            href="https://twitter.com/taverasmisael"
-            className={classes.socialLink}
-          >
-            twitter
-          </Button>
-          <Button
-            color="secondary"
-            href="https://github.com/taverasmisael"
-            className={classes.socialLink}
-          >
-            github
-          </Button>
-          <Button
-            color="secondary"
-            href="https://linkedin.com/in/taverasmisael"
-            className={classes.socialLink}
-          >
-            linkedin
-          </Button>
-        </div>
+      <Container maxWidth="md">
+        <Grid container spacing={0} justify="center">
+          <Grid item xs={12} sm={10}>
+            <Grid container spacing={0} justify="center">
+              <Grid item xs={3} sm={1} className={classes.socialIconContainer}>
+                <IconButton href="https://twitter.com/taverasmisael">
+                  <TwitterIcon className={classes.socialIcon} />
+                </IconButton>
+              </Grid>
+              <Grid item xs={3} sm={1} className={classes.socialIconContainer}>
+                <IconButton href="https://github.com/taverasmisael">
+                  <GithubIcon className={classes.socialIcon} />
+                </IconButton>
+              </Grid>
+              <Grid item xs={3} sm={1} className={classes.socialIconContainer}>
+                <IconButton href="https://linkedin.com/in/taverasmisael">
+                  <LinkedinIcon className={classes.socialIcon} />
+                </IconButton>
+              </Grid>
+              <Grid item xs={3} sm={1} className={classes.socialIconContainer}>
+                <IconButton disabled href="#" className={classes.disabled}>
+                  <AnchorIcon className={classes.socialIcon} />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={10}>
+            <Typography
+              variant="caption"
+              className={classes.copy}
+              component="h6"
+              align="center"
+            >
+              Todos los derechos reservados {year}&copy; Misael Taveras –
+              @taverasmisael anywhere else
+            </Typography>
+          </Grid>
+        </Grid>
       </Container>
     </footer>
   )
