@@ -2,16 +2,17 @@ import React, { memo } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-
+import { Link } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
 import { useStyles } from './styles'
+import Footer from '../Footer'
 
 const CTA = withStyles(theme => ({
   root: {
     backgroundColor: theme.palette.secondary.dark,
     color: theme.palette.secondary.contrastText,
-    marginTop: '2em',
+    marginTop: '5rem',
 
     '&:hover': {
       // Secondary color with 5% less Light (HSL)
@@ -19,7 +20,7 @@ const CTA = withStyles(theme => ({
     },
 
     [theme.breakpoints.down('md')]: {
-      fontSize: '1em',
+      fontSize: '1.5rem',
     },
   },
 }))(Button)
@@ -57,10 +58,17 @@ const HeroIntro = memo(({ image }) => {
                 <span className={classes.highlight}>lo que necesitas.</span>
               </Typography>
             </Typography>
-            <CTA variant="contained" color="secondary" className={classes.cta}>
+            <CTA
+              variant="contained"
+              color="secondary"
+              className={classes.cta}
+              component={Link}
+              to="/contacto"
+            >
               Hablemos
             </CTA>
           </div>
+          <Footer isDark />
         </BackgroundImage>
       </div>
     </section>

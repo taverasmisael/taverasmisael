@@ -25,8 +25,9 @@ export const useStyles = makeStyles(theme => ({
     },
   },
   content: {
-    display: 'flex',
+    display: 'grid',
     alignItems: 'center',
+    gridTemplateRows: '0 1fr 70px',
     height: '100%',
     padding: CONTENT_PADDING(theme),
     position: 'relative',
@@ -47,6 +48,7 @@ export const useStyles = makeStyles(theme => ({
 
   backdrop: {
     pointerEvents: 'none',
+    zIndex: -1,
     '&::before, &::after': {
       content: '""',
       backgroundImage: 'linear-gradient(to bottom, #1c294f 42%, #000000)',
