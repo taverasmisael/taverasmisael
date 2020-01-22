@@ -28,7 +28,7 @@ Pero hablar de programación puede extenderse de diferentes maneras, de hecho aq
 
 > Sí, te hablo a ti profesor del politécnico que nos dictaba código y nos llevaba una vez al mes al laboratorio para al fin probar ese código esperando que si funcione. **Volviendo a nuestra programación habitual**...
 
-Por otro lado, hay un punto de vista que solo he compartido hasta ahora con algunos de mis amigos más íntimos, que también son programadores. Este punto de vista es, **EL MIO**. Mis opiniones y experiencia que he adquirido a través de los años y que he compartido con algunos compañeros que viene a mí con dudas. En ocasiones el mismo día le respondía preguntas similares a dos y tres personas diferentes.
+Por otro lado, hay un punto de vista que solo he compartido hasta ahora con algunos de mis amigos más íntimos, que también son programadores. Este punto de vista es, **EL MIO**. Mis opiniones y experiencia que he adquirido a través de los años y que he compartido con algunos compañeros que vienen a mí con dudas. En ocasiones el mismo día le respondía preguntas similares a dos y tres personas diferentes.
 
 Lo que se me ocurre es hacer eso mismo, pero responderle a varias personas diferentes (*probablemente las mismas dos o tres*) pero hacerlo al mismo tiempo, a través del podcast.
 
@@ -38,13 +38,13 @@ De vez en cuando, habrán invitados que serán entrevistados o co-presentadores 
 
 ## Fecha de lanzamiento
 
-El formato de lanzamiento del podcast va a ser semanal, pero **divido por temporadas**. Así que primero haré unos cuantos episodios juntos y los iré lanzando semanalmente. Para la semana del lanzamiento estoy pensando liberar al menos 4 episodios para que no tengas que esperar tanto por más contenido y a la vez yo poder tener feedback tuyo.
+El formato de lanzamiento del podcast va a ser semanal, pero **dividido por temporadas**. Así que primero haré unos cuantos episodios juntos y los iré lanzando semanalmente. Para la semana del lanzamiento estoy pensando liberar al menos 4 episodios para que no tengas que esperar tanto por más contenido y a la vez yo poder tener feedback tuyo.
 
 ![Elon Musk Reaction](./media/elon-musk-reaction.jpg)
 
 ## Necesito tu ayuda
 
-Bien, aunque sé cómo y qué quiero hacer ~~kindda~~  al final del día este contenido va a ser para ti, así que me gustaría saber tu opinión en algunas cosas. Para ello creé un pequeño formulario de Google con 4 preguntas sencilla de selección y significaría el mundo para mí si pudieras tomarte 30 segundos de tu tiempo y llenarlo. Entre las preguntas está una selección de algunos posibles nombres y me gustaría saber cual te gusta más.
+Bien, aunque sé cómo y qué quiero hacer ~~kindda~~  al final del día este contenido va a ser para ti, así que me gustaría saber tu opinión en algunas cosas. Para ello creé un pequeño formulario de Google con 4 preguntas sencillas de selección y significaría el mundo para mí si pudieras tomarte 30 segundos de tu tiempo y llenarlo. Entre las preguntas está una selección de algunos posibles nombres y me gustaría saber cual te gusta más.
 
 [Aquí el link para el formulario que decidirá el futuro de tu país.](https://forms.gle/DzZCSn5WeCiw4chG7)
 
