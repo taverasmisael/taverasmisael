@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
-    "@mdx-js/react": "^1.5.1",
+    "@mdx-js/react": "^1.5.2",
     "classnames": "^2.2.6",
-    "gatsby": "^2.18.10",
+    "gatsby": "^2.18.14",
     "gatsby-plugin-mdx": "^1.0.64",
     "ramda": "^0.26.1",
     "react": "^16.12.0",
