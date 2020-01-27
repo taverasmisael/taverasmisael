@@ -4,26 +4,13 @@ const CONTENT_PADDING = theme => theme.spacing(3, 2)
 
 export const useStyles = makeStyles(theme => ({
   root: {
-    alignItems: 'center',
     backgroundColor:
       theme.palette.type === 'dark'
         ? theme.palette.background.paper
         : theme.palette.primary.dark,
     color: theme.palette.primary.contrastText,
-    height: '100vh',
   },
-  container: {
-    alignItems: 'center',
-    display: 'grid',
-    gridTemplateColumns: '48% 1fr',
-    height: '100%',
-    margin: '0 auto',
-    maxWidth: 1920,
 
-    [theme.breakpoints.down('md')]: {
-      gridTemplateColumns: '1fr',
-    },
-  },
   content: {
     display: 'grid',
     alignItems: 'center',
@@ -33,7 +20,7 @@ export const useStyles = makeStyles(theme => ({
     position: 'relative',
   },
   title: {
-    fontSize: '2.75rem',
+    fontSize: '6.75rem',
     marginTop: 0,
     marginBottom: 0,
   },
@@ -67,9 +54,6 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '0.75em',
     marginTop: '0!important',
     marginBottom: 0,
-    [theme.breakpoints.up('md')]: {
-      fontSize: '1.5em',
-    },
   },
 
   name: {
@@ -86,6 +70,11 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       fontSize: '1.25em',
       marginTop: '0.75em',
+    },
+
+    '&>span': {
+      fontSize: '1.5rem',
+      color: 'rgba(255,255,255,.6)',
     },
   },
 

@@ -1,17 +1,15 @@
 import React, { memo } from 'react'
-import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import BlogItemMini from '../components/BlogItemMini'
+import Footer from '../components/Footer'
 import HeroIntro from '../components/HeroIntro'
 import BaseLayout from '../layouts/base'
 
 const HomePage = memo(({ data, ...args }) => (
   <BaseLayout>
     <HeroIntro image={data.heroImage.childImageSharp.fluid} />
+
+    <Footer />
   </BaseLayout>
 ))
 

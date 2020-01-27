@@ -4,7 +4,6 @@ import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
-import MaterialLink from '@material-ui/core/Link'
 
 import { Link } from 'gatsby'
 

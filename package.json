@@ -21,6 +21,7 @@
     "gatsby-plugin-mdx": "^1.0.55",
     "ramda": "^0.26.1",
     "react": "^16.11.0",
+    "react-div-100vh": "^0.3.8",
     "react-dom": "^16.11.0",
     "react-markdown": "^4.2.2",
     "react-share": "^3.0.1"
