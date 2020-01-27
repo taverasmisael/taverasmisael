@@ -8,7 +8,7 @@ import Testimonial from '../../../components/Testimonial'
 
 import TestimonialData from './testimonials.json'
 
-const AboutMe = memo(() => {
+const AboutMe = () => {
   const classes = useStyles()
   return (
     <Grid container spacing={0} className={classes.root}>
@@ -31,8 +31,23 @@ const AboutMe = memo(() => {
             gavilán. El cadáver de Wamba, rey godo de España, fue exhumado y
             trasladado en una caja de zinc.
           </Typography>
+          <Typography variant="body1" className={classes.aboutCopy}>
+            Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me
+            exige, sin tapujos, que añada cerveza al whisky. Jovencillo
+            emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada
+            vez mejor el saxofón y el búho pedía kiwi y queso. El jefe buscó el
+            éxtasis en un imprevisto baño de whisky y gozó como un duque.
+            Exhíbanse politiquillos zafios, con orejas kilométricas y uñas de
+            gavilán. El cadáver de Wamba, rey godo de España, fue exhumado y
+            trasladado en una caja de zinc.
+          </Typography>
 
-          <Button href="#" variant="outlined" color="secondary">
+          <Button
+            download
+            href="/taveras-misael-cv.pdf"
+            variant="outlined"
+            color="secondary"
+          >
             Descargar CV
           </Button>
         </div>
@@ -48,12 +63,13 @@ const AboutMe = memo(() => {
         </Typography>
         <Grid container spacing={4} className={classes.testimonialsContainer}>
           {TestimonialData.map((testimony, idx) => (
-            <Grid item key={idx} xs={12} sm={6} md={4}>
+            <Grid item key={idx} xs={12} sm={6} md={4} className={classes.cell}>
               <Testimonial
                 name={testimony.name}
                 position={testimony.position}
                 profilePicture={testimony.profilePicture}
                 testimony={testimony.testimony}
+                highlight={(idx + 1) % 2 === 0}
               />
             </Grid>
           ))}
@@ -61,6 +77,6 @@ const AboutMe = memo(() => {
       </Grid>
     </Grid>
   )
-})
+}
 
-export default AboutMe
+export default memo(AboutMe)

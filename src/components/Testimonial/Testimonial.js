@@ -1,13 +1,24 @@
 import React, { memo } from 'react'
+import classnames from 'classnames'
 import Typography from '@material-ui/core/Typography'
 import Avatar from '@material-ui/core/Avatar'
 
 import { useStyles } from './styles'
 
-const Testimonial = memo(({ profilePicture, name, position, testimony }) => {
+const Testimonial = ({
+  profilePicture,
+  name,
+  position,
+  testimony,
+  highlight,
+}) => {
   const classes = useStyles()
   return (
-    <div className={classes.root}>
+    <div
+      className={classnames(classes.root, {
+        [classes.hasBackgroundColor]: highlight,
+      })}
+    >
       <div className={classes.header}>
         <Avatar src={profilePicture} className={classes.profilePic} alt="" />
         <div>
@@ -26,6 +37,6 @@ const Testimonial = memo(({ profilePicture, name, position, testimony }) => {
       </div>
     </div>
   )
-})
+}
 
-export default Testimonial
+export default memo(Testimonial)

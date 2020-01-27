@@ -5,6 +5,9 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.dark,
     color: theme.palette.primary.contrastText,
   },
+  cell: {
+    marginBottom: '2rem',
+  },
   aboutBlock: {
     padding: '3rem 2rem',
     paddingRight: '4rem',
