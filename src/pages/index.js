@@ -2,13 +2,13 @@ import React, { memo } from 'react'
 import { graphql } from 'gatsby'
 
 import Footer from '../components/Footer'
-import HeroIntro from '../components/HeroIntro'
+import { HeroIntro, AboutMe } from '../containers/landing'
 import BaseLayout from '../layouts/base'
 
 const HomePage = memo(({ data, ...args }) => (
   <BaseLayout>
     <HeroIntro image={data.heroImage.childImageSharp.fluid} />
-
+    <AboutMe />
     <Footer />
   </BaseLayout>
 ))
