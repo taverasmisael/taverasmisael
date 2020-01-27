@@ -6,6 +6,54 @@ import Button from '@material-ui/core/Button'
 import { useStyles } from './styles'
 import Testimonial from '../../../components/Testimonial'
 
+// #region testimonies
+const TESTIMONIALS = [
+  {
+    name: 'Efraín Peralta',
+    position: 'FrontEnd GBH',
+    profilePicture: 'https://randomuser.me/api/portraits/women/48.jpg',
+    testimony:
+      'Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige, sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez.',
+  },
+  {
+    name: 'Efraín Peralta',
+    position: 'FrontEnd GBH',
+    profilePicture: 'https://randomuser.me/api/portraits/women/48.jpg',
+    testimony:
+      'Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige, sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez.',
+  },
+  {
+    name: 'Efraín Peralta',
+    position: 'FrontEnd GBH',
+    profilePicture: 'https://randomuser.me/api/portraits/women/48.jpg',
+    testimony:
+      'Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige, sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez.',
+  },
+  {
+    name: 'Efraín Peralta',
+    position: 'FrontEnd GBH',
+    profilePicture: 'https://randomuser.me/api/portraits/women/48.jpg',
+    testimony:
+      'Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige, sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez.',
+  },
+  {
+    name: 'Efraín Peralta',
+    position: 'FrontEnd GBH',
+    profilePicture: 'https://randomuser.me/api/portraits/women/48.jpg',
+    testimony:
+      'Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige, sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez.',
+  },
+  {
+    name: 'Efraín Peralta',
+    position: 'FrontEnd GBH',
+    profilePicture: 'https://randomuser.me/api/portraits/women/48.jpg',
+    testimony:
+      'Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige, sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez.',
+  },
+]
+
+// #endregion testimonies
+
 const AboutMe = memo(() => {
   const classes = useStyles()
   return (
@@ -45,24 +93,16 @@ const AboutMe = memo(() => {
           Lo que otros dicen
         </Typography>
         <Grid container spacing={4} className={classes.testimonialsContainer}>
-          <Grid item xs={12} sm={6} md={4}>
-            <Testimonial />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Testimonial />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Testimonial />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Testimonial />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Testimonial />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Testimonial />
-          </Grid>
+          {TESTIMONIALS.map((testimony, idx) => (
+            <Grid item key={idx} xs={12} sm={6} md={4}>
+              <Testimonial
+                name={testimony.name}
+                position={testimony.position}
+                profilePicture={testimony.profilePicture}
+                testimony={testimony.testimony}
+              />
+            </Grid>
+          ))}
         </Grid>
       </Grid>
     </Grid>

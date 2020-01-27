@@ -4,30 +4,24 @@ import Avatar from '@material-ui/core/Avatar'
 
 import { useStyles } from './styles'
 
-const Testimonial = memo(() => {
+const Testimonial = memo(({ profilePicture, name, position, testimony }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <Avatar
-          src="https://randomuser.me/api/portraits/women/48.jpg"
-          className={classes.profilePic}
-          alt=""
-        />
+        <Avatar src={profilePicture} className={classes.profilePic} alt="" />
         <div>
           <Typography variant="h4" component="h3" className={classes.name}>
-            Efraín Peralta
+            {name}
           </Typography>
           <Typography variant="caption" className={classes.position}>
-            GBH FrontEnd Developer
+            {position}
           </Typography>
         </div>
       </div>
       <div className={classes.body}>
         <Typography variant="body1" className={classes.text}>
-          Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige,
-          sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de
-          whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez.
+          {testimony}
         </Typography>
       </div>
     </div>
