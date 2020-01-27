@@ -28,7 +28,7 @@ const CTA = withStyles(theme => ({
 const HeroIntro = memo(({ image }) => {
   const classes = useStyles()
   return (
-    <Div100vh className={classes.root}>
+    <Div100vh className={classes.root} as="section">
       <BackgroundImage
         fluid={image}
         backgroundColor="#1c294f"
