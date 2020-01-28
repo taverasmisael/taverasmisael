@@ -63,7 +63,7 @@ const AboutMe = () => {
         </Typography>
         <Grid container spacing={4} className={classes.testimonialsContainer}>
           {TestimonialData.map((testimony, idx) => (
-            <Grid item key={idx} xs={12} sm={6} md={4} className={classes.cell}>
+            <Grid item key={idx} xs={12} sm={6} lg={4} className={classes.cell}>
               <Testimonial
                 name={testimony.name}
                 position={testimony.position}
