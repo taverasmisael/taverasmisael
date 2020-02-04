@@ -1,0 +1,49 @@
+import React, { memo, useState, useEffect } from 'react'
+import classnames from 'classnames'
+import Button from '@material-ui/core/Button'
+import Paper from '@material-ui/core/Paper'
+import Card from '@material-ui/core/Card'
+import ButtonBase from '@material-ui/core/ButtonBase'
+import Typography from '@material-ui/core/Typography'
+import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded'
+
+import Image from 'gatsby-image'
+
+import { truncateText } from '../../utils/normalizer'
+
+import { useStyles } from './styles'
+
+const truncate15 = truncateText(15)
+
+const Project = ({ description, imageFluid, name, href }) => {
+  const classes = useStyles()
+  const [isOpen, setIsOpen] = useState(false)
+  const [text, setText] = useState(description)
+
+  useEffect(() => {
+    setText(isOpen ? description : truncate15(description))
+  }, [setText, isOpen, description])
+  return (
+    <Card className={classes.root} onClick={() => setIsOpen(state => !state)}>
+      <ButtonBase component="div">
+        <Image fluid={imageFluid} alt={name} />
+        <Paper
+          className={classnames(classes.content, {
+            [classes.contentOpen]: isOpen,
+          })}
+        >
+          <div>
+            <Typography className={classes.name}>{name}</Typography>
+            <Typography className={classes.description}>{text}</Typography>
+          </div>
+          <div>
+            <Button href={href} color="primary" endIcon={<OpenInNewRounded />}>
+              Visitar
+            </Button>
+          </div>
+        </Paper>
+      </ButtonBase>
+    </Card>
+  )
+}
+export default memo(Project)
