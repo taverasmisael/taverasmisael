@@ -13,9 +13,10 @@ const mapProjects = projects =>
     banner: project.frontmatter.bannerImage.childImageSharp.fluid,
     stack: project.frontmatter.technologies,
     description: project.excerpt,
+    url: project.frontmatter.url,
   }))
 
-const AboutMe = ({ projects }) => {
+const Projects = ({ projects }) => {
   const classes = useStyles()
   return (
     <Div100vh className={classes.root} style={{ minHeight: '100rvh' }}>
@@ -50,4 +51,4 @@ const AboutMe = ({ projects }) => {
   )
 }
 
-export default memo(AboutMe)
+export default memo(Projects)

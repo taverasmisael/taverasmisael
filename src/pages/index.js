@@ -62,23 +62,24 @@ export const query = graphql`
         fileAbsolutePath: { regex: "//projects-list//" }
         frontmatter: { status: { eq: "published" } }
       }
+      sort: { order: ASC, fields: frontmatter___title }
     ) {
       edges {
         node {
           id
           frontmatter {
             title
-            description
+            url
             technologies
             bannerImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
+                fluid(maxWidth: 400) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
           }
-          excerpt
+          excerpt(pruneLength: 280)
         }
       }
     }
