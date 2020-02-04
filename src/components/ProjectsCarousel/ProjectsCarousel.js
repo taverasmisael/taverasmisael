@@ -1,11 +1,8 @@
 import React, { memo } from 'react'
-import Button from '@material-ui/core/Button'
-import Paper from '@material-ui/core/Paper'
 import Carousel from '../Carousel'
+import Project from '../Project'
 
 import '@glidejs/glide/dist/css/glide.core.min.css'
-
-import { useStyles } from './styles'
 
 const CAROUSEL_OPTIONS = {
   perView: 1,
@@ -20,7 +17,7 @@ const CAROUSEL_OPTIONS = {
     },
 
     1365: {
-      perView: 4,
+      perView: 3,
       gap: 16,
       peek: { before: 50, after: 100 },
     },
@@ -34,19 +31,19 @@ const CAROUSEL_OPTIONS = {
   },
 }
 
-const ProjectsCarousel = () => {
-  const classes = useStyles()
-  return (
-    <Carousel className={classes.container} options={CAROUSEL_OPTIONS}>
-      <Paper>Content</Paper>
-      <Paper>Content</Paper>
-      <Paper>Content</Paper>
-      <Paper>Content</Paper>
-      <Paper>Content</Paper>
-      <Paper>Content</Paper>
-      <Paper>Content</Paper>
-    </Carousel>
-  )
-}
+const ProjectsCarousel = ({ projects }) => (
+  <Carousel options={CAROUSEL_OPTIONS}>
+    {projects.map(project => (
+      <div key={project.id}>
+        <Project
+          imageFluid={project.imageFluid}
+          description={project.description}
+          name={project.name}
+          href={project.url}
+        />
+      </div>
+    ))}
+  </Carousel>
+)
 
 export default memo(ProjectsCarousel)
