@@ -8,7 +8,6 @@ import Testimonial from '../../../components/Testimonial'
 
 const AboutMe = ({ testimonials = [] }) => {
   const classes = useStyles()
-  console.warn(testimonials)
   return (
     <Grid container spacing={0} className={classes.root}>
       <Grid item xs={12} md={5} className={classes.aboutBlock}>
