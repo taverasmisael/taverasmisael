@@ -45,4 +45,9 @@ export const useStyles = makeStyles(theme => ({
     fontSize: 14,
     fontWeight: 300,
   },
+
+  text: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+  },
 }))

@@ -32,7 +32,7 @@ const Project = ({ description, banner, name, href, stack }) => {
             [classes.contentOpen]: isOpen,
           })}
         >
-          <div>
+          <div className={classes.text}>
             <Typography className={classes.name}>{name}</Typography>
             <Typography gutterBottom className={classes.description}>
               {text}
@@ -42,7 +42,13 @@ const Project = ({ description, banner, name, href, stack }) => {
             </Typography>
           </div>
           <div>
-            <Button href={href} color="primary" endIcon={<OpenInNewRounded />}>
+            <Button
+              href={href}
+              target="_blank"
+              rel="noreferrer nofollow"
+              color="primary"
+              endIcon={<OpenInNewRounded />}
+            >
               Visitar
             </Button>
           </div>
