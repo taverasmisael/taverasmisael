@@ -23,6 +23,9 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '6.75rem',
     marginTop: 0,
     marginBottom: 0,
+    [theme.breakpoints.down('md')]: {
+      fontSize: '5.75rem',
+    },
   },
   text: {
     position: 'relative',
