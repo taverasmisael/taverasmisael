@@ -6,10 +6,9 @@ import Button from '@material-ui/core/Button'
 import { useStyles } from './styles'
 import Testimonial from '../../../components/Testimonial'
 
-import TestimonialData from './testimonials.json'
-
-const AboutMe = () => {
+const AboutMe = ({ testimonials = [] }) => {
   const classes = useStyles()
+  console.warn(testimonials)
   return (
     <Grid container spacing={0} className={classes.root}>
       <Grid item xs={12} md={5} className={classes.aboutBlock}>
@@ -62,13 +61,22 @@ const AboutMe = () => {
           Lo que otros dicen
         </Typography>
         <Grid container spacing={4} className={classes.testimonialsContainer}>
-          {TestimonialData.map((testimony, idx) => (
-            <Grid item key={idx} xs={12} sm={6} lg={4} className={classes.cell}>
+          {testimonials.map(({ node: testimony }, idx) => (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              lg={4}
+              key={testimony.id}
+              className={classes.cell}
+            >
               <Testimonial
-                name={testimony.name}
-                position={testimony.position}
-                profilePicture={testimony.profilePicture}
-                testimony={testimony.testimony}
+                name={testimony.frontmatter.title}
+                position={testimony.frontmatter.position}
+                profilePicture={
+                  testimony.frontmatter.profilePicture.childImageSharp.fluid
+                }
+                testimony={testimony.body}
                 highlight={(idx + 1) % 2 === 0}
               />
             </Grid>

@@ -5,14 +5,17 @@ import Footer from '../components/Footer'
 import { HeroIntro, AboutMe, Projects } from '../containers/landing'
 import BaseLayout from '../layouts/base'
 
-const HomePage = memo(({ data, ...args }) => (
-  <BaseLayout>
-    <HeroIntro image={data.heroImage.childImageSharp.fluid} />
-    <AboutMe />
-    <Projects />
-    <Footer />
-  </BaseLayout>
-))
+const HomePage = ({ data }) => {
+  const { heroImage, testimonials, projects } = data
+  return (
+    <BaseLayout>
+      <HeroIntro image={heroImage.childImageSharp.fluid} />
+      <AboutMe testimonials={testimonials.edges} />
+      <Projects projects={projects.edges} />
+      <Footer />
+    </BaseLayout>
+  )
+}
 
 HomePage.displayName = 'HomePage'
 
@@ -29,27 +32,57 @@ export const query = graphql`
       }
     }
 
-    allMdx(
-      limit: 2
-      sort: { fields: frontmatter___date, order: DESC }
+    testimonials: allMdx(
       filter: {
+        fileAbsolutePath: { regex: "//testimonials//" }
         frontmatter: { status: { eq: "published" } }
-        fileAbsolutePath: { regex: "//posts//" }
       }
     ) {
-      nodes {
-        ...BlogPostNode
-        frontmatter {
-          banner {
-            childImageSharp {
-              ...ImageSharpFluidMin
-              ...ImageSharpFixed200
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            position
+            profilePicture {
+              childImageSharp {
+                fluid(maxWidth: 80) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
             }
           }
+          body
+        }
+      }
+    }
+
+    projects: allMdx(
+      filter: {
+        fileAbsolutePath: { regex: "//projects-list//" }
+        frontmatter: { status: { eq: "published" } }
+      }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            description
+            technologies
+            bannerImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+          excerpt
         }
       }
     }
   }
 `
 
-export default HomePage
+export default memo(HomePage)

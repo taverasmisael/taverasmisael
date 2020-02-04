@@ -2,6 +2,8 @@ import React, { memo } from 'react'
 import classnames from 'classnames'
 import Typography from '@material-ui/core/Typography'
 import Avatar from '@material-ui/core/Avatar'
+import Image from 'gatsby-image'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import { useStyles } from './styles'
 
@@ -20,7 +22,12 @@ const Testimonial = ({
       })}
     >
       <div className={classes.header}>
-        <Avatar src={profilePicture} className={classes.profilePic} alt="" />
+        <Avatar
+          component={Image}
+          fluid={profilePicture}
+          className={classes.profilePic}
+          alt=""
+        />
         <div>
           <Typography variant="h4" component="h3" className={classes.name}>
             {name}
@@ -31,9 +38,7 @@ const Testimonial = ({
         </div>
       </div>
       <div className={classes.body}>
-        <Typography variant="body1" className={classes.text}>
-          {testimony}
-        </Typography>
+        <MDXRenderer>{testimony}</MDXRenderer>
       </div>
     </div>
   )
