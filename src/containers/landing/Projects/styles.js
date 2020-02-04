@@ -9,4 +9,16 @@ export const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.contrastText,
     paddingLeft: '2rem',
   },
+
+  projectsContainer: {
+    padding: '0 2rem',
+  },
+
+  column: {
+    '@media (min-width: 1400px)': {
+      flexGrow: 0,
+      maxWidth: '16.666667%',
+      flexBasis: '16.666667%',
+    },
+  },
 }))

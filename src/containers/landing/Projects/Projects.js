@@ -3,15 +3,22 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Div100vh from 'react-div-100vh'
 
-import ProjectsCarousel from '../../../components/ProjectsCarousel'
+import Project from '../../../components/Project'
 import { useStyles } from './styles'
 
-import ProjectsData from './projects.json'
+const mapProjects = projects =>
+  projects.map(({ node: project }) => ({
+    id: project.id,
+    name: project.frontmatter.title,
+    banner: project.frontmatter.bannerImage.childImageSharp.fluid,
+    stack: project.frontmatter.technologies,
+    description: project.excerpt,
+  }))
 
-const AboutMe = () => {
+const AboutMe = ({ projects }) => {
   const classes = useStyles()
   return (
-    <Div100vh className={classes.root}>
+    <Div100vh className={classes.root} style={{ minHeight: '100rvh' }}>
       <Grid container spacing={0}>
         <Grid item xs={12}>
           <Typography variant="h3" className={classes.sectionTitle}>
@@ -19,9 +26,26 @@ const AboutMe = () => {
           </Typography>
         </Grid>
       </Grid>
-      <div className={classes.projectsContainer}>
-        <ProjectsCarousel projects={ProjectsData} />
-      </div>
+      <Grid container spacing={2} className={classes.projectsContainer}>
+        {mapProjects(projects).map(project => (
+          <Grid
+            key={project.id}
+            item
+            xs={12}
+            sm={4}
+            lg={3}
+            className={classes.column}
+          >
+            <Project
+              banner={project.banner}
+              description={project.description}
+              name={project.name}
+              href={project.url}
+              stack={project.stack}
+            />
+          </Grid>
+        ))}
+      </Grid>
     </Div100vh>
   )
 }

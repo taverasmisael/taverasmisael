@@ -4,8 +4,20 @@ export const useStyles = makeStyles(theme => ({
   root: {
     overflow: 'hidden',
     display: 'block',
+    height: '100%',
+    minHeight: 400,
     position: 'relative',
   },
+
+  button: {
+    height: '100%',
+    width: '100%',
+  },
+  image: {
+    height: '100%',
+    width: '100%',
+  },
+
   content: {
     borderRadius: 0,
     display: 'grid',
@@ -27,7 +39,6 @@ export const useStyles = makeStyles(theme => ({
     ...theme.typography.h5,
     fontSize: 16,
     fontWeight: 500,
-    fontFamily: theme.typography.body1.fontFamily,
     marginBottom: theme.spacing(1.5),
   },
   description: {

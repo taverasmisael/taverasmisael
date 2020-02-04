@@ -15,7 +15,7 @@ import { useStyles } from './styles'
 
 const truncate15 = truncateText(15)
 
-const Project = ({ description, imageFluid, name, href }) => {
+const Project = ({ description, banner, name, href, stack }) => {
   const classes = useStyles()
   const [isOpen, setIsOpen] = useState(false)
   const [text, setText] = useState(description)
@@ -25,8 +25,8 @@ const Project = ({ description, imageFluid, name, href }) => {
   }, [setText, isOpen, description])
   return (
     <Card className={classes.root} onClick={() => setIsOpen(state => !state)}>
-      <ButtonBase component="div">
-        <Image fluid={imageFluid} alt={name} />
+      <ButtonBase component="div" className={classes.button}>
+        <Image fluid={banner} alt={name} className={classes.image} />
         <Paper
           className={classnames(classes.content, {
             [classes.contentOpen]: isOpen,
@@ -34,7 +34,12 @@ const Project = ({ description, imageFluid, name, href }) => {
         >
           <div>
             <Typography className={classes.name}>{name}</Typography>
-            <Typography className={classes.description}>{text}</Typography>
+            <Typography gutterBottom className={classes.description}>
+              {text}
+            </Typography>
+            <Typography variant="caption" className={classes.stack}>
+              <strong>Stack:</strong> {stack.join('-')}
+            </Typography>
           </div>
           <div>
             <Button href={href} color="primary" endIcon={<OpenInNewRounded />}>
