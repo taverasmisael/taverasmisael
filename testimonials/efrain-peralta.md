@@ -5,4 +5,4 @@ status: published
 profilePicture: './efrain-peralta-profile.jpg'
 ---
 
-Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige, sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez.
+Es excepcional como compañero de trabajo. Sus conocimientos y habilidades en el área son bastante sólidos. Tiene una gran habilidad para enseñar. Misael Se preocupa por su equipo. A la fecha de hoy sigue siendo mi mentor en mis proyectos personales y profesionales, apoya mis ideas de forma incondicional.
