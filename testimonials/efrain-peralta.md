@@ -1,6 +1,6 @@
 ---
 title: Efraín Peralta
-position: FrontEnd at GBH
+position: FrontEnd @ GBH
 status: published
 profilePicture: './efrain-peralta-profile.jpg'
 ---

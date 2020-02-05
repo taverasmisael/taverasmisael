@@ -1,6 +1,6 @@
 ---
 title: José Rogriguéz
-position: Web FullStack at Viral Rich
+position: Analyst Developer @ Aggylon BrandCenter
 status: published
 profilePicture: './jose-rodriguez-profile.png'
 ---
