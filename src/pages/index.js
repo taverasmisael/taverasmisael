@@ -73,7 +73,7 @@ export const query = graphql`
             technologies
             bannerImage {
               childImageSharp {
-                fluid(maxWidth: 400) {
+                fluid(maxWidth: 800) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }

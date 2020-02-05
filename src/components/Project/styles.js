@@ -15,6 +15,7 @@ export const useStyles = makeStyles(theme => ({
   },
   image: {
     height: '100%',
+    pointerEvents: 'none',
     width: '100%',
   },
 
@@ -39,6 +40,7 @@ export const useStyles = makeStyles(theme => ({
     ...theme.typography.h5,
     fontSize: 16,
     fontWeight: 500,
+    fontFamily: theme.typography.body1.fontFamily,
     marginBottom: theme.spacing(1.5),
   },
   description: {

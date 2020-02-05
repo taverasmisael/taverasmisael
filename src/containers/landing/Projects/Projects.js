@@ -19,7 +19,7 @@ const mapProjects = projects =>
 const Projects = ({ projects }) => {
   const classes = useStyles()
   return (
-    <Div100vh className={classes.root} style={{ minHeight: '100rvh' }}>
+    <Div100vh className={classes.root} style={{ minHeight: '60rvh' }}>
       <Grid container spacing={0}>
         <Grid item xs={12}>
           <Typography variant="h3" className={classes.sectionTitle}>
