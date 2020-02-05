@@ -27,26 +27,28 @@ const Projects = ({ projects }) => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid container spacing={2} className={classes.projectsContainer}>
-        {mapProjects(projects).map(project => (
-          <Grid
-            key={project.id}
-            item
-            xs={12}
-            sm={4}
-            lg={3}
-            className={classes.column}
-          >
-            <Project
-              banner={project.banner}
-              description={project.description}
-              name={project.name}
-              href={project.url}
-              stack={project.stack}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      <div className={classes.projectsContainer}>
+        <Grid container spacing={2}>
+          {mapProjects(projects).map(project => (
+            <Grid
+              key={project.id}
+              item
+              xs={12}
+              sm={4}
+              lg={3}
+              className={classes.column}
+            >
+              <Project
+                banner={project.banner}
+                description={project.description}
+                name={project.name}
+                href={project.url}
+                stack={project.stack}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     </Div100vh>
   )
 }
