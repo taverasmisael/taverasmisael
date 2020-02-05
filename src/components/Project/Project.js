@@ -13,7 +13,7 @@ import { truncateText } from '../../utils/normalizer'
 
 import { useStyles } from './styles'
 
-const truncate15 = truncateText(15)
+const truncate = truncateText(80)
 
 const Project = ({ description, banner, name, href, stack }) => {
   const classes = useStyles()
@@ -21,7 +21,7 @@ const Project = ({ description, banner, name, href, stack }) => {
   const [text, setText] = useState(description)
 
   useEffect(() => {
-    setText(isOpen ? description : truncate15(description))
+    setText(isOpen ? description : truncate(description))
   }, [setText, isOpen, description])
   return (
     <Card className={classes.root} onClick={() => setIsOpen(state => !state)}>

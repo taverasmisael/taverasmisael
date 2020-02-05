@@ -28,9 +28,9 @@ export const truncateText = limit =>
    */
   text => {
     const TRUNCATE = text
-      .split(/\s/)
+      .split('')
       .slice(0, limit)
-      .join(' ')
+      .join('')
     const LAST_INDEX = TRUNCATE.length - 1
     if (NO_A_LETTER.test(TRUNCATE[LAST_INDEX])) {
       return TRUNCATE.slice(0, LAST_INDEX) + '...'

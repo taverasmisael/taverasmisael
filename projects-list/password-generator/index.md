@@ -1,5 +1,5 @@
 ---
-title: Password Generator
+title: Strong Passwords
 technologies: ['JavaScript', 'CSS', 'HTML']
 status: published
 url: https://davidtavarez.github.io/passwords/
