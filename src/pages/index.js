@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { graphql } from 'gatsby'
 
 import Footer from '../components/Footer'
-import { HeroIntro, AboutMe, Projects } from '../containers/landing'
+import { HeroIntro, AboutMe, Projects, ContactMe } from '../containers/landing'
 import BaseLayout from '../layouts/base'
 
 const HomePage = ({ data }) => {
@@ -12,6 +12,7 @@ const HomePage = ({ data }) => {
       <HeroIntro image={heroImage.childImageSharp.fluid} />
       <AboutMe testimonials={testimonials.edges} />
       <Projects projects={projects.edges} />
+      <ContactMe />
       <Footer />
     </BaseLayout>
   )
