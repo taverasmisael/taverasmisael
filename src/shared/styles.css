@@ -184,3 +184,7 @@ ul.MuiTypography-root.MuiContainer-root > li::before {
   width: 1em;
   height: 1em;
 }
+
+main + footer {
+  margin-top: 3rem;
+}
