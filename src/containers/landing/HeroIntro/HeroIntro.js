@@ -29,12 +29,15 @@ const HeroIntro = ({ image }) => {
   const classes = useStyles()
   return (
     <Div100vh className={classes.root} as="section">
-      <BackgroundImage
-        fluid={image}
-        backgroundColor="#1c294f"
-        className={classes.container}
-      >
-        <div className={classes.backdrop} />
+      <div className={classes.container}>
+        <div className={classes.background}>
+          <BackgroundImage
+            fluid={image}
+            backgroundColor="#1c294f"
+            style={{ width: '100%', height: '100%' }}
+          />
+          <div className={classes.backdrop} />
+        </div>
         <div className={classes.text}>
           <Typography variant="h2" component="h1" className={classes.title}>
             Hola
@@ -67,7 +70,7 @@ const HeroIntro = ({ image }) => {
             Hablemos
           </CTA>
         </div>
-      </BackgroundImage>
+      </div>
     </Div100vh>
   )
 }

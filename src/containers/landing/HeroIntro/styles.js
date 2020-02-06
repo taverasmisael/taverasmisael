@@ -16,6 +16,12 @@ export const useStyles = makeStyles(theme => ({
     padding: CONTENT_PADDING(theme),
     position: 'relative',
   },
+
+  background: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+  },
   title: {
     fontSize: '6.75rem',
     marginTop: 0,
@@ -25,6 +31,7 @@ export const useStyles = makeStyles(theme => ({
     },
   },
   text: {
+    gridArea: '2/1',
     position: 'relative',
     zIndex: 2,
     [theme.breakpoints.up('md')]: {
