@@ -19,7 +19,7 @@ const mapProjects = projects =>
 const Projects = ({ projects }) => {
   const classes = useStyles()
   return (
-    <Div100vh className={classes.root} style={{ minHeight: '60rvh' }}>
+    <Div100vh className={classes.root} style={{ minHeight: '80rvh' }}>
       <Grid container spacing={0}>
         <Grid item xs={12}>
           <Typography variant="h3" className={classes.sectionTitle}>
@@ -27,28 +27,26 @@ const Projects = ({ projects }) => {
           </Typography>
         </Grid>
       </Grid>
-      <div className={classes.projectsContainer}>
-        <Grid container spacing={2}>
-          {mapProjects(projects).map(project => (
-            <Grid
-              key={project.id}
-              item
-              xs={12}
-              sm={4}
-              lg={3}
-              className={classes.column}
-            >
-              <Project
-                banner={project.banner}
-                description={project.description}
-                name={project.name}
-                href={project.url}
-                stack={project.stack}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </div>
+      <Grid container spacing={2}>
+        {mapProjects(projects).map(project => (
+          <Grid
+            key={project.id}
+            item
+            xs={12}
+            sm={4}
+            lg={3}
+            className={classes.column}
+          >
+            <Project
+              banner={project.banner}
+              description={project.description}
+              name={project.name}
+              href={project.url}
+              stack={project.stack}
+            />
+          </Grid>
+        ))}
+      </Grid>
     </Div100vh>
   )
 }
