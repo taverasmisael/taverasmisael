@@ -7,7 +7,7 @@ import '../shared/styles.css'
 import Footer from '../components/Footer'
 import BaseLayout from './base'
 
-const GeneralLayout = memo(({ children, noGutterBottom, headProps }) => (
+const GeneralLayout = ({ children, noGutterBottom, headProps }) => (
   <BaseLayout headProps={headProps}>
     <Header noGutterBottom={noGutterBottom} />
     <main>
@@ -15,8 +15,6 @@ const GeneralLayout = memo(({ children, noGutterBottom, headProps }) => (
     </main>
     <Footer />
   </BaseLayout>
-))
+)
 
-GeneralLayout.displayName = 'GeneralLayout'
-
-export default GeneralLayout
+export default memo(GeneralLayout)

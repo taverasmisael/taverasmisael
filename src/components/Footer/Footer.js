@@ -11,10 +11,12 @@ import LinkedinIcon from '../Icons/Linkedin'
 import TwitterIcon from '../Icons/Twitter'
 
 import { useStyles } from './styles'
+import { useDarkModeContext } from '../../context/dark-mode'
 
-const Footer = memo(({ isDark }) => {
+const Footer = () => {
   const year = new Date().getFullYear()
-  const classes = useStyles(isDark)
+  const { darkMode } = useDarkModeContext()
+  const classes = useStyles(darkMode)
   return (
     <footer className={classes.root}>
       <Container maxWidth="md">
@@ -58,8 +60,6 @@ const Footer = memo(({ isDark }) => {
       </Container>
     </footer>
   )
-})
+}
 
-Footer.displayName = 'Footer'
-
-export default Footer
+export default memo(Footer)
