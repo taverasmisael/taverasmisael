@@ -1,5 +1,5 @@
 import compose from 'ramda/src/compose'
-import merge from 'ramda/src/merge'
+import mergeDeepRight from 'ramda/src/mergeDeepRight'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core'
 
 const systemFonts = [
@@ -70,7 +70,7 @@ const MainTheme = {
   },
 }
 
-const SecondaryTheme = merge(MainTheme, {
+const SecondaryTheme = mergeDeepRight(MainTheme, {
   palette: {
     primary: {
       main: BRAND_BLUE,
@@ -83,7 +83,7 @@ const SecondaryTheme = merge(MainTheme, {
   },
 })
 
-const ThirdTheme = merge(MainTheme, {
+const ThirdTheme = mergeDeepRight(MainTheme, {
   overrides: {
     MuiFormLabel: {
       root: {

@@ -25,14 +25,14 @@ const CTA = withStyles(theme => ({
   },
 }))(Button)
 
-const HeroIntro = memo(({ image }) => {
+const HeroIntro = ({ image }) => {
   const classes = useStyles()
   return (
     <Div100vh className={classes.root} as="section">
       <BackgroundImage
         fluid={image}
         backgroundColor="#1c294f"
-        className={classes.content}
+        className={classes.container}
       >
         <div className={classes.backdrop} />
         <div className={classes.text}>
@@ -70,8 +70,6 @@ const HeroIntro = memo(({ image }) => {
       </BackgroundImage>
     </Div100vh>
   )
-})
+}
 
-HeroIntro.displayName = 'HeroIntro'
-
-export default HeroIntro
+export default memo(HeroIntro)

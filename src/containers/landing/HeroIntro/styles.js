@@ -1,17 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/styles'
 
 const CONTENT_PADDING = theme => theme.spacing(3, 2)
 
 export const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor:
-      theme.palette.type === 'dark'
-        ? theme.palette.background.paper
-        : theme.palette.primary.dark,
+    backgroundColor: theme.palette.primary.dark,
     color: theme.palette.primary.contrastText,
   },
 
-  content: {
+  container: {
     display: 'grid',
     alignItems: 'center',
     gridTemplateRows: '0 1fr 70px',
