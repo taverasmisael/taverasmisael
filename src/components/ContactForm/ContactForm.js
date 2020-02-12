@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select'
 import FilledInput from '@material-ui/core/FilledInput'
 import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
 
 import { useStyles } from './styles'
 
@@ -73,9 +74,11 @@ const ContactForm = () => {
               name="reason"
               input={<FilledInput required name="reason" id="reason" />}
             >
+              <MenuItem value="Hello">Hola</MenuItem>
               <MenuItem value="Inquire">Negocios</MenuItem>
-              <MenuItem value="Help">Ayuda / Pregunta</MenuItem>
-              <MenuItem value="Consult">Consulta</MenuItem>
+              <MenuItem value="Participate">Podcast / Charla</MenuItem>
+              <MenuItem value="Contribuite">Contribuir</MenuItem>
+              <MenuItem value="Consult">Consultar</MenuItem>
               <MenuItem value="Other">Otra</MenuItem>
             </Select>
           </FormControl>
@@ -97,6 +100,11 @@ const ContactForm = () => {
             margin="normal"
             variant="filled"
           />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography variant="overline">
+            <sup>*</sup> Todos los campos son requeridos
+          </Typography>
         </Grid>
       </Grid>
     </form>

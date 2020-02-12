@@ -8,6 +8,10 @@ export const useStyles = makeStyles(theme => ({
   cell: {
     marginBottom: '2rem',
   },
+  link: {
+    color: theme.palette.secondary.contrastText,
+    fontWeight: '500',
+  },
   leftBlock: {
     padding: '3rem 2rem',
     paddingRight: '4rem',
