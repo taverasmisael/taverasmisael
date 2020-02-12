@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
+import Hidden from '@material-ui/core/Hidden'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select'
@@ -15,7 +16,7 @@ const ContactForm = () => {
   const [state, setState] = useState({
     name: '',
     email: '',
-    reason: 'Consult',
+    reason: 'Hello',
     message: '',
   })
   const classes = useStyles()
@@ -82,9 +83,15 @@ const ContactForm = () => {
               <MenuItem value="Other">Otra</MenuItem>
             </Select>
           </FormControl>
-          <Button variant="contained" type="submit" className={classes.submit}>
-            Enviar
-          </Button>
+          <Hidden smDown>
+            <Button
+              variant="contained"
+              type="submit"
+              className={classes.submit}
+            >
+              Enviar
+            </Button>
+          </Hidden>
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
@@ -106,6 +113,18 @@ const ContactForm = () => {
             <sup>*</sup> Todos los campos son requeridos
           </Typography>
         </Grid>
+
+        <Hidden mdUp>
+          <Grid item xs={12} md={6}>
+            <Button
+              variant="contained"
+              type="submit"
+              className={classes.submit}
+            >
+              Enviar
+            </Button>
+          </Grid>
+        </Hidden>
       </Grid>
     </form>
   )

@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/styles'
 export const useStyles = makeStyles(theme => ({
   root: {
     borderRadius: theme.shape.borderRadius,
+    height: '100%',
     padding: '1em',
     transition:
       'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
