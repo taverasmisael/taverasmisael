@@ -11,7 +11,7 @@ import { useStyles } from './styles'
 const ContactMe = () => {
   const classes = useStyles()
   return (
-    <Grid container spacing={0} className={classes.root}>
+    <Grid id="hablemos" container spacing={0} className={classes.root}>
       <Grid item xs={12} md={5} className={classes.leftBlock}>
         <div>
           <Typography

@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import { Link } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import Div100vh from 'react-div-100vh'
 
@@ -63,9 +62,8 @@ const HeroIntro = ({ image }) => {
           <CTA
             variant="contained"
             color="secondary"
+            href="#hablemos"
             className={classes.cta}
-            component={Link}
-            to="/contacto"
           >
             Hablemos
           </CTA>
