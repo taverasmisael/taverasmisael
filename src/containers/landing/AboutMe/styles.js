@@ -8,6 +8,10 @@ export const useStyles = makeStyles(theme => ({
   cell: {
     marginBottom: '2rem',
   },
+  cta: {
+    borderColor: theme.palette.primary.contrastText,
+    color: theme.palette.primary.contrastText,
+  },
   aboutBlock: {
     padding: '3rem 2rem',
     paddingRight: '4rem',

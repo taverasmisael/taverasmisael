@@ -1,13 +1,18 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import Typography from '@material-ui/core/Typography'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 
 import { useStyles } from './styles'
 import Testimonial from '../../../components/Testimonial'
 
 const AboutMe = ({ testimonials = [] }) => {
   const classes = useStyles()
+  const [anchorEl, setAnchorEl] = useState(null)
+
   return (
     <Grid container spacing={0} className={classes.root}>
       <Grid item xs={12} md={5} className={classes.aboutBlock}>
@@ -42,12 +47,35 @@ const AboutMe = ({ testimonials = [] }) => {
 
           <Button
             download
-            href="/taveras-misael-cv.pdf"
+            onClick={event => setAnchorEl(event.currentTarget)}
             variant="outlined"
-            color="secondary"
+            className={classes.cta}
+            aria-controls="resume-menu"
+            aria-haspopup="true"
+            endIcon={<ArrowDropDownIcon />}
           >
             Descargar CV
           </Button>
+
+          <Menu
+            id="resume-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={() => setAnchorEl(null)}
+          >
+            <MenuItem download component="a" href="/taveras-misael-cv.pdf">
+              Español
+            </MenuItem>
+            <MenuItem
+              download
+              component="a"
+              href="/taveras-misael-resume.pdf"
+              lang="en"
+            >
+              English
+            </MenuItem>
+          </Menu>
         </div>
       </Grid>
       <Grid item xs={12} md={7} className={classes.testimonialsBlock}>
