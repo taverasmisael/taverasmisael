@@ -25,24 +25,30 @@ const AboutMe = ({ testimonials = [] }) => {
             Sobre Mí
           </Typography>
           <Typography variant="body1" className={classes.aboutCopy}>
-            Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me
-            exige, sin tapujos, que añada cerveza al whisky. Jovencillo
-            emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada
-            vez mejor el saxofón y el búho pedía kiwi y queso. El jefe buscó el
-            éxtasis en un imprevisto baño de whisky y gozó como un duque.
-            Exhíbanse politiquillos zafios, con orejas kilométricas y uñas de
-            gavilán. El cadáver de Wamba, rey godo de España, fue exhumado y
-            trasladado en una caja de zinc.
+            Mi nombre es <strong>Misael Taveras</strong> y soy malo
+            describiéndome a mi mismo. Desde muy joven me ha atraído la
+            tecnología, y en el momento en el que cree mi primera calculadora
+            supe que esto era lo que quería hacer de por vida.
           </Typography>
           <Typography variant="body1" className={classes.aboutCopy}>
-            Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me
-            exige, sin tapujos, que añada cerveza al whisky. Jovencillo
-            emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada
-            vez mejor el saxofón y el búho pedía kiwi y queso. El jefe buscó el
-            éxtasis en un imprevisto baño de whisky y gozó como un duque.
-            Exhíbanse politiquillos zafios, con orejas kilométricas y uñas de
-            gavilán. El cadáver de Wamba, rey godo de España, fue exhumado y
-            trasladado en una caja de zinc.
+            Varios años luego y un par de cursos online y ya me sentía en la
+            cima del mundo; no obstante pasaría mucho tiempo antes de encontrar
+            mi primer trabajo <strong>haciendo lo que me gusta.</strong>
+          </Typography>
+          <Typography variant="body1" className={classes.aboutCopy}>
+            He trabajado para varias compañías y clientes adaptándome siempre a
+            las tecnologías que usan llegando a conocer proyectos interesantes y
+            personas <strong>maravillosas</strong>, de los cuales he aprendido
+            más de lo que merezco.
+          </Typography>
+          <Typography variant="body1" className={classes.aboutCopy}>
+            Ahora quiero trabajar en mi visión, y estar más activo de forma
+            independiente. He decidido que este año (2020) es para mis proyectos
+            personales, empezando con el <strong>Podcast</strong>, donde hablo
+            de experiencias y comparto lo que he aprendido. Mi intensión es
+            poder dar de lo que he recibido y ayudar a otros a través de los
+            medios que tengo a mi disposición. Siento que este es el siguiente
+            paso para mi carrera y el correcto para mí como persona.
           </Typography>
 
           <Button

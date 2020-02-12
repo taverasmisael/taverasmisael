@@ -33,8 +33,11 @@ export const useStyles = makeStyles(theme => ({
 
   aboutCopy: {
     fontSize: 16,
-    fontWeight: 300,
     marginBottom: '2rem',
+
+    '&>strong': {
+      color: theme.palette.secondary.main,
+    },
   },
 
   testimonialsContainer: {

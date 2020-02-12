@@ -23,7 +23,7 @@ const Projects = ({ projects }) => {
       <Grid container spacing={0}>
         <Grid item xs={12}>
           <Typography variant="h3" className={classes.sectionTitle}>
-            PROYECTOS
+            Proyectos
           </Typography>
         </Grid>
       </Grid>
