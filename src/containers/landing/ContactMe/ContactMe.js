@@ -30,7 +30,7 @@ const ContactMe = () => {
             formulario y di Hola.
           </ContactCopy>
           <ContactCopy emoji="👨‍💻">
-            Si tienes algun proyecto en el que creas que mis habilidades te
+            Si tienes algún proyecto en el que creas que mis habilidades te
             podrían servir, puedes contactarme también y podemos agendar una
             reunión sin costo alguno.
           </ContactCopy>
@@ -43,12 +43,12 @@ const ContactMe = () => {
             >
               podcast
             </MaterialLink>
-            , quieres ser invitado o quieres invitarme a mi a tu programa o a
-            dar una charla, escribeme también.
+            , quieres ser invitado o quieres invitarme a tu programa o para una
+            charla, escribeme también.
           </ContactCopy>
           <ContactCopy emoji="🤝">
-            Si quieres contribuir, tambien escribeme. Estoy trabajando en un
-            patreon para ayudar al Podcast y otros proyectos de los que estaré
+            Si quieres contribuir, también escríbeme. Estoy trabajando en un
+            Patreon para ayudar al podcast y otros proyectos de los que estaré
             comentando en el{' '}
             <MaterialLink component={Link} to="/blog" className={classes.link}>
               blog
