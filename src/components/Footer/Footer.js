@@ -39,7 +39,10 @@ const Footer = () => {
                 </IconButton>
               </Grid>
               <Grid item xs={3} sm={1} className={classes.socialIconContainer}>
-                <IconButton disabled href="#" className={classes.disabled}>
+                <IconButton
+                  href="https://anchor.fm/releaseonfridays"
+                  className={classes.disabled}
+                >
                   <AnchorIcon className={classes.socialIcon} />
                 </IconButton>
               </Grid>

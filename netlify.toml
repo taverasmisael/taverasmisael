@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/podcast"
+  to = "https://anchor.fm/releaseonfridays"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
