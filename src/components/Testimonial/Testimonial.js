@@ -16,12 +16,12 @@ const Testimonial = ({
 }) => {
   const classes = useStyles()
   return (
-    <div
+    <article
       className={classnames(classes.root, {
         [classes.hasBackgroundColor]: highlight,
       })}
     >
-      <div className={classes.header}>
+      <header className={classes.header}>
         <Avatar
           component={Image}
           fluid={profilePicture}
@@ -36,11 +36,11 @@ const Testimonial = ({
             {position}
           </Typography>
         </div>
-      </div>
+      </header>
       <div className={classes.body}>
         <MDXRenderer>{testimony}</MDXRenderer>
       </div>
-    </div>
+    </article>
   )
 }
 

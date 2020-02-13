@@ -14,7 +14,7 @@ const AboutMe = ({ testimonials = [] }) => {
   const [anchorEl, setAnchorEl] = useState(null)
 
   return (
-    <Grid container spacing={0} className={classes.root}>
+    <Grid container spacing={0} className={classes.root} component="section">
       <Grid item xs={12} md={5} className={classes.aboutBlock}>
         <div>
           <Typography

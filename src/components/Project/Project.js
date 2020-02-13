@@ -24,7 +24,11 @@ const Project = ({ description, banner, name, href, stack }) => {
     setText(isOpen ? description : truncate(description))
   }, [setText, isOpen, description])
   return (
-    <Card className={classes.root} onClick={() => setIsOpen(state => !state)}>
+    <Card
+      component="article"
+      className={classes.root}
+      onClick={() => setIsOpen(state => !state)}
+    >
       <ButtonBase component="div" className={classes.button}>
         <Image fluid={banner} alt={name} className={classes.image} />
         <Paper
