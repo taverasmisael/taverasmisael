@@ -1,62 +1,90 @@
 import React, { memo } from 'react'
-import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import BlogItemMini from '../components/BlogItemMini'
-import HeroIntro from '../components/HeroIntro'
-import GeneralLayout from '../layouts/general'
+import Footer from '../components/Footer'
+import { HeroIntro, AboutMe, Projects, ContactMe } from '../containers/landing'
+import BaseLayout from '../layouts/base'
 
-const HomePage = memo(({ data }) => (
-  <GeneralLayout noGutterBottom>
-    <HeroIntro />
-    <Container maxWidth="md">
-      <Typography variant="h3" gutterBottom>
-        Último del blog
-      </Typography>
-      <Grid container spacing={2}>
-        {data.allMdx.nodes.map(entry => (
-          <Grid key={entry.id} item sm={12}>
-            <BlogItemMini item={entry} />
-          </Grid>
-        ))}
-      </Grid>
-      <div className="MuiTypography-alignRight">
-        <Button component={Link} to="/blog" size="small">
-          Ver todas
-        </Button>
-      </div>
-    </Container>
-  </GeneralLayout>
-))
+const HomePage = ({ data }) => {
+  const { heroImage, testimonials, projects } = data
+  return (
+    <BaseLayout>
+      <HeroIntro image={heroImage.childImageSharp.fluid} />
+      <AboutMe testimonials={testimonials.edges} />
+      <Projects projects={projects.edges} />
+      <ContactMe />
+      <Footer />
+    </BaseLayout>
+  )
+}
 
 HomePage.displayName = 'HomePage'
 
 export const query = graphql`
   query {
-    allMdx(
-      limit: 2
-      sort: { fields: frontmatter___date, order: DESC }
+    heroImage: file(relativePath: { eq: "mac-keyboard.jpg" }) {
+      childImageSharp {
+        fluid(
+          maxWidth: 920
+          traceSVG: { color: "#1c294f", background: "#535c81" }
+        ) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+
+    testimonials: allMdx(
       filter: {
+        fileAbsolutePath: { regex: "//testimonials//" }
         frontmatter: { status: { eq: "published" } }
-        fileAbsolutePath: { regex: "//posts//" }
       }
     ) {
-      nodes {
-        ...BlogPostNode
-        frontmatter {
-          banner {
-            childImageSharp {
-              ...ImageSharpFluidMin
-              ...ImageSharpFixed200
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            position
+            profilePicture {
+              childImageSharp {
+                fluid(maxWidth: 80) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
             }
           }
+          body
+        }
+      }
+    }
+
+    projects: allMdx(
+      filter: {
+        fileAbsolutePath: { regex: "//projects-list//" }
+        frontmatter: { status: { eq: "published" } }
+      }
+      sort: { order: ASC, fields: frontmatter___title }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            url
+            technologies
+            bannerImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+          excerpt(pruneLength: 280)
         }
       }
     }
   }
 `
 
-export default HomePage
+export default memo(HomePage)

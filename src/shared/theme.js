@@ -1,5 +1,5 @@
 import compose from 'ramda/src/compose'
-import merge from 'ramda/src/merge'
+import mergeDeepRight from 'ramda/src/mergeDeepRight'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core'
 
 const systemFonts = [
@@ -17,6 +17,9 @@ const systemFonts = [
 const headingFontFamily = `Overpass Mono, ${systemFonts}`
 const bodyFontFamily = `Roboto, ${systemFonts}`
 
+export const BRAND_BLUE = '#293462'
+export const BRAND_PINK = '#ed1250'
+
 const MainTheme = {
   typography: {
     fontFamily: bodyFontFamily,
@@ -32,10 +35,10 @@ const MainTheme = {
 
   palette: {
     primary: {
-      main: '#293462',
+      main: BRAND_BLUE,
     },
     secondary: {
-      main: '#ed1250',
+      main: BRAND_PINK,
     },
     type: 'light',
   },
@@ -52,11 +55,6 @@ const MainTheme = {
         backgroundColor: 'rgba(230, 230, 230, 0.8)',
       },
     },
-    MuiFilledInput: {
-      root: {
-        backgroundColor: 'rgba(158, 158, 158, 0.09)',
-      },
-    },
     MuiTypography: {
       gutterBottom: { marginBottom: '1.75rem' },
       caption: { marginTop: '1.5em', marginBottom: '0.25em' },
@@ -65,18 +63,49 @@ const MainTheme = {
       h4: { marginTop: '1em', marginBottom: '0.25em' },
     },
   },
+  props: {
+    MuiFilledInput: {
+      disableUnderline: true,
+    },
+  },
 }
 
-const SecondaryTheme = merge(MainTheme, {
+const SecondaryTheme = mergeDeepRight(MainTheme, {
   palette: {
     primary: {
-      main: '#293462',
+      main: BRAND_BLUE,
     },
     secondary: {
-      main: '#ed1250',
+      main: BRAND_PINK,
     },
     background: { paper: '#1a1e27', default: '#13131f' },
     type: 'dark',
+  },
+})
+
+const ThirdTheme = mergeDeepRight(MainTheme, {
+  overrides: {
+    MuiFormLabel: {
+      root: {
+        color: 'rgba(255,255,255,0.7)',
+        '&$focused': {
+          color: 'rgba(255,255,255,0.7)',
+        },
+      },
+    },
+    MuiFilledInput: {
+      root: {
+        backgroundColor: 'rgba(0, 0, 0, 0.08)',
+        color: '#fff',
+
+        '&:hover': {
+          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        },
+        '&$focused': {
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        },
+      },
+    },
   },
 })
 
@@ -87,3 +116,4 @@ const createResponsiveFontTheme = compose(
 
 export const LightTheme = createResponsiveFontTheme(MainTheme)
 export const DarkTheme = createResponsiveFontTheme(SecondaryTheme)
+export const AltTheme = createResponsiveFontTheme(ThirdTheme)

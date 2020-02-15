@@ -6,7 +6,7 @@ export const useStyles = isDark =>
       color: isDark
         ? theme.palette.primary.contrastText
         : theme.palette.primary.dark,
-      marginBottom: '1rem',
+      margin: '1rem 0',
     },
     socialIcon: {
       color: isDark

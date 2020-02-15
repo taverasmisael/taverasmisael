@@ -1,28 +1,11 @@
 import React, { memo, useState, useCallback } from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import Select from '@material-ui/core/Select'
-import FilledInput from '@material-ui/core/FilledInput'
-import MenuItem from '@material-ui/core/MenuItem'
-import TextField from '@material-ui/core/TextField'
 
 import GeneralLayout from '../layouts/general'
+import ContactForm from '../components/ContactForm'
 
 const ContactPage = memo(() => {
-  const [state, setState] = useState({
-    name: '',
-    email: '',
-    reason: 'Consult',
-    message: '',
-  })
-
-  const handleChange = useCallback(({ target = {} }) => {
-    setState(state => ({ ...state, [target.name]: target.value }))
-  }, [])
-
   return (
     <GeneralLayout noGutterBottom>
       <Container maxWidth="md">
@@ -41,77 +24,7 @@ const ContactPage = memo(() => {
           posible.
         </Typography>
 
-        <form
-          action="/contacto-exito/"
-          name="contact"
-          netlify-honeypot="got-the-honey"
-          method="POST"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden">
-            <label>
-              Prefieres que hablemos por fax (ignorame si eres humano y me
-              encontraste ;) ): <input name="got-the-honey" />
-            </label>
-          </p>
-          <TextField
-            fullWidth
-            required
-            onChange={handleChange}
-            value={state.name}
-            id="name"
-            name="name"
-            label="Nombre"
-            margin="normal"
-            variant="filled"
-          />
-          <TextField
-            fullWidth
-            required
-            onChange={handleChange}
-            value={state.email}
-            name="email"
-            type="email"
-            id="email"
-            label="E-mail"
-            margin="normal"
-            variant="filled"
-          />
-          <FormControl margin="normal" fullWidth variant="filled">
-            <InputLabel htmlFor="reason">Razón del mensaje</InputLabel>
-            <Select
-              required
-              onChange={handleChange}
-              value={state.reason}
-              name="reason"
-              input={<FilledInput required name="reason" id="reason" />}
-            >
-              <MenuItem value="Inquire">Negocios</MenuItem>
-              <MenuItem value="Help">Ayuda / Pregunta</MenuItem>
-              <MenuItem value="Consult">Consulta</MenuItem>
-              <MenuItem value="Other">
-                <em>Otra</em>
-              </MenuItem>
-            </Select>
-          </FormControl>
-          <TextField
-            fullWidth
-            required
-            multiline
-            onChange={handleChange}
-            value={state.message}
-            rows={6}
-            name="message"
-            id="message"
-            label="Mensaje"
-            margin="normal"
-            variant="filled"
-          />
-          <Button color="secondary" variant="contained" type="submit">
-            Enviar
-          </Button>
-        </form>
+        <ContactForm />
       </Container>
     </GeneralLayout>
   )

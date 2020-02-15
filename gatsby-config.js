@@ -38,6 +38,20 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: resolve('./projects-list'),
+        name: 'projects',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: resolve('./testimonials'),
+        name: 'testimonials',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-145300876-1',
@@ -68,7 +82,7 @@ module.exports = {
         google: {
           families: [
             'Overpass Mono:400,700', // Titles
-            'Roboto:400,500&display=swap', // Body
+            'Roboto:300,400,500&display=swap', // Body
           ],
         },
       },
