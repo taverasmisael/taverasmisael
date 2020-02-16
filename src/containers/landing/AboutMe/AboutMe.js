@@ -27,28 +27,29 @@ const AboutMe = ({ testimonials = [] }) => {
           <Typography variant="body1" className={classes.aboutCopy}>
             Mi nombre es <strong>Misael Taveras</strong> y soy malo
             describiéndome a mi mismo. Desde muy joven me ha atraído la
-            tecnología, y en el momento en el que cree mi primera calculadora
+            tecnología.En el momento en el que programé mi primera calculadora
             supe que esto era lo que quería hacer de por vida.
           </Typography>
           <Typography variant="body1" className={classes.aboutCopy}>
-            Varios años luego y un par de cursos online y ya me sentía en la
+            Luego de varios años y un par de cursos online, ya me sentía en la
             cima del mundo; no obstante pasaría mucho tiempo antes de encontrar
             mi primer trabajo <strong>haciendo lo que me gusta.</strong>
           </Typography>
           <Typography variant="body1" className={classes.aboutCopy}>
-            He trabajado para varias compañías y clientes adaptándome siempre a
-            las tecnologías que usan llegando a conocer proyectos interesantes y
-            personas <strong>maravillosas</strong>, de los cuales he aprendido
-            más de lo que merezco.
+            Desde entonces he trabajado para varias compañías adaptándome
+            siempre a las tecnologías que usan llegando a conocer proyectos
+            interesantes y personas <strong>maravillosas</strong> de las cuales
+            he aprendido más de lo que merezco.
           </Typography>
           <Typography variant="body1" className={classes.aboutCopy}>
             Ahora quiero trabajar en mi visión, y estar más activo de forma
             independiente. He decidido que este año (2020) es para mis proyectos
-            personales, empezando con el <strong>Podcast</strong>, donde hablo
-            de experiencias y comparto lo que he aprendido. Mi intensión es
-            poder dar de lo que he recibido y ayudar a otros a través de los
-            medios que tengo a mi disposición. Siento que este es el siguiente
-            paso para mi carrera y el correcto para mí como persona.
+            personales, continuando con el <strong>Blog</strong> y empezando un{' '}
+            <strong>Podcast</strong> donde hablo de mís experiencias
+            compartiendo lo que he aprendido. Mi intención es poder dar de lo
+            que he recibido y ayudar a otros a través de los medios que tengo a
+            mi disposición. Siento que este es el siguiente paso para mi carrera
+            y el correcto para mí como persona.
           </Typography>
 
           <Button
