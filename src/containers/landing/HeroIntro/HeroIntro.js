@@ -56,7 +56,7 @@ const HeroIntro = ({ image }) => {
             Quiero que tu marca crezca en línea
             <Typography variant="body2" component="span">
               proveyendo soluciones que suplen{' '}
-              <span className={classes.highlight}>lo que necesitas.</span>
+              <span className={classes.highlight}>lo que necesitas</span>
             </Typography>
           </Typography>
           <CTA
