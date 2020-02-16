@@ -71,6 +71,7 @@ export const query = graphql`
           frontmatter {
             title
             url
+            isInternal
             technologies
             bannerImage {
               childImageSharp {
