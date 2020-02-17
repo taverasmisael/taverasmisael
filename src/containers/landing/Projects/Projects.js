@@ -12,6 +12,7 @@ const mapProjects = projects =>
     name: project.frontmatter.title,
     banner: project.frontmatter.bannerImage.childImageSharp.fluid,
     stack: project.frontmatter.technologies,
+    isInternal: project.frontmatter.isInternal,
     description: project.excerpt,
     url: project.frontmatter.url,
   }))
@@ -47,6 +48,7 @@ const Projects = ({ projects }) => {
               name={project.name}
               href={project.url}
               stack={project.stack}
+              isInternal={project.isInternal}
             />
           </Grid>
         ))}

@@ -1,6 +1,8 @@
 import React, { memo } from 'react'
+import { Link } from 'gatsby'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import MaterialLink from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
 import BackgroundImage from 'gatsby-background-image'
 import Div100vh from 'react-div-100vh'
@@ -11,7 +13,7 @@ const CTA = withStyles(theme => ({
   root: {
     backgroundColor: theme.palette.secondary.dark,
     color: theme.palette.secondary.contrastText,
-    marginTop: '5rem',
+    marginRight: '1em',
 
     '&:hover': {
       // Secondary color with 5% less Light (HSL)
@@ -59,14 +61,19 @@ const HeroIntro = ({ image }) => {
               <span className={classes.highlight}>lo que necesitas</span>
             </Typography>
           </Typography>
-          <CTA
-            variant="contained"
-            color="secondary"
-            href="#hablemos"
-            className={classes.cta}
-          >
-            Hablemos
-          </CTA>
+          <div className={classes.ctaContainer}>
+            <CTA variant="contained" color="secondary" href="#hablemos">
+              Hablemos
+            </CTA>
+            <MaterialLink
+              color="inherit"
+              component={Link}
+              to="/blog"
+              className={classes.secondaryCTA}
+            >
+              Leer el blog
+            </MaterialLink>
+          </div>
         </div>
       </div>
     </Div100vh>

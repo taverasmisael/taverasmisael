@@ -88,4 +88,8 @@ export const useStyles = makeStyles(theme => ({
   contrastColor: {
     color: theme.palette.primary.contrastText,
   },
+
+  ctaContainer: {
+    marginTop: '5rem',
+  },
 }))

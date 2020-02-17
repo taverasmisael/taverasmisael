@@ -30,7 +30,11 @@ export const useStyles = makeStyles(theme => ({
     width: '100%',
     top: 0,
     transition: 'transform 200ms cubic-bezier(0.4, 0, 0.2, 1)',
-    transform: 'translateY(calc(70% - 16px))',
+    transform: 'translateY(calc(70% - 32px))',
+
+    [theme.breakpoints.down('sm')]: {
+      transform: 'translateY(calc(70% - 16px))',
+    },
   },
 
   contentOpen: {
@@ -51,5 +55,9 @@ export const useStyles = makeStyles(theme => ({
   text: {
     display: 'flex',
     flexFlow: 'column nowrap',
+  },
+
+  dnone: {
+    display: 'none',
   },
 }))
