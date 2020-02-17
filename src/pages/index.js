@@ -5,10 +5,12 @@ import Footer from '../components/Footer'
 import { HeroIntro, AboutMe, Projects, ContactMe } from '../containers/landing'
 import BaseLayout from '../layouts/base'
 
+const HEAD_PROPS = { title: 'Inicio' }
+
 const HomePage = ({ data }) => {
   const { heroImage, testimonials, projects } = data
   return (
-    <BaseLayout>
+    <BaseLayout headProps={HEAD_PROPS}>
       <HeroIntro image={heroImage.childImageSharp.fluid} />
       <AboutMe testimonials={testimonials.edges} />
       <Projects projects={projects.edges} />
