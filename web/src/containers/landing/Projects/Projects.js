@@ -7,14 +7,14 @@ import Project from '../../../components/Project'
 import { useStyles } from './styles'
 
 const mapProjects = projects =>
-  projects.map(({ node: project }) => ({
-    id: project.id,
-    name: project.frontmatter.title,
-    banner: project.frontmatter.bannerImage.childImageSharp.fluid,
-    stack: project.frontmatter.technologies,
-    isInternal: project.frontmatter.isInternal,
-    description: project.excerpt,
-    url: project.frontmatter.url,
+  projects.map(project => ({
+    id: project._id,
+    name: project.name,
+    banner: project.banner.asset.fluid,
+    stack: project.techStack,
+    isInternal: project.isInternal,
+    description: project.body,
+    url: project.url.current,
   }))
 
 const Projects = ({ projects }) => {

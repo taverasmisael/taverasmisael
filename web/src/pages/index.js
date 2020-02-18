@@ -13,7 +13,7 @@ const HomePage = ({ data }) => {
     <BaseLayout headProps={HEAD_PROPS}>
       <HeroIntro image={heroImage.childImageSharp.fluid} />
       <AboutMe testimonials={testimonials.nodes} />
-      <Projects projects={projects.edges} />
+      <Projects projects={projects.nodes} />
       <ContactMe />
       <Footer />
     </BaseLayout>
@@ -51,30 +51,22 @@ export const query = graphql`
       }
     }
 
-    projects: allMdx(
-      filter: {
-        fileAbsolutePath: { regex: "//projects-list//" }
-        frontmatter: { status: { eq: "published" } }
-      }
-      sort: { order: ASC, fields: frontmatter___title }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            url
-            isInternal
-            technologies
-            bannerImage {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
+    projects: allSanityProject {
+      nodes {
+        _id
+        name
+        url {
+          current
+        }
+        isInternal
+        techStack
+        body
+        banner {
+          asset {
+            fluid(maxWidth: 800) {
+              ...GatsbySanityImageFluid
             }
           }
-          excerpt(pruneLength: 280)
         }
       }
     }
