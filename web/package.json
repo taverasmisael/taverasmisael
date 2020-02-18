@@ -12,7 +12,8 @@
     "serve": "env-cmd gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "empty-cache": "gatsby clean",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "deploy": "npm run build"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
