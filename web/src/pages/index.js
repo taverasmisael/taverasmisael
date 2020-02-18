@@ -12,7 +12,7 @@ const HomePage = ({ data }) => {
   return (
     <BaseLayout headProps={HEAD_PROPS}>
       <HeroIntro image={heroImage.childImageSharp.fluid} />
-      <AboutMe testimonials={testimonials.edges} />
+      <AboutMe testimonials={testimonials.nodes} />
       <Projects projects={projects.edges} />
       <ContactMe />
       <Footer />
@@ -35,27 +35,18 @@ export const query = graphql`
       }
     }
 
-    testimonials: allMdx(
-      filter: {
-        fileAbsolutePath: { regex: "//testimonials//" }
-        frontmatter: { status: { eq: "published" } }
-      }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            position
-            profilePicture {
-              childImageSharp {
-                fluid(maxWidth: 80) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
+    testimonials: allSanityTestimonial {
+      nodes {
+        _id
+        name
+        position
+        _rawTestimony
+        profilePicture {
+          asset {
+            fluid(maxWidth: 80) {
+              ...GatsbySanityImageFluid
             }
           }
-          body
         }
       }
     }

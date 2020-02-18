@@ -3,7 +3,6 @@ import classnames from 'classnames'
 import Typography from '@material-ui/core/Typography'
 import Avatar from '@material-ui/core/Avatar'
 import Image from 'gatsby-image'
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import { useStyles } from './styles'
 
@@ -38,7 +37,9 @@ const Testimonial = ({
         </div>
       </header>
       <div className={classes.body}>
-        <MDXRenderer>{testimony}</MDXRenderer>
+        <Typography variant="body1" className={classes.text}>
+          {testimony}
+        </Typography>
       </div>
     </article>
   )

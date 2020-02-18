@@ -12,6 +12,7 @@ import Testimonial from '../../../components/Testimonial'
 const AboutMe = ({ testimonials = [] }) => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = useState(null)
+  console.warn(testimonials)
 
   return (
     <Grid container spacing={0} className={classes.root} component="section">
@@ -95,22 +96,20 @@ const AboutMe = ({ testimonials = [] }) => {
           Lo que otros dicen
         </Typography>
         <Grid container spacing={4} className={classes.testimonialsContainer}>
-          {testimonials.map(({ node: testimony }, idx) => (
+          {testimonials.map((testimony, idx) => (
             <Grid
               item
               xs={12}
               sm={6}
               lg={4}
-              key={testimony.id}
+              key={testimony._id}
               className={classes.cell}
             >
               <Testimonial
-                name={testimony.frontmatter.title}
-                position={testimony.frontmatter.position}
-                profilePicture={
-                  testimony.frontmatter.profilePicture.childImageSharp.fluid
-                }
-                testimony={testimony.body}
+                name={testimony.name}
+                position={testimony.position}
+                profilePicture={testimony.profilePicture.asset.fluid}
+                testimony={testimony._rawTestimony[0].children[0].text}
                 highlight={(idx + 1) % 2 === 0}
               />
             </Grid>

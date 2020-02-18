@@ -1,5 +1,10 @@
 const { resolve } = require('path')
 const siteMetadata = require('./site-metadata.json')
+
+const {
+  api: { projectId, dataset },
+} = requireSanityConfig('../studio/sanity.json')
+
 module.exports = {
   siteMetadata,
   plugins: [
@@ -151,9 +156,36 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: 'jnc7ru5b',
-        dataset: 'projects',
+        projectId,
+        dataset,
+        // In case we need to use this feature
+        token: process.env.SANITY_TOKEN,
+        watchMode: true,
+        overlayDrafts: true,
       },
     },
   ],
+}
+
+/**
+ * We're requiring a file in the studio folder to make the monorepo
+ * work "out-of-the-box". Sometimes you would to run this web frontend
+ * in isolation (e.g. on codesandbox). This will give you an error message
+ * with directions to enter the info manually or in the environment.
+ */
+
+function requireSanityConfig(path) {
+  try {
+    return require('../studio/sanity.json')
+  } catch (e) {
+    console.error(
+      'Failed to require sanity.json. Fill in projectId and dataset name manually in gatsby-config.js'
+    )
+    return {
+      api: {
+        projectId: process.env.SANITY_PROJECT_ID || '',
+        dataset: process.env.SANITY_DATASET || '',
+      },
+    }
+  }
 }
