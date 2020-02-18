@@ -7,7 +7,13 @@
   "author": "Misael Taveras <macrot29@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
+    "deploy": "npm run graphql-deploy && npm run sanity-deploy",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "graphql-deploy": "sanity graphql deploy --playground",
+    "sanity-deploy": "sanity deploy",
+    "lint": "eslint .",
     "start": "sanity start",
+    "build": "sanity build",
     "test": "sanity check"
   },
   "keywords": [
