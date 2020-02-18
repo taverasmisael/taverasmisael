@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "env-cmd gatsby build",
+    "build": "gatsby build",
     "develop": "env-cmd gatsby develop -p 3300",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
