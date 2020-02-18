@@ -148,5 +148,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-meta-redirect',
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'jnc7ru5b',
+        dataset: 'projects',
+      },
+    },
   ],
 }

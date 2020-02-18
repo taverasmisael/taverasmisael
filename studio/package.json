@@ -25,5 +25,8 @@
     "react": "^16.2",
     "react-dom": "^16.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1"
+  }
 }
