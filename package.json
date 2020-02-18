@@ -12,6 +12,7 @@
     "clean": "lerna clean",
     "predeploy": "lerna bootstrap",
     "deploy": "lerna run deploy",
+    "build": "lerna run build",
     "empty-cache": "lerna run empty-cache",
     "init": "cd studio && sanity init && lerna run graphql-deploy",
     "format": "lerna run format",
