@@ -13,7 +13,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "empty-cache": "gatsby clean",
     "lint": "eslint .",
-    "deploy": "npm run build"
+    "deploy": "gatsby build"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
