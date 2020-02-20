@@ -45,6 +45,8 @@ const Head = memo(({ title, description, metaImage, path, isPost }) => {
       <meta property="twitter:image" content={pageImage} />
       <meta property="twitter:creator" content={siteMetadata.socialHandler} />
       <meta property="twitter:site" content={siteMetadata.socialHandler} />
+
+      <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
     </Helmet>
   )
 })
