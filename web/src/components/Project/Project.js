@@ -28,10 +28,11 @@ const Project = ({
   const classes = useStyles()
   const [isOpen, setIsOpen] = useState(false)
   const [text, setText] = useState(description)
-  console.warn(backgroundPosition)
+
   useEffect(() => {
     setText(isOpen ? description : truncate(description))
   }, [setText, isOpen, description])
+
   return (
     <Card
       component="article"
