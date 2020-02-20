@@ -1,7 +1,10 @@
+import { RiBuildingLine } from 'react-icons/ri'
+
 export default {
   name: 'project',
   label: 'Projects',
   type: 'document',
+  icon: RiBuildingLine,
 
   fields: [
     { name: 'name', type: 'string', label: 'Name' },

@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "taverasmisaelweb"
+    "name": "TaverasMisael Web"
   },
   "api": {
     "projectId": "jnc7ru5b",
@@ -16,9 +16,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
