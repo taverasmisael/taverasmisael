@@ -2,6 +2,7 @@ export default {
   name: 'project',
   label: 'Projects',
   type: 'document',
+
   fields: [
     { name: 'name', type: 'string', label: 'Name' },
     { name: 'url', type: 'slug', label: 'URL' },
@@ -21,6 +22,30 @@ export default {
       of: [{ type: 'string' }],
     },
     { name: 'body', type: 'text', label: 'Description' },
-    { name: 'banner', type: 'image', label: 'Image' },
+    {
+      name: 'banner',
+      type: 'image',
+      label: 'Image',
+      options: {
+        hotspot: true,
+      },
+    },
   ],
+
+  preview: {
+    select: {
+      title: 'name',
+      techStack: 'techStack',
+      description: 'body',
+      media: 'banner',
+    },
+    prepare(selection) {
+      const { techStack = [] } = selection
+
+      return {
+        ...selection,
+        subtitle: techStack.join('–'),
+      }
+    },
+  },
 }

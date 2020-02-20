@@ -8,4 +8,12 @@ export default {
     { name: 'testimony', type: 'richText', label: 'Testimony' },
     { name: 'profilePicture', type: 'image', label: 'Profile picture' },
   ],
+
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: 'position',
+      media: 'profilePicture',
+    },
+  },
 }

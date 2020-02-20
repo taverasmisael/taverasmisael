@@ -12,7 +12,6 @@ import Testimonial from '../../../components/Testimonial'
 const AboutMe = ({ testimonials = [] }) => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = useState(null)
-  console.warn(testimonials)
 
   return (
     <Grid container spacing={0} className={classes.root} component="section">
