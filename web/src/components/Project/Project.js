@@ -8,7 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase'
 import Typography from '@material-ui/core/Typography'
 import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded'
 
-import Image from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 
 import { truncateText } from '../../utils/normalizer'
 
@@ -16,11 +16,19 @@ import { useStyles } from './styles'
 
 const truncate = truncateText(80)
 
-const Project = ({ description, banner, name, href, stack, isInternal }) => {
+const Project = ({
+  description,
+  banner,
+  name,
+  href,
+  stack,
+  isInternal,
+  backgroundPosition,
+}) => {
   const classes = useStyles()
   const [isOpen, setIsOpen] = useState(false)
   const [text, setText] = useState(description)
-
+  console.warn(backgroundPosition)
   useEffect(() => {
     setText(isOpen ? description : truncate(description))
   }, [setText, isOpen, description])
@@ -31,7 +39,11 @@ const Project = ({ description, banner, name, href, stack, isInternal }) => {
       onClick={() => setIsOpen(state => !state)}
     >
       <ButtonBase component="div" className={classes.button}>
-        <Image fluid={banner} alt={name} className={classes.image} />
+        <BackgroundImage
+          fluid={banner}
+          className={classes.image}
+          style={{ backgroundPosition }}
+        />
         <Paper
           className={classnames(classes.content, {
             [classes.contentOpen]: isOpen,

@@ -62,6 +62,10 @@ export const query = graphql`
         techStack
         body
         banner {
+          hotspot {
+            x
+            y
+          }
           asset {
             fluid(maxWidth: 800) {
               ...GatsbySanityImageFluid

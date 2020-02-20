@@ -38,3 +38,26 @@ export const truncateText = limit =>
 
     return TRUNCATE + '...'
   }
+
+/**
+ *
+ * @param {Number} x The position on X
+ * @param {Number} y The position on Y
+ * @return {String} A combination of `X` and `y` in percentage
+ */
+export const calculateBackgroundPosition = (x, y) =>
+  `${toPercentage(x)} ${toPercentage(y)}`
+
+/**
+ *
+ * @param {Number} val The value we need to convert to a percentage. i.e: 0.23
+ * @returns {String} The converted value with the percetage symbol appended
+ */
+const toPercentage = val => {
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'percent',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+  return formatter.format(val)
+}

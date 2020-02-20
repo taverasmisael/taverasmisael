@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import Div100vh from 'react-div-100vh'
 
 import Project from '../../../components/Project'
+import { calculateBackgroundPosition } from '../../../utils/normalizer'
 import { useStyles } from './styles'
 
 const mapProjects = projects =>
@@ -11,6 +12,10 @@ const mapProjects = projects =>
     id: project._id,
     name: project.name,
     banner: project.banner.asset.fluid,
+    backgroundPosition: calculateBackgroundPosition(
+      project.banner.hotspot.x,
+      project.banner.hotspot.y
+    ),
     stack: project.techStack,
     isInternal: project.isInternal,
     description: project.body,
@@ -48,6 +53,7 @@ const Projects = ({ projects }) => {
               name={project.name}
               href={project.url}
               stack={project.stack}
+              backgroundPosition={project.backgroundPosition}
               isInternal={project.isInternal}
             />
           </Grid>
