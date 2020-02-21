@@ -23,4 +23,19 @@ module.exports = [
     },
   },
   'gatsby-plugin-meta-redirect',
+  {
+    resolve: 'gatsby-plugin-manifest',
+    options: {
+      name: 'TaverasMisael Web',
+      short_name: 'TaverasMisael',
+      start_url: '/',
+      background_color: '#293462',
+      theme_color: '#ed1250',
+      // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+      // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+      display: 'standalone',
+      icon: 'static/icon.png',
+    },
+  },
+  'gatsby-plugin-offline',
 ]
