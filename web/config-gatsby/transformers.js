@@ -34,19 +34,8 @@ module.exports = [
             removeAccents: true,
           },
         },
-        {
-          resolve: 'gatsby-remark-vscode',
-          options: {
-            colorTheme: 'Horizon Bold',
-            extensions: [
-              {
-                identifier: 'jolaleye.horizon-theme-vscode',
-                version: '2.0.2',
-              },
-            ],
-            extensionDataDirectory: resolve('./.vscode-extensions'),
-          },
-        },
+        'gatsby-remark-vscode',
+
         'gatsby-remark-relative-images',
         {
           resolve: 'gatsby-remark-external-links',
