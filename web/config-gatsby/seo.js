@@ -35,6 +35,7 @@ module.exports = [
       // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
       display: 'standalone',
       icon: 'static/icon.png',
+      crossOrigin: 'use-credentials',
     },
   },
   'gatsby-plugin-offline',
