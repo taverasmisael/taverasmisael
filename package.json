@@ -13,6 +13,8 @@
     "predeploy": "lerna bootstrap",
     "deploy": "lerna run deploy",
     "build": "lerna run build",
+    "build:web": "lerna run --scope @taverasmisael/website-frontend build",
+    "build:studio": "erna run --scope @taverasmisael/website-studio build",
     "empty-cache": "lerna run empty-cache",
     "init": "cd studio && sanity init && lerna run graphql-deploy",
     "format": "lerna run format",
