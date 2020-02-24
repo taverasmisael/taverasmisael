@@ -5,6 +5,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/taverasmisael/taverasmisael/badge.svg?targetFile=package.json)](https://snyk.io/test/github/taverasmisael/taverasmisael?targetFile=package.json)
 
 Blog y sitio web oficial de Misael Taveras ([taverasmisael](https://taverasmisael.com)).
+Este proyecto depende de su backend/studio, puedes encontrarlo en [taverasmisael/taverasmisael-studio](https://github.com/taverasmisael/taverasmisael-studio)
 
 Creado con [Gatsby](http://gatsbyjs.org) y alojado con [Netlify](https://netlify.com)
 
@@ -12,11 +13,15 @@ Creado con [Gatsby](http://gatsbyjs.org) y alojado con [Netlify](https://netlify
 
 1. Node
 2. Yarn (opcional, pero recomendado)
+3. Tener cuenta de [Sanity](https://sanity.io)
 
 ## Instalación local
 
 1. Clonar el repo `git clone https://github.com/taverasmisael/taverasmisasel`.
-2. Correr `yarn install`
+2. Copiar `.env.default` y cambiar el nombre a `.env` en la raíz del directorio.
+3. Completar los valores
+4. Correr `yarn install`
+5. Correr `yarn start`, esperar y abrir el navegador en `http://localhost:3300`
 
 ## Uso
 
