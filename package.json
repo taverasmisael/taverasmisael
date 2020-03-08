@@ -21,7 +21,7 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.19.12",
     "gatsby-plugin-manifest": "^2.2.41",
-    "gatsby-plugin-mdx": "^1.0.70",
+    "gatsby-plugin-mdx": "^1.0.73",
     "gatsby-plugin-netlify": "^2.1.32",
     "gatsby-plugin-offline": "^3.0.35",
     "gatsby-source-sanity": "^5.0.5",
