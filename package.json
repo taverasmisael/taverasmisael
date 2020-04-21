@@ -16,7 +16,7 @@
     "deploy": "gatsby build"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.5.6",
+    "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.7",
     "classnames": "^2.2.6",
     "gatsby": "^2.19.43",
