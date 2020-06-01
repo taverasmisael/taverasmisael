@@ -28,8 +28,8 @@
     "gatsby-plugin-offline": "^3.0.41",
     "gatsby-source-sanity": "^5.0.6",
     "ramda": "^0.27.0",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-share": "^4.1.0",
     "snyk": "^1.316.1"
