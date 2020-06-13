@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-const Head = memo(({ title, description, metaImage, path, isPost }) => {
+const Head = memo(({ title, description, metaImage, isPost }) => {
   const {
     site: { siteMetadata },
   } = useStaticQuery(graphql`
