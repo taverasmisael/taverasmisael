@@ -32,7 +32,7 @@
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-share": "^4.1.0",
-    "snyk": "^1.316.1"
+    "snyk": "^1.339.3"
   },
   "devDependencies": {
     "@material-ui/core": "^4.10.2",
