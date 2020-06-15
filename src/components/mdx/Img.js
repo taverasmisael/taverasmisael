@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     boxShadow: theme.shadows[1],
     borderRadius: theme.shape.borderRadius,
     userSelect: 'none',
+    "&[title='Imagen sin sombra']": {
+      boxShadow: 'none',
+    },
   },
 }))
 
