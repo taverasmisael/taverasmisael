@@ -1,6 +1,6 @@
 ---
 title: Extensiones y temas para personalizar Visual Studio Code
-date: '2020-07-15'
+date: '2020-06-15'
 description: Un listado con mis extensiones favoritas para que Visual Studio Code se sienta único. El número tres te sorprenderá.
 author: Misael Taveras
 tags: ['VSCode', 'Recomendación']

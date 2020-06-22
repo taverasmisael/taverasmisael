@@ -46,7 +46,7 @@ El formato de lanzamiento del podcast va a ser semanal, pero **dividido por temp
 
 Bien, aunque sé cómo y qué quiero hacer ~~kindda~~  al final del día este contenido va a ser para ti, así que me gustaría saber tu opinión en algunas cosas. Para ello creé un pequeño formulario de Google con 4 preguntas sencillas de selección y significaría el mundo para mí si pudieras tomarte 30 segundos de tu tiempo y llenarlo. Entre las preguntas está una selección de algunos posibles nombres y me gustaría saber cual te gusta más.
 
-[Aquí el link para el formulario que decidirá el futuro de tu país.](https://forms.gle/DzZCSn5WeCiw4chG7)
+~Aquí el link para el formulario que decidirá el futuro de tu país~ (Gracias a todos los que participaron en la elección del nombre. Release on Fridays fue el nombre ganador).
 
 ## En conclusión
 

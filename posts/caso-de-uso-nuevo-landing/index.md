@@ -68,7 +68,7 @@ Convertí el carrusel de proyectos en uno a ancho completo y me deshice del text
 * **El carrusel**: Si han tenido el placer de ver la página en acción ([es el home de este blog](/)) notarán que el carrusel de proyectos no es un carrusel sino simplemente columnas, esto es porque ninguna solución de carrusel me convencía y aunque llegué a implementar una con [GlideJS](https://glidejs.com/docs/) no era muy amistosa con `gatsby-background-image` así que fue una de esas situaciones donde **sacrificas funcionalidad por tiempo y usabilidad**. No niego que en un futuro implemente el carrusel.
 * **Escribir sobre mí.** Sí, creo que este fue uno de los mayores retos. No sé cómo escribir sobre mi, así que literalmente lo último que se quitó fue el dummy text para agregar mi copy. Escribir esos párrafos fue un reto para mi.
 * **No hay menú**: Esto es algo que voy a agregar más adelante, espero que pronto. Sería un menú específico para el Home y sería dinámico.
-* **El tema del website no afecta el diseño**, me gustaría crear una versión *light* de este landing más adelante.
+* ~~**El tema del website no afecta el diseño**, me gustaría crear una versión *light* de este landing más adelante.~~ Esto ya es posible :3.
 * **Dejé las líneas diagonales** para la parte de proyectos y agregué unos emojis 👀.
 
 > La única parte que se puede decir que se mantuvo desde la versión 1 de este diseño fue el **footer**.

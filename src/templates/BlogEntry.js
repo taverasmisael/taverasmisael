@@ -10,6 +10,7 @@ import HeroImage from '../components/HeroImage'
 import BlogHeader from '../components/BlogHeader'
 import ShareButtons from '../components/ShareButtons'
 import TagsList from '../components/TagsList'
+import Emoji from '../components/Emoji'
 
 const BlogEntry = memo(({ data: { mdx }, path }) => {
   const { frontmatter, body, timeToRead } = mdx
@@ -48,6 +49,7 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
             <Grid item xs={12} md={5}>
               <Typography variant="subtitle1" style={{ paddingBottom: '8px' }}>
                 Etiquetas
+                <Emoji symbol="🏷" />
               </Typography>
               <TagsList tags={frontmatter.tags || []} />
             </Grid>
