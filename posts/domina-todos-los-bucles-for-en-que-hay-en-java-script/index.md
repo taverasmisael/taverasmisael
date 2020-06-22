@@ -92,7 +92,7 @@ for (let value of arr) {
 }
 ```
 
-Mucho más simple y elegante, y nos elimina le tener que recordar de dónde sale el valor (antes debíamos hacer `arr[i]` pero ahora es manejado internamente por javascript).
+Mucho más simple y elegante, y nos elimina el tener que recordar de dónde sale el valor (antes debíamos hacer `arr[i]` pero ahora es manejado internamente por javascript).
 
 La diferencia con el `for...in` es que este **accede directamente al valor en vez de al índice**.
 
@@ -100,7 +100,7 @@ Pero, ¿qué pasa con los objetos? Bueno, si estamos usando un `for...in` con un
 
 `Uncaught TypeError: "obj" is not iterable`
 
-Es que a diferencia de su hermano `for...in` este solo funciona en **iterables**. Los itereables son objetos especiales en JavaScript con un método `@@iterator` en un key `[Symbol.iterator]`, los Array, Set y Map vienen con este método implementado, pero los Object no, así que no son validos para el bucle `for...of` aunque esto tiene una solución.
+Es que a diferencia de su hermano `for...in` este solo funciona en **iterables**. Los itereables son objetos especiales en JavaScript con un método `@@iterator` en un key `[Symbol.iterator]`, los Array, Set y Map vienen con este método implementado, pero los Object no, así que no son válidos para el bucle `for...of` aunque esto tiene una solución.
 
 ```js
 const obj = {name: 'Pedro', salary: 3000, }
@@ -115,7 +115,7 @@ for (let [key, value] of Object.entries(obj)) {
 }
 ```
 
-> Si aun no te sientes cómodo utilizando el Object Destructuring te recomiendo [leer mi post](/blog/javascript-todo-lo-nuevo-desde-es6-hasta-hoy-parte-1#destructuring "ES6 en adelante") sobre las ~~no tan~~  nuevas características de ES6.
+> Si aún no te sientes cómodo utilizando el Object Destructuring te recomiendo [leer mi post](/blog/javascript-todo-lo-nuevo-desde-es6-hasta-hoy-parte-1#destructuring "ES6 en adelante") sobre las ~~no tan~~  nuevas características de ES6.
 
 El método `Object.entries([cualquier objeto])` devuelve un array  de arrays con los pares de key y value tipo `[key, value]` dado a que los arrays son iterables podemos utilizarlos dentro de nuestro bucle `for...of`.
 
@@ -123,7 +123,7 @@ Así mismo podemos usar `Object.keys` u `Object.values` si solo nos interesan o 
 
 ## Exclusivo de arrays forEach
 
-Éste es un método que debió estar en el post que describo los diferentes métodos en los arrays para evitar el bucle for (por si te perdiste el enlace [aquí está de nuevo](/blog/usar-map-filter-y-reduce-para-olvidarnos-de-los-bucles-for/#problemas-con-el-bucle-for)). La razón por la que no está en la lista no es porque tiene for en el nombre, sino que suele usarse para causar side-effects en vez de transformaciones.
+Éste es un método que debió estar en el post en el que describo los diferentes métodos en los arrays para evitar el bucle for (por si te perdiste el enlace [aquí está de nuevo](/blog/usar-map-filter-y-reduce-para-olvidarnos-de-los-bucles-for/#problemas-con-el-bucle-for)). La razón por la que no está en la lista no es porque tiene for en el nombre, sino que suele usarse para causar side-effects en vez de transformaciones.
 
 La única "gran desventaja" es que este método solo existe directamente en el `Array.prototype`; por lo que solo funciona en Arrays.
 
@@ -135,7 +135,7 @@ const arr = [{ name: 'Abel' }, { name: 'Lana' }, { name: 'Drake' }]
 arr.forEach(value => console.log(value.name)) // Abel, Lana, Drake
 ```
 
-El `callback` que le pasamos recibe como primer argumento el valor, luego el índice y por último el array completo (igual que map y filter). Ninguno de los parámetros son requeridos por lo que podemos hacer como queramos con el.
+El `callback` que le pasamos recibe como primer argumento el valor, luego el índice y por último el array completo (igual que map y filter). Ninguno de los parámetros son requeridos por lo que podemos hacer como queramos con él.
 
 ### Dato curioso del forEach y los arrays
 
