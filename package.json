@@ -13,9 +13,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "empty-cache": "gatsby clean",
     "lint": "eslint .",
-    "deploy": "gatsby build",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
+    "deploy": "gatsby build"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.6",
@@ -31,8 +29,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
-    "react-share": "^4.1.0",
-    "snyk": "^1.339.3"
+    "react-share": "^4.1.0"
   },
   "devDependencies": {
     "@material-ui/core": "^4.10.2",
@@ -81,6 +78,5 @@
   },
   "bugs": {
     "url": "https://github.com/taverasmisael/taverasmisael/issues"
-  },
-  "snyk": true
+  }
 }
