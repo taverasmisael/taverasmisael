@@ -48,6 +48,11 @@ export default {
   listItem: props => <Container maxWidth="md" component={li} {...props} />,
   list: props => <Container maxWidth="md" component={ol} {...props} />,
   paragraph: props => <Container maxWidth="md" component={p} {...props} />,
+  FloatedImage: ({ float, ...props }) => (
+    <Container maxWidth="md" component={p} style={{ width: 'auto', float }}>
+      <Img {...props} />
+    </Container>
+  ),
 }
 
 const h1 = props => <Typography variant="h2" component="h2" {...props} />
