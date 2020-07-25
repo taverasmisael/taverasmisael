@@ -12,7 +12,7 @@ pre {
   font-size: 1rem;
 }
 
-code:not(.vscode-highlight-code) {
+code:not(.grvsc-code) {
   background-color: rgb(28, 36, 68);
   font-size: 1em;
   padding: 0 8px;
