@@ -1,7 +1,6 @@
 import React, { memo } from 'react'
 import { Link } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
-import classnames from 'classnames'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
@@ -10,15 +9,13 @@ import Button from '@material-ui/core/Button'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import Hidden from '@material-ui/core/Hidden'
 
-import { useStyles } from '../SeriesListItem/styles'
-import { useStyles as useOwnStyles } from './styles'
+import { useStyles } from './styles'
 import Img from 'gatsby-image'
 
 import BlogHeader from '../BlogHeader'
 
 const BlogItemMini = memo(({ item }) => {
   const classes = useStyles()
-  const classesOverride = useOwnStyles()
   const entryLink = item.fields.slug
   console.log(item.frontmatter.banner.childImageSharp.fluid)
   return (
@@ -28,7 +25,7 @@ const BlogItemMini = memo(({ item }) => {
         component={Link}
         to={entryLink}
       >
-        <CardMedia className={classnames(classes.media, classesOverride.media)}>
+        <CardMedia className={classes.media}>
           <Hidden smUp>
             <Img
               fluid={item.frontmatter.banner.childImageSharp.fluid}

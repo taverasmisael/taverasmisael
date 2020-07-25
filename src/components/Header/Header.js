@@ -76,9 +76,6 @@ function Header({ noGutterBottom }) {
               <NavLink to="/blog" partiallyActive>
                 Blog
               </NavLink>
-              <NavLink to="/series" partiallyActive>
-                Series
-              </NavLink>
               <NavLink to="/contacto">Contacto</NavLink>
               <IconButton
                 onClick={toggleDarkMode}
