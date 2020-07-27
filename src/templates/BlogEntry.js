@@ -61,7 +61,7 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
           </Container>
         </article>
         <Container id="newsletter" maxWidth="md">
-          <NewsletterForm />
+          <NewsletterForm path={path} />
         </Container>
       </Container>
     </GeneralLayout>

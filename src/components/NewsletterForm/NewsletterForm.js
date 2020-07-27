@@ -1,4 +1,5 @@
-import React, { memo, useState, useCallback } from 'react'
+import React, { memo, useState } from 'react'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 import { ThemeProvider } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
@@ -12,23 +13,50 @@ import { AltTheme } from '../../shared/theme'
 
 import { useStyles } from './styles'
 
-const NewsletterForm = memo(() => {
-  const [state, setState] = useState({ name: '', email: '' })
+const STATES = {
+  IDLE: 'IDLE',
+  PROGRESS: 'PROGRESS',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+}
 
-  const handleChange = useCallback(
-    ({ target = {} }) => {
-      setState(state => ({ ...state, [target.name]: target.value }))
-    },
-    [setState]
-  )
-
+const NewsletterForm = ({ path }) => {
   const classes = useStyles()
+  const [formState, setFormState] = useState(STATES.IDLE)
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    const { target } = e
+
+    // A bot submition
+    if (target.elements['got-the-honey'].value) return
+
+    try {
+      setFormState(STATES.PROGRESS)
+      const { email, name } = target.elements
+      const response = await addToMailchimp(email.value, {
+        fname: name.value,
+        path,
+      })
+
+      if (response.result === 'error') throw new Error('INVALID FORM')
+      setFormState(STATES.SUCCESS)
+      target.reset()
+    } catch (e) {
+      setFormState(STATES.ERROR)
+      console.error(e)
+    } finally {
+      setTimeout(() => {
+        setFormState(STATES.IDLE)
+      }, 3500)
+    }
+  }
 
   return (
     <Card className={classes.card}>
       <CardContent>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid item xs={12} md={5}>
             <Typography variant="h6" component="h4">
               Únete a la newsletter
             </Typography>
@@ -41,8 +69,20 @@ const NewsletterForm = memo(() => {
               NO SPAM. SOLO BUEN CONTENIDO.
             </Typography>
           </Grid>
+          <Grid item xs={12} md={5}>
+            {formState === STATES.ERROR && (
+              <Typography
+                className={classes.span}
+                variant="caption"
+                component="p"
+              >
+                ¡Ups! Parece que algo salió mal (o tu correo ya está suscrito).
+                Vuelve a intentarlo.
+              </Typography>
+            )}
+          </Grid>
         </Grid>
-        <form>
+        <form onSubmit={handleSubmit}>
           <p className="hidden">
             <label>
               Prefieres que hablemos por fax (ignorame si eres humano y me
@@ -51,45 +91,60 @@ const NewsletterForm = memo(() => {
           </p>
           <ThemeProvider theme={AltTheme}>
             <Grid container spacing={2} alignItems="center">
-              <Grid item xs={12} md={5}>
-                <TextField
-                  required
-                  fullWidth
-                  onChange={handleChange}
-                  value={state.name}
-                  id="name"
-                  name="name"
-                  label="Nombre"
-                  margin="normal"
-                  variant="filled"
-                />
-              </Grid>
-              <Grid item xs={12} md={5}>
-                <TextField
-                  required
-                  fullWidth
-                  onChange={handleChange}
-                  value={state.email}
-                  name="email"
-                  type="email"
-                  id="email"
-                  label="E-mail"
-                  margin="normal"
-                  variant="filled"
-                />
-              </Grid>
-              <Grid item xs={12} md={2}>
-                <Button variant="contained" type="submit">
-                  Únirse
-                </Button>
-              </Grid>
+              {formState !== STATES.SUCCESS && (
+                <FormContent inProgress={formState !== STATES.IDLE} />
+              )}
+              {formState === STATES.SUCCESS && (
+                <Grid item xs={12}>
+                  <Typography variant="h6" component="h5" align="center">
+                    ¡Bienvenido al club! Gracias por suscribirte.
+                  </Typography>
+                  <Typography variant="overline" component="p" align="center">
+                    Revisa tu correo
+                  </Typography>
+                </Grid>
+              )}
             </Grid>
           </ThemeProvider>
         </form>
       </CardContent>
     </Card>
   )
-})
+}
 
+const FormContent = ({ inProgress }) => (
+  <>
+    <Grid item xs={12} md={5}>
+      <TextField
+        required
+        fullWidth
+        disabled={inProgress}
+        id="name"
+        name="name"
+        label="Nombre"
+        margin="normal"
+        variant="filled"
+      />
+    </Grid>
+    <Grid item xs={12} md={5}>
+      <TextField
+        required
+        fullWidth
+        disabled={inProgress}
+        name="email"
+        type="email"
+        id="email"
+        label="E-mail"
+        margin="normal"
+        variant="filled"
+      />
+    </Grid>
+    <Grid item xs={12} md={2}>
+      <Button disabled={inProgress} variant="contained" type="submit">
+        Únirse
+      </Button>
+    </Grid>
+  </>
+)
 NewsletterForm.displayName = 'NewsletterForm'
-export default NewsletterForm
+export default memo(NewsletterForm)

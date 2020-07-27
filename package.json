@@ -20,6 +20,7 @@
     "@mdx-js/react": "^1.6.14",
     "classnames": "^2.2.6",
     "gatsby": "^2.19.45",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-mdx": "^1.2.29",
     "gatsby-plugin-netlify": "^2.3.11",

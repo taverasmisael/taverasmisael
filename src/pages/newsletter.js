@@ -11,7 +11,7 @@ const HEAD_PROPS = {
     'Únete a la lista de correo con contenido interesante para tí y se el primero en enterarte de cuando haya un nuevo post, episodio o alguna librería interesante.',
 }
 
-const NewsletterPage = memo(() => {
+const NewsletterPage = memo(({ path }) => {
   return (
     <GeneralLayout noGutterBottom headProps={HEAD_PROPS}>
       <Container maxWidth="md">
@@ -41,7 +41,7 @@ const NewsletterPage = memo(() => {
           .
         </Typography>
 
-        <NewsletterForm />
+        <NewsletterForm path={path} />
       </Container>
     </GeneralLayout>
   )
