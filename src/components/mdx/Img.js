@@ -4,7 +4,6 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 
 const Img = memo(({ className, alt, ...props }) => {
   const classes = useStyles()
-  console.warn('props', props)
   return (
     <img className={classnames(classes.root, className)} alt={alt} {...props} />
   )
