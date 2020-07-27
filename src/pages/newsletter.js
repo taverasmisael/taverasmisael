@@ -19,7 +19,20 @@ const ContactPage = memo(() => {
           <strong>NUNCA SPAM</strong>
         </Typography>
         <Typography variant="subtitle1" component="p" gutterBottom>
-          Si te gusta el contenido del blog vas a amar la newsletter
+          En esta newsletter podrás enterarte de noticias, cuando suba nuevo
+          contenido al blog o{' '}
+          <a href="https://www.instagram.com/releaseonfridays/">al podcast</a>.
+          <br />
+          <strong>
+            Solo cosas buenas, no SPAM, no vender tu información
+          </strong>{' '}
+          <del>
+            (a menos que sea por una cantidad tan considerable de dinero que
+            literalmente pueda enviarle un porcentaje a cada uno de ustedes y
+            quedarme con una parte tan grande que me desaparezca por completo
+            del mapa)
+          </del>
+          .
         </Typography>
 
         <NewsletterForm />

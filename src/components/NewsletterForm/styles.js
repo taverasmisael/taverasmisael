@@ -5,6 +5,7 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor:
       theme.palette.secondary[theme.palette.type === 'dark' ? 'dark' : 'main'],
     color: theme.palette.secondary.contrastText,
+    margin: theme.spacing(2, 0),
   },
   span: {
     color: 'rgba(255,255,255,0.8)',
