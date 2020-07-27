@@ -41,6 +41,7 @@ export default {
   // Custom Elements
   SourceButtons,
   Caption,
+  Blockquote,
 
   // React renderer components
   link: Link,
