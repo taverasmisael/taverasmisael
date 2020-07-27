@@ -39,4 +39,11 @@ module.exports = [
     },
   },
   'gatsby-plugin-offline',
+  {
+    resolve: 'gatsby-plugin-mailchimp',
+    options: {
+      endpoint: process.env.GATSBY_MAILCHIMP_ENDPOINT,
+      timeout: 3500,
+    },
+  },
 ]

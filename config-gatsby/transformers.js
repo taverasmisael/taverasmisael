@@ -1,11 +1,5 @@
 module.exports = [
   {
-    resolve: 'gatsby-transformer-yaml',
-    options: {
-      typeName: 'Series',
-    },
-  },
-  {
     resolve: 'gatsby-plugin-sharp',
     options: {
       useMozJpeg: false,
@@ -48,7 +42,7 @@ module.exports = [
           },
         },
       ],
-      plugins: ['gatsby-remark-images', 'gatsby-remark-vscode'],
+      plugins: ['gatsby-remark-images'],
     },
   },
   {

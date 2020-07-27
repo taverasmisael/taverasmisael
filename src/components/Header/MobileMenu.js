@@ -20,6 +20,14 @@ const MobileMenu = memo(({ DarkModeIcon, toggleDarkMode }) => {
           button
           component={Link}
           activeClassName={classes.activeLink}
+          to="/"
+        >
+          <ListItemText primary="Inicio" />
+        </ListItem>
+        <ListItem
+          button
+          component={Link}
+          activeClassName={classes.activeLink}
           to="/blog"
         >
           <ListItemText primary="Blog" />
@@ -28,9 +36,9 @@ const MobileMenu = memo(({ DarkModeIcon, toggleDarkMode }) => {
           button
           component={Link}
           activeClassName={classes.activeLink}
-          to="/series"
+          to="/newsletter"
         >
-          <ListItemText primary="Series" />
+          <ListItemText primary="Newsletter" />
         </ListItem>
         <ListItem
           button

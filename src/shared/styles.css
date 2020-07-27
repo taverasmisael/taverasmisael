@@ -3,6 +3,19 @@
   will-change: background-color;
 }
 
+/* Make Footer sticky to the bottom */
+body,
+#___gatsby,
+#___gatsby > * {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 code,
 pre {
   border-radius: 4px;
@@ -12,7 +25,7 @@ pre {
   font-size: 1rem;
 }
 
-code:not(.vscode-highlight-code) {
+code:not(.grvsc-code) {
   background-color: rgb(28, 36, 68);
   font-size: 1em;
   padding: 0 8px;

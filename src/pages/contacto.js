@@ -1,13 +1,19 @@
-import React, { memo, useState, useCallback } from 'react'
+import React, { memo } from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 
 import GeneralLayout from '../layouts/general'
 import ContactForm from '../components/ContactForm'
 
+const HEAD_PROPS = {
+  title: 'Contacto',
+  description:
+    'Pónte en contacto conmigo con este sencillo formulario o a traves de mis redes sociales y hablemos',
+}
+
 const ContactPage = memo(() => {
   return (
-    <GeneralLayout noGutterBottom>
+    <GeneralLayout noGutterBottom headProps={HEAD_PROPS}>
       <Container maxWidth="md">
         <Typography variant="h2" component="h1" gutterBottom>
           Contacto

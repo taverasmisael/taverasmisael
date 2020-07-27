@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import GeneralLayout from '../layouts/general'
+import NewsletterForm from '../components/NewsletterForm'
 import HeroImage from '../components/HeroImage'
 import BlogHeader from '../components/BlogHeader'
 import ShareButtons from '../components/ShareButtons'
@@ -25,35 +26,42 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
       }}
     >
       <Container maxWidth="md" className="real-width">
-        <BlogHeader
-          date={frontmatter.date}
-          title={frontmatter.title}
-          timeToRead={timeToRead}
-        />
-        <HeroImage
-          gutterBottom
-          fluid={frontmatter.banner.childImageSharp.fluid}
-        />
+        <article>
+          <BlogHeader
+            date={frontmatter.date}
+            title={frontmatter.title}
+            timeToRead={timeToRead}
+          />
+          <HeroImage
+            gutterBottom
+            fluid={frontmatter.banner.childImageSharp.fluid}
+          />
 
-        <MDXRenderer>{body}</MDXRenderer>
-
-        <Container maxWidth="md">
-          <Grid container>
-            <Grid item xs={12} md={7}>
-              <ShareButtons
-                url={path}
-                title={frontmatter.title}
-                text={frontmatter.description}
-              />
+          <MDXRenderer>{body}</MDXRenderer>
+          <Container maxWidth="md">
+            <Grid container>
+              <Grid item xs={12} md={7}>
+                <ShareButtons
+                  url={path}
+                  title={frontmatter.title}
+                  text={frontmatter.description}
+                />
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  variant="subtitle1"
+                  style={{ paddingBottom: '8px' }}
+                >
+                  Etiquetas
+                  <Emoji symbol="🏷" />
+                </Typography>
+                <TagsList tags={frontmatter.tags || []} />
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={5}>
-              <Typography variant="subtitle1" style={{ paddingBottom: '8px' }}>
-                Etiquetas
-                <Emoji symbol="🏷" />
-              </Typography>
-              <TagsList tags={frontmatter.tags || []} />
-            </Grid>
-          </Grid>
+          </Container>
+        </article>
+        <Container id="newsletter" maxWidth="md">
+          <NewsletterForm path={path} />
         </Container>
       </Container>
     </GeneralLayout>

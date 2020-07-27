@@ -22,11 +22,4 @@ module.exports = [
       name: 'posts',
     },
   },
-  {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      path: resolve('./series'),
-      name: 'series',
-    },
-  },
 ]

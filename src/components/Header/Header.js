@@ -76,8 +76,8 @@ function Header({ noGutterBottom }) {
               <NavLink to="/blog" partiallyActive>
                 Blog
               </NavLink>
-              <NavLink to="/series" partiallyActive>
-                Series
+              <NavLink to="/newsletter" partiallyActive>
+                Newsletter
               </NavLink>
               <NavLink to="/contacto">Contacto</NavLink>
               <IconButton
