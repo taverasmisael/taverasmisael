@@ -5,9 +5,15 @@ import Typography from '@material-ui/core/Typography'
 import GeneralLayout from '../layouts/general'
 import NewsletterForm from '../components/NewsletterForm'
 
-const ContactPage = memo(() => {
+const HEAD_PROPS = {
+  title: 'Newsletter',
+  description:
+    'Únete a la lista de correo con contenido interesante para tí y se el primero en enterarte de cuando haya un nuevo post, episodio o alguna librería interesante.',
+}
+
+const NewsletterPage = memo(() => {
   return (
-    <GeneralLayout noGutterBottom>
+    <GeneralLayout noGutterBottom headProps={HEAD_PROPS}>
       <Container maxWidth="md">
         <Typography variant="h2" component="h1">
           Newsletter
@@ -41,6 +47,6 @@ const ContactPage = memo(() => {
   )
 })
 
-ContactPage.displayName = 'ContactPage'
+NewsletterPage.displayName = 'NewsletterPage'
 
-export default ContactPage
+export default NewsletterPage
