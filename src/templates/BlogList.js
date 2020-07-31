@@ -10,41 +10,47 @@ import PaginationItem from '@material-ui/lab/PaginationItem'
 import BlogItem from '../components/BlogItem'
 import GeneralLayout from '../layouts/general'
 
-const BlogListPage = memo(({ data, pageContext }) => (
-  <GeneralLayout headProps={{ title: 'Blog' }}>
-    <Container maxWidth="md">
-      <Grid container spacing={2}>
-        <Grid item sm={12}>
-          <Typography variant="h1">Últimas entradas</Typography>
-          {pageContext.currentPage !== 1 && (
-            <Typography variant="subtitle2">
-              Página {pageContext.currentPage}
-            </Typography>
-          )}
-        </Grid>
-        {data.allMdx.nodes.map(entry => (
-          <Grid key={entry.id} item sm={12}>
-            <BlogItem item={entry} />
+const BlogListPage = memo(({ data, pageContext }) => {
+  const { currentPage, numPages } = pageContext
+  return (
+    <GeneralLayout
+      headProps={{
+        title: `Blog${currentPage !== 1 ? `: Página ${currentPage}` : ''}`,
+        description: 'Lista de entradas en el blog de TaverasMisael.',
+      }}
+    >
+      <Container maxWidth="md">
+        <Grid container spacing={2}>
+          <Grid item sm={12}>
+            <Typography variant="h1">Últimas entradas</Typography>
+            {currentPage !== 1 && (
+              <Typography variant="subtitle2">Página {currentPage}</Typography>
+            )}
           </Grid>
-        ))}
-      </Grid>
-      <Grid container spacing={2} justify="flex-end">
-        <Pagination
-          page={pageContext.currentPage}
-          count={pageContext.numPages}
-          shape="rounded"
-          renderItem={item => (
-            <PaginationItem
-              component={Link}
-              to={`/blog/${item.page === 1 ? '' : item.page}`}
-              {...item}
-            />
-          )}
-        />
-      </Grid>
-    </Container>
-  </GeneralLayout>
-))
+          {data.allMdx.nodes.map(entry => (
+            <Grid key={entry.id} item sm={12}>
+              <BlogItem item={entry} />
+            </Grid>
+          ))}
+        </Grid>
+        <Grid container spacing={2} justify="flex-end">
+          <Pagination
+            page={currentPage}
+            count={numPages}
+            shape="rounded"
+            renderItem={item => (
+              <PaginationItem
+                component={Link}
+                to={`/blog/${item.page === 1 ? '' : item.page}`}
+                {...item}
+              />
+            )}
+          />
+        </Grid>
+      </Container>
+    </GeneralLayout>
+  )
+})
 
 BlogListPage.displayName = 'BlogListPage'
 

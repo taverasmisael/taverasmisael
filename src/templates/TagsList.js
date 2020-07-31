@@ -13,7 +13,9 @@ const TagsList = memo(({ pageContext, data }) => {
   const { nodes: entries } = data.allMdx
   const tagHeader = `Todos los post de "${tag}"`
   return (
-    <GeneralLayout>
+    <GeneralLayout
+      headProps={{ title: tagHeader, description: `Una lista de ${tagHeader}` }}
+    >
       <Container maxWidth="md">
         <Typography gutterBottom component="h1" variant="h3">
           {tagHeader}
