@@ -4,18 +4,14 @@ const { normalizeTag } = require('./utils')
 
 const TEMPLATES = {
   blog: path.resolve('./src/templates/BlogEntry.js'),
+  blogList: path.resolve('./src/templates/BlogList.js'),
   tags: path.resolve('./src/templates/TagsList.js'),
 }
 
 const createBlogPage = async (creator, graphql, reporter) => {
   const { data, errors } = await graphql(`
     query {
-      posts: allMdx(
-        filter: {
-          fileAbsolutePath: { regex: "//posts//" }
-          frontmatter: { status: { eq: "published" } }
-        }
-      ) {
+      posts: allMdx(filter: { frontmatter: { status: { eq: "published" } } }) {
         edges {
           node {
             id
@@ -48,12 +44,7 @@ const createBlogPage = async (creator, graphql, reporter) => {
 const createTagsPages = async (creator, graphql, reporter) => {
   const { data, errors } = await graphql(`
     query {
-      allMdx(
-        filter: {
-          fileAbsolutePath: { regex: "//posts//" }
-          frontmatter: { status: { eq: "published" } }
-        }
-      ) {
+      allMdx(filter: { frontmatter: { status: { eq: "published" } } }) {
         group(field: frontmatter___tags) {
           fieldValue
         }
@@ -74,6 +65,49 @@ const createTagsPages = async (creator, graphql, reporter) => {
         tag: tag.fieldValue,
       },
     })
+  })
+}
+
+const createBlogListPage = async (creator, graphql, reporter) => {
+  const { data, errors } = await graphql(`
+    query {
+      posts: allMdx(
+        filter: { frontmatter: { status: { eq: "published" } } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (errors) {
+    reporter.panicOnBuild('[ERROR]: Creating blog pages')
+    return
+  }
+
+  const posts = data.posts.edges
+
+  const postsPerPage = 5
+  const numPages = Math.ceil(posts.length / postsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    const INFO = {
+      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+      component: TEMPLATES.blogList,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    }
+    creator(INFO)
   })
 }
 
@@ -102,6 +136,7 @@ const onCreatePages = async ({ graphql, actions, reporter }) => {
   await Promise.all([
     createTagsPages(createPage, graphql, reporter),
     createBlogPage(createPage, graphql, reporter),
+    createBlogListPage(createPage, graphql, reporter),
   ])
 }
 

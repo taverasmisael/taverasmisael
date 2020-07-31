@@ -13,7 +13,9 @@ const TagsList = memo(({ pageContext, data }) => {
   const { nodes: entries } = data.allMdx
   const tagHeader = `Todos los post de "${tag}"`
   return (
-    <GeneralLayout>
+    <GeneralLayout
+      headProps={{ title: tagHeader, description: `Una lista de ${tagHeader}` }}
+    >
       <Container maxWidth="md">
         <Typography gutterBottom component="h1" variant="h3">
           {tagHeader}
@@ -44,7 +46,6 @@ export const pageQuery = graphql`
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        fileAbsolutePath: { regex: "//posts//" }
         frontmatter: { tags: { in: [$tag] }, status: { eq: "published" } }
       }
     ) {
