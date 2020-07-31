@@ -94,7 +94,7 @@ const createBlogListPage = async (creator, graphql, reporter) => {
 
   const posts = data.posts.edges
 
-  const postsPerPage = 6
+  const postsPerPage = 5
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     const INFO = {
