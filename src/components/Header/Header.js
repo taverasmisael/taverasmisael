@@ -1,4 +1,6 @@
 import React, { memo, useState, useCallback } from 'react'
+import { Link } from 'gatsby'
+
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
@@ -6,14 +8,14 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Hidden from '@material-ui/core/Hidden'
 import Drawer from '@material-ui/core/Drawer'
+import InputBase from '@material-ui/core/InputBase'
 import MenuIcon from '@material-ui/icons/Menu'
-import { Link } from 'gatsby'
-
-import NavLink from '../NavLink/NavLink'
+import SearchIcon from '@material-ui/icons/Search'
 
 import { useDarkModeContext } from '../../context/dark-mode'
 import { useSiteTitle } from '../../shared/hooks/useSiteTitle'
 import logoSrc from '../../shared/assets/logos/logo-white.svg'
+import logoMobileSrc from '../../shared/assets/logos/logo-mobile-white.svg'
 
 import SunIcon from './sun'
 import MoonIcon from './moon'
@@ -37,7 +39,7 @@ function Header({ noGutterBottom }) {
   return (
     <HideOnScroll>
       <AppBar position="sticky" className={classes.root}>
-        <Container maxWidth="md" className="real-width">
+        <Container maxWidth="lg" className="real-width">
           <Toolbar className={classes.toolbar}>
             <IconButton
               color="inherit"
@@ -50,36 +52,50 @@ function Header({ noGutterBottom }) {
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
               <Link to="/" className={classes.titleLink}>
-                <img
-                  src={logoSrc}
-                  className={classes.logo}
-                  alt="Taveras Misael logo"
-                  tite={siteTitle}
-                />
+                <Hidden xsDown implementation="css">
+                  <img
+                    src={logoSrc}
+                    className={classes.logo}
+                    alt="Taveras Misael logo"
+                    tite={siteTitle}
+                  />
+                </Hidden>
+                <Hidden smUp implementation="css">
+                  <img
+                    src={logoMobileSrc}
+                    className={classes.logo}
+                    alt="Taveras Misael logo"
+                    tite={siteTitle}
+                  />
+                </Hidden>
               </Link>
             </Typography>
-            <Hidden smUp implementation="css">
-              <Drawer
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                ModalProps={{ keepMounted: true }}
-              >
-                <MobileMenu
-                  DarkModeIcon={DarkModeIcon}
-                  toggleDarkMode={toggleDarkMode}
-                  darkMode={darkMode}
-                />
-              </Drawer>
-            </Hidden>
+            <span className={classes.itemGrow} />
+            <Drawer
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{ keepMounted: true }}
+            >
+              <MobileMenu
+                DarkModeIcon={DarkModeIcon}
+                toggleDarkMode={toggleDarkMode}
+                darkMode={darkMode}
+              />
+            </Drawer>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Buscar…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'Buscar' }}
+              />
+            </div>
             <nav className={classes.nav}>
-              <NavLink to="/blog" partiallyActive>
-                Blog
-              </NavLink>
-              <NavLink to="/newsletter" partiallyActive>
-                Newsletter
-              </NavLink>
-              <NavLink to="/contacto">Contacto</NavLink>
               <IconButton
                 onClick={toggleDarkMode}
                 className={classes.darkModeButton}

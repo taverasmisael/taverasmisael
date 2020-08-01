@@ -17,12 +17,10 @@ export const useStyles = noGutterBottom =>
     },
     menuButton: {
       marginRight: theme.spacing(2),
-      [theme.breakpoints.up('sm')]: {
-        display: 'none',
-      },
     },
     darkModeButton: {
       color: theme.palette.primary.contrastText,
+      marginLeft: theme.spacing(2),
     },
     darkModeIcon: {
       fontSize: '1.5rem',
@@ -47,8 +45,8 @@ export const useStyles = noGutterBottom =>
     },
     title: {
       display: 'flex',
-      flexGrow: 1,
       fontFamily: theme.typography.h1.fontFamily,
+      marginRight: theme.spacing(2),
       [theme.breakpoints.down('xs')]: {
         justifyContent: 'center',
         textAlign: 'center',
@@ -82,6 +80,46 @@ export const useStyles = noGutterBottom =>
 
     itemGrow: {
       flex: 1,
+    },
+
+    search: {
+      backgroundColor: 'rgb(0, 0, 0, 0.08)',
+      borderRadius: theme.shape.borderRadius,
+      position: 'relative',
+      '&:hover': {
+        backgroundColor: 'rgb(0, 0, 0, 0.1)',
+      },
+      marginLeft: 0,
+      width: '100%',
+      [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(1),
+        width: 'auto',
+      },
+    },
+    searchIcon: {
+      alignItems: 'center',
+      display: 'flex',
+      height: '100%',
+      justifyContent: 'center',
+      padding: theme.spacing(0, 2),
+      pointerEvents: 'none',
+      position: 'absolute',
+    },
+    inputRoot: {
+      color: 'inherit',
+    },
+    inputInput: {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('sm')]: {
+        width: '12ch',
+        '&:focus': {
+          width: '20ch',
+        },
+      },
     },
   }))()
 
