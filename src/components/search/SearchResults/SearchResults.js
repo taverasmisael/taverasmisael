@@ -16,7 +16,7 @@ const SearchResult = ({ indices, show }) => {
     >
       <div className={classes.content}>
         {indices.map(index => (
-          <Index indexName={index.name}>
+          <Index key={index.name} indexName={index.name}>
             <HitCount />
             <Hits hitComponent={PageHit} />
           </Index>

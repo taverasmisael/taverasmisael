@@ -10,7 +10,7 @@ const INPUT_PROPS = { 'aria-label': 'Buscar' }
 const SearchBox = memo(({ refine, setFocus }) => {
   const classes = useStyles()
 
-  const toggleFocus = useCallback(() => setFocus(focus => !focus), [setFocus])
+  const toggleFocus = useCallback(value => () => setFocus(value), [setFocus])
 
   const delayRef = useRef(null)
   const [value, setValue] = useState('')
@@ -43,8 +43,8 @@ const SearchBox = memo(({ refine, setFocus }) => {
         inputProps={INPUT_PROPS}
         onChange={onChangeDebounced}
         value={value}
-        onBlur={toggleFocus}
-        onFocus={toggleFocus}
+        onBlur={toggleFocus(false)}
+        onFocus={toggleFocus(true)}
       />
     </form>
   )
