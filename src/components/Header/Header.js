@@ -17,11 +17,10 @@ import { useSiteTitle } from '../../shared/hooks/useSiteTitle'
 import logoSrc from '../../shared/assets/logos/logo-white.svg'
 import logoMobileSrc from '../../shared/assets/logos/logo-mobile-white.svg'
 
-import SunIcon from './sun'
-import MoonIcon from './moon'
+import { MoonIcon, SunIcon } from './icons'
 import HideOnScroll from './HideOnScroll'
 import { useStyles } from './styles'
-import MobileMenu from './MobileMenu'
+import MobileMenu from './Navigation'
 
 function Header({ noGutterBottom }) {
   const classes = useStyles(noGutterBottom)

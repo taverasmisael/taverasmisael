@@ -10,13 +10,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 
 import useStyles from './styles'
 
-const MobileMenu = memo(({ DarkModeIcon, toggleDarkMode }) => {
+const Navigation = memo(({ DarkModeIcon, toggleDarkMode }) => {
   const classes = useStyles()
 
   return (
     <nav className={classes.mobileNav}>
       <div className={classes.toolbar} />
-      <List className={classes.mobileMenu}>
+      <List className={classes.Navigation}>
         <ListItem
           button
           component={Link}
@@ -64,6 +64,6 @@ const MobileMenu = memo(({ DarkModeIcon, toggleDarkMode }) => {
   )
 })
 
-MobileMenu.displayName = 'MobileMenu'
+Navigation.displayName = 'Navigation'
 
-export default MobileMenu
+export default Navigation
