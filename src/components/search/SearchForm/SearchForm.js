@@ -41,7 +41,7 @@ const SearchForm = memo(({ indices }) => {
         indexName={indices[0].name}
         onSearchStateChange={({ query }) => {
           if (window.ga) {
-            const page = `?query=${searchState.query}`
+            const page = `?query=${query}`
             window.ga('send', 'pageView', page)
           }
           setQuery(query)
