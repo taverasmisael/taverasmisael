@@ -16,6 +16,10 @@ main {
   flex: 1;
 }
 
+mark {
+  background-color: rgb(237, 18, 80, 0.5);
+}
+
 code,
 pre {
   border-radius: 4px;

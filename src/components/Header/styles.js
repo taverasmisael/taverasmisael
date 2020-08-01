@@ -17,12 +17,10 @@ export const useStyles = noGutterBottom =>
     },
     menuButton: {
       marginRight: theme.spacing(2),
-      [theme.breakpoints.up('sm')]: {
-        display: 'none',
-      },
     },
     darkModeButton: {
       color: theme.palette.primary.contrastText,
+      marginLeft: theme.spacing(2),
     },
     darkModeIcon: {
       fontSize: '1.5rem',
@@ -47,8 +45,8 @@ export const useStyles = noGutterBottom =>
     },
     title: {
       display: 'flex',
-      flexGrow: 1,
       fontFamily: theme.typography.h1.fontFamily,
+      marginRight: theme.spacing(2),
       [theme.breakpoints.down('xs')]: {
         justifyContent: 'center',
         textAlign: 'center',

@@ -1,4 +1,6 @@
 import React, { memo, useState, useCallback } from 'react'
+import { Link } from 'gatsby'
+
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
@@ -7,19 +9,19 @@ import Container from '@material-ui/core/Container'
 import Hidden from '@material-ui/core/Hidden'
 import Drawer from '@material-ui/core/Drawer'
 import MenuIcon from '@material-ui/icons/Menu'
-import { Link } from 'gatsby'
-
-import NavLink from '../NavLink/NavLink'
 
 import { useDarkModeContext } from '../../context/dark-mode'
 import { useSiteTitle } from '../../shared/hooks/useSiteTitle'
 import logoSrc from '../../shared/assets/logos/logo-white.svg'
+import logoMobileSrc from '../../shared/assets/logos/logo-mobile-white.svg'
+import { SearchForm } from '../search'
 
-import SunIcon from './sun'
-import MoonIcon from './moon'
+import { MoonIcon, SunIcon } from './icons'
 import HideOnScroll from './HideOnScroll'
 import { useStyles } from './styles'
-import MobileMenu from './MobileMenu'
+import MobileMenu from './Navigation'
+
+const SEARCH_INDICES = [{ name: `Posts`, title: `Posts` }]
 
 function Header({ noGutterBottom }) {
   const classes = useStyles(noGutterBottom)
@@ -37,7 +39,7 @@ function Header({ noGutterBottom }) {
   return (
     <HideOnScroll>
       <AppBar position="sticky" className={classes.root}>
-        <Container maxWidth="md" className="real-width">
+        <Container maxWidth="lg" className="real-width">
           <Toolbar className={classes.toolbar}>
             <IconButton
               color="inherit"
@@ -50,36 +52,38 @@ function Header({ noGutterBottom }) {
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
               <Link to="/" className={classes.titleLink}>
-                <img
-                  src={logoSrc}
-                  className={classes.logo}
-                  alt="Taveras Misael logo"
-                  tite={siteTitle}
-                />
+                <Hidden xsDown implementation="css">
+                  <img
+                    src={logoSrc}
+                    className={classes.logo}
+                    alt="Taveras Misael logo"
+                    tite={siteTitle}
+                  />
+                </Hidden>
+                <Hidden smUp implementation="css">
+                  <img
+                    src={logoMobileSrc}
+                    className={classes.logo}
+                    alt="Taveras Misael logo"
+                    tite={siteTitle}
+                  />
+                </Hidden>
               </Link>
             </Typography>
-            <Hidden smUp implementation="css">
-              <Drawer
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                ModalProps={{ keepMounted: true }}
-              >
-                <MobileMenu
-                  DarkModeIcon={DarkModeIcon}
-                  toggleDarkMode={toggleDarkMode}
-                  darkMode={darkMode}
-                />
-              </Drawer>
-            </Hidden>
+            <span className={classes.itemGrow} />
+            <Drawer
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{ keepMounted: true }}
+            >
+              <MobileMenu
+                DarkModeIcon={DarkModeIcon}
+                toggleDarkMode={toggleDarkMode}
+                darkMode={darkMode}
+              />
+            </Drawer>
+            <SearchForm indices={SEARCH_INDICES} />
             <nav className={classes.nav}>
-              <NavLink to="/blog" partiallyActive>
-                Blog
-              </NavLink>
-              <NavLink to="/newsletter" partiallyActive>
-                Newsletter
-              </NavLink>
-              <NavLink to="/contacto">Contacto</NavLink>
               <IconButton
                 onClick={toggleDarkMode}
                 className={classes.darkModeButton}
