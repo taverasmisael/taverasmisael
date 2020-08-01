@@ -8,19 +8,20 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Hidden from '@material-ui/core/Hidden'
 import Drawer from '@material-ui/core/Drawer'
-import InputBase from '@material-ui/core/InputBase'
 import MenuIcon from '@material-ui/icons/Menu'
-import SearchIcon from '@material-ui/icons/Search'
 
 import { useDarkModeContext } from '../../context/dark-mode'
 import { useSiteTitle } from '../../shared/hooks/useSiteTitle'
 import logoSrc from '../../shared/assets/logos/logo-white.svg'
 import logoMobileSrc from '../../shared/assets/logos/logo-mobile-white.svg'
+import { SearchForm } from '../search'
 
 import { MoonIcon, SunIcon } from './icons'
 import HideOnScroll from './HideOnScroll'
 import { useStyles } from './styles'
 import MobileMenu from './Navigation'
+
+const SEARCH_INDICES = [{ name: `Posts`, title: `Posts` }]
 
 function Header({ noGutterBottom }) {
   const classes = useStyles(noGutterBottom)
@@ -81,19 +82,7 @@ function Header({ noGutterBottom }) {
                 darkMode={darkMode}
               />
             </Drawer>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Buscar…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'Buscar' }}
-              />
-            </div>
+            <SearchForm indices={SEARCH_INDICES} />
             <nav className={classes.nav}>
               <IconButton
                 onClick={toggleDarkMode}
