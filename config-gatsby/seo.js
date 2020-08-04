@@ -54,4 +54,7 @@ module.exports = [
       queries: require('../src/utils/algolia-queries'),
     },
   },
+
+  // Keep me last
+  'gatsby-plugin-client-side-redirect',
 ]
