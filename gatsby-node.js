@@ -68,7 +68,11 @@ const createLastEntryRedirect = async (creator, graphql, reporter) => {
   const post = data.posts.edges[0].node
   const { slug } = post.fields
 
-  creator({ fromPath: '/ultimo-post', toPath: slug, isPermanent: false })
+  creator({
+    fromPath: '/ultimo-post',
+    toPath: `${slug}?origin=lastpost`,
+    isPermanent: false,
+  })
 }
 
 const createTagsPages = async (creator, graphql, reporter) => {
