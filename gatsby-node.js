@@ -41,6 +41,40 @@ const createBlogPage = async (creator, graphql, reporter) => {
   })
 }
 
+const createLastEntryRedirect = async (creator, graphql, reporter) => {
+  const { data, errors } = await graphql(`
+    query {
+      posts: allMdx(
+        filter: { frontmatter: { status: { eq: "published" } } }
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 1
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (errors) {
+    reporter.panicOnBuild('[ERROR]: Creating blog pages')
+    return
+  }
+
+  const post = data.posts.edges[0].node
+  const { slug } = post.fields
+
+  creator({
+    fromPath: '/ultimo-post',
+    toPath: `${slug}?origin=lastpost`,
+    isPermanent: false,
+  })
+}
+
 const createTagsPages = async (creator, graphql, reporter) => {
   const { data, errors } = await graphql(`
     query {
@@ -132,10 +166,11 @@ const onCreateNode = ({ node, getNode, actions }) => {
 }
 
 const onCreatePages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
   await Promise.all([
     createTagsPages(createPage, graphql, reporter),
     createBlogPage(createPage, graphql, reporter),
+    createLastEntryRedirect(createRedirect, graphql, reporter),
     createBlogListPage(createPage, graphql, reporter),
   ])
 }
