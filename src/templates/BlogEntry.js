@@ -27,7 +27,6 @@ const BlogEntry = ({ data: { post, related }, path }) => {
       <Container maxWidth="md" className="real-width">
         <article>
           <BlogHeader
-            tags={tags}
             date={frontmatter.date}
             title={frontmatter.title}
             timeToRead={timeToRead}

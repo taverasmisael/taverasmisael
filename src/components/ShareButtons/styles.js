@@ -5,8 +5,10 @@ const useStyles = makeStyles(theme => ({
     margin: '0!important',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
     padding: 0,
+    [theme.breakpoints.up('sm')]: {
+      justifyContent: 'flex-end',
+    },
   },
 
   link: {
@@ -20,7 +22,9 @@ const useStyles = makeStyles(theme => ({
 
   title: {
     fontFamily: theme.typography.h1.fontFamily,
-    textAlign: 'right',
+    [theme.breakpoints.up('sm')]: {
+      textAlign: 'right',
+    },
   },
 }))
 

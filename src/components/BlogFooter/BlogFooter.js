@@ -13,11 +13,11 @@ const BlogFooter = ({ tags, path, title, description, relatedPosts }) => (
   <>
     <Container maxWidth="md">
       <Grid container>
-        <Grid item xs={12} md={5}>
-          <Typography variant="subtitle1">Etiquetas</Typography>
+        <Grid item xs={12} sm={5}>
+          <Typography variant="subtitle2">Etiquetas</Typography>
           <TagsList tags={tags} />
         </Grid>
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} sm={7}>
           <ShareButtons url={path} title={title} text={description} />
         </Grid>
       </Grid>

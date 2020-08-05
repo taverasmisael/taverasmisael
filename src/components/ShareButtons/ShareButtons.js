@@ -10,8 +10,6 @@ import {
   LinkedinShareButton,
 } from 'react-share'
 
-import Emoji from '../Emoji'
-
 import useStyles from './styles'
 import { createCanonicalURL } from '../../utils/social'
 
@@ -20,7 +18,7 @@ const ShareButtons = memo(({ title, text, url }) => {
   const URL = createCanonicalURL(url)
   return (
     <div>
-      <Typography variant="subtitle1" className={classes.title}>
+      <Typography variant="subtitle2" className={classes.title}>
         Compartir
       </Typography>
       <List dense className={classes.list}>
