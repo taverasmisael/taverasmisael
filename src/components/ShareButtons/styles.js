@@ -1,13 +1,12 @@
 import makeStyles from '@material-ui/core/styles/makeStyles'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    marginBottom: theme.spacing(-3),
-  },
   list: {
     margin: '0!important',
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'flex-end',
+    padding: 0,
   },
 
   link: {
@@ -21,6 +20,7 @@ const useStyles = makeStyles(theme => ({
 
   title: {
     fontFamily: theme.typography.h1.fontFamily,
+    textAlign: 'right',
   },
 }))
 
