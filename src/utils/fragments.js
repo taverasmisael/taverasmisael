@@ -74,7 +74,6 @@ export const RelatedPostNodes = graphql`
         banner {
           childImageSharp {
             ...ImageSharpFluidMin
-            ...ImageSharpFixed200
           }
         }
       }

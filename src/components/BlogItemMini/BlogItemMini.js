@@ -1,7 +1,9 @@
 import React, { memo } from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import BackgroundImg from 'gatsby-background-image'
 
+import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
@@ -9,7 +11,6 @@ import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
 import Button from '@material-ui/core/Button'
 import CardActionArea from '@material-ui/core/CardActionArea'
-import Hidden from '@material-ui/core/Hidden'
 
 import { useStyles } from './styles'
 
@@ -18,7 +19,6 @@ import BlogHeader from '../BlogHeader'
 const BlogItemMini = memo(({ item }) => {
   const classes = useStyles()
   const entryLink = item.fields.slug
-  console.log(item.frontmatter.banner)
   return (
     <Card className={classes.root}>
       <CardActionArea
@@ -26,7 +26,7 @@ const BlogItemMini = memo(({ item }) => {
         component={Link}
         to={entryLink}
       >
-        <CardMedia className={classes.media}>
+        <CardMedia className={classes.mediaContainer}>
           <Hidden smUp>
             <Img
               fluid={item.frontmatter.banner.childImageSharp.fluid}
@@ -34,8 +34,9 @@ const BlogItemMini = memo(({ item }) => {
             />
           </Hidden>
           <Hidden xsDown>
-            <Img
-              fixed={item.frontmatter.banner.childImageSharp.fixed}
+            <BackgroundImg
+              className={classes.media}
+              fluid={item.frontmatter.banner.childImageSharp.fluid}
               alt={item.frontmatter.title}
             />
           </Hidden>
