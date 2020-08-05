@@ -19,10 +19,9 @@ const ShareButtons = memo(({ title, text, url }) => {
   const classes = useStyles()
   const URL = createCanonicalURL(url)
   return (
-    <div className={classes.root}>
+    <div>
       <Typography variant="subtitle1" className={classes.title}>
         Compartir
-        <Emoji symbol="🔥" />
       </Typography>
       <List dense className={classes.list}>
         <ListSocialLink

@@ -1,5 +1,7 @@
 import React, { memo } from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
@@ -10,14 +12,13 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import Hidden from '@material-ui/core/Hidden'
 
 import { useStyles } from './styles'
-import Img from 'gatsby-image'
 
 import BlogHeader from '../BlogHeader'
 
 const BlogItemMini = memo(({ item }) => {
   const classes = useStyles()
   const entryLink = item.fields.slug
-  console.log(item.frontmatter.banner.childImageSharp.fluid)
+  console.log(item.frontmatter.banner)
   return (
     <Card className={classes.root}>
       <CardActionArea

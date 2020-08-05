@@ -18,6 +18,9 @@ const createBlogPage = async (creator, graphql, reporter) => {
             fields {
               slug
             }
+            frontmatter {
+              tags
+            }
           }
         }
       }
@@ -36,7 +39,7 @@ const createBlogPage = async (creator, graphql, reporter) => {
     creator({
       path,
       component: TEMPLATES.blog,
-      context: { id: edge.node.id },
+      context: { id: edge.node.id, tags: edge.node.frontmatter.tags },
     })
   })
 }
