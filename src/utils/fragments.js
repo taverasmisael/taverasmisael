@@ -19,7 +19,7 @@ export const BlogPostNode = graphql`
 export const ImageSharpFluidMax = graphql`
   fragment ImageSharpFluidMax on ImageSharp {
     fluid(
-      maxWidth: 960
+      maxWidth: 1024
       traceSVG: { color: "#f04173", background: "#535c81" }
     ) {
       ...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -57,6 +57,27 @@ export const ImageSharpFixed100 = graphql`
       traceSVG: { color: "#f04173", background: "#535c81" }
     ) {
       ...GatsbyImageSharpFixed_withWebp_tracedSVG
+    }
+  }
+`
+export const RelatedPostNodes = graphql`
+  fragment RelatedPostNodes on MdxConnection {
+    nodes {
+      id
+      excerpt
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        date
+        banner {
+          childImageSharp {
+            ...ImageSharpFluidMin
+            ...ImageSharpFixed200
+          }
+        }
+      }
     }
   }
 `
