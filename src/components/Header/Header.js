@@ -12,8 +12,6 @@ import MenuIcon from '@material-ui/icons/Menu'
 
 import { useDarkModeContext } from '../../context/dark-mode'
 import { useSiteTitle } from '../../shared/hooks/useSiteTitle'
-import logoSrc from '../../shared/assets/logos/logo-white.svg'
-import logoMobileSrc from '../../shared/assets/logos/logo-mobile-white.svg'
 import { SearchForm } from '../search'
 
 import { MoonIcon, SunIcon } from './icons'
@@ -54,7 +52,7 @@ function Header({ noGutterBottom }) {
               <Link to="/" className={classes.titleLink}>
                 <Hidden xsDown implementation="css">
                   <img
-                    src={logoSrc}
+                    src="/logos/logo-white.svg"
                     className={classes.logo}
                     alt="Taveras Misael logo"
                     tite={siteTitle}
@@ -62,7 +60,7 @@ function Header({ noGutterBottom }) {
                 </Hidden>
                 <Hidden smUp implementation="css">
                   <img
-                    src={logoMobileSrc}
+                    src="/logos/logo-mobile-white.svg"
                     className={classes.logo}
                     alt="Taveras Misael logo"
                     tite={siteTitle}

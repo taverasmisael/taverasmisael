@@ -26,7 +26,7 @@ export const useStyles = makeStyles(theme => ({
     fontSize: 18,
   },
 
-  media: {
+  mediaContainer: {
     alignItems: 'center',
     backgroundColor: theme.palette.secondary.light,
     display: 'flex',
@@ -46,6 +46,10 @@ export const useStyles = makeStyles(theme => ({
         transform: 'none',
       },
     },
+  },
+  media: {
+    height: '100%',
+    width: '100%',
   },
   actions: {
     display: 'none',

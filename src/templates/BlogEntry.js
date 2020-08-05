@@ -1,27 +1,26 @@
 import React, { memo } from 'react'
 import { graphql } from 'gatsby'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
+import Container from '@material-ui/core/Container'
+
 import GeneralLayout from '../layouts/general'
-import NewsletterForm from '../components/NewsletterForm'
 import HeroImage from '../components/HeroImage'
 import BlogHeader from '../components/BlogHeader'
-import ShareButtons from '../components/ShareButtons'
-import TagsList from '../components/TagsList'
-import Emoji from '../components/Emoji'
 
-const BlogEntry = memo(({ data: { mdx }, path }) => {
-  const { frontmatter, body, timeToRead } = mdx
+import BlogFooter from '../components/BlogFooter'
+
+const BlogEntry = ({ data: { post, related }, path }) => {
+  const { frontmatter, body, timeToRead } = post
+  const relatedPosts = (related || {}).nodes || []
+  const tags = frontmatter.tags || []
   return (
     <GeneralLayout
       headProps={{
         path,
         isPost: true,
         title: frontmatter.title,
-        description: frontmatter.description || mdx.excerpt,
+        description: frontmatter.description || post.excerpt,
         metaImage: frontmatter.banner.childImageSharp.fluid.src,
       }}
     >
@@ -38,43 +37,32 @@ const BlogEntry = memo(({ data: { mdx }, path }) => {
           />
 
           <MDXRenderer>{body}</MDXRenderer>
-          <Container maxWidth="md">
-            <Grid container>
-              <Grid item xs={12} md={7}>
-                <ShareButtons
-                  url={path}
-                  title={frontmatter.title}
-                  text={frontmatter.description}
-                />
-              </Grid>
-              <Grid item xs={12} md={5}>
-                <Typography
-                  variant="subtitle1"
-                  style={{ paddingBottom: '8px' }}
-                >
-                  Etiquetas
-                  <Emoji symbol="🏷" />
-                </Typography>
-                <TagsList tags={frontmatter.tags || []} />
-              </Grid>
-            </Grid>
-          </Container>
         </article>
-        <Container id="newsletter" maxWidth="md">
-          <NewsletterForm path={path} />
-        </Container>
+        <BlogFooter
+          tags={tags}
+          path={path}
+          title={frontmatter.title}
+          description={frontmatter.description}
+          relatedPosts={relatedPosts}
+        />
       </Container>
     </GeneralLayout>
   )
-})
+}
 
-BlogEntry.displayName = 'BlogEntry'
-
-export default BlogEntry
+export default memo(BlogEntry)
 
 export const pageQuery = graphql`
-  query BlogPostQuery($id: String) {
-    mdx(id: { eq: $id }) {
+  query BlogPostQuery($id: String, $tags: [String]) {
+    related: allMdx(
+      filter: {
+        frontmatter: { tags: { in: $tags }, status: { eq: "published" } }
+      }
+      limit: 3
+    ) {
+      ...RelatedPostNodes
+    }
+    post: mdx(id: { eq: $id }) {
       ...BlogPostNode
       body
       timeToRead
