@@ -56,6 +56,7 @@ export const pageQuery = graphql`
   query BlogPostQuery($id: String, $tags: [String]) {
     related: allMdx(
       filter: {
+        id: { ne: $id }
         frontmatter: { tags: { in: $tags }, status: { eq: "published" } }
       }
       limit: 3
