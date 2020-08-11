@@ -1,0 +1,179 @@
+---
+title: Lo nuevo que trae ES2020
+date: '2020-08-10'
+description: Son 10 consejos que yo he aprendido a lo largo de mi corta vida pero que me falta ponerlas en práctica y que creo que podrían beneficiarte también y así me sirven a mi también de recordatorio.
+author: Misael Taveras
+tags: ['JavaScript', 'ES6']
+status: published
+banner: './media/banner-lo-que-trae-es2020.jpg'
+---
+
+En este blog amamos JavaScript y es por eso que he dedicado toda una miniserie a los features que han sido introducidos desde ES6 en adelante.
+
+![./media/amamos-javascript.png](./media/amamos-javascript.png)
+
+El día de hoy es hora de hablar sobre las nuevas características del lenguaje adoptadas en este año. Algunas son interesantes, asombrosas, otras son balances pequeños pero que se aprecian.
+
+Veamos esta lista, mezclando entre más y menos interesantes.
+
+<Blockquote type="disclaimer">
+
+  El tema de hoy fue recomendado por un suscriptor de la [newsletter](#newsletter).
+
+</Blockquote>
+
+## BigInt
+
+JavaScript y los números no se llevan bien. Por eso hay tantas librerías que se encargan de hacer las matemáticas pesadas en JavaScript. Los BigInts pretenden solucionar esto.
+
+El límite teórico de los valores enteros en JavaScript es `9007199254740991` (obtenido con `Number.MAX_SAFE_INTEGER`)  cualquier número que sumemos o restemos de aquí es tan confiable como las promesas de tu ex. Aquí es donde entra el nuevo tipo de dato BigInt. 
+
+Agregando una `n` al final de nuestros valores enteros los convertimos de Int a BigInt.
+
+```js
+const int = 9007199254740992
+const bigint = 9007199254740992n // Mismo número pero convertido en BigInt
+console.log(int === int + 1) // true 😳
+console.log(bigint === bigint + 1n) // false 😌
+```
+
+## Dynamic Imports
+
+Bueno, esto ha estado hace un tiempo ya, gracias a Babel y webpack (y el hermoso parcel), pero ahora es algo oficial en el lenguaje que podremos ver a los navegadores (que aún no lo tienen) implementando en el futuro cercano.
+
+Sin rodeos y para quien no conocía lo de importar módulos de forma dinámica, **es una forma de importar los módulos que queremos solo en las situaciones que los necesitamos.** En un ejemplo (súper hipotético) de una calculadora súper científica en la que mayormente solo se hacen divisiones y no sumas, podríamos, gracias a los dynamic imports, tener algo como esto.
+
+```js
+import divide from './operations/division' // Se importa siempre
+
+async function Calculate(a, b, op) {
+  // ... Cosas científicas
+  if (op === 'sum') {
+    const sum = await import('./operations/sum') // Se importa solo cuando se hace suma
+    sum(a, b)
+  }
+}
+```
+
+<Blockquote type="info">
+
+  **¿Esto no importaría el módulo cada vez que sumemos?** Buena pregunta, pero la respuesta es no. Primero se revisa si el módulo ya se había importado antes, de ser así se utiliza el que está en caché y así no se hacen múltiples peticiones a la red. La forma de saber si el módulo ya ha sido importado o no es a través de la metadata del módulo.
+
+</Blockquote>
+
+## Module metadata
+
+~~Me quedaré con la versión en inglés de los nombres ya que traducir algo que vamos a usar siempre en inglés no vale la pena.~~
+
+Directo al punto. Ahora los módulos al importarlos exponen un key `meta` que había estado vacío antes. Ahora contienen información como la `url` del archivo que tiene el módulo entre otras cosas.
+
+## Module namespace export
+
+Para cerrar el apartado sobre los módulos tenemos este otro pequeño pero muy apreciado. Y es que JavaScript **nos permitía importar todo el contenido de un módulo usando el asterisco (*) y asignándole un nombre**, pero no podíamos hacer lo mismo para exportarlo; debíamos exportar directamente parte por parte o agregar un `export object` especificando lo que se exportaba. Ahora podemos hacer lo siguiente:
+
+```js
+// Lo que siempre hemos podido hacer
+import * as operations from './operations'
+
+// Como se debía exportar antes
+import * as sum from './sum'
+export { sum }
+
+// Como se puede exportar ahora
+export * as sum from './sum'
+```
+
+## Nullish Coalescing
+
+Este es una de mis características favoritas y más esperadas de esta iteración de JavaScript. El nuevo operador de doble interrogación `??` nos permite verificar que el valor a la izquierda es realmente `null || undefined` en lugar de verificar si es un valor `falsy` .
+
+> En JavaScript los valores `falsy` son aquellos que el lenguaje trata como `false` aunque no lo sean. Esto incluyen u*n string vacío, el número 0, null, undefined, NaN y por supuesto el booleano false.*
+
+Veamos un ejemplo de como esto nos puede ayudar a simplificar nuestro código en ciertos escenarios.
+
+```js
+const showValue = (val) => console.log(`El valor es ${val || 'NO VALOR'}`)
+
+// El valor es NO VALOR
+showValue()
+showValue(0)
+showValue(false)
+showValue('')
+showValue(NaN)
+
+// El siguiente código si funciona, pero el syntax highlighter todavía no conoce esta sintaxis.
+
+const showValueIfNotNull = (val) => console.log(`El valor es ${val ?? 'NO VALOR'}`)
+
+// Una forma de hacer esto antes era
+const oldShowValueIfNotNull = (val) => {
+  // Revisar explicitamente por valores null o undefined
+  const value = val === null || val === undefined ? 'NO VALOR' : val
+  console.log(`El valor es ${value}`)
+}
+
+showValueIfNotNull() // El valor es NO VALOR
+showValueIfNotNull(0) // El valor es 0
+showValueIfNotNull(false) // El valor es NO false
+showValueIfNotNull('') // El valor es
+showValueIfNotNull(NaN) // El valor es NaN
+
+```
+
+## Promise.allSettled
+
+Las promesas han venido para quedarse. Y es que son la mejor forma de crear código asíncrono en JavaScript.
+
+Aún así, cuando empezamos a implementarlas solo podíamos hacerlo de una a la vez y había que hacer magia si queríamos ejecutar alguna función independientemente de como se resolviera la función. Para correr una función cuando termine la promesa, independientemente del resultado, tenemos el método `Promise.finally`.
+
+Para ejecutar varias promesas a la vez hay varios métodos: `Promise.race` `Promise.all` y ahora `Promise.allSettled` que a diferencia de Promise.all, que se completa cuando **todas se completan y falla si al menos una falla,** este se completa cuando todas **terminan** independientemente si fallaron o no.
+
+```js
+const promises = [
+  Promise.reject(100),
+  Promise.resolve('Juanito'),
+  Promise.reject(new Error('E')),
+]
+
+Promise.allSettled(promises).then(r => {
+  console.log(r.map((p) => p.status)) // ['rejected'', 'fullfilled', 'rejected']
+})
+
+// Comparada con Promise.all
+Promise.all(promises)
+  .then(_ => {/* Esto nunca se llama */})
+  .catch(e => console.log(e)) // 100 -> al primer reject se detiene
+```
+
+## Optional Chaining
+
+Este, de mis favoritos también y lo llegué a mencionar en el post de [ES6 y más allá parte 2](/blog/javascript-todo-lo-nuevo-desde-es6-hasta-hoy-parte-2#optional-chaining) (en la parte de más allá). **Di adiós a las pirámides de código con un montón de ifs anidados para verificar si una propiedad existe.** Con el optional chaining operator (`.?`) puedes acceder a propiedades anidadas sin preocuparte por errores.
+
+![./media/Untitled.png](./media/virgin-vs-chad.png)
+
+```js
+// The virgin property check
+if(user && user.profile && user.profile.personalInfo && user.personalInfo.name) {
+  console.log(user.profile.personalInfo.name)
+}
+
+// The Chad property check
+console.log(user?.profile?.personalInfo?.name) //`undefined` o el nombre del usuario
+```
+
+## Regexp y otras cosas
+
+En este apartado incluyo otros cambios que vienen en ES2020 pero que no son tan vistosos (al menos para mi) pero que siguen siendo buenos.
+
+- **String#matchAll**: para expresiones regulares sobre los strings.
+- **globalThis**: del que ya hablé [aquí](/blog/javascript-todo-lo-nuevo-desde-es6-hasta-hoy-parte-2#otras-cosas-para-el-futuro-de-javascript).
+- **Estandarización** en el orden que `for in` funciona. Si quieres saber más sobre los bucles for, aquí te dejo [un post donde explico todo.](/blog/domina-todos-los-bucles-for-en-que-hay-en-java-script)
+- **Métodos privados en clases**: De los que hablo [acá](/blog/javascript-todo-lo-nuevo-desde-es6-hasta-hoy-parte-2#metodos-estaticos-y-valores-privados-en-clases).
+
+## Conclusión
+
+El lenguaje de JavaScript avanza y evoluciona. Es bonito ver que ya no estamos viviendo como en los tiempos de antes en los que **durábamos casi 10 años para que se agregaran cosas** al lenguaje y se estandarizaran otras.
+
+Ahora no solo se están agregando nuevos elementos y mejorando los anteriores, sino que también las plataformas como node y los [navegadores (todos ellos)](https://open.spotify.com/episode/0gq4CLCRwVUuwTXjmIHraM) están adoptando rápidamente estas características **desplazando cada vez más la necesidad de usar transpilers**. El futuro es prometedor.
+
+Por favor, déjame saber **cuál de estas es tu característica favorita de ES2020**. Si quieres no perderte nada y sugerir temas como el de hoy, te recomiendo que te suscribas a mi [newsletter](#newsletter), es gratis y está llena de información no intrusiva relevante.
