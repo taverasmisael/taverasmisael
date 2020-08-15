@@ -45,7 +45,7 @@ export const HitCount = connectStateResults(({ searchResults, error }) => {
   return (
     <div className={classes.header}>
       {error ? (
-        <Typography variant="caption" component="span" color="erropr">
+        <Typography variant="caption" component="span" color="error">
           Ocurrió un error
         </Typography>
       ) : (
