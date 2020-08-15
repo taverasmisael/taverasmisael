@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useCallback } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -12,6 +12,20 @@ import Testimonial from '../../../components/Testimonial'
 const AboutMe = ({ testimonials = [] }) => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = useState(null)
+
+  const registerDownload = useCallback(
+    lang => () => {
+      const ga = window.ga
+      if (ga) {
+        ga('send', 'event', {
+          eventCategory: 'resume',
+          eventAction: 'download',
+          eventLabel: lang === 'es' ? 'Descarga CV' : 'Download Resume',
+        })
+      }
+    },
+    []
+  )
 
   return (
     <Grid container spacing={0} className={classes.root} component="section">
@@ -71,13 +85,19 @@ const AboutMe = ({ testimonials = [] }) => {
             open={Boolean(anchorEl)}
             onClose={() => setAnchorEl(null)}
           >
-            <MenuItem download component="a" href="/taveras-misael-cv.pdf">
+            <MenuItem
+              download
+              component="a"
+              href="/taveras-misael-cv.pdf"
+              onClick={registerDownload('es')}
+            >
               Español
             </MenuItem>
             <MenuItem
               download
               component="a"
               href="/taveras-misael-resume.pdf"
+              onClick={registerDownload('en')}
               lang="en"
             >
               English
