@@ -9,21 +9,21 @@ const BaseLayout = memo(({ children, headProps }) => (
     <Head {...headProps} />
     <p style={{
       position: 'fixed',
-      top: 0,
+      bottom: 0,
       left: 0,
       width: '100%',
-      padding: '1rem',
-      backgroundColor: '#f44336',
+      padding: '1em',
+      backgroundColor: 'rgb(207, 31, 91)',
       color: '#fff',
       zIndex: 9999,
       textAlign: 'center',
-      fontSize: '1.5rem',
     }}>
-      Este sitio web está archivado. Visite el nuevo en
+      Este sitio web está archivado. Visite el nuevo en {' '}
       <a href="taverasmisael.com?from=oldsite" style={{ 
-        fontWeight: 'bold',
+        fontWeight: 'semibold',
         textDecoration: 'underline',
-      }}>https://taverasmisael.com.</a>
+        color: "#fff"
+      }}>taverasmisael.com</a>
     </p>
     {children}
   </DarkModeProvider>
