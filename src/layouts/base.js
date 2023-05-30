@@ -7,6 +7,24 @@ const BaseLayout = memo(({ children, headProps }) => (
   <DarkModeProvider>
     <CssBaseline />
     <Head {...headProps} />
+    <p style={{
+      position: 'fixed',
+      bottom: 0,
+      left: 0,
+      width: '100%',
+      padding: '1em',
+      backgroundColor: 'rgb(207, 31, 91)',
+      color: '#fff',
+      zIndex: 9999,
+      textAlign: 'center',
+    }}>
+      Este sitio web está archivado. Visite el nuevo en {' '}
+      <a href="taverasmisael.com?from=oldsite" style={{ 
+        fontWeight: 'semibold',
+        textDecoration: 'underline',
+        color: "#fff"
+      }}>taverasmisael.com</a>
+    </p>
     {children}
   </DarkModeProvider>
 ))
