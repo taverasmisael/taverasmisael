@@ -28,4 +28,4 @@ I'm building with **React**, **TypeScript**, and **Node.js**.
 [newrepo]: https://github.com/taverasmisael/taverasmisael.com
 [about]: https://taverasmisael.com/en/about
 [contact]: https://taverasmisael.com/en/contact
-[archivepr]: taverasmisael/taverasmisael#97
+[archivepr]: https://github.com/taverasmisael/taverasmisael/pull/97
