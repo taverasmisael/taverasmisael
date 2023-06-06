@@ -4,3 +4,17 @@
   status = 301
   force = true # COMMENT: ensure that we always redirect
   headers = {X-From = "Netlify"}
+
+[[redirects]]
+  from = "/new"
+  to = "https://taverasmisael.com"
+  status = 301
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Robots-Tag = "noindex"
