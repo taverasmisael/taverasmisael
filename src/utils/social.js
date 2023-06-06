@@ -1,2 +1,2 @@
 import { siteUrl } from '../../config-gatsby/siteMetadata'
-export const createCanonicalURL = url => encodeURI(`${siteUrl}/es/${url}`)
+export const createCanonicalURL = url => encodeURI(`${siteUrl}/es${url}`)
